@@ -97,8 +97,8 @@ For each checked item, add a line to **Evidence log** with: task ID, commit hash
 | G0 | PASS | 09900f6; baseline cc723ee | Four validators rerun -> 0; [confirmation](reports/G0-CONFIRMATION.md), user acceptance | G0 scope/license accepted | Later gates still required | 2026-10-21 |
 | P00-05 | DONE | 09900f6 | `python scripts/build-da-lat-seed.py` -> 0; `node scripts/verify-p00-05.mjs` -> 0; [report](reports/P00-05.md) | AC01..03 PASS; 30 drafts, 18 negatives, city separation | Publication/access/hours not verified | 2026-10-21 |
 | P01-01 | BLOCKED | 09900f6; see current corrections | typecheck/lint/build/smoke -> 0; initial audit -> 1, corrected full audit -> 0; [report](reports/P01-01.md) | AC01..03 PASS; AC04 FAIL | Braces chain corrected by P01-01-FIX; ESLint9 EOL / React plugin no10 peers remains | 2026-10-21 |
-| P01-01-FIX | DONE | current task diff; hash recorded in report after commit | unit10/typecheck/lint/content/build/HTTP/audit -> 0; [report](reports/P01-01-FIX.md) | AC-FIX01..04 PASS | Parent support unresolved | 2026-10-21 |
-| P01-05 | DONE | current task diff; hash recorded in report after commit | e2e12/Lighthouse3/active3D -> 0; browser opened; [report](reports/P01-05.md) | AC01..05 PASS (local preview scope) | G1 FAIL; G7 NOT VERIFIED | 2026-10-21 |
+| P01-01-FIX | DONE | a5f55fa | unit10/typecheck/lint/content/build/HTTP/audit -> 0; [report](reports/P01-01-FIX.md) | AC-FIX01..04 PASS | Parent support unresolved | 2026-10-21 |
+| P01-05 | DONE | a5f55fa | e2e12/Lighthouse3/active3D -> 0; browser opened; [report](reports/P01-05.md) | AC01..05 PASS (local preview scope) | G1 FAIL; G7 NOT VERIFIED | 2026-10-21 |
 
 ## Known blockers / decisions
 
