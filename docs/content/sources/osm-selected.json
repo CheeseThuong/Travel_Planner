@@ -1,0 +1,317 @@
+{
+  "license": "ODbL-1.0",
+  "license_url": "https://opendatacommons.org/licenses/odbl/1-0/",
+  "attribution": "© OpenStreetMap contributors",
+  "query": "[out:json][timeout:25];(\n nwr[\"tourism\"~\"^(attraction|museum|viewpoint|theme_park|zoo|aquarium|gallery)$\"][\"name\"](12.12,109.08,12.35,109.32);\n nwr[\"leisure\"=\"park\"][\"name\"](12.12,109.08,12.35,109.32);\n nwr[\"amenity\"~\"^(place_of_worship|marketplace)$\"][\"name\"](12.12,109.08,12.35,109.32);\n nwr[\"natural\"=\"beach\"][\"name\"](12.12,109.08,12.35,109.32);\n);out center meta;",
+  "source_url": "https://overpass-api.de/api/interpreter?data=%5Bout%3Ajson%5D%5Btimeout%3A25%5D%3B%28%0A+nwr%5B%22tourism%22~%22%5E%28attraction%7Cmuseum%7Cviewpoint%7Ctheme_park%7Czoo%7Caquarium%7Cgallery%29%24%22%5D%5B%22name%22%5D%2812.12%2C109.08%2C12.35%2C109.32%29%3B%0A+nwr%5B%22leisure%22%3D%22park%22%5D%5B%22name%22%5D%2812.12%2C109.08%2C12.35%2C109.32%29%3B%0A+nwr%5B%22amenity%22~%22%5E%28place_of_worship%7Cmarketplace%29%24%22%5D%5B%22name%22%5D%2812.12%2C109.08%2C12.35%2C109.32%29%3B%0A+nwr%5B%22natural%22%3D%22beach%22%5D%5B%22name%22%5D%2812.12%2C109.08%2C12.35%2C109.32%29%3B%0A%29%3Bout+center+meta%3B",
+  "source_timestamp": "2026-10-21T02:27:45Z",
+  "retrieved_on": "2026-10-21",
+  "elements": [
+    {
+      "type": "node",
+      "id": 849300563,
+      "version": 7,
+      "timestamp": "2026-07-29T08:36:38Z",
+      "lat": 12.2103078,
+      "lon": 109.2153658,
+      "source_name": "Lầu Bảo Đại"
+    },
+    {
+      "type": "node",
+      "id": 4172003998,
+      "version": 3,
+      "timestamp": "2023-12-06T10:09:51Z",
+      "lat": 12.1873048,
+      "lon": 109.1610564,
+      "source_name": "100 Eggs Mud Bath"
+    },
+    {
+      "type": "node",
+      "id": 4884705621,
+      "version": 8,
+      "timestamp": "2026-01-20T03:23:41Z",
+      "lat": 12.2719555,
+      "lon": 109.2059818,
+      "source_name": "Hòn Chồng"
+    },
+    {
+      "type": "node",
+      "id": 5189505622,
+      "version": 2,
+      "timestamp": "2025-04-22T08:03:40Z",
+      "lat": 12.2506272,
+      "lon": 109.1872613,
+      "source_name": "Long Thanh Art Gallery"
+    },
+    {
+      "type": "node",
+      "id": 7087673293,
+      "version": 1,
+      "timestamp": "2019-12-27T07:21:01Z",
+      "lat": 12.2344148,
+      "lon": 109.1946157,
+      "source_name": "Mai Loc Photo Gallery"
+    },
+    {
+      "type": "node",
+      "id": 11929829169,
+      "version": 2,
+      "timestamp": "2025-06-14T09:16:02Z",
+      "lat": 12.2135708,
+      "lon": 109.2005336,
+      "source_name": "Làng nghề Trường Sơn"
+    },
+    {
+      "type": "way",
+      "id": 162818208,
+      "version": 13,
+      "timestamp": "2026-01-31T04:21:07Z",
+      "center": {
+        "lat": 12.2467884,
+        "lon": 109.1881276
+      },
+      "source_name": "Nhà thờ Chính tòa Nha Trang"
+    },
+    {
+      "type": "way",
+      "id": 196749901,
+      "version": 5,
+      "timestamp": "2022-08-26T02:35:00Z",
+      "center": {
+        "lat": 12.2396484,
+        "lon": 109.1957893
+      },
+      "source_name": "Night market"
+    },
+    {
+      "type": "way",
+      "id": 196896036,
+      "version": 4,
+      "timestamp": "2025-06-14T08:33:29Z",
+      "center": {
+        "lat": 12.251258,
+        "lon": 109.1805557
+      },
+      "source_name": "Chùa Long Sơn"
+    },
+    {
+      "type": "way",
+      "id": 266497124,
+      "version": 8,
+      "timestamp": "2026-05-09T18:48:14Z",
+      "center": {
+        "lat": 12.2427558,
+        "lon": 109.1904431
+      },
+      "source_name": "Chợ Xóm Mới"
+    },
+    {
+      "type": "way",
+      "id": 272274254,
+      "version": 12,
+      "timestamp": "2021-01-07T12:14:49Z",
+      "center": {
+        "lat": 12.1957856,
+        "lon": 109.2122169
+      },
+      "source_name": "An Viên Beach"
+    },
+    {
+      "type": "way",
+      "id": 406136497,
+      "version": 5,
+      "timestamp": "2026-01-20T03:52:38Z",
+      "center": {
+        "lat": 12.2289754,
+        "lon": 109.1996096
+      },
+      "source_name": "Central Park"
+    },
+    {
+      "type": "way",
+      "id": 471186074,
+      "version": 2,
+      "timestamp": "2026-05-25T07:40:35Z",
+      "center": {
+        "lat": 12.1951053,
+        "lon": 109.2258099
+      },
+      "source_name": "Ho Ca Tri Nguyen"
+    },
+    {
+      "type": "way",
+      "id": 554587648,
+      "version": 3,
+      "timestamp": "2023-12-24T04:48:33Z",
+      "center": {
+        "lat": 12.2589079,
+        "lon": 109.1986251
+      },
+      "source_name": "Công viên Alexander Yersin"
+    },
+    {
+      "type": "way",
+      "id": 554587649,
+      "version": 4,
+      "timestamp": "2026-01-20T03:14:37Z",
+      "center": {
+        "lat": 12.264816,
+        "lon": 109.2008867
+      },
+      "source_name": "Công Viên Sanest"
+    },
+    {
+      "type": "way",
+      "id": 557175765,
+      "version": 1,
+      "timestamp": "2018-01-31T02:47:31Z",
+      "center": {
+        "lat": 12.254456,
+        "lon": 109.1962982
+      },
+      "source_name": "Công viên Yến Phi"
+    },
+    {
+      "type": "way",
+      "id": 1193057654,
+      "version": 4,
+      "timestamp": "2026-02-04T03:27:10Z",
+      "center": {
+        "lat": 12.2509375,
+        "lon": 109.1961332
+      },
+      "source_name": "Bào Tàng Alexandre Yersin"
+    },
+    {
+      "type": "way",
+      "id": 1239290934,
+      "version": 2,
+      "timestamp": "2024-02-18T11:59:12Z",
+      "center": {
+        "lat": 12.2748211,
+        "lon": 109.2033024
+      },
+      "source_name": "Bãi Tắm Hòn Chồng"
+    },
+    {
+      "type": "way",
+      "id": 1245997779,
+      "version": 1,
+      "timestamp": "2024-02-04T07:13:08Z",
+      "center": {
+        "lat": 12.2827774,
+        "lon": 109.2017561
+      },
+      "source_name": "Nhà Thờ Giáo Xứ Ba Làng"
+    },
+    {
+      "type": "way",
+      "id": 1423461009,
+      "version": 1,
+      "timestamp": "2025-08-20T03:14:21Z",
+      "center": {
+        "lat": 12.2059673,
+        "lon": 109.2016067
+      },
+      "source_name": "Vinh Truong Market"
+    },
+    {
+      "type": "way",
+      "id": 1221946002,
+      "version": 1,
+      "timestamp": "2023-11-08T09:22:09Z",
+      "center": {
+        "lat": 12.2683202,
+        "lon": 109.1905219
+      },
+      "source_name": "Chùa Hải Ấn Tự"
+    },
+    {
+      "type": "relation",
+      "id": 16755650,
+      "version": 2,
+      "timestamp": "2025-02-03T05:34:21Z",
+      "center": {
+        "lat": 12.2787934,
+        "lon": 109.1940776
+      },
+      "source_name": "Chợ Vĩnh Hải"
+    },
+    {
+      "type": "way",
+      "id": 1530303092,
+      "version": 1,
+      "timestamp": "2026-06-17T08:40:59Z",
+      "center": {
+        "lat": 12.2988092,
+        "lon": 109.2102493
+      },
+      "source_name": "Công viên Hòn Xện"
+    },
+    {
+      "type": "node",
+      "id": 3355719306,
+      "version": 4,
+      "timestamp": "2025-10-03T17:21:09Z",
+      "lat": 12.2214957,
+      "lon": 109.1007854,
+      "source_name": "Chùa Suối Đổ"
+    },
+    {
+      "type": "node",
+      "id": 3384239774,
+      "version": 2,
+      "timestamp": "2026-02-01T05:38:42Z",
+      "lat": 12.305321,
+      "lon": 109.0934773,
+      "source_name": "Am Chúa"
+    },
+    {
+      "type": "node",
+      "id": 4538859095,
+      "version": 7,
+      "timestamp": "2024-01-18T03:45:13Z",
+      "lat": 12.3048873,
+      "lon": 109.2178696,
+      "source_name": "Chùa Đa Bảo"
+    },
+    {
+      "type": "node",
+      "id": 3331426996,
+      "version": 3,
+      "timestamp": "2026-10-19T10:39:29Z",
+      "lat": 12.2829813,
+      "lon": 109.1334343,
+      "source_name": "Chùa Tòng Lâm Lô Son"
+    },
+    {
+      "type": "node",
+      "id": 1746426777,
+      "version": 1,
+      "timestamp": "2012-05-09T09:34:35Z",
+      "lat": 12.2400008,
+      "lon": 109.1873508,
+      "source_name": "Chùa Linh Thửu"
+    },
+    {
+      "type": "node",
+      "id": 3333779918,
+      "version": 3,
+      "timestamp": "2024-01-26T06:41:20Z",
+      "lat": 12.254164,
+      "lon": 109.1784671,
+      "source_name": "Phương Sơn"
+    },
+    {
+      "type": "relation",
+      "id": 15662995,
+      "version": 2,
+      "timestamp": "2024-01-20T03:09:06Z",
+      "center": {
+        "lat": 12.2082555,
+        "lon": 109.2147071
+      },
+      "source_name": "Bảo tàng Hải dương học Nha Trang"
+    }
+  ]
+}

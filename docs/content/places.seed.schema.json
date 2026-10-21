@@ -1,0 +1,69 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Nha Trang editorial seed content v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "destination_slug", "database_license", "attribution", "records"],
+  "properties": {
+    "schema_version": {"enum": [1]},
+    "destination_slug": {"enum": ["nha-trang"]},
+    "database_license": {"enum": ["ODbL-1.0"]},
+    "attribution": {"type": "string", "minLength": 10},
+    "records": {
+      "type": "array", "minItems": 30, "maxItems": 50,
+      "items": {
+        "type": "object", "additionalProperties": false,
+        "required": ["id", "slug", "title_vi", "category", "description_vi", "lat", "lng", "coordinate_quality", "recommended_duration_min", "duration_basis", "visit_priority", "hours_state", "editorial_hours", "hours_source", "hours_checked_at", "content_checked_at", "verification_scope", "status", "image", "data_source", "caution_notes", "transport_constraint"],
+        "properties": {
+          "id": {"type": "string", "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"},
+          "slug": {"type": "string", "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$"},
+          "title_vi": {"type": "string", "minLength": 3},
+          "category": {"enum": ["culture", "museum", "beach", "park", "market", "attraction"]},
+          "description_vi": {"type": "string", "minLength": 20},
+          "lat": {"type": "number", "minimum": -90, "maximum": 90},
+          "lng": {"type": "number", "minimum": -180, "maximum": 180},
+          "coordinate_quality": {"enum": ["community_point", "geometry_center_not_entrance"]},
+          "recommended_duration_min": {"type": "integer", "minimum": 15, "maximum": 720},
+          "duration_basis": {"enum": ["editorial_suggestion_not_measured"]},
+          "visit_priority": {"type": "integer", "minimum": 0, "maximum": 100},
+          "hours_state": {"enum": ["hours_unknown"]},
+          "editorial_hours": {"type": "null"},
+          "hours_source": {"type": "null"},
+          "hours_checked_at": {"type": "null"},
+          "content_checked_at": {"type": "string", "pattern": "^\\d{4}-\\d{2}-\\d{2}$"},
+          "verification_scope": {"enum": ["open_source_identity_coordinates_only"]},
+          "status": {"enum": ["draft"]},
+          "image": {
+            "type": "object", "additionalProperties": false,
+            "required": ["path", "alt_vi", "kind", "creator", "license", "rights_evidence"],
+            "properties": {
+              "path": {"type": "string", "pattern": "^docs/content/illustrations/[a-z]+\\.svg$"},
+              "alt_vi": {"type": "string", "minLength": 10},
+              "kind": {"enum": ["original_symbolic_category_illustration"]},
+              "creator": {"enum": ["Codex, commissioned by project owner in chat 2026-10-21"]},
+              "license": {"enum": ["project-original-authorized-use"]},
+              "rights_evidence": {"enum": ["docs/content/RIGHTS.md"]}
+            }
+          },
+          "data_source": {
+            "type": "object", "additionalProperties": false,
+            "required": ["provider", "object_type", "object_id", "version", "url", "license", "license_url", "snapshot", "retrieved_on"],
+            "properties": {
+              "provider": {"enum": ["openstreetmap"]},
+              "object_type": {"enum": ["node", "way", "relation"]},
+              "object_id": {"type": "integer", "minimum": 1},
+              "version": {"type": "integer", "minimum": 1},
+              "url": {"type": "string", "pattern": "^https://www\\.openstreetmap\\.org/(node|way|relation)/[0-9]+$"},
+              "license": {"enum": ["ODbL-1.0"]},
+              "license_url": {"enum": ["https://opendatacommons.org/licenses/odbl/1-0/"]},
+              "snapshot": {"enum": ["docs/content/sources/osm-selected.json"]},
+              "retrieved_on": {"type": "string", "pattern": "^\\d{4}-\\d{2}-\\d{2}$"}
+            }
+          },
+          "caution_notes": {"type": "array", "minItems": 1, "items": {"type": "string", "minLength": 5}},
+          "transport_constraint": {"enum": ["access_unverified", "manual_island_transfer_required"]}
+        }
+      }
+    }
+  }
+}

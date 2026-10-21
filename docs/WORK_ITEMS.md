@@ -2,6 +2,7 @@
 
 > Initial state as of 2026-10-21: **NONE IMPLEMENTED, NONE TESTED**. All gates are `NOT VERIFIED`.
 > Update `[ ]` -> `[x]` only after verifying tests and recording evidence, not merely writing code.
+> Current execution state: P00-01..04 DONE (technical/content design); G0 NOT VERIFIED pending [owner review](phase-00/G0_REVIEW.md). Baseline statement above describes the initial state, not current results.
 
 ## Task tracker rules
 
@@ -9,11 +10,11 @@ For each checked item, add a line to **Evidence log** with: task ID, commit hash
 
 ## PHASE 00 — Foundation decisions — Gate G0 NOT VERIFIED
 
-- [ ] **P00-01** Freeze PRD & non-goals. Depends: none. Verify: every FR/BR has owner and acceptance ID; unresolved items documented.
-- [ ] **P00-02** Document ADR 01–10, cost-control strategy and build constraints. Depends: P00-01. Verify: architecture and dependency diagram reviewed.
-- [ ] **P00-03** Licensing/policies checklist: Google Place/Routes, attribution, image license, privacy/terms. Depends: P00-01. Verify: compliance checklist signed; policies linked.
-- [ ] **P00-04** Seed-data content design 30–50 editorial records Nha Trang, with evidence of image/data rights. Depends: P00-03. Verify: seed JSON schema & sample passes validation.
-- [ ] **G0** Gate approval. Verify: tasks above completed, baseline decisions unchanged or ADR logged.
+- [x] **P00-01** Freeze PRD & non-goals. Status: DONE. Depends: none. Verify: every FR/BR has owner and acceptance ID; unresolved items documented. Evidence: [report](reports/P00-01.md), [baseline](phase-00/PRD_BASELINE.md).
+- [x] **P00-02** Document ADR 01–10, cost-control strategy and build constraints. Status: DONE. Depends: P00-01. Verify: architecture and dependency diagram reviewed. Evidence: [report](reports/P00-02.md).
+- [x] **P00-03** Licensing/policies checklist: Google Place/Routes, attribution, image license, privacy/terms. Status: DONE (technical design review; not legal/release approval). Depends: P00-01. Verify: technical compliance checklist signed; policies linked. Evidence: [report](reports/P00-03.md).
+- [x] **P00-04** Seed-data content design 30–50 editorial records Nha Trang, with evidence of image/data rights. Status: DONE (30 sourced draft records, six original category SVGs; publication not verified). Depends: P00-03. Verify: seed schema/sample and negative cases pass validation. Evidence: [report](reports/P00-04.md).
+- [ ] **G0** Gate approval. Status: NOT VERIFIED; [review packet](phase-00/G0_REVIEW.md). Verify: tasks above completed, baseline decisions unchanged or ADR logged; owner acceptance of ODbL catalog licensing strategy/docs pending.
 
 ## PHASE 01 — Scaffold and CI — Gate G1 NOT VERIFIED
 
@@ -86,9 +87,16 @@ For each checked item, add a line to **Evidence log** with: task ID, commit hash
 
 | Task ID | Status | Commit/PR | Commands & exit codes | AC/Test IDs | Blockers | Verified date |
 |---|---|---|---|---|---|---|
-| — | NONE IMPLEMENTED | — | NOT RUN | — | — | — |
+| P00-01 | DONE | Uncommitted; baseline 7bb3f3e | `node scripts/verify-p00-01.mjs` -> 0; 178 checks after ADR-0011; [report/log](reports/P00-01.md) | P00-01-AC01..04 PASS; runtime NOT RUN | G0 review pending | 2026-10-21 |
+| P00-02 | DONE | Uncommitted; baseline 7bb3f3e | `node scripts/verify-p00-02.mjs` -> 0; [report/log](reports/P00-02.md) | P00-02-AC01..03 PASS | G0 policy/rights/clarifications pending | 2026-10-21 |
+| P00-03 | DONE | Uncommitted; baseline 7bb3f3e | `node scripts/verify-p00-03.mjs` -> 0; primary-source web review; [report](reports/P00-03.md) | P00-03-AC01..03 PASS (technical scope) | Runtime/legal P08 review NOT RUN | 2026-10-21 |
+| P00-04 | DONE | Uncommitted; baseline 7bb3f3e | `python scripts/build-editorial-seed.py` -> 0; `node scripts/verify-p00-04.mjs` -> 0; [report/log](reports/P00-04.md) | P00-04-AC01..03 PASS (content design) | G0 ODbL strategy acceptance pending; all records draft | 2026-10-21 |
+| G0 | NOT VERIFIED | Uncommitted | Technical checks PASS; [review packet](phase-00/G0_REVIEW.md) | Owner design/license acceptance pending | No Phase 01 work allowed | 2026-10-21 |
 
 ## Known blockers / decisions
+
+- User approved task/gate bookkeeping clarification: [ADR-0000](adr/ADR-0000.md). Task DONE requires task evidence; phase progression still requires gate PASS.
+- All unresolved scope/contract/content decisions and owners: [decision register](phase-00/DECISION_REGISTER.md). G0 cannot PASS while blocking decisions remain unresolved.
 
 - Live Google Places/Routes requires an API key, billing/quota configuration and terms review. The project **must still work in approximate/mock mode without the key**.
 - User editorial content and artwork must have clear usage rights; never seed assets by scraping copyrighted photos.

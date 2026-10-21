@@ -37,7 +37,7 @@
 
 `TODO -> IN_PROGRESS -> VERIFYING -> DONE`
 
-If blocked: `IN_PROGRESS/VERIFYING -> BLOCKED`; if verification fails: `-> FAILED`. Return to `IN_PROGRESS` only with corrective actions. `DONE` is allowed only after all task tests pass and gate is satisfied.
+If blocked: `IN_PROGRESS/VERIFYING -> BLOCKED`; if verification fails: `-> FAILED`. Return to `IN_PROGRESS` only with corrective actions. `DONE` is allowed only after task dependencies are closed and all task acceptance criteria and applicable tests pass with evidence. Phase progression additionally requires the blocking phase Gate to PASS (user-approved clarification: `docs/adr/ADR-0000.md`).
 
 ## Gate discipline
 

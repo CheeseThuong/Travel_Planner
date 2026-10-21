@@ -82,7 +82,7 @@ Website chuyển các địa điểm người dùng quan tâm thành lịch trì
 ### 2.2 Nên có (P1, sau khi P0 pass)
 
 - PWA và offline trip pack đã tải; PDF/export; ước tính chi phí cơ bản dựa dữ liệu tự nhập; export lịch; lịch sử phiên bản; thêm catalog nhiều tỉnh; cải thiện POI discovery; nâng cấp tài khoản anonymous -> Google/email.
-- Người dùng chọn các điểm bắt buộc/không bắt buộc, “tránh đi quá nhiều”, giờ ăn ưu tiên, hạn chế quãng đường.
+- Preferences nâng cao: “tránh đi quá nhiều”, giờ ăn ưu tiên, hạn chế quãng đường. Chọn điểm bắt buộc/không bắt buộc và required-first là P0 theo FR-005 và engine (ADR-0011).
 
 ### 2.3 Chưa thực hiện ở MVP (P2)
 
@@ -97,7 +97,7 @@ Website chuyển các địa điểm người dùng quan tâm thành lịch trì
 - `/plan/new` — Wizard 4 bước: dates -> lodging/transport -> places -> preferences.
 - `/trips/[tripId]` — Owner editor, timeline, bản đồ, trạng thái save (yêu cầu session).
 - `/open` — Nhập mã kế hoạch; trả về read-only shared view.
-- `/shared` — Read-only viewer sau giải mã share token phía client.
+- `/shared` — Read-only viewer: client đọc fragment token rồi POST tới server resolve opaque token/hash, không giải mã trip ở client (ADR-0011).
 - `/privacy`, `/terms` — Quy định dữ liệu và nhà cung cấp.
 - `/admin` — Không có public route MVP; dữ liệu biên tập bằng seed/migration nội bộ.
 
@@ -361,6 +361,7 @@ create policy trips_owner_delete on public.trips
 - Mutations yêu cầu `Idempotency-Key` khi create/generate/save; updates yêu cầu `If-Match: <version>` hoặc trường `expected_version` (chọn một: **MVP dùng `expected_version` trong JSON**).
 - Success `{ "data": ..., "meta": {"request_id": "..."} }`; failure `{ "error": {"code":"...","message":"...","details":{}}, "meta":{"request_id":"..."} }`.
 - PII/secrets redacted in logs. All timestamps ISO 8601; `plan_date` YYYY-MM-DD; `planned_start_local` local HH:mm with trip `timezone` separate.
+- Validation (ADR-0011): malformed JSON -> `400 VALIDATION_ERROR`; parsed JSON sai schema/ngữ nghĩa -> `422 VALIDATION_ERROR`. Quy tắc này áp dụng mọi endpoint nhận input, kể cả khi bảng dưới chỉ liệt kê mã phổ biến.
 
 ### 10.1 Endpoint inventory
 
@@ -369,11 +370,11 @@ create policy trips_owner_delete on public.trips
 | GET | `/destinations` | Public | Danh sách điểm đến published | 200 |
 | GET | `/destinations/{slug}/places` | Public | Filter category, keyword, page | 200/404 |
 | POST | `/places/resolve` | Public, rate-limited | Chuẩn hóa Maps URL thành candidates, cần xác nhận | 200/400/422/429/502 |
-| POST | `/trips` | Owner session | Tạo trip từ draft | 201/400/401/409 |
+| POST | `/trips` | Owner session | Tạo trip từ draft | 201/400/401/409/422 |
 | GET | `/trips/{id}` | Owner | Load trip + stops | 200/401/404 |
-| PATCH | `/trips/{id}` | Owner | Chỉnh trip + version | 200/400/409 |
+| PATCH | `/trips/{id}` | Owner | Chỉnh trip + version | 200/400/409/422 |
 | DELETE | `/trips/{id}` | Owner | Xóa trip và shares | 204/401/404 |
-| PUT | `/trips/{id}/stops` | Owner | Replace atomic stop list theo version | 200/400/409 |
+| PUT | `/trips/{id}/stops` | Owner | Replace atomic stop list theo version | 200/400/409/422 |
 | POST | `/trips/{id}/generate` | Owner | Tạo candidate itinerary và warnings | 200/422/429/503 |
 | POST | `/trips/{id}/apply-plan` | Owner | Lưu candidate sau user confirm | 200/409/422 |
 | POST | `/trips/{id}/shares` | Owner | Tạo code view-only | 201/429 |
@@ -574,6 +575,7 @@ buildTripCalendar(input)
 - Route API quota: `n*n` matrix elements có thể tốn phí; hard cap n<=30, block/chunk theo API limits, ước tính cost trước call, chỉ lấy các cạnh được sàng lọc, dùng fixture/mocks trong CI.
 - Timezone: dùng thư viện timezone-aware (ví dụ Temporal polyfill hoặc date-fns-tz với test) để không tính bằng cách cộng số giờ vào chuỗi `HH:mm` ngây thơ.
 - Slot handling: opening hours có thể overnight, multiple intervals, unknown và thay đổi theo holidays; MVP editorial hours checked date, fallback warning nếu chưa kiểm chứng ngày du lịch.
+- ADR-0011: chuẩn hóa hours qua nửa đêm thành local-day windows; không tự tối ưu tour qua đêm/tàu. Không suy diễn route ô tô tới đảo; transfer unsupported cần warning/manual handling hoặc unscheduled reason, vẫn giữ hard local-day bounds.
 - Nhóm activity: đừng xếp 5 quán cafe cùng buổi sáng nếu preference không yêu cầu; có `category_diversity` soft score.
 - End-of-day: default return-to-base configurable; một ngày có tour đảo cần transfer terminal/ship-aware data (MVP có thể đánh dấu manual transport, không tự nhận tuyến xe đến đảo).
 - No user deception: if cannot satisfy, report exactly what failed, offer action (extend duration, remove optional, swap day).
@@ -785,7 +787,7 @@ Các công việc có thể chạy song song trong phase **chỉ khi** không vi
 - Không bỏ qua lint, disable test, dùng `any` để né TypeScript, hoặc hardcode credential.
 - Không copy/chỉnh sửa artifact không thuộc task khi chưa phân tích ảnh hưởng.
 - Documentation cập nhật: planner, ADR nếu quyết định thay đổi, API contract, changelog.
-- Gate hiện tại PASS mới đánh dấu `DONE`; còn vấn đề chưa giải quyết là `BLOCKED`/`FAILED`.
+- Task chỉ `DONE` khi dependencies đóng, acceptance và kiểm thử áp dụng PASS kèm bằng chứng; chỉ chuyển phase khi gate hiện tại PASS. Làm rõ theo quyết định user tại `docs/adr/ADR-0000.md`; còn vấn đề chưa giải quyết là `BLOCKED`/`FAILED`.
 
 ## 20. Agent operating protocol (bắt buộc)
 
