@@ -1,0 +1,153 @@
+{
+  "stats": {
+    "startTime": "2026-10-21T12:51:25.822Z",
+    "duration": 68322.936,
+    "expected": 72,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  },
+  "font_load_layout_shift": [
+    {
+      "project": "chromium-320",
+      "status": "passed",
+      "supported": true,
+      "sum": 0.000195986328125,
+      "shifts": [
+        0.000195986328125
+      ]
+    },
+    {
+      "project": "chromium-360",
+      "status": "passed",
+      "supported": true,
+      "sum": 0.0001990972222222222,
+      "shifts": [
+        0.0001990972222222222
+      ]
+    },
+    {
+      "project": "chromium-390",
+      "status": "passed",
+      "supported": true,
+      "sum": 0.00027975440705128206,
+      "shifts": [
+        0.00027975440705128206
+      ]
+    },
+    {
+      "project": "chromium-768",
+      "status": "passed",
+      "supported": true,
+      "sum": 0.00027271801757812496,
+      "shifts": [
+        0.00027271801757812496
+      ]
+    },
+    {
+      "project": "chromium-1024",
+      "status": "passed",
+      "supported": true,
+      "sum": 0.0004214546084403992,
+      "shifts": [
+        0.00017964875698089601,
+        0.00024180585145950318
+      ]
+    },
+    {
+      "project": "chromium-1440",
+      "status": "passed",
+      "supported": true,
+      "sum": 0.00034930326485339505,
+      "shifts": [
+        6.355565200617283e-05,
+        0.00028574761284722223
+      ]
+    },
+    {
+      "project": "firefox-320",
+      "status": "passed",
+      "supported": false,
+      "sum": null,
+      "shifts": []
+    },
+    {
+      "project": "firefox-360",
+      "status": "passed",
+      "supported": false,
+      "sum": null,
+      "shifts": []
+    },
+    {
+      "project": "firefox-390",
+      "status": "passed",
+      "supported": false,
+      "sum": null,
+      "shifts": []
+    },
+    {
+      "project": "firefox-768",
+      "status": "passed",
+      "supported": false,
+      "sum": null,
+      "shifts": []
+    },
+    {
+      "project": "firefox-1024",
+      "status": "passed",
+      "supported": false,
+      "sum": null,
+      "shifts": []
+    },
+    {
+      "project": "firefox-1440",
+      "status": "passed",
+      "supported": false,
+      "sum": null,
+      "shifts": []
+    },
+    {
+      "project": "webkit-320",
+      "status": "passed",
+      "supported": false,
+      "sum": null,
+      "shifts": []
+    },
+    {
+      "project": "webkit-360",
+      "status": "passed",
+      "supported": false,
+      "sum": null,
+      "shifts": []
+    },
+    {
+      "project": "webkit-390",
+      "status": "passed",
+      "supported": false,
+      "sum": null,
+      "shifts": []
+    },
+    {
+      "project": "webkit-768",
+      "status": "passed",
+      "supported": false,
+      "sum": null,
+      "shifts": []
+    },
+    {
+      "project": "webkit-1024",
+      "status": "passed",
+      "supported": false,
+      "sum": null,
+      "shifts": []
+    },
+    {
+      "project": "webkit-1440",
+      "status": "passed",
+      "supported": false,
+      "sum": null,
+      "shifts": []
+    }
+  ],
+  "scope": "One delayed-font run per browser/width. Unsupported LayoutShift API results are null, never measured zero."
+}

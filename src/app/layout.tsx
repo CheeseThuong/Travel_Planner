@@ -1,6 +1,31 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import localFont from "next/font/local";
 import "./globals.css";
+
+const beVietnam = localFont({
+  src: [
+    { path: "./fonts/be-vietnam-pro-400-normal.ttf", weight: "400", style: "normal" },
+    { path: "./fonts/be-vietnam-pro-500-normal.ttf", weight: "500", style: "normal" },
+    { path: "./fonts/be-vietnam-pro-600-normal.ttf", weight: "600", style: "normal" },
+    { path: "./fonts/be-vietnam-pro-700-normal.ttf", weight: "700", style: "normal" },
+  ],
+  variable: "--font-body",
+  display: "swap",
+  preload: false,
+  adjustFontFallback: "Arial",
+});
+
+const nunito = localFont({
+  src: [
+    { path: "./fonts/nunito-600-normal.ttf", weight: "600", style: "normal" },
+    { path: "./fonts/nunito-600-italic.ttf", weight: "600", style: "italic" },
+  ],
+  variable: "--font-display",
+  display: "swap",
+  preload: false,
+  adjustFontFallback: "Arial",
+});
 
 export const metadata: Metadata = {
   title: { default: "Đi chơi thôi — Một chuyến đi của riêng bạn", template: "%s · Đi chơi thôi" },
@@ -11,7 +36,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="vi">
-      <body>
+      <body className={`${beVietnam.variable} ${nunito.variable}`}>
         <a href="#main-content" className="skip-link">Bỏ qua đến nội dung</a>
         <header className="page-shell flex flex-wrap items-center justify-between gap-4 border-b border-[#deded0] py-6">
           <Link href="/" className="flex items-center gap-2 font-bold tracking-tight" aria-label="Đi chơi thôi — Trang chủ">

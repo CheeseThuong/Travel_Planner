@@ -1,0 +1,68 @@
+[
+  {
+    "file": "src/app/fonts/be-vietnam-pro-400-normal.ttf",
+    "family": "Be Vietnam Pro",
+    "style": "normal",
+    "weight": 400,
+    "source": "https://fonts.gstatic.com/s/bevietnampro/v12/QdVPSTAyLFyeg_IDWvOJmVES_Eww.ttf",
+    "bytes": 120228,
+    "sha256": "4ad53eac036092be79a34b5fa0aa32d0ebb3c7e5df4bc058764f5614fbf148a0"
+  },
+  {
+    "file": "src/app/fonts/be-vietnam-pro-500-normal.ttf",
+    "family": "Be Vietnam Pro",
+    "style": "normal",
+    "weight": 500,
+    "source": "https://fonts.gstatic.com/s/bevietnampro/v12/QdVMSTAyLFyeg_IDWvOJmVES_HTEJl8y.ttf",
+    "bytes": 122644,
+    "sha256": "557a1c42a7f8eb83f84255d475017b1235c1101b899367f974a1cbfa19cd7c3d"
+  },
+  {
+    "file": "src/app/fonts/be-vietnam-pro-600-normal.ttf",
+    "family": "Be Vietnam Pro",
+    "style": "normal",
+    "weight": 600,
+    "source": "https://fonts.gstatic.com/s/bevietnampro/v12/QdVMSTAyLFyeg_IDWvOJmVES_HToIV8y.ttf",
+    "bytes": 123064,
+    "sha256": "cbf437bf71c8536a7aaed632dce2583ea5ec97c07efffc625c31991d1027ba3b"
+  },
+  {
+    "file": "src/app/fonts/be-vietnam-pro-700-normal.ttf",
+    "family": "Be Vietnam Pro",
+    "style": "normal",
+    "weight": 700,
+    "source": "https://fonts.gstatic.com/s/bevietnampro/v12/QdVMSTAyLFyeg_IDWvOJmVES_HSMIF8y.ttf",
+    "bytes": 126228,
+    "sha256": "aef76cd15b8c9faa1ff21951bb71963a774aa381526c557e5a52f38d430c4650"
+  },
+  {
+    "file": "src/app/fonts/nunito-600-italic.ttf",
+    "family": "Nunito",
+    "style": "italic",
+    "weight": 600,
+    "source": "https://fonts.gstatic.com/s/nunito/v32/XRXK3I6Li01BKofIMPyPbj8d7IEAGXNic3c3ig.ttf",
+    "bytes": 128328,
+    "sha256": "79b0eb3b5e6e684d501890f0adc9b435fec688b4fccf303c2e7646cb776885a8"
+  },
+  {
+    "file": "src/app/fonts/nunito-600-normal.ttf",
+    "family": "Nunito",
+    "style": "normal",
+    "weight": 600,
+    "source": "https://fonts.gstatic.com/s/nunito/v32/XRXI3I6Li01BKofiOc5wtlZ2di8HDGUmRTM.ttf",
+    "bytes": 125536,
+    "sha256": "1506fc96971e84d1a4ca89f0d1157a881b9ce217bbfa05d2b3c9e3c8f6723091"
+  },
+  {
+    "file": "docs/licenses/bevietnampro-OFL.txt",
+    "source": "https://raw.githubusercontent.com/google/fonts/main/ofl/bevietnampro/OFL.txt",
+    "bytes": 4397,
+    "sha256": "6b7f8f73609a25ea78c891e34cf37b06f8a676b7ea986e941e43b009110f2a85"
+  },
+  {
+    "file": "docs/licenses/nunito-OFL.txt",
+    "source": "https://raw.githubusercontent.com/google/fonts/main/ofl/nunito/OFL.txt",
+    "bytes": 4385,
+    "sha256": "580df76c95a1ec5ab878ceb25bb3d85c6a076804e9c970c8c6972aea775fdf65"
+  }
+]

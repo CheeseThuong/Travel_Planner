@@ -1,0 +1,339 @@
+{
+  "browser": "155.0.8059.85",
+  "results": [
+    {
+      "width": 320,
+      "path": "/",
+      "fonts": [
+        {
+          "familyName": "Georgia",
+          "postScriptName": "Georgia-Italic",
+          "isCustomFont": false,
+          "glyphCount": 6
+        },
+        {
+          "familyName": "Times New Roman",
+          "postScriptName": "TimesNewRomanPSMT",
+          "isCustomFont": false,
+          "glyphCount": 3
+        },
+        {
+          "familyName": "Georgia",
+          "postScriptName": "Georgia",
+          "isCustomFont": false,
+          "glyphCount": 19
+        },
+        {
+          "familyName": "Times New Roman",
+          "postScriptName": "TimesNewRomanPS-ItalicMT",
+          "isCustomFont": false,
+          "glyphCount": 1
+        }
+      ],
+      "text": "Chuyến đi nhỏ.Kỷ niệm thật to.",
+      "font": "Georgia, \"Times New Roman\", serif",
+      "tracking": "-2.904px",
+      "scrollWidth": 320,
+      "viewportWidth": 320
+    },
+    {
+      "width": 320,
+      "path": "/destinations/nha-trang",
+      "fonts": [
+        {
+          "familyName": "Georgia",
+          "postScriptName": "Georgia",
+          "isCustomFont": false,
+          "glyphCount": 9
+        }
+      ],
+      "text": "Nha Trang",
+      "font": "Georgia, \"Times New Roman\", serif",
+      "tracking": "-3.3px",
+      "scrollWidth": 320,
+      "viewportWidth": 320
+    },
+    {
+      "width": 320,
+      "path": "/destinations/da-lat",
+      "fonts": [
+        {
+          "familyName": "Times New Roman",
+          "postScriptName": "TimesNewRomanPSMT",
+          "isCustomFont": false,
+          "glyphCount": 1
+        },
+        {
+          "familyName": "Georgia",
+          "postScriptName": "Georgia",
+          "isCustomFont": false,
+          "glyphCount": 5
+        }
+      ],
+      "text": "Đà Lạt",
+      "font": "Georgia, \"Times New Roman\", serif",
+      "tracking": "-3.3px",
+      "scrollWidth": 320,
+      "viewportWidth": 320
+    },
+    {
+      "width": 320,
+      "path": "/privacy",
+      "fonts": [
+        {
+          "familyName": "Times New Roman",
+          "postScriptName": "TimesNewRomanPSMT",
+          "isCustomFont": false,
+          "glyphCount": 1
+        },
+        {
+          "familyName": "Georgia",
+          "postScriptName": "Georgia",
+          "isCustomFont": false,
+          "glyphCount": 13
+        }
+      ],
+      "text": "Quyền riêng tư",
+      "font": "Georgia, \"Times New Roman\", serif",
+      "tracking": "-2.64px",
+      "scrollWidth": 320,
+      "viewportWidth": 320
+    },
+    {
+      "width": 320,
+      "path": "/terms",
+      "fonts": [
+        {
+          "familyName": "Times New Roman",
+          "postScriptName": "TimesNewRomanPSMT",
+          "isCustomFont": false,
+          "glyphCount": 3
+        },
+        {
+          "familyName": "Georgia",
+          "postScriptName": "Georgia",
+          "isCustomFont": false,
+          "glyphCount": 15
+        }
+      ],
+      "text": "Điều khoản sử dụng",
+      "font": "Georgia, \"Times New Roman\", serif",
+      "tracking": "-2.64px",
+      "scrollWidth": 320,
+      "viewportWidth": 320
+    },
+    {
+      "width": 320,
+      "path": "/plan/new",
+      "fonts": [
+        {
+          "familyName": "Times New Roman",
+          "postScriptName": "TimesNewRomanPSMT",
+          "isCustomFont": false,
+          "glyphCount": 2
+        },
+        {
+          "familyName": "Georgia",
+          "postScriptName": "Georgia",
+          "isCustomFont": false,
+          "glyphCount": 21
+        }
+      ],
+      "text": "Chuyến đi của riêng bạn",
+      "font": "Georgia, \"Times New Roman\", serif",
+      "tracking": "-2.64px",
+      "scrollWidth": 320,
+      "viewportWidth": 320
+    },
+    {
+      "width": 320,
+      "path": "/open",
+      "fonts": [
+        {
+          "familyName": "Times New Roman",
+          "postScriptName": "TimesNewRomanPSMT",
+          "isCustomFont": false,
+          "glyphCount": 5
+        },
+        {
+          "familyName": "Georgia",
+          "postScriptName": "Georgia",
+          "isCustomFont": false,
+          "glyphCount": 12
+        }
+      ],
+      "text": "Mở lại một kỷ niệm",
+      "font": "Georgia, \"Times New Roman\", serif",
+      "tracking": "-2.64px",
+      "scrollWidth": 320,
+      "viewportWidth": 320
+    },
+    {
+      "width": 1440,
+      "path": "/",
+      "fonts": [
+        {
+          "familyName": "Georgia",
+          "postScriptName": "Georgia-Italic",
+          "isCustomFont": false,
+          "glyphCount": 7
+        },
+        {
+          "familyName": "Times New Roman",
+          "postScriptName": "TimesNewRomanPSMT",
+          "isCustomFont": false,
+          "glyphCount": 3
+        },
+        {
+          "familyName": "Georgia",
+          "postScriptName": "Georgia",
+          "isCustomFont": false,
+          "glyphCount": 19
+        },
+        {
+          "familyName": "Times New Roman",
+          "postScriptName": "TimesNewRomanPS-ItalicMT",
+          "isCustomFont": false,
+          "glyphCount": 1
+        }
+      ],
+      "text": "Chuyến đi nhỏ.Kỷ niệm thật to.",
+      "font": "Georgia, \"Times New Roman\", serif",
+      "tracking": "-5.016px",
+      "scrollWidth": 1440,
+      "viewportWidth": 1440
+    },
+    {
+      "width": 1440,
+      "path": "/destinations/nha-trang",
+      "fonts": [
+        {
+          "familyName": "Georgia",
+          "postScriptName": "Georgia",
+          "isCustomFont": false,
+          "glyphCount": 9
+        }
+      ],
+      "text": "Nha Trang",
+      "font": "Georgia, \"Times New Roman\", serif",
+      "tracking": "-3.3px",
+      "scrollWidth": 1440,
+      "viewportWidth": 1440
+    },
+    {
+      "width": 1440,
+      "path": "/destinations/da-lat",
+      "fonts": [
+        {
+          "familyName": "Times New Roman",
+          "postScriptName": "TimesNewRomanPSMT",
+          "isCustomFont": false,
+          "glyphCount": 1
+        },
+        {
+          "familyName": "Georgia",
+          "postScriptName": "Georgia",
+          "isCustomFont": false,
+          "glyphCount": 5
+        }
+      ],
+      "text": "Đà Lạt",
+      "font": "Georgia, \"Times New Roman\", serif",
+      "tracking": "-3.3px",
+      "scrollWidth": 1440,
+      "viewportWidth": 1440
+    },
+    {
+      "width": 1440,
+      "path": "/privacy",
+      "fonts": [
+        {
+          "familyName": "Times New Roman",
+          "postScriptName": "TimesNewRomanPSMT",
+          "isCustomFont": false,
+          "glyphCount": 1
+        },
+        {
+          "familyName": "Georgia",
+          "postScriptName": "Georgia",
+          "isCustomFont": false,
+          "glyphCount": 14
+        }
+      ],
+      "text": "Quyền riêng tư",
+      "font": "Georgia, \"Times New Roman\", serif",
+      "tracking": "-3.3px",
+      "scrollWidth": 1440,
+      "viewportWidth": 1440
+    },
+    {
+      "width": 1440,
+      "path": "/terms",
+      "fonts": [
+        {
+          "familyName": "Times New Roman",
+          "postScriptName": "TimesNewRomanPSMT",
+          "isCustomFont": false,
+          "glyphCount": 3
+        },
+        {
+          "familyName": "Georgia",
+          "postScriptName": "Georgia",
+          "isCustomFont": false,
+          "glyphCount": 16
+        }
+      ],
+      "text": "Điều khoản sử dụng",
+      "font": "Georgia, \"Times New Roman\", serif",
+      "tracking": "-3.3px",
+      "scrollWidth": 1440,
+      "viewportWidth": 1440
+    },
+    {
+      "width": 1440,
+      "path": "/plan/new",
+      "fonts": [
+        {
+          "familyName": "Times New Roman",
+          "postScriptName": "TimesNewRomanPSMT",
+          "isCustomFont": false,
+          "glyphCount": 2
+        },
+        {
+          "familyName": "Georgia",
+          "postScriptName": "Georgia",
+          "isCustomFont": false,
+          "glyphCount": 22
+        }
+      ],
+      "text": "Chuyến đi của riêng bạn",
+      "font": "Georgia, \"Times New Roman\", serif",
+      "tracking": "-3.3px",
+      "scrollWidth": 1440,
+      "viewportWidth": 1440
+    },
+    {
+      "width": 1440,
+      "path": "/open",
+      "fonts": [
+        {
+          "familyName": "Times New Roman",
+          "postScriptName": "TimesNewRomanPSMT",
+          "isCustomFont": false,
+          "glyphCount": 5
+        },
+        {
+          "familyName": "Georgia",
+          "postScriptName": "Georgia",
+          "isCustomFont": false,
+          "glyphCount": 13
+        }
+      ],
+      "text": "Mở lại một kỷ niệm",
+      "font": "Georgia, \"Times New Roman\", serif",
+      "tracking": "-3.3px",
+      "scrollWidth": 1440,
+      "viewportWidth": 1440
+    }
+  ]
+}

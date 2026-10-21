@@ -1,0 +1,288 @@
+{
+  "browser": "155.0.8059.85",
+  "results": [
+    {
+      "width": 320,
+      "path": "/",
+      "fonts": [
+        {
+          "familyName": "Nunito SemiBold",
+          "postScriptName": "Nunito-SemiBold",
+          "isCustomFont": true,
+          "glyphCount": 22
+        },
+        {
+          "familyName": "Nunito SemiBold",
+          "postScriptName": "Nunito-SemiBoldItalic",
+          "isCustomFont": true,
+          "glyphCount": 8
+        }
+      ],
+      "text": "Chuyến đi nhỏ.Kỷ niệm thật to.",
+      "font": "nunito, \"nunito Fallback\", Arial, sans-serif",
+      "tracking": "-0.516px",
+      "scrollWidth": 320,
+      "viewportWidth": 320
+    },
+    {
+      "width": 320,
+      "path": "/destinations/nha-trang",
+      "fonts": [
+        {
+          "familyName": "Nunito SemiBold",
+          "postScriptName": "Nunito-SemiBold",
+          "isCustomFont": true,
+          "glyphCount": 9
+        }
+      ],
+      "text": "Nha Trang",
+      "font": "nunito, \"nunito Fallback\", Arial, sans-serif",
+      "tracking": "-0.9px",
+      "scrollWidth": 320,
+      "viewportWidth": 320
+    },
+    {
+      "width": 320,
+      "path": "/destinations/da-lat",
+      "fonts": [
+        {
+          "familyName": "Nunito SemiBold",
+          "postScriptName": "Nunito-SemiBold",
+          "isCustomFont": true,
+          "glyphCount": 6
+        }
+      ],
+      "text": "Đà Lạt",
+      "font": "nunito, \"nunito Fallback\", Arial, sans-serif",
+      "tracking": "-0.9px",
+      "scrollWidth": 320,
+      "viewportWidth": 320
+    },
+    {
+      "width": 320,
+      "path": "/privacy",
+      "fonts": [
+        {
+          "familyName": "Nunito SemiBold",
+          "postScriptName": "Nunito-SemiBold",
+          "isCustomFont": true,
+          "glyphCount": 13
+        }
+      ],
+      "text": "Quyền riêng tư",
+      "font": "nunito, \"nunito Fallback\", Arial, sans-serif",
+      "tracking": "-0.72px",
+      "scrollWidth": 320,
+      "viewportWidth": 320
+    },
+    {
+      "width": 320,
+      "path": "/terms",
+      "fonts": [
+        {
+          "familyName": "Nunito SemiBold",
+          "postScriptName": "Nunito-SemiBold",
+          "isCustomFont": true,
+          "glyphCount": 17
+        }
+      ],
+      "text": "Điều khoản sử dụng",
+      "font": "nunito, \"nunito Fallback\", Arial, sans-serif",
+      "tracking": "-0.72px",
+      "scrollWidth": 320,
+      "viewportWidth": 320
+    },
+    {
+      "width": 320,
+      "path": "/plan/new",
+      "fonts": [
+        {
+          "familyName": "Nunito SemiBold",
+          "postScriptName": "Nunito-SemiBold",
+          "isCustomFont": true,
+          "glyphCount": 21
+        }
+      ],
+      "text": "Chuyến đi của riêng bạn",
+      "font": "nunito, \"nunito Fallback\", Arial, sans-serif",
+      "tracking": "-0.72px",
+      "scrollWidth": 320,
+      "viewportWidth": 320
+    },
+    {
+      "width": 320,
+      "path": "/open",
+      "fonts": [
+        {
+          "familyName": "Nunito SemiBold",
+          "postScriptName": "Nunito-SemiBold",
+          "isCustomFont": true,
+          "glyphCount": 17
+        }
+      ],
+      "text": "Mở lại một kỷ niệm",
+      "font": "nunito, \"nunito Fallback\", Arial, sans-serif",
+      "tracking": "-0.72px",
+      "scrollWidth": 320,
+      "viewportWidth": 320
+    },
+    {
+      "width": 1440,
+      "path": "/",
+      "fonts": [
+        {
+          "familyName": "Nunito SemiBold",
+          "postScriptName": "Nunito-SemiBold",
+          "isCustomFont": true,
+          "glyphCount": 22
+        },
+        {
+          "familyName": "Nunito SemiBold",
+          "postScriptName": "Nunito-SemiBoldItalic",
+          "isCustomFont": true,
+          "glyphCount": 8
+        }
+      ],
+      "text": "Chuyến đi nhỏ.Kỷ niệm thật to.",
+      "font": "nunito, \"nunito Fallback\", Arial, sans-serif",
+      "tracking": "-1.044px",
+      "scrollWidth": 1440,
+      "viewportWidth": 1440
+    },
+    {
+      "width": 1440,
+      "path": "/destinations/nha-trang",
+      "fonts": [
+        {
+          "familyName": "Nunito SemiBold",
+          "postScriptName": "Nunito-SemiBold",
+          "isCustomFont": true,
+          "glyphCount": 9
+        }
+      ],
+      "text": "Nha Trang",
+      "font": "nunito, \"nunito Fallback\", Arial, sans-serif",
+      "tracking": "-0.9px",
+      "scrollWidth": 1440,
+      "viewportWidth": 1440
+    },
+    {
+      "width": 1440,
+      "path": "/destinations/da-lat",
+      "fonts": [
+        {
+          "familyName": "Nunito SemiBold",
+          "postScriptName": "Nunito-SemiBold",
+          "isCustomFont": true,
+          "glyphCount": 6
+        }
+      ],
+      "text": "Đà Lạt",
+      "font": "nunito, \"nunito Fallback\", Arial, sans-serif",
+      "tracking": "-0.9px",
+      "scrollWidth": 1440,
+      "viewportWidth": 1440
+    },
+    {
+      "width": 1440,
+      "path": "/privacy",
+      "fonts": [
+        {
+          "familyName": "Nunito SemiBold",
+          "postScriptName": "Nunito-SemiBold",
+          "isCustomFont": true,
+          "glyphCount": 14
+        }
+      ],
+      "text": "Quyền riêng tư",
+      "font": "nunito, \"nunito Fallback\", Arial, sans-serif",
+      "tracking": "-0.9px",
+      "scrollWidth": 1440,
+      "viewportWidth": 1440
+    },
+    {
+      "width": 1440,
+      "path": "/terms",
+      "fonts": [
+        {
+          "familyName": "Nunito SemiBold",
+          "postScriptName": "Nunito-SemiBold",
+          "isCustomFont": true,
+          "glyphCount": 18
+        }
+      ],
+      "text": "Điều khoản sử dụng",
+      "font": "nunito, \"nunito Fallback\", Arial, sans-serif",
+      "tracking": "-0.9px",
+      "scrollWidth": 1440,
+      "viewportWidth": 1440
+    },
+    {
+      "width": 1440,
+      "path": "/plan/new",
+      "fonts": [
+        {
+          "familyName": "Nunito SemiBold",
+          "postScriptName": "Nunito-SemiBold",
+          "isCustomFont": true,
+          "glyphCount": 23
+        }
+      ],
+      "text": "Chuyến đi của riêng bạn",
+      "font": "nunito, \"nunito Fallback\", Arial, sans-serif",
+      "tracking": "-0.9px",
+      "scrollWidth": 1440,
+      "viewportWidth": 1440
+    },
+    {
+      "width": 1440,
+      "path": "/open",
+      "fonts": [
+        {
+          "familyName": "Nunito SemiBold",
+          "postScriptName": "Nunito-SemiBold",
+          "isCustomFont": true,
+          "glyphCount": 18
+        }
+      ],
+      "text": "Mở lại một kỷ niệm",
+      "font": "nunito, \"nunito Fallback\", Arial, sans-serif",
+      "tracking": "-0.9px",
+      "scrollWidth": 1440,
+      "viewportWidth": 1440
+    },
+    {
+      "selector": "#normal-proof",
+      "fonts": [
+        {
+          "familyName": "Nunito SemiBold",
+          "postScriptName": "Nunito-SemiBold",
+          "isCustomFont": true,
+          "glyphCount": 444
+        }
+      ]
+    },
+    {
+      "selector": "#italic-proof",
+      "fonts": [
+        {
+          "familyName": "Nunito SemiBold",
+          "postScriptName": "Nunito-SemiBoldItalic",
+          "isCustomFont": true,
+          "glyphCount": 444
+        }
+      ]
+    },
+    {
+      "selector": "#body-proof",
+      "fonts": [
+        {
+          "familyName": "Be Vietnam Pro",
+          "postScriptName": "BeVietnamPro-Regular",
+          "isCustomFont": true,
+          "glyphCount": 444
+        }
+      ]
+    }
+  ]
+}

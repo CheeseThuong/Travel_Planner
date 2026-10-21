@@ -3,6 +3,7 @@
 > Initial state as of 2026-10-21: **NONE IMPLEMENTED, NONE TESTED**. All gates are `NOT VERIFIED`.
 > Update `[ ]` -> `[x]` only after verifying tests and recording evidence, not merely writing code.
 > Current execution state: P00-01..05 DONE; G0 PASS after user confirmation 2026-10-21 and validator rerun. P01-01 BLOCKED by ESLint support; scoped security patch and requested preview DONE, full audit0; G1 FAIL. No dependent task or later phase started. Baseline statement above describes the initial state, not current results.
+> Recovery request 2026-10-21: R0-01 audit DONE; R1-01 scaffold typography DONE; R0-02 support recheck BLOCKED. [Recovery plan](IMPLEMENTATION_RECOVERY_PLAN.md), [feature matrix](FEATURE_MATRIX.md), [audit](IMPLEMENTATION_AUDIT.md), [execution](EXECUTION_REPORT.md). Full product implementation BLOCKED / release NOT READY. Independent corrections remain within P01 per ADR-0016; G1 FAIL unchanged.
 
 ## Task tracker rules
 
@@ -22,6 +23,9 @@ For each checked item, add a line to **Evidence log** with: task ID, commit hash
 - [ ] **P01-01** Next.js TS strict, Tailwind, shadcn, route skeleton. Status: BLOCKED. Depends: G0 PASS. Typecheck/lint/build/11-route HTTP smoke PASS; full npm audit now PASS (zero vulnerabilities after P01-01-FIX); ESLint9 EOL / React plugin lacks10 peer support remains unresolved. Evidence/corrections: [report](reports/P01-01.md), [ADR-0014](adr/ADR-0014.md).
 - [x] **P01-01-FIX** Scoped security correction. Status: DONE. Depends: G0; correction within P01-01. Full audit0, ten rule/config/helper regression tests PASS; parent remains BLOCKED on support. [Report](reports/P01-01-FIX.md), [ADR-0015](adr/ADR-0015.md).
 - [x] **P01-05** Explicitly requested local motion/performance preview. Status: DONE. Depends: G0 PASS and verified P01-01-FIX; PARALLEL-OK independent Phase01 extension per ADR-0015. Three.js/GSAP/Motion skills applied, 12 browser checks PASS, measured three routes and active3D, local browser opened. [Report](reports/P01-05.md). Does not complete P07 or permit P02+.
+- [x] **R0-01** Requested repository/feature audit. Status: DONE. Depends: G0; independent read-only recovery. Six baseline commands, current npm support metadata and actual typography reproduction recorded. [Audit](IMPLEMENTATION_AUDIT.md), [matrix](FEATURE_MATRIX.md), [plan](IMPLEMENTATION_RECOVERY_PLAN.md).
+- [x] **R1-01** Existing scaffold Vietnamese typography correction. Status: DONE. Depends: R0-01 DONE; independent P01 correction per ADR-0016. Licensed complete local fonts, actual normal/italic/body glyph audit, 72 cross-browser tests and 12 demo tests PASS; three local Lighthouse runs recorded (84/91/94 Performance, CLS <=0.043). [Results](TEST_RESULTS.md), [report](EXECUTION_REPORT.md). Does not complete P07 or dependent features.
+- [ ] **R0-02** P01-01 support recheck. Status: BLOCKED. Current stable React/a11y/import plugin peers still exclude ESLint10; ESLint9 EOL. Full audit0, no dependency/rule changes or unsupported peer overrides. [Evidence](reports/evidence/R0-react-peer.json). NEXT: supported compatible lint strategy review/correction, then P01-02..04 and actual CI before G1 approval.
 - [ ] **P01-02** Vitest, Testing Library, Playwright and deterministic fixtures. Depends: P01-01. Tests: fixture smoke + e2e hello route.
 - [ ] **P01-03** Domain and provider adapter interfaces; no provider SDK in domain. Depends: P01-01. Tests: package boundary/lint constraint.
 - [ ] **P01-04** Env schema validation, request ID, redaction baseline, feature flags and CI pipeline. Depends: P01-01. Tests: missing secret behavior, no secret in build/client.
@@ -99,6 +103,9 @@ For each checked item, add a line to **Evidence log** with: task ID, commit hash
 | P01-01 | BLOCKED | 09900f6; see current corrections | typecheck/lint/build/smoke -> 0; initial audit -> 1, corrected full audit -> 0; [report](reports/P01-01.md) | AC01..03 PASS; AC04 FAIL | Braces chain corrected by P01-01-FIX; ESLint9 EOL / React plugin no10 peers remains | 2026-10-21 |
 | P01-01-FIX | DONE | a5f55fa | unit10/typecheck/lint/content/build/HTTP/audit -> 0; [report](reports/P01-01-FIX.md) | AC-FIX01..04 PASS | Parent support unresolved | 2026-10-21 |
 | P01-05 | DONE | a5f55fa | e2e12/Lighthouse3/active3D -> 0; browser opened; [report](reports/P01-05.md) | AC01..05 PASS (local preview scope) | G1 FAIL; G7 NOT VERIFIED | 2026-10-21 |
+| R0-01 | DONE | working tree; no commit/push | six baseline commands ->0 after telemetry correction; initial build1 retained; content0/audit0; [results](TEST_RESULTS.md) | R0-AC1..3 PASS | Product features unimplemented; G1 FAIL | 2026-10-21 |
+| R1-01 | DONE | working tree; no commit/push | typecheck/lint/unit10/HTTP11/build/browser12/typography72/glyph audit/font coverage/Lighthouse3 ->0; [results](TEST_RESULTS.md) | R1-AC1..5 PASS within scaffold correction scope; physical phones/pixel baselines NOT RUN | G1 FAIL, G7/G8 NOT VERIFIED; full features blocked | 2026-10-21 |
+| R0-02 | BLOCKED | working tree; no dependency changes | current npm peers/version/tree ->0, support criteria remain unmet; [audit](IMPLEMENTATION_AUDIT.md) | Supported compatible lint tree FAIL | ESLint9 EOL; stable plugin peers exclude10 | 2026-10-21 |
 
 ## Known blockers / decisions
 

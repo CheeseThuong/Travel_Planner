@@ -10,7 +10,7 @@ export default function HomePage() {
       <section className="page-shell grid items-center gap-10 py-14 lg:grid-cols-[1.03fr_1fr] lg:gap-16 lg:py-20" aria-labelledby="hero-title">
         <div>
           <p className="eyebrow mb-6 flex items-center gap-2 text-[#53674d]"><span aria-hidden="true" className="size-2 rounded-full bg-[#bd654a]" /> Từ phố biển đến đồi thông</p>
-          <h1 id="hero-title" className="display-type max-w-xl text-[clamp(3.3rem,7vw,5.7rem)] leading-[1.07]">Chuyến đi nhỏ.<br />Kỷ niệm <span className="italic text-[#a54f3d]">thật to.</span></h1>
+          <h1 id="hero-title" className="display-type max-w-xl text-[clamp(2.15rem,5.2vw,4.35rem)]">Chuyến đi nhỏ.<br />Kỷ niệm <span className="italic text-[#a54f3d]">thật to.</span></h1>
           <p className="mt-7 max-w-md text-base leading-8 text-[#58675b]">Một nơi để gom những điểm muốn ghé, dành chỗ cho phút ngẫu hứng và chuẩn bị chuyến đi theo nhịp của riêng bạn.</p>
           <Button asChild size="lg" className="mt-8"><Link href="#diem-den">Chọn một nơi để bắt đầu <span aria-hidden="true">↗</span></Link></Button>
           <p className="mt-5 text-xs leading-6 text-[#58675b]">Đang chuẩn bị những hành trình đầu tiên. Bạn có thể xem các điểm đến bên dưới.</p>

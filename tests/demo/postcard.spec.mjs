@@ -1,5 +1,7 @@
 import { test, expect } from "@playwright/test";
 
+const evidencePrefix = process.env.DEMO_EVIDENCE_PREFIX ?? "P01-05";
+
 test("three local pages render without errors or horizontal overflow", async ({ page }, info) => {
   const errors = [];
   page.on("pageerror", (error) => errors.push(error.message));
@@ -7,7 +9,7 @@ test("three local pages render without errors or horizontal overflow", async ({ 
     await page.goto(path);
     await expect(page.getByRole("heading", { level: 1 })).toContainText(title);
     expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1)).toBe(true);
-    await page.screenshot({ path: `docs/reports/evidence/P01-05-${info.project.name}-${name}.png`, fullPage: true, animations: "disabled" });
+    await page.screenshot({ path: `docs/reports/evidence/${evidencePrefix}-${info.project.name}-${name}.png`, fullPage: true, animations: "disabled" });
   }
   expect(errors).toEqual([]);
 });
@@ -21,7 +23,7 @@ test("3D is lazy, renders, changes theme, pauses offscreen and disposes on stop"
   const canvas = page.locator("canvas");
   await expect(canvas).toHaveCount(1);
   await expect.poll(async () => Number(await canvas.getAttribute("data-frames"))).toBeGreaterThan(3);
-  await page.screenshot({ path: `docs/reports/evidence/P01-05-${info.project.name}-3d.png`, fullPage: true });
+  await page.screenshot({ path: `docs/reports/evidence/${evidencePrefix}-${info.project.name}-3d.png`, fullPage: true });
   await page.getByRole("button", { name: "Đồi thông", exact: true }).click();
   await expect(page.getByRole("button", { name: "Đồi thông", exact: true })).toHaveAttribute("aria-pressed", "true");
   await expect(canvas).toHaveCount(1);

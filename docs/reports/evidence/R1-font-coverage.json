@@ -1,0 +1,56 @@
+{
+  "task": "R1-01",
+  "fontTools": "4.65.0",
+  "fonts": [
+    {
+      "file": "src/app/fonts/be-vietnam-pro-400-normal.ttf",
+      "checked_characters": 154,
+      "missing": [],
+      "weight": 400,
+      "italic": false,
+      "bytes": 120228
+    },
+    {
+      "file": "src/app/fonts/be-vietnam-pro-500-normal.ttf",
+      "checked_characters": 154,
+      "missing": [],
+      "weight": 500,
+      "italic": false,
+      "bytes": 122644
+    },
+    {
+      "file": "src/app/fonts/be-vietnam-pro-600-normal.ttf",
+      "checked_characters": 154,
+      "missing": [],
+      "weight": 600,
+      "italic": false,
+      "bytes": 123064
+    },
+    {
+      "file": "src/app/fonts/be-vietnam-pro-700-normal.ttf",
+      "checked_characters": 154,
+      "missing": [],
+      "weight": 700,
+      "italic": false,
+      "bytes": 126228
+    },
+    {
+      "file": "src/app/fonts/nunito-600-italic.ttf",
+      "checked_characters": 154,
+      "missing": [],
+      "weight": 600,
+      "italic": true,
+      "bytes": 128328
+    },
+    {
+      "file": "src/app/fonts/nunito-600-normal.ttf",
+      "checked_characters": 154,
+      "missing": [],
+      "weight": 600,
+      "italic": false,
+      "bytes": 125536
+    }
+  ],
+  "utf8_nfc_sources_checked": 19,
+  "total_font_bytes": 746028
+}

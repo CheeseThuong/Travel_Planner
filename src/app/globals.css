@@ -22,7 +22,7 @@
 
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
-body { margin: 0; background: var(--background); color: var(--foreground); font-family: Arial, Helvetica, sans-serif; -webkit-font-smoothing: antialiased; }
+body { margin: 0; background: var(--background); color: var(--foreground); font-family: var(--font-body), Arial, sans-serif; -webkit-font-smoothing: antialiased; }
 a, button, input, select { -webkit-tap-highlight-color: transparent; }
 a { text-underline-offset: 4px; }
 button, a, input, select { touch-action: manipulation; }
@@ -30,7 +30,7 @@ button, a, input, select { touch-action: manipulation; }
 ::selection { background: #f9c75f; color: #263b37; }
 .skip-link { position: absolute; left: 1rem; top: -6rem; z-index: 50; padding: .75rem 1rem; border-radius: 1rem; background: var(--foreground); color: #fff; }
 .skip-link:focus { top: 1rem; }
-.display-type { font-family: Georgia, "Times New Roman", serif; letter-spacing: -.055em; }
+.display-type { font-family: var(--font-display), Arial, sans-serif; font-weight: 600; letter-spacing: -.015em; line-height: 1.2; word-break: normal; overflow-wrap: normal; }
 .page-shell { margin-inline: auto; width: min(1200px, calc(100% - 2.5rem)); }
 .eyebrow { font-size: .72rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; }
 
