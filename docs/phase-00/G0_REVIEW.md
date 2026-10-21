@@ -27,4 +27,4 @@ Application typecheck/lint/unit/integration/e2e/build: NOT RUN because no app/pa
 
 All 30 records are draft and source-reviewed only, with unknown hours and unverified entrances/access. P02 must preserve provenance/publication boundaries; P03 must implement attribution and not advertise source uncertainty as verified facts. P08 must finalize controller identity/contact, retention/backups/guest account lifecycle, billing-region-specific terms, numeric budgets, legal notices and real security/deletion/restore checks.
 
-No installed packages, keys, real Maps API calls, commits, remote writes or deployment. Existing technology decisions unchanged. Working tree contains only this task series' documented changes.
+No installed packages, keys, real Maps API calls, remote writes or deployment. Local implementation commit `cc723ee` contains P00-01..04; subsequent evidence bookkeeping may be a separate task-ID commit. Existing technology decisions unchanged.

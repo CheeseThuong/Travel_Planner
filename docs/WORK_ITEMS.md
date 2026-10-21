@@ -87,11 +87,11 @@ For each checked item, add a line to **Evidence log** with: task ID, commit hash
 
 | Task ID | Status | Commit/PR | Commands & exit codes | AC/Test IDs | Blockers | Verified date |
 |---|---|---|---|---|---|---|
-| P00-01 | DONE | Uncommitted; baseline 7bb3f3e | `node scripts/verify-p00-01.mjs` -> 0; 178 checks after ADR-0011; [report/log](reports/P00-01.md) | P00-01-AC01..04 PASS; runtime NOT RUN | G0 review pending | 2026-10-21 |
-| P00-02 | DONE | Uncommitted; baseline 7bb3f3e | `node scripts/verify-p00-02.mjs` -> 0; [report/log](reports/P00-02.md) | P00-02-AC01..03 PASS | G0 policy/rights/clarifications pending | 2026-10-21 |
-| P00-03 | DONE | Uncommitted; baseline 7bb3f3e | `node scripts/verify-p00-03.mjs` -> 0; primary-source web review; [report](reports/P00-03.md) | P00-03-AC01..03 PASS (technical scope) | Runtime/legal P08 review NOT RUN | 2026-10-21 |
-| P00-04 | DONE | Uncommitted; baseline 7bb3f3e | `python scripts/build-editorial-seed.py` -> 0; `node scripts/verify-p00-04.mjs` -> 0; [report/log](reports/P00-04.md) | P00-04-AC01..03 PASS (content design) | G0 ODbL strategy acceptance pending; all records draft | 2026-10-21 |
-| G0 | NOT VERIFIED | Uncommitted | Technical checks PASS; [review packet](phase-00/G0_REVIEW.md) | Owner design/license acceptance pending | No Phase 01 work allowed | 2026-10-21 |
+| P00-01 | DONE | cc723ee | `node scripts/verify-p00-01.mjs` -> 0; 178 checks after ADR-0011; [report/log](reports/P00-01.md) | P00-01-AC01..04 PASS; runtime NOT RUN | G0 review pending | 2026-10-21 |
+| P00-02 | DONE | cc723ee | `node scripts/verify-p00-02.mjs` -> 0; [report/log](reports/P00-02.md) | P00-02-AC01..03 PASS | G0 catalog-license acceptance pending | 2026-10-21 |
+| P00-03 | DONE | cc723ee | `node scripts/verify-p00-03.mjs` -> 0; primary-source web review; [report](reports/P00-03.md) | P00-03-AC01..03 PASS (technical scope) | Runtime/legal P08 review NOT RUN | 2026-10-21 |
+| P00-04 | DONE | cc723ee | `python scripts/build-editorial-seed.py` -> 0; `node scripts/verify-p00-04.mjs` -> 0; [report/log](reports/P00-04.md) | P00-04-AC01..03 PASS (content design) | G0 ODbL strategy acceptance pending; all records draft | 2026-10-21 |
+| G0 | NOT VERIFIED | cc723ee (review artifacts) | Technical checks PASS; [review packet](phase-00/G0_REVIEW.md) | Owner design/license acceptance pending | No Phase 01 work allowed | 2026-10-21 |
 
 ## Known blockers / decisions
 
