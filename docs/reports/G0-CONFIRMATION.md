@@ -1,6 +1,7 @@
 # G0 — Explicit approval and regression evidence
 Date: 2026-10-21 (Asia/Saigon)
 Status: PASS
+Local implementation/evidence commit: `09900f6`. No push/deployment.
 
 User confirmed the concrete G0/ODbL review packet and instructed continued building plus Đà Lạt in the current chat. No renewed permission requested. ADR-0012 accepted; ADR-0013 records the explicit Đà Lạt scope amendment and single-destination trip boundary. P00-05 content extension is independent of scaffold and required before Đà Lạt seed/publication; it preserves the approved provenance/license design.
 

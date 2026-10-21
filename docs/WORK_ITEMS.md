@@ -92,9 +92,9 @@ For each checked item, add a line to **Evidence log** with: task ID, commit hash
 | P00-02 | DONE | cc723ee | `node scripts/verify-p00-02.mjs` -> 0; [report/log](reports/P00-02.md) | P00-02-AC01..03 PASS | G0 catalog-license acceptance pending | 2026-10-21 |
 | P00-03 | DONE | cc723ee | `node scripts/verify-p00-03.mjs` -> 0; primary-source web review; [report](reports/P00-03.md) | P00-03-AC01..03 PASS (technical scope) | Runtime/legal P08 review NOT RUN | 2026-10-21 |
 | P00-04 | DONE | cc723ee | `python scripts/build-editorial-seed.py` -> 0; `node scripts/verify-p00-04.mjs` -> 0; [report/log](reports/P00-04.md) | P00-04-AC01..03 PASS (content design) | G0 ODbL strategy acceptance pending; all records draft | 2026-10-21 |
-| G0 | PASS | Confirmation changes in current task commit; baseline cc723ee | Four validators rerun -> 0; [confirmation](reports/G0-CONFIRMATION.md), user acceptance | G0 scope/license accepted | Later gates still required | 2026-10-21 |
-| P00-05 | DONE | Current task commit (record after commit) | `python scripts/build-da-lat-seed.py` -> 0; `node scripts/verify-p00-05.mjs` -> 0; [report](reports/P00-05.md) | AC01..03 PASS; 30 drafts, 18 negatives, city separation | Publication/access/hours not verified | 2026-10-21 |
-| P01-01 | BLOCKED | Current task commit (record after commit) | typecheck/lint/build/smoke -> 0; full audit -> 1; [report](reports/P01-01.md) | AC01..03 PASS; AC04 FAIL | Unpatched braces dev-tool chain; ESLint9 EOL / React plugin no10 peers | 2026-10-21 |
+| G0 | PASS | 09900f6; baseline cc723ee | Four validators rerun -> 0; [confirmation](reports/G0-CONFIRMATION.md), user acceptance | G0 scope/license accepted | Later gates still required | 2026-10-21 |
+| P00-05 | DONE | 09900f6 | `python scripts/build-da-lat-seed.py` -> 0; `node scripts/verify-p00-05.mjs` -> 0; [report](reports/P00-05.md) | AC01..03 PASS; 30 drafts, 18 negatives, city separation | Publication/access/hours not verified | 2026-10-21 |
+| P01-01 | BLOCKED | 09900f6 | typecheck/lint/build/smoke -> 0; full audit -> 1; [report](reports/P01-01.md) | AC01..03 PASS; AC04 FAIL | Unpatched braces dev-tool chain; ESLint9 EOL / React plugin no10 peers | 2026-10-21 |
 
 ## Known blockers / decisions
 
