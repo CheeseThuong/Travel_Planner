@@ -1,0 +1,15 @@
+{
+  "scope": "Aggregate all emitted static chunks across every route; NOT initial route payload or a Lighthouse measurement",
+  "totals": {
+    "js": {
+      "files": 15,
+      "bytes": 1527885,
+      "gzipBytes": 440192
+    },
+    "css": {
+      "files": 1,
+      "bytes": 18761,
+      "gzipBytes": 4568
+    }
+  }
+}

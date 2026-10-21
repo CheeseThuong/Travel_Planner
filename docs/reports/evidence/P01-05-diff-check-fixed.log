@@ -1,0 +1,11 @@
+git : warning: in the working copy of '.gitignore', LF will be replaced by CRLF the next time Git touches it
+At line:2 char:1
++ git diff --check *> docs/reports/evidence/P01-05-diff-check-fixed.log ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (warning: in the... Git touches it:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+
+warning: in the working copy of 'eslint.config.mjs', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'package-lock.json', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'package.json', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/app/page.tsx', LF will be replaced by CRLF the next time Git touches it

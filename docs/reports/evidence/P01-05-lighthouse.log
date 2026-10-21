@@ -1,0 +1,22 @@
+node : node:internal/modules/run_main:107
+At line:2 char:1
++ node scripts/measure-demo.mjs > docs/reports/evidence/P01-05-lighthou ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (node:internal/modules/run_main:107:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+
+    triggerUncaughtException(
+    ^
+
+[TypeError: Failed to fetch browser webSocket URL from http://127.0.0.1:62623/json/version: fetch failed] {
+  [cause]: Error: connect ECONNREFUSED 127.0.0.1:62623
+      at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1864:16) {
+    errno: -4078,
+    code: 'ECONNREFUSED',
+    syscall: 'connect',
+    address: '127.0.0.1',
+    port: 62623
+  }
+}
+
+Node.js v24.19.0

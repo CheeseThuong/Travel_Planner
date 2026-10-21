@@ -1,0 +1,16 @@
+
+> vietnam-playful-travel-planner@0.1.0 test:integration
+> node scripts/smoke-scaffold.mjs
+
+PASS: /: HTTP 200, expected content, lang=vi
+PASS: /destinations/nha-trang: HTTP 200, expected content, lang=vi
+PASS: /destinations/da-lat: HTTP 200, expected content, lang=vi
+PASS: /destinations/unsupported-city: HTTP 404, expected content, lang=vi
+PASS: /plan/new: HTTP 200, expected content, lang=vi
+PASS: /trips/not-an-owner-credential: HTTP 200, expected content, lang=vi
+PASS: /open: HTTP 200, expected content, lang=vi
+PASS: /shared: HTTP 200, expected content, lang=vi
+PASS: /privacy: HTTP 200, expected content, lang=vi
+PASS: /terms: HTTP 200, expected content, lang=vi
+PASS: /missing-route: HTTP 404, expected content, lang=vi
+Scaffold HTTP smoke PASS. No browser, cloud ownership, itinerary, save or share implementation is verified.

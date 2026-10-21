@@ -1,0 +1,22 @@
+
+> vietnam-playful-travel-planner@0.1.0 test:unit
+> node --test tests/tooling/lint-patch.test.mjs
+
+✔ all upstream rule implementations and config exports are byte-identical (4.5459ms)
+✔ enabled rule IDs, severities, options and settings match before patch (1286.1393ms)
+✔ root scanner preserves literals, brace sets, globstar, arrays and Windows separators (7.2244ms)
+✔ pathological glob inputs fail explicitly before recursive parsing (0.3956ms)
+✔ Next image rule violation is still detected (134.6174ms)
+✔ React duplicate props violation is still detected (21.0245ms)
+✔ React list keys violation is still detected (20.9046ms)
+✔ accessibility violation is still detected (20.5816ms)
+✔ TypeScript violation is still detected (13.6338ms)
+✔ hooks violation is still detected (33.7548ms)
+ℹ tests 10
+ℹ suites 0
+ℹ pass 10
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1813.7879

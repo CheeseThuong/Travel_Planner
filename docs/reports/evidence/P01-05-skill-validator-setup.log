@@ -1,0 +1,14 @@
+Collecting PyYAML==6.0.3
+  Downloading pyyaml-6.0.3-cp313-cp313-win_amd64.whl.metadata (2.4 kB)
+Downloading pyyaml-6.0.3-cp313-cp313-win_amd64.whl (154 kB)
+Installing collected packages: PyYAML
+Successfully installed PyYAML-6.0.3
+python :
+At line:2 char:1
++ python -m pip install --target .tools/python PyYAML==6.0.3 > docs/rep ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+
+[notice] A new release of pip is available: 26.2.1 -> 26.2.2
+[notice] To update, run: python.exe -m pip install --upgrade pip

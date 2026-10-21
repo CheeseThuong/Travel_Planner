@@ -13,25 +13,39 @@
     "typecheck": "tsc --noEmit",
     "lint": "eslint . --max-warnings=0",
     "test:content": "node scripts/verify-p00-01.mjs && node scripts/verify-p00-02.mjs && node scripts/verify-p00-03.mjs && node scripts/verify-p00-04.mjs && node scripts/verify-p00-05.mjs",
-    "test:smoke": "node scripts/smoke-scaffold.mjs"
+    "test:smoke": "node scripts/smoke-scaffold.mjs",
+    "test:unit": "node --test tests/tooling/lint-patch.test.mjs",
+    "test:integration": "node scripts/smoke-scaffold.mjs",
+    "test:e2e": "playwright test --config playwright.demo.config.mjs"
   },
   "dependencies": {
     "@radix-ui/react-slot": "1.5.0",
     "class-variance-authority": "0.7.1",
     "clsx": "2.1.1",
+    "gsap": "3.15.0",
+    "motion": "14.4.0",
     "next": "16.4.2",
     "react": "19.3.1",
     "react-dom": "19.3.1",
-    "tailwind-merge": "3.7.0"
+    "tailwind-merge": "3.7.0",
+    "three": "0.186.1"
+  },
+  "overrides": {
+    "@next/eslint-plugin-next": "file:./vendor/eslint-plugin-next"
   },
   "devDependencies": {
+    "@eslint-community/eslint-utils": "4.9.1",
+    "@playwright/test": "1.64.1",
     "@tailwindcss/postcss": "4.3.3",
     "@types/node": "24.19.2",
     "@types/react": "19.3.0",
     "@types/react-dom": "19.3.0",
+    "@types/three": "0.186.0",
     "eslint": "9.39.5",
     "eslint-config-next": "16.4.2",
+    "lighthouse": "13.5.0",
     "tailwindcss": "4.3.3",
+    "tinyglobby": "0.2.17",
     "typescript": "6.0.3"
   }
 }

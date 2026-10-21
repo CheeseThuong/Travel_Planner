@@ -854,3 +854,7 @@ Không gửi tọa độ cụ thể, tên khách sạn, share tokens hoặc URL 
 - Google Maps URLs: https://developers.google.com/maps/documentation/urls/get-started
 
 > Đây là baseline triển khai, không phải chứng nhận compliance hoặc SLA. Giá, điều khoản, API field, giới hạn cần được đối chiếu lại trước lúc bật production. Không có bất cứ test hay source code nào được tuyên bố PASS trong tài liệu này: tất cả đang chờ Coding Agent triển khai và xác minh.
+
+## User-requested Phase01 preview amendment (2026-10-21)
+
+[ADR-0015](adr/ADR-0015.md) adds independent P01-05: bounded local Three.js/GSAP/Motion demo, skills and measured browser preview after scoped security correction. This explicit current request does not advance the core phase or complete P07; G1 remains FAIL on support/baseline tasks. Data/API/engine contracts unchanged. [Execution evidence](reports/P01-05.md).

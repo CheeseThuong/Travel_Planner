@@ -1,0 +1,19 @@
+npm.cmd : npm warn deprecated @opentelemetry/sdk-trace-base@2.12.0: Use @opentelemetry/sdk-trace package
+At line:4 char:1
++ npm.cmd install --save-dev --save-exact @types/three@0.186.0 @playwri ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (npm warn deprec...k-trace package:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+
+
+added 112 packages, changed 1 package, and audited 475 packages in 49s
+
+160 packages are looking for funding
+  run `npm fund` for details
+
+found 0 vulnerabilities
+npm warn allow-scripts 1 package has install scripts not yet covered by allowScripts:
+npm warn allow-scripts   unrs-resolver@1.12.2 (postinstall: node postinstall.js)
+npm warn allow-scripts
+npm warn allow-scripts Run `npm approve-scripts --allow-scripts-pending` to review, or `npm approve-scripts <pkg>` to
+allow.

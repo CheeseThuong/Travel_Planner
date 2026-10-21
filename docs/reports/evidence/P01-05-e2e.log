@@ -1,0 +1,39 @@
+
+> vietnam-playful-travel-planner@0.1.0 test:e2e
+> playwright test --config playwright.demo.config.mjs
+
+npm.cmd : [WebServer] (node:25524) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+At line:2 char:1
++ npm.cmd run test:e2e > docs/reports/evidence/P01-05-e2e.log 2>&1
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: ([WebServer] (no... env being set.:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 12 tests using 1 worker
+
+(node:12892) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok  1 [desktop] › tests\demo\postcard.spec.mjs:3:1 › three local pages render without errors or horizontal overflow (842ms)
+  x   2 [desktop] › tests\demo\postcard.spec.mjs:15:1 › 3D is lazy, renders, changes theme, pauses offscreen and disposes on stop (7.0s)
+(node:48348) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  x   3 [desktop] › tests\demo\postcard.spec.mjs:44:1 › reduced motion blocks 3D and preference changes stop a running scene (5.4s)
+(node:20648) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok  4 [desktop] › tests\demo\postcard.spec.mjs:59:1 › no WebGL keeps the readable SVG fallback and navigation (1.3s)
+  ok  5 [desktop] › tests\demo\postcard.spec.mjs:73:1 › without JavaScript core text and links remain usable (250ms)
+  ok  6 [desktop] › tests\demo\postcard.spec.mjs:84:1 › keyboard can reach and activate the optional demo control (269ms)
+(node:3328) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok  7 [mobile] › tests\demo\postcard.spec.mjs:3:1 › three local pages render without errors or horizontal overflow (639ms)
+  x   8 [mobile] › tests\demo\postcard.spec.mjs:15:1 › 3D is lazy, renders, changes theme, pauses offscreen and disposes on stop (7.0s)
+(node:39592) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  x   9 [mobile] › tests\demo\postcard.spec.mjs:44:1 › reduced motion blocks 3D and preference changes stop a running scene (5.4s)
+(node:33804) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok 10 [mobile] › tests\demo\postcard.spec.mjs:59:1 › no WebGL keeps the readable SVG fallback and navigation (1.3s)
+  ok 11 [mobile] › tests\demo\postcard.spec.mjs:73:1 › without JavaScript core text and links remain usable (259ms)
+  ok 12 [mobile] › tests\demo\postcard.spec.mjs:84:1 › keyboard can reach and activate the optional demo control (266ms)

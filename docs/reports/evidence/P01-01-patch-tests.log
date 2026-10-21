@@ -1,0 +1,45 @@
+✔ all upstream rule implementations and config exports are byte-identical (4.1131ms)
+✔ enabled rule IDs, severities, options and settings match before patch (935.7834ms)
+✖ root scanner preserves literals, brace sets, globstar, arrays and Windows separators (7.0422ms)
+✔ pathological glob inputs fail explicitly before recursive parsing (0.5045ms)
+✔ Next image rule violation is still detected (163.1973ms)
+✔ React duplicate props violation is still detected (14.6077ms)
+✔ React list keys violation is still detected (18.6969ms)
+✔ accessibility violation is still detected (20.7862ms)
+✔ TypeScript violation is still detected (15.7152ms)
+✔ hooks violation is still detected (30.0912ms)
+ℹ tests 10
+ℹ suites 0
+ℹ pass 9
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1397.4251
+
+✖ failing tests:
+
+test at tests\tooling\lint-patch.test.mjs:31:1
+✖ root scanner preserves literals, brace sets, globstar, arrays and Windows separators (7.0422ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+
+    [
+  +   '.tools/lint-fixture-zJ7mmI/apps/one'
+  -   'D:/Projects/travel_plan/.tools/lint-fixture-zJ7mmI/apps/one'
+    ]
+
+      at TestContext.<anonymous> (file:///D:/Projects/travel_plan/tests/tooling/lint-patch.test.mjs:38:12)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: [ '.tools/lint-fixture-zJ7mmI/apps/one' ],
+    expected: [ 'D:/Projects/travel_plan/.tools/lint-fixture-zJ7mmI/apps/one' ],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }

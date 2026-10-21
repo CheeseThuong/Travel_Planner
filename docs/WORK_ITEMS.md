@@ -2,7 +2,7 @@
 
 > Initial state as of 2026-10-21: **NONE IMPLEMENTED, NONE TESTED**. All gates are `NOT VERIFIED`.
 > Update `[ ]` -> `[x]` only after verifying tests and recording evidence, not merely writing code.
-> Current execution state: P00-01..05 DONE; G0 PASS after user confirmation 2026-10-21 and validator rerun. P01-01 BLOCKED by unpatched lint dependency/support issues; G1 FAIL. No dependent task or later phase started. Baseline statement above describes the initial state, not current results.
+> Current execution state: P00-01..05 DONE; G0 PASS after user confirmation 2026-10-21 and validator rerun. P01-01 BLOCKED by ESLint support; scoped security patch and requested preview DONE, full audit0; G1 FAIL. No dependent task or later phase started. Baseline statement above describes the initial state, not current results.
 
 ## Task tracker rules
 
@@ -17,13 +17,15 @@ For each checked item, add a line to **Evidence log** with: task ID, commit hash
 - [x] **G0** Gate approval. Status: PASS; [review packet](phase-00/G0_REVIEW.md), user confirmation 2026-10-21, four document/content checks rerun exit 0 (G0-confirmed logs). No release/deployment approval inferred.
 - [x] **P00-05** Đà Lạt editorial catalog extension. Status: DONE (content design). Depends: G0, P00-04. PARALLEL-OK with P01 scaffold; required before Đà Lạt P02 seed/P03 catalog. Verify: 30 sourced drafts, rights/provenance, schema/18 negative checks, deterministic rebuild and city separation PASS. [Report](reports/P00-05.md), [scope ADR](adr/ADR-0013.md).
 
-## PHASE 01 — Scaffold and CI — Gate G1 FAIL (dependency security/support)
+## PHASE 01 — Scaffold and CI — Gate G1 FAIL (toolchain support / remaining baseline)
 
-- [ ] **P01-01** Next.js TS strict, Tailwind, shadcn, route skeleton. Status: BLOCKED. Depends: G0 PASS. Typecheck/lint/build/11-route HTTP smoke PASS; full npm audit FAIL (five high entries, unpatched braces chain); ESLint9 EOL / React plugin lacks10 peer support. Evidence/corrections: [report](reports/P01-01.md), [ADR-0014](adr/ADR-0014.md).
+- [ ] **P01-01** Next.js TS strict, Tailwind, shadcn, route skeleton. Status: BLOCKED. Depends: G0 PASS. Typecheck/lint/build/11-route HTTP smoke PASS; full npm audit now PASS (zero vulnerabilities after P01-01-FIX); ESLint9 EOL / React plugin lacks10 peer support remains unresolved. Evidence/corrections: [report](reports/P01-01.md), [ADR-0014](adr/ADR-0014.md).
+- [x] **P01-01-FIX** Scoped security correction. Status: DONE. Depends: G0; correction within P01-01. Full audit0, ten rule/config/helper regression tests PASS; parent remains BLOCKED on support. [Report](reports/P01-01-FIX.md), [ADR-0015](adr/ADR-0015.md).
+- [x] **P01-05** Explicitly requested local motion/performance preview. Status: DONE. Depends: G0 PASS and verified P01-01-FIX; PARALLEL-OK independent Phase01 extension per ADR-0015. Three.js/GSAP/Motion skills applied, 12 browser checks PASS, measured three routes and active3D, local browser opened. [Report](reports/P01-05.md). Does not complete P07 or permit P02+.
 - [ ] **P01-02** Vitest, Testing Library, Playwright and deterministic fixtures. Depends: P01-01. Tests: fixture smoke + e2e hello route.
 - [ ] **P01-03** Domain and provider adapter interfaces; no provider SDK in domain. Depends: P01-01. Tests: package boundary/lint constraint.
 - [ ] **P01-04** Env schema validation, request ID, redaction baseline, feature flags and CI pipeline. Depends: P01-01. Tests: missing secret behavior, no secret in build/client.
-- [ ] **G1** Gate approval. Status: FAIL — P01-01 dependency security/support blocked; remaining tasks/CI NOT RUN. Verify: build/typecheck/lint/unit pipeline green in CI; cannot infer CI from local checks.
+- [ ] **G1** Gate approval. Status: FAIL — P01-01 support blocked; remaining baseline tasks/CI NOT RUN. Scoped audit/security tests and demo checks PASS. Verify: build/typecheck/lint/unit pipeline green in CI; cannot infer CI from local checks.
 
 ## PHASE 02 — PostgreSQL, Auth and permissions — Gate G2 NOT VERIFIED
 
@@ -94,11 +96,13 @@ For each checked item, add a line to **Evidence log** with: task ID, commit hash
 | P00-04 | DONE | cc723ee | `python scripts/build-editorial-seed.py` -> 0; `node scripts/verify-p00-04.mjs` -> 0; [report/log](reports/P00-04.md) | P00-04-AC01..03 PASS (content design) | G0 ODbL strategy acceptance pending; all records draft | 2026-10-21 |
 | G0 | PASS | 09900f6; baseline cc723ee | Four validators rerun -> 0; [confirmation](reports/G0-CONFIRMATION.md), user acceptance | G0 scope/license accepted | Later gates still required | 2026-10-21 |
 | P00-05 | DONE | 09900f6 | `python scripts/build-da-lat-seed.py` -> 0; `node scripts/verify-p00-05.mjs` -> 0; [report](reports/P00-05.md) | AC01..03 PASS; 30 drafts, 18 negatives, city separation | Publication/access/hours not verified | 2026-10-21 |
-| P01-01 | BLOCKED | 09900f6 | typecheck/lint/build/smoke -> 0; full audit -> 1; [report](reports/P01-01.md) | AC01..03 PASS; AC04 FAIL | Unpatched braces dev-tool chain; ESLint9 EOL / React plugin no10 peers | 2026-10-21 |
+| P01-01 | BLOCKED | 09900f6; see current corrections | typecheck/lint/build/smoke -> 0; initial audit -> 1, corrected full audit -> 0; [report](reports/P01-01.md) | AC01..03 PASS; AC04 FAIL | Braces chain corrected by P01-01-FIX; ESLint9 EOL / React plugin no10 peers remains | 2026-10-21 |
+| P01-01-FIX | DONE | current task diff; hash recorded in report after commit | unit10/typecheck/lint/content/build/HTTP/audit -> 0; [report](reports/P01-01-FIX.md) | AC-FIX01..04 PASS | Parent support unresolved | 2026-10-21 |
+| P01-05 | DONE | current task diff; hash recorded in report after commit | e2e12/Lighthouse3/active3D -> 0; browser opened; [report](reports/P01-05.md) | AC01..05 PASS (local preview scope) | G1 FAIL; G7 NOT VERIFIED | 2026-10-21 |
 
 ## Known blockers / decisions
 
-- P01-01 security/support blocker: [ADR-0014](adr/ADR-0014.md), [full audit](reports/evidence/P01-01-audit-final.json). No audit exception, force downgrade or lint weakening approved. P01-02..04 and Phase02+ cannot start while this dependency is blocked. Production-only audit PASS does not replace full audit.
+- P01-01 support blocker (braces security chain fixed, full audit0; [correction](reports/P01-01-FIX.md), [ADR-0015](adr/ADR-0015.md)): [ADR-0014](adr/ADR-0014.md), [historical audit](reports/evidence/P01-01-audit-final.json), [current full audit0](reports/evidence/P01-05-audit-final-retry.json). No audit exception, force downgrade or lint weakening approved. P01-02..04 and Phase02+ cannot start while this dependency is blocked. Production-only audit PASS does not replace full audit.
 - User confirmed G0 and requested Đà Lạt; [ADR-0013](adr/ADR-0013.md) records the scoped change. No repeated G0 permission needed.
 
 - User approved task/gate bookkeeping clarification: [ADR-0000](adr/ADR-0000.md). Task DONE requires task evidence; phase progression still requires gate PASS.

@@ -1,0 +1,18 @@
+✔ all upstream rule implementations and config exports are byte-identical (4.3118ms)
+✔ enabled rule IDs, severities, options and settings match before patch (883.2383ms)
+✔ root scanner preserves literals, brace sets, globstar, arrays and Windows separators (7.0035ms)
+✔ pathological glob inputs fail explicitly before recursive parsing (0.3388ms)
+✔ Next image rule violation is still detected (125.8526ms)
+✔ React duplicate props violation is still detected (13.6101ms)
+✔ React list keys violation is still detected (16.168ms)
+✔ accessibility violation is still detected (13.1569ms)
+✔ TypeScript violation is still detected (9.667ms)
+✔ hooks violation is still detected (25.7754ms)
+ℹ tests 10
+ℹ suites 0
+ℹ pass 10
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1273.449

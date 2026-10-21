@@ -1,0 +1,254 @@
+
+> vietnam-playful-travel-planner@0.1.0 test:content
+> node scripts/verify-p00-01.mjs && node scripts/verify-p00-02.mjs && node scripts/verify-p00-03.mjs && node scripts/verify-p00-04.mjs && node scripts/verify-p00-05.mjs
+
+PASS: Master declares 15 FR and 12 BR
+PASS: Traceability has exactly 27 rows
+PASS: FR-001 appears exactly once
+PASS: FR-001 has owner and observable expectation
+PASS: FR-001 has acceptance IDs
+PASS: BASE-001 is defined
+PASS: AC-014 is defined
+PASS: FR-001 has verification task
+PASS: FR-002 appears exactly once
+PASS: FR-002 has owner and observable expectation
+PASS: FR-002 has acceptance IDs
+PASS: BASE-002 is defined
+PASS: FR-002 has verification task
+PASS: FR-003 appears exactly once
+PASS: FR-003 has owner and observable expectation
+PASS: FR-003 has acceptance IDs
+PASS: AC-001 is defined
+PASS: BASE-003 is defined
+PASS: FR-003 has verification task
+PASS: FR-004 appears exactly once
+PASS: FR-004 has owner and observable expectation
+PASS: FR-004 has acceptance IDs
+PASS: BASE-004 is defined
+PASS: AC-005 is defined
+PASS: FR-004 has verification task
+PASS: FR-005 appears exactly once
+PASS: FR-005 has owner and observable expectation
+PASS: FR-005 has acceptance IDs
+PASS: BASE-005 is defined
+PASS: AC-002 is defined
+PASS: FR-005 has verification task
+PASS: FR-006 appears exactly once
+PASS: FR-006 has owner and observable expectation
+PASS: FR-006 has acceptance IDs
+PASS: AC-006 is defined
+PASS: AC-007 is defined
+PASS: FR-006 has verification task
+PASS: FR-007 appears exactly once
+PASS: FR-007 has owner and observable expectation
+PASS: FR-007 has acceptance IDs
+PASS: AC-002 is defined
+PASS: AC-003 is defined
+PASS: AC-004 is defined
+PASS: AC-005 is defined
+PASS: FR-007 has verification task
+PASS: FR-008 appears exactly once
+PASS: FR-008 has owner and observable expectation
+PASS: FR-008 has acceptance IDs
+PASS: BASE-006 is defined
+PASS: AC-002 is defined
+PASS: FR-008 has verification task
+PASS: FR-009 appears exactly once
+PASS: FR-009 has owner and observable expectation
+PASS: FR-009 has acceptance IDs
+PASS: BASE-007 is defined
+PASS: FR-009 has verification task
+PASS: FR-010 appears exactly once
+PASS: FR-010 has owner and observable expectation
+PASS: FR-010 has acceptance IDs
+PASS: AC-008 is defined
+PASS: FR-010 has verification task
+PASS: FR-011 appears exactly once
+PASS: FR-011 has owner and observable expectation
+PASS: FR-011 has acceptance IDs
+PASS: AC-011 is defined
+PASS: AC-013 is defined
+PASS: BASE-008 is defined
+PASS: FR-011 has verification task
+PASS: FR-012 appears exactly once
+PASS: FR-012 has owner and observable expectation
+PASS: FR-012 has acceptance IDs
+PASS: AC-009 is defined
+PASS: AC-010 is defined
+PASS: BASE-009 is defined
+PASS: FR-012 has verification task
+PASS: FR-013 appears exactly once
+PASS: FR-013 has owner and observable expectation
+PASS: FR-013 has acceptance IDs
+PASS: BASE-010 is defined
+PASS: AC-014 is defined
+PASS: FR-013 has verification task
+PASS: FR-014 appears exactly once
+PASS: FR-014 has owner and observable expectation
+PASS: FR-014 has acceptance IDs
+PASS: BASE-011 is defined
+PASS: AC-015 is defined
+PASS: FR-014 has verification task
+PASS: FR-015 appears exactly once
+PASS: FR-015 has owner and observable expectation
+PASS: FR-015 has acceptance IDs
+PASS: BASE-012 is defined
+PASS: AC-012 is defined
+PASS: FR-015 has verification task
+PASS: BR-01 appears exactly once
+PASS: BR-01 has owner and observable expectation
+PASS: BR-01 has acceptance IDs
+PASS: AC-001 is defined
+PASS: BASE-003 is defined
+PASS: BR-01 has verification task
+PASS: BR-02 appears exactly once
+PASS: BR-02 has owner and observable expectation
+PASS: BR-02 has acceptance IDs
+PASS: BASE-013 is defined
+PASS: BR-02 has verification task
+PASS: BR-03 appears exactly once
+PASS: BR-03 has owner and observable expectation
+PASS: BR-03 has acceptance IDs
+PASS: AC-004 is defined
+PASS: BASE-014 is defined
+PASS: BR-03 has verification task
+PASS: BR-04 appears exactly once
+PASS: BR-04 has owner and observable expectation
+PASS: BR-04 has acceptance IDs
+PASS: AC-001 is defined
+PASS: BASE-015 is defined
+PASS: BR-04 has verification task
+PASS: BR-05 appears exactly once
+PASS: BR-05 has owner and observable expectation
+PASS: BR-05 has acceptance IDs
+PASS: AC-003 is defined
+PASS: BASE-016 is defined
+PASS: BR-05 has verification task
+PASS: BR-06 appears exactly once
+PASS: BR-06 has owner and observable expectation
+PASS: BR-06 has acceptance IDs
+PASS: BASE-017 is defined
+PASS: BR-06 has verification task
+PASS: BR-07 appears exactly once
+PASS: BR-07 has owner and observable expectation
+PASS: BR-07 has acceptance IDs
+PASS: BASE-005 is defined
+PASS: BR-07 has verification task
+PASS: BR-08 appears exactly once
+PASS: BR-08 has owner and observable expectation
+PASS: BR-08 has acceptance IDs
+PASS: BASE-007 is defined
+PASS: BR-08 has verification task
+PASS: BR-09 appears exactly once
+PASS: BR-09 has owner and observable expectation
+PASS: BR-09 has acceptance IDs
+PASS: BASE-018 is defined
+PASS: BR-09 has verification task
+PASS: BR-10 appears exactly once
+PASS: BR-10 has owner and observable expectation
+PASS: BR-10 has acceptance IDs
+PASS: AC-012 is defined
+PASS: BASE-012 is defined
+PASS: BR-10 has verification task
+PASS: BR-11 appears exactly once
+PASS: BR-11 has owner and observable expectation
+PASS: BR-11 has acceptance IDs
+PASS: AC-009 is defined
+PASS: AC-010 is defined
+PASS: AC-011 is defined
+PASS: BR-11 has verification task
+PASS: BR-12 appears exactly once
+PASS: BR-12 has owner and observable expectation
+PASS: BR-12 has acceptance IDs
+PASS: BASE-019 is defined
+PASS: BR-12 has verification task
+PASS: GOV-001 has source, owner, proposal and state
+PASS: SCOPE-001 has source, owner, proposal and state
+PASS: API-001 has source, owner, proposal and state
+PASS: API-002 has source, owner, proposal and state
+PASS: ENGINE-001 has source, owner, proposal and state
+PASS: COST-001 has source, owner, proposal and state
+PASS: MAP-001 has source, owner, proposal and state
+PASS: HOTEL-001 has source, owner, proposal and state
+PASS: ACCOUNT-001 has source, owner, proposal and state
+PASS: RIGHTS-001 has source, owner, proposal and state
+PASS: POLICY-001 has source, owner, proposal and state
+PASS: docs/phase-00/PRD_BASELINE.md: local link ../MASTER_PLANNER.md exists
+PASS: docs/phase-00/PRD_BASELINE.md: local link DECISION_REGISTER.md exists
+PASS: docs/phase-00/DECISION_REGISTER.md: local link ../adr/ADR-0000.md exists
+PASS: docs/phase-00/DECISION_REGISTER.md: local link ../adr/ADR-0011.md exists
+PASS: Task completion requires evidence
+PASS: Phase gate prohibition preserved
+PASS: Master agrees with approved governance clarification
+178 document checks PASS. Runtime behavior and G0 approval are NOT VERIFIED.
+PASS: docs/adr/ADR-0001.md: baseline mapping, context, decision, alternatives, trade-offs, validation
+PASS: docs/adr/ADR-0002.md: baseline mapping, context, decision, alternatives, trade-offs, validation
+PASS: docs/adr/ADR-0003.md: baseline mapping, context, decision, alternatives, trade-offs, validation
+PASS: docs/adr/ADR-0004.md: baseline mapping, context, decision, alternatives, trade-offs, validation
+PASS: docs/adr/ADR-0005.md: baseline mapping, context, decision, alternatives, trade-offs, validation
+PASS: docs/adr/ADR-0006.md: baseline mapping, context, decision, alternatives, trade-offs, validation
+PASS: docs/adr/ADR-0007.md: baseline mapping, context, decision, alternatives, trade-offs, validation
+PASS: docs/adr/ADR-0008.md: baseline mapping, context, decision, alternatives, trade-offs, validation
+PASS: docs/adr/ADR-0009.md: baseline mapping, context, decision, alternatives, trade-offs, validation
+PASS: docs/adr/ADR-0010.md: baseline mapping, context, decision, alternatives, trade-offs, validation
+PASS: architecture review: Dependency review
+PASS: architecture review: Build constraints
+PASS: architecture review: Cost-control strategy
+PASS: architecture review: 400 elements
+PASS: architecture review: no SDK, React or Next
+PASS: architecture review: Default external live calls disabled
+PASS: architecture review: G0 NOT VERIFIED
+P00-02 documentation validation PASS. Runtime architecture, policies, licenses and deployment NOT VERIFIED.
+PASS: POL-01 technical review attribution and date
+PASS: POL-02 technical review attribution and date
+PASS: POL-03 technical review attribution and date
+PASS: POL-04 technical review attribution and date
+PASS: POL-05 technical review attribution and date
+PASS: POL-06 technical review attribution and date
+PASS: POL-07 technical review attribution and date
+PASS: policy source present: developers.google.com/maps/documentation/places/web-service/policies
+PASS: policy source present: developers.google.com/maps/documentation/routes/policies
+PASS: policy source present: cloud.google.com/maps-platform/terms/maps-service-terms
+PASS: policy source present: developers.google.com/maps/documentation/urls/get-started
+PASS: PRIVACY_DRAFT.md explicitly unpublished
+PASS: TERMS_DRAFT.md explicitly unpublished
+PASS: technical review scope excludes live/legal approval
+P00-03 document checks PASS. Source inspection recorded in checklist; runtime compliance and G8 release NOT VERIFIED.
+PASS: 30 real-source draft records validate schema subset, unique IDs/slugs/source identities, exact source coordinates/versions, rights files, hours uncertainty and safe original SVG metadata
+PASS: rejects missing image rights
+PASS: rejects invalid latitude
+PASS: rejects invalid longitude
+PASS: rejects short duration
+PASS: rejects false hours verification
+PASS: rejects duplicate identity
+PASS: rejects Google source substitution
+PASS: rejects image traversal
+PASS: rejects invented coordinates
+PASS: rejects fake version
+PASS: rejects too few records
+PASS: rejects unexpected source content
+PASS: rejects premature publication
+PASS: unsupported schema keywords fail closed
+P00-04 content-design validation PASS. Drafts are NOT verified opening hours, entrances, live routes or publication approval.
+PASS: 30 real-source draft records validate schema subset, unique IDs/slugs/source identities, exact source coordinates/versions, rights files, hours uncertainty and safe original SVG metadata
+PASS: rejects wrong city
+PASS: rejects wrong snapshot
+PASS: rejects cross-city source
+PASS: rejects false entrance accuracy
+PASS: rejects missing access uncertainty
+PASS: rejects missing image rights
+PASS: rejects invalid latitude
+PASS: rejects invalid longitude
+PASS: rejects short duration
+PASS: rejects false hours verification
+PASS: rejects duplicate identity
+PASS: rejects Google source substitution
+PASS: rejects image traversal
+PASS: rejects invented coordinates
+PASS: rejects fake version
+PASS: rejects too few records
+PASS: rejects unexpected source content
+PASS: rejects premature publication
+PASS: unsupported schema keywords fail closed
+P00-05 content-design validation PASS. Drafts are NOT verified opening hours, entrances, live routes or publication approval.
+PASS: minimized selected source fields, bounded acquisition evidence and destination separation

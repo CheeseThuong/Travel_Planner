@@ -1,0 +1,18 @@
+
+added 7 packages, removed 1 package, and audited 363 packages in 11s
+
+144 packages are looking for funding
+  run `npm fund` for details
+
+found 0 vulnerabilities
+npm.cmd : npm warn allow-scripts 1 package has install scripts not yet covered by allowScripts:
+At line:2 char:1
++ npm.cmd install --save-exact three@0.186.1 gsap@3.15.0 motion@14.4.0  ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (npm warn allow-...y allowScripts::String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+
+npm warn allow-scripts   unrs-resolver@1.12.2 (postinstall: node postinstall.js)
+npm warn allow-scripts
+npm warn allow-scripts Run `npm approve-scripts --allow-scripts-pending` to review, or `npm approve-scripts <pkg>` to
+allow.

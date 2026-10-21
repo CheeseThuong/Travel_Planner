@@ -10,3 +10,5 @@ test-results/
 *.log
 !docs/reports/evidence/*.log
 .DS_Store
+.tools/
+.preview/
