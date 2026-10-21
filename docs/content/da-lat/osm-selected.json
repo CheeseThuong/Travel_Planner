@@ -1,0 +1,404 @@
+{
+  "query": "[out:json][timeout:25];(\n nwr[\"tourism\"~\"^(attraction|museum|viewpoint|theme_park|zoo|gallery)$\"][\"name\"](11.80,108.25,12.10,108.60);\n nwr[\"leisure\"=\"park\"][\"name\"](11.80,108.25,12.10,108.60);\n nwr[\"amenity\"~\"^(place_of_worship|marketplace)$\"][\"name\"](11.80,108.25,12.10,108.60);\n);out center meta;",
+  "source_url": "https://overpass-api.de/api/interpreter?data=%5Bout%3Ajson%5D%5Btimeout%3A25%5D%3B%28%0A+nwr%5B%22tourism%22~%22%5E%28attraction%7Cmuseum%7Cviewpoint%7Ctheme_park%7Czoo%7Cgallery%29%24%22%5D%5B%22name%22%5D%2811.80%2C108.25%2C12.10%2C108.60%29%3B%0A+nwr%5B%22leisure%22%3D%22park%22%5D%5B%22name%22%5D%2811.80%2C108.25%2C12.10%2C108.60%29%3B%0A+nwr%5B%22amenity%22~%22%5E%28place_of_worship%7Cmarketplace%29%24%22%5D%5B%22name%22%5D%2811.80%2C108.25%2C12.10%2C108.60%29%3B%0A%29%3Bout+center+meta%3B",
+  "license": "ODbL-1.0",
+  "retrieved_on": "2026-10-21",
+  "source_timestamp": "2026-10-21T02:38:04Z",
+  "license_url": "https://opendatacommons.org/licenses/odbl/1-0/",
+  "attribution": "© OpenStreetMap contributors",
+  "elements": [
+    {
+      "type": "relation",
+      "id": 4119185,
+      "version": 3,
+      "timestamp": "2024-07-25T11:17:34Z",
+      "center": {
+        "lat": 11.9434245,
+        "lon": 108.4372121
+      },
+      "source_name": "Chợ Đà Lạt",
+      "source_category": {
+        "amenity": "marketplace"
+      }
+    },
+    {
+      "type": "node",
+      "id": 1152350875,
+      "version": 6,
+      "timestamp": "2023-02-14T05:47:55Z",
+      "lat": 11.9405756,
+      "lon": 108.4599038,
+      "source_name": "Bảo Tàng Lâm Đồng",
+      "source_category": {
+        "tourism": "museum"
+      }
+    },
+    {
+      "type": "node",
+      "id": 1164597191,
+      "version": 4,
+      "timestamp": "2024-04-25T11:32:03Z",
+      "lat": 11.9012375,
+      "lon": 108.4489764,
+      "source_name": "Thác Datanla",
+      "source_category": {
+        "tourism": "attraction"
+      }
+    },
+    {
+      "type": "node",
+      "id": 2706917665,
+      "version": 9,
+      "timestamp": "2026-05-10T04:13:21Z",
+      "lat": 11.8235094,
+      "lon": 108.3349037,
+      "source_name": "Thác Voi",
+      "source_category": {
+        "tourism": "attraction"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4096525696,
+      "version": 5,
+      "timestamp": "2024-04-10T21:25:09Z",
+      "lat": 11.8765192,
+      "lon": 108.4701041,
+      "source_name": "Thác Prenn",
+      "source_category": {
+        "tourism": "attraction"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4135863789,
+      "version": 5,
+      "timestamp": "2023-11-18T07:34:40Z",
+      "lat": 11.9772623,
+      "lon": 108.4474339,
+      "source_name": "XQ Da Lat Historical Village",
+      "source_category": {
+        "tourism": "museum"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4368051989,
+      "version": 5,
+      "timestamp": "2025-03-09T05:06:55Z",
+      "lat": 11.8828709,
+      "lon": 108.4112222,
+      "source_name": "Đường hầm điêu khắc",
+      "source_category": {
+        "tourism": "attraction"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5274759821,
+      "version": 3,
+      "timestamp": "2024-02-17T05:40:35Z",
+      "lat": 11.9300468,
+      "lon": 108.4296735,
+      "source_name": "Dinh III Bảo Đại",
+      "source_category": {
+        "tourism": "attraction"
+      }
+    },
+    {
+      "type": "relation",
+      "id": 17877171,
+      "version": 2,
+      "timestamp": "2024-11-01T10:55:04Z",
+      "center": {
+        "lat": 11.9416078,
+        "lon": 108.4544798
+      },
+      "source_name": "Ga Đà Lạt",
+      "source_category": {
+        "tourism": "attraction"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5666385423,
+      "version": 1,
+      "timestamp": "2018-06-05T10:39:27Z",
+      "lat": 11.9461533,
+      "lon": 108.5130702,
+      "source_name": "Vườn Hoa Cẩm Tú Cầu",
+      "source_category": {
+        "tourism": "viewpoint"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11365555079,
+      "version": 1,
+      "timestamp": "2023-11-21T04:47:49Z",
+      "lat": 11.9156425,
+      "lon": 108.3392258,
+      "source_name": "Mongo Land Dalat",
+      "source_category": {
+        "tourism": "attraction"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11598941137,
+      "version": 1,
+      "timestamp": "2024-02-08T17:32:06Z",
+      "lat": 11.8995542,
+      "lon": 108.4372983,
+      "source_name": "Hồ Tuyền Lâm",
+      "source_category": {
+        "tourism": "viewpoint"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11916349146,
+      "version": 1,
+      "timestamp": "2024-05-18T18:08:34Z",
+      "lat": 11.9502809,
+      "lon": 108.4499447,
+      "source_name": "Vườn hoa thành phố Đà Lạt",
+      "source_category": {
+        "leisure": "park"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11916396494,
+      "version": 1,
+      "timestamp": "2024-05-18T18:35:31Z",
+      "lat": 11.8822454,
+      "lon": 108.5574775,
+      "source_name": "Đồi trà cầu đất",
+      "source_category": {
+        "leisure": "park"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11918260737,
+      "version": 2,
+      "timestamp": "2026-03-07T16:29:31Z",
+      "lat": 12.0031002,
+      "lon": 108.370818,
+      "source_name": "Suối vàng",
+      "source_category": {
+        "leisure": "park"
+      }
+    },
+    {
+      "type": "way",
+      "id": 99660966,
+      "version": 9,
+      "timestamp": "2026-07-08T16:57:33Z",
+      "center": {
+        "lat": 11.9389404,
+        "lon": 108.4364221
+      },
+      "source_name": "Công viên Ánh Sáng",
+      "source_category": {
+        "leisure": "park"
+      }
+    },
+    {
+      "type": "way",
+      "id": 99661160,
+      "version": 6,
+      "timestamp": "2025-09-04T04:16:26Z",
+      "center": {
+        "lat": 11.9479742,
+        "lon": 108.4523221
+      },
+      "source_name": "Vườn hoa Hữu nghị Việt-Nhật",
+      "source_category": {
+        "leisure": "park"
+      }
+    },
+    {
+      "type": "way",
+      "id": 232458166,
+      "version": 6,
+      "timestamp": "2026-02-07T13:56:04Z",
+      "center": {
+        "lat": 11.9569302,
+        "lon": 108.4284141
+      },
+      "source_name": "Chùa Linh Quang",
+      "source_category": {
+        "amenity": "place_of_worship"
+      }
+    },
+    {
+      "type": "way",
+      "id": 361692265,
+      "version": 4,
+      "timestamp": "2025-06-03T01:54:24Z",
+      "center": {
+        "lat": 11.9496624,
+        "lon": 108.430137
+      },
+      "source_name": "Nhà thờ Domaine de Marie",
+      "source_category": {
+        "amenity": "place_of_worship"
+      }
+    },
+    {
+      "type": "way",
+      "id": 361851927,
+      "version": 5,
+      "timestamp": "2025-08-08T03:14:04Z",
+      "center": {
+        "lat": 11.9502595,
+        "lon": 108.4370232
+      },
+      "source_name": "Chùa Linh Sơn",
+      "source_category": {
+        "amenity": "place_of_worship"
+      }
+    },
+    {
+      "type": "way",
+      "id": 452519411,
+      "version": 9,
+      "timestamp": "2026-07-02T01:38:02Z",
+      "center": {
+        "lat": 11.9361571,
+        "lon": 108.4377041
+      },
+      "source_name": "Nhà thờ Chánh tòa",
+      "source_category": {
+        "amenity": "place_of_worship"
+      }
+    },
+    {
+      "type": "way",
+      "id": 473547277,
+      "version": 3,
+      "timestamp": "2026-05-18T10:15:44Z",
+      "center": {
+        "lat": 11.9640103,
+        "lon": 108.4438625
+      },
+      "source_name": "Thiền viện Vạn Hạnh",
+      "source_category": {
+        "amenity": "place_of_worship"
+      }
+    },
+    {
+      "type": "way",
+      "id": 473771564,
+      "version": 11,
+      "timestamp": "2026-03-29T15:58:48Z",
+      "center": {
+        "lat": 11.9853753,
+        "lon": 108.4505951
+      },
+      "source_name": "Khu du lịch Thung Lũng Tình Yêu",
+      "source_category": {
+        "leisure": "park"
+      }
+    },
+    {
+      "type": "way",
+      "id": 515288602,
+      "version": 3,
+      "timestamp": "2025-06-03T01:40:30Z",
+      "center": {
+        "lat": 11.9438798,
+        "lon": 108.4220243
+      },
+      "source_name": "Nhà thờ Cam Ly",
+      "source_category": {
+        "amenity": "place_of_worship"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1355582224,
+      "version": 2,
+      "timestamp": "2026-02-07T14:33:26Z",
+      "center": {
+        "lat": 11.8244076,
+        "lon": 108.3336066
+      },
+      "source_name": "Linh Ẩn Tự",
+      "source_category": {
+        "amenity": "place_of_worship"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1509937793,
+      "version": 1,
+      "timestamp": "2026-05-06T19:21:33Z",
+      "center": {
+        "lat": 12.0265442,
+        "lon": 108.3618731
+      },
+      "source_name": "Làng Cu Lần",
+      "source_category": {
+        "leisure": "park",
+        "tourism": "attraction"
+      }
+    },
+    {
+      "type": "relation",
+      "id": 7758125,
+      "version": 2,
+      "timestamp": "2024-08-12T13:43:35Z",
+      "center": {
+        "lat": 11.9521331,
+        "lon": 108.4706527
+      },
+      "source_name": "Nhà lao thiếu nhi Đà Lạt",
+      "source_category": {
+        "tourism": "museum"
+      }
+    },
+    {
+      "type": "relation",
+      "id": 20657435,
+      "version": 1,
+      "timestamp": "2026-05-07T18:18:30Z",
+      "center": {
+        "lat": 11.9345615,
+        "lon": 108.4306807
+      },
+      "source_name": "Crazy House",
+      "source_category": {
+        "tourism": "museum"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4259838689,
+      "version": 2,
+      "timestamp": "2017-02-16T10:04:36Z",
+      "lat": 11.959179,
+      "lon": 108.42486,
+      "source_name": "Tịnh xá Ngọc Đà",
+      "source_category": {
+        "amenity": "place_of_worship"
+      }
+    },
+    {
+      "type": "way",
+      "id": 971577581,
+      "version": 2,
+      "timestamp": "2024-07-20T09:00:59Z",
+      "center": {
+        "lat": 11.9471271,
+        "lon": 108.4629427
+      },
+      "source_name": "Chợ Phan Chu Trinh",
+      "source_category": {
+        "amenity": "marketplace"
+      }
+    }
+  ]
+}

@@ -6,7 +6,7 @@ Owner dưới đây là vai trò chịu trách nhiệm; chưa có cá nhân đư
 
 ## Phạm vi và non-goals
 
-P0: Nha Trang, tiếng Việt, catalog 30–50 địa điểm có quyền dữ liệu/ảnh; trip 1–7 ngày; tối đa 30 điểm chọn và 8 điểm/ngày; timeline, nhập địa điểm thủ công, Maps import an toàn, planner deterministic, local draft, cloud owner save, chia sẻ chỉ xem và thu hồi. Generate tạo candidate; apply cần user xác nhận và atomic version check. Anonymous session mất có thể mất quyền sửa; share không khôi phục quyền owner.
+P0: Nha Trang và catalog Đà Lạt theo yêu cầu user 2026-10-21 (ADR-0013), tiếng Việt, mỗi catalog 30–50 địa điểm có quyền dữ liệu/ảnh; mỗi trip một thành phố, 1–7 ngày; tối đa 30 điểm chọn và 8 điểm/ngày; timeline, nhập địa điểm thủ công, Maps import an toàn, planner deterministic, local draft, cloud owner save, chia sẻ chỉ xem và thu hồi. Generate tạo candidate; apply cần user xác nhận và atomic version check. Anonymous session mất có thể mất quyền sửa; share không khôi phục quyền owner.
 
 P1 chỉ sau P0: PWA/offline pack, PDF/export/lịch, chi phí tự nhập, lịch sử phiên bản, đa tỉnh, account upgrade, preferences nâng cao. Must-visit/required-first thuộc P0; user đã duyệt làm rõ SCOPE-001 tại ADR-0011, Master 2.2 đã đồng bộ.
 
@@ -20,7 +20,7 @@ Chỉ parse HTTPS trên allowlist chính xác trong mục 7; không substring-ma
 
 | Requirement | Owner role | Acceptance IDs | Verification task | Kỳ vọng kiểm chứng |
 |---|---|---|---|---|
-| FR-001 | Frontend | BASE-001, AC-014 | P03-01 | Landing chọn Nha Trang; route catalog đúng |
+| FR-001 | Frontend | BASE-001, AC-014 | P03-01 | Landing chọn Nha Trang/Đà Lạt; route catalog đúng |
 | FR-002 | Content | BASE-002 | P00-04, P02-01, P03-01 | 30–50 record đủ metadata/quyền; filter/search hoạt động |
 | FR-003 | Frontend | AC-001, BASE-003 | P03-02 | Ngày/giờ/timezone/pace/mode hợp lệ; date bounds |
 | FR-004 | Frontend | BASE-004, AC-005 | P03-02 | Lodging nhập tay/catalog; base tạm có warning |
@@ -57,7 +57,7 @@ Chỉ parse HTTPS trên allowlist chính xác trong mục 7; không substring-ma
 
 AC-001..AC-015 giữ nguyên nghĩa tại MASTER_PLANNER mục 4. BASE bổ sung khoảng thiếu, không thay AC gốc.
 
-- BASE-001: Chọn Nha Trang từ landing mở catalog Nha Trang, không quảng cáo city khác đã hỗ trợ.
+- BASE-001: Chọn Nha Trang/Đà Lạt từ landing mở đúng destination; không quảng cáo city khác đã hỗ trợ hoặc trộn hai catalog trong một trip (ADR-0013).
 - BASE-002: Catalog published có 30–50 record với category, description, valid coordinates/duration, image, provenance/license, hours state và verified date trung thực.
 - BASE-003: Reject end<start, 0/>7 ngày, invalid local times/mode/pace/timezone; không tạo trip sai.
 - BASE-004: Lodging nhập tay có label/coordinates hợp lệ; base tạm có cảnh báo; đổi base tính lại matrix khi generate.

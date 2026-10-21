@@ -2,31 +2,32 @@
 
 > Initial state as of 2026-10-21: **NONE IMPLEMENTED, NONE TESTED**. All gates are `NOT VERIFIED`.
 > Update `[ ]` -> `[x]` only after verifying tests and recording evidence, not merely writing code.
-> Current execution state: P00-01..04 DONE (technical/content design); G0 NOT VERIFIED pending [owner review](phase-00/G0_REVIEW.md). Baseline statement above describes the initial state, not current results.
+> Current execution state: P00-01..05 DONE; G0 PASS after user confirmation 2026-10-21 and validator rerun. P01-01 BLOCKED by unpatched lint dependency/support issues; G1 FAIL. No dependent task or later phase started. Baseline statement above describes the initial state, not current results.
 
 ## Task tracker rules
 
 For each checked item, add a line to **Evidence log** with: task ID, commit hash/PR, commands and exit codes, associated acceptance tests, date and outstanding defects. Dependencies must be closed before work begins unless marked `PARALLEL-OK` and the phase gate discipline is preserved.
 
-## PHASE 00 — Foundation decisions — Gate G0 NOT VERIFIED
+## PHASE 00 — Foundation decisions — Gate G0 PASS
 
 - [x] **P00-01** Freeze PRD & non-goals. Status: DONE. Depends: none. Verify: every FR/BR has owner and acceptance ID; unresolved items documented. Evidence: [report](reports/P00-01.md), [baseline](phase-00/PRD_BASELINE.md).
 - [x] **P00-02** Document ADR 01–10, cost-control strategy and build constraints. Status: DONE. Depends: P00-01. Verify: architecture and dependency diagram reviewed. Evidence: [report](reports/P00-02.md).
 - [x] **P00-03** Licensing/policies checklist: Google Place/Routes, attribution, image license, privacy/terms. Status: DONE (technical design review; not legal/release approval). Depends: P00-01. Verify: technical compliance checklist signed; policies linked. Evidence: [report](reports/P00-03.md).
 - [x] **P00-04** Seed-data content design 30–50 editorial records Nha Trang, with evidence of image/data rights. Status: DONE (30 sourced draft records, six original category SVGs; publication not verified). Depends: P00-03. Verify: seed schema/sample and negative cases pass validation. Evidence: [report](reports/P00-04.md).
-- [ ] **G0** Gate approval. Status: NOT VERIFIED; [review packet](phase-00/G0_REVIEW.md). Verify: tasks above completed, baseline decisions unchanged or ADR logged; owner acceptance of ODbL catalog licensing strategy/docs pending.
+- [x] **G0** Gate approval. Status: PASS; [review packet](phase-00/G0_REVIEW.md), user confirmation 2026-10-21, four document/content checks rerun exit 0 (G0-confirmed logs). No release/deployment approval inferred.
+- [x] **P00-05** Đà Lạt editorial catalog extension. Status: DONE (content design). Depends: G0, P00-04. PARALLEL-OK with P01 scaffold; required before Đà Lạt P02 seed/P03 catalog. Verify: 30 sourced drafts, rights/provenance, schema/18 negative checks, deterministic rebuild and city separation PASS. [Report](reports/P00-05.md), [scope ADR](adr/ADR-0013.md).
 
-## PHASE 01 — Scaffold and CI — Gate G1 NOT VERIFIED
+## PHASE 01 — Scaffold and CI — Gate G1 FAIL (dependency security/support)
 
-- [ ] **P01-01** Next.js TS strict, Tailwind, shadcn, route skeleton. Depends: G0. Tests: `typecheck`, `lint`, `build`.
+- [ ] **P01-01** Next.js TS strict, Tailwind, shadcn, route skeleton. Status: BLOCKED. Depends: G0 PASS. Typecheck/lint/build/11-route HTTP smoke PASS; full npm audit FAIL (five high entries, unpatched braces chain); ESLint9 EOL / React plugin lacks10 peer support. Evidence/corrections: [report](reports/P01-01.md), [ADR-0014](adr/ADR-0014.md).
 - [ ] **P01-02** Vitest, Testing Library, Playwright and deterministic fixtures. Depends: P01-01. Tests: fixture smoke + e2e hello route.
 - [ ] **P01-03** Domain and provider adapter interfaces; no provider SDK in domain. Depends: P01-01. Tests: package boundary/lint constraint.
 - [ ] **P01-04** Env schema validation, request ID, redaction baseline, feature flags and CI pipeline. Depends: P01-01. Tests: missing secret behavior, no secret in build/client.
-- [ ] **G1** Gate approval. Verify: build/typecheck/lint/unit pipeline green in CI.
+- [ ] **G1** Gate approval. Status: FAIL — P01-01 dependency security/support blocked; remaining tasks/CI NOT RUN. Verify: build/typecheck/lint/unit pipeline green in CI; cannot infer CI from local checks.
 
 ## PHASE 02 — PostgreSQL, Auth and permissions — Gate G2 NOT VERIFIED
 
-- [ ] **P02-01** Supabase local setup, destination/place migrations, Nha Trang editorial seed. Depends: G1, P00-04. Tests: clean reset and seed validation.
+- [ ] **P02-01** Supabase local setup, destination/place migrations, separate Nha Trang/Đà Lạt editorial seed (ADR-0013). Depends: G1, P00-04, P00-05. Tests: clean reset, seed validation and destination isolation.
 - [ ] **P02-02** Trips/stops/share tables with constraints, transactional repositories and indexes. Depends: P02-01. Tests: migration integrity; invalid rows rejected.
 - [ ] **P02-03** Auth session (guest via anonymous sign-in), owner API guards and RLS/grants for each private table. Depends: P02-02. Tests: user A/B, null auth, forged owner_id.
 - [ ] **P02-04** pgTAP DB negative permission tests + migrations idempotent/replayable from blank DB. Depends: P02-03. Tests: `supabase test db` and reset.
@@ -34,7 +35,7 @@ For each checked item, add a line to **Evidence log** with: task ID, commit hash
 
 ## PHASE 03 — Catalog, wizard and safe place import — Gate G3 NOT VERIFIED
 
-- [ ] **P03-01** Destination landing/catalog/filter/pagination/mobile. Depends: G2. Tests: search, empty state, 360px.
+- [ ] **P03-01** Nha Trang/Đà Lạt destination landing/catalog/filter/pagination/mobile. Depends: G2. Tests: search, empty state, 360px, destination isolation and attribution.
 - [ ] **P03-02** Wizard dates/time/lodging/transport/pace and stop selection. Depends: P03-01. Tests: AC-001; validation, date boundaries.
 - [ ] **P03-03** Google Maps full/short URL parser, allowlist redirect, candidate selection and manual fallback. Depends: G1, P03-02. Tests: T-012/13/14, SSRF guards.
 - [ ] **P03-04** Loading/error/offline/reduced-motion states. Depends: P03-01..03. Tests: UI a11y and keyboard.
@@ -91,9 +92,14 @@ For each checked item, add a line to **Evidence log** with: task ID, commit hash
 | P00-02 | DONE | cc723ee | `node scripts/verify-p00-02.mjs` -> 0; [report/log](reports/P00-02.md) | P00-02-AC01..03 PASS | G0 catalog-license acceptance pending | 2026-10-21 |
 | P00-03 | DONE | cc723ee | `node scripts/verify-p00-03.mjs` -> 0; primary-source web review; [report](reports/P00-03.md) | P00-03-AC01..03 PASS (technical scope) | Runtime/legal P08 review NOT RUN | 2026-10-21 |
 | P00-04 | DONE | cc723ee | `python scripts/build-editorial-seed.py` -> 0; `node scripts/verify-p00-04.mjs` -> 0; [report/log](reports/P00-04.md) | P00-04-AC01..03 PASS (content design) | G0 ODbL strategy acceptance pending; all records draft | 2026-10-21 |
-| G0 | NOT VERIFIED | cc723ee (review artifacts) | Technical checks PASS; [review packet](phase-00/G0_REVIEW.md) | Owner design/license acceptance pending | No Phase 01 work allowed | 2026-10-21 |
+| G0 | PASS | Confirmation changes in current task commit; baseline cc723ee | Four validators rerun -> 0; [confirmation](reports/G0-CONFIRMATION.md), user acceptance | G0 scope/license accepted | Later gates still required | 2026-10-21 |
+| P00-05 | DONE | Current task commit (record after commit) | `python scripts/build-da-lat-seed.py` -> 0; `node scripts/verify-p00-05.mjs` -> 0; [report](reports/P00-05.md) | AC01..03 PASS; 30 drafts, 18 negatives, city separation | Publication/access/hours not verified | 2026-10-21 |
+| P01-01 | BLOCKED | Current task commit (record after commit) | typecheck/lint/build/smoke -> 0; full audit -> 1; [report](reports/P01-01.md) | AC01..03 PASS; AC04 FAIL | Unpatched braces dev-tool chain; ESLint9 EOL / React plugin no10 peers | 2026-10-21 |
 
 ## Known blockers / decisions
+
+- P01-01 security/support blocker: [ADR-0014](adr/ADR-0014.md), [full audit](reports/evidence/P01-01-audit-final.json). No audit exception, force downgrade or lint weakening approved. P01-02..04 and Phase02+ cannot start while this dependency is blocked. Production-only audit PASS does not replace full audit.
+- User confirmed G0 and requested Đà Lạt; [ADR-0013](adr/ADR-0013.md) records the scoped change. No repeated G0 permission needed.
 
 - User approved task/gate bookkeeping clarification: [ADR-0000](adr/ADR-0000.md). Task DONE requires task evidence; phase progression still requires gate PASS.
 - All unresolved scope/contract/content decisions and owners: [decision register](phase-00/DECISION_REGISTER.md). G0 cannot PASS while blocking decisions remain unresolved.

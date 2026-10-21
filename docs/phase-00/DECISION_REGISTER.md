@@ -13,7 +13,7 @@ Ngày: 2026-10-21. Owner là vai trò, chưa phải chữ ký người chịu tr
 | MAP-001 | Master 23 map UI | Product | Catalog/timeline + outbound Maps; không embedded map mặc định | BASELINE DEFAULT; review P00-02 |
 | HOTEL-001 | Master 23 lodging autocomplete | Product | Nhập tay đủ cho MVP; optional provider | BASELINE DEFAULT; review P00-02 |
 | ACCOUNT-001 | Master 2.2/7 anonymous owner recovery | Product | Upgrade account P1; share chỉ xem; cảnh báo mất credentials | BASELINE DEFAULT; review P00-02 |
-| RIGHTS-001 | Baseline chưa có nguồn nội dung/ảnh | Content / project owner | 30 OSM-derived drafts + source evidence/ODbL notices; six original SVGs; no Google/synthetic substitutions | P00-04 DESIGN COMPLETE; ADR-0012 dataset licensing strategy awaits G0 review |
+| RIGHTS-001 | Baseline chưa có nguồn nội dung/ảnh | Content / project owner | Nha Trang 30 + Đà Lạt 30 independent OSM-derived drafts; source/license evidence; original symbolic SVGs; no Google/synthetic substitutions | ACCEPTED user G0 confirmation 2026-10-21; ADR-0012/0013; runtime publication still gated |
 | POLICY-001 | Master links là baseline, không phải compliance sign-off | Privacy / operations | Primary policies reviewed; technical checklist signed Codex; legal identity/account-specific review required before live/release | TECHNICAL REVIEW COMPLETE P00-03; P08 live/legal remains pending |
 
 ## Governance resolution

@@ -1,0 +1,22 @@
+﻿PASS: 30 real-source draft records validate schema subset, unique IDs/slugs/source identities, exact source coordinates/versions, rights files, hours uncertainty and safe original SVG metadata
+PASS: rejects wrong city
+PASS: rejects wrong snapshot
+PASS: rejects cross-city source
+PASS: rejects false entrance accuracy
+PASS: rejects missing access uncertainty
+PASS: rejects missing image rights
+PASS: rejects invalid latitude
+PASS: rejects invalid longitude
+PASS: rejects short duration
+PASS: rejects false hours verification
+PASS: rejects duplicate identity
+PASS: rejects Google source substitution
+PASS: rejects image traversal
+PASS: rejects invented coordinates
+PASS: rejects fake version
+PASS: rejects too few records
+PASS: rejects unexpected source content
+PASS: rejects premature publication
+PASS: unsupported schema keywords fail closed
+P00-05 content-design validation PASS. Drafts are NOT verified opening hours, entrances, live routes or publication approval.
+PASS: minimized selected source fields, bounded acquisition evidence and destination separation

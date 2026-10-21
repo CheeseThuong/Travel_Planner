@@ -1,0 +1,11 @@
+# Đà Lạt catalog provenance and limits — P00-05
+
+The owner approved the ODbL catalog strategy and explicitly requested Đà Lạt on 2026-10-21 (Asia/Saigon). This directory contains a separate derived **ODbL-1.0** catalog; attribution: **© OpenStreetMap contributors**. See [OSM copyright](https://www.openstreetmap.org/copyright), [ODbL license](https://opendatacommons.org/licenses/odbl/1-0/) and the already-reviewed [project rights evidence](../RIGHTS.md). The existing license interpretation remains unchanged; no legal certification is claimed.
+
+Thirty editorial **drafts** derive object identity and coordinates from one bounded Overpass query. `osm-selected.json` records the query URL, base timestamp, retrieval date, selected OSM type/id/version and coordinate evidence. Only selected public geographic names and categories are retained; contributor IDs/usernames, contact tags and unrelated objects are excluded. The rebuild script and snapshot provide the editable derived-database source. No Google data, tourism prose, photos or externally fetched artwork are included.
+
+Vietnamese descriptions and dwell durations are project-authored suggestions. Opening hours remain unknown. Way/relation coordinates are geometry centers, not verified entrances; node points are community points. Source check dates do not mean on-site verification or current operation. Access, fares, entrances, weather and visitor suitability must be checked before publication. The acquisition rectangle is an editorial destination area including nearby excursions, not a statement about administrative boundaries. Remote excursions carry explicit cautions; no ship, overnight or train optimization is introduced.
+
+Illustrations reuse the existing project-authorized symbolic SVG categories under `../illustrations/`, with provenance in [RIGHTS.md](../RIGHTS.md). They do not depict these places accurately. Their standalone redistribution license remains separate from the ODbL database. Every record keeps the existing rights evidence and symbolic alt-text labels. No Nha Trang file was rewritten.
+
+Publication requires the established content review, visible attribution/license links and compliant derived-database availability. This task adds reviewable content design; no runtime seed, migration or public route is claimed.

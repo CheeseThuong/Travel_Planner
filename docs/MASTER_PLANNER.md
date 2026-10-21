@@ -4,6 +4,7 @@
 > Mục tiêu: Tài liệu nguồn duy nhất cho Product, Design, Engineering, QA và Coding Agent.  
 > Ngôn ngữ giao diện MVP: tiếng Việt; kiến trúc sẵn sàng i18n.  
 > Điểm đến thử nghiệm: Nha Trang. Mở rộng bằng dữ liệu tới Đà Lạt, Đà Nẵng, Hà Nội.
+> Scope amendment 2026-10-21: user yêu cầu bổ sung catalog Đà Lạt ngay (ADR-0013); mỗi trip vẫn một thành phố. G0 baseline/ODbL đã được user duyệt; chưa cho phép bỏ qua gate triển khai.
 
 ## 0. Executive decisions — các quyết định mặc định
 
@@ -16,7 +17,7 @@
 | ADR-05 | Google Places/Routes là adapter tùy chọn, có kiểm soát chi phí | Không ràng buộc engine vào một nhà cung cấp |
 | ADR-06 | Planner deterministic, rule-based trước AI | Kết quả kiểm thử được, có lý do loại điểm và xung đột |
 | ADR-07 | Mã chia sẻ chỉ cho **xem**; chỉnh sửa cần quyền chủ sở hữu | Ngăn lạm dụng mã để sửa lịch trình |
-| ADR-08 | Hoàn thành Nha Trang MVP trước khi hỗ trợ các tỉnh khác | Giảm chi phí nội dung và kiểm thử |
+| ADR-08 | Nha Trang + catalog Đà Lạt theo yêu cầu user (ADR-0013); chưa tối ưu liên thành phố | Mở rộng bằng dữ liệu độc lập, giữ gate và cách ly destination |
 | ADR-09 | GSAP/Motion cho interaction; Three.js chỉ progressive enhancement | Hiệu năng trên thiết bị tầm trung |
 | ADR-10 | Không lưu/caching dài hạn dữ liệu Google bị hạn chế; Place ID có ngoại lệ | Tuân thủ Terms của Google Maps Platform |
 
@@ -63,7 +64,7 @@ Website chuyển các địa điểm người dùng quan tâm thành lịch trì
 
 | Mã | Yêu cầu chức năng | Mức |
 |---|---|---|
-| FR-001 | Trang chủ giới thiệu, cho chọn Nha Trang | MUST |
+| FR-001 | Trang chủ giới thiệu, cho chọn Nha Trang hoặc Đà Lạt (ADR-0013) | MUST |
 | FR-002 | Catalog 30–50 địa điểm biên tập: phân loại, ảnh, mô tả, tọa độ, thời lượng gợi ý | MUST |
 | FR-003 | Tạo trip với ngày đến/về, giờ đến/về, múi giờ, nhịp độ, phương tiện | MUST |
 | FR-004 | Chọn khách sạn/nơi lưu trú bằng catalog hoặc nhập/tìm địa chỉ, tọa độ | MUST |
@@ -93,7 +94,7 @@ Website chuyển các địa điểm người dùng quan tâm thành lịch trì
 ### 3.1 Pages / sitemap
 
 - `/` — Landing, city selector, hero minh họa.
-- `/destinations/nha-trang` — Catalog địa điểm, bộ lọc, search.
+- `/destinations/[slug]` — Catalog địa điểm, bộ lọc, search cho `nha-trang` và `da-lat` theo ADR-0013; slug khác không được giả làm thành phố đã hỗ trợ.
 - `/plan/new` — Wizard 4 bước: dates -> lodging/transport -> places -> preferences.
 - `/trips/[tripId]` — Owner editor, timeline, bản đồ, trạng thái save (yêu cầu session).
 - `/open` — Nhập mã kế hoạch; trả về read-only shared view.
@@ -121,7 +122,7 @@ Website chuyển các địa điểm người dùng quan tâm thành lịch trì
 - BR-06: giới hạn hoạt động ngoài trời / cường độ tùy pace; ăn trưa/ nghỉ là buffer mặc định có thể tắt.
 - BR-07: nếu địa điểm trùng `catalog_place_id` hoặc `google_place_id`, không thêm trùng tự động; yêu cầu xác nhận nếu khác ID nhưng tọa độ và tên gần nhau.
 - BR-08: khi kéo thả, giữ các “locked stop” và báo nếu vi phạm constraint thay vì âm thầm thay đổi.
-- BR-09: thành phố đầu tiên Nha Trang; POI ngoài phạm vi city envelope cho phép nhưng gắn warning “xa trung tâm” và có thể đánh dấu không khả thi.
+- BR-09: Nha Trang và Đà Lạt theo ADR-0013; mỗi trip một destination, không trộn hai catalog; POI ngoài city envelope của destination cho phép nhưng gắn warning “xa trung tâm” và có thể đánh dấu không khả thi.
 - BR-10: nếu route API lỗi/không có key, planner chạy approximate offline mode và đánh dấu `estimate_source=approximate` (không quảng cáo là ETA thực tế).
 - BR-11: thao tác xem mã read-only không xác lập quyền sở hữu; xóa code không xóa chuyến đi.
 - BR-12: không thu thập vị trí GPS hiện tại theo mặc định; chỉ xin quyền khi người dùng chọn một tính năng cần vị trí.

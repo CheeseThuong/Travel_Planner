@@ -1,8 +1,8 @@
 # G0 — Review packet
 
-Status: NOT VERIFIED — pending project-owner acceptance of the concrete Phase 00 design and ODbL catalog strategy. Date: 2026-10-21. No Phase 01 task started.
+Status: PASS — user explicitly confirmed this review and requested continued building plus Đà Lạt in chat 2026-10-21. All four baseline document/content validators rerun successfully (exit 0; G0-confirmed-P00-01..04 logs). P01-01 may start. Đà Lạt extension follows ADR-0013 without intercity planning or gate bypass.
 
-Review basis: Master 18.2 requires “PRD + ADR + license policy + architecture review agreed”; Master Phase 00 exit requires “docs accepted”. The user already approved governance separation (ADR-0000), four scope/contract clarifications (ADR-0011), and independent open-source research/original artwork. This packet does not claim that the user specifically approved ODbL/share-alike or reviewed all deliverables yet.
+Review basis: Master 18.2 requires “PRD + ADR + license policy + architecture review agreed”; Master Phase 00 exit requires “docs accepted”. The user approved governance separation (ADR-0000), four scope/contract clarifications (ADR-0011), independent open-source research/original artwork, and subsequently confirmed this concrete G0/ODbL review in chat. No later release approval is inferred.
 
 | Blocking item | Technical evidence | State |
 |---|---|---|
@@ -11,7 +11,7 @@ Review basis: Master 18.2 requires “PRD + ADR + license policy + architecture 
 | P00-03 policies/rights/privacy/terms | Primary sources inspected, signed technical checklist, unpublished notice drafts; validator/report | DONE (technical design scope) |
 | P00-04 catalog content design | 30 sourced draft records, minimized OSM versioned source, six original symbolic SVGs, schema/negative checks, rights notice/report | DONE (design, not published content) |
 | User-approved baseline ambiguities | ADR-0000/0011; Master wording aligned | ACCEPTED |
-| Catalog license strategy and overall G0 docs | ADR-0012; RIGHTS.md; this packet | AWAITING OWNER REVIEW |
+| Catalog license strategy and overall G0 docs | ADR-0012; RIGHTS.md; user confirmation 2026-10-21 | ACCEPTED |
 
 ## Concrete decision requested
 
