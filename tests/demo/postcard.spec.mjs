@@ -92,3 +92,34 @@ test("keyboard can reach and activate the optional demo control", async ({ page 
   await expect(page.getByRole("button", { name: "Tắt 3D", exact: true })).toHaveAttribute("aria-pressed", "true");
   await page.keyboard.press("Enter"); await expect(page.locator("canvas")).toHaveCount(0);
 });
+
+for (const [slug, theme] of [["nha-trang", "Biển xanh"], ["da-lat", "Đồi thông"]]) {
+  test(`${slug} has a themed optional scene, orbit control and context-loss recovery`, async ({ page }, info) => {
+    const errors = []; page.on("pageerror", (error) => errors.push(error.message));
+    await page.goto(`/destinations/${slug}`);
+    await expect(page.getByRole("button", { name: theme, exact: true })).toHaveAttribute("aria-pressed", "true");
+    await expect(page.locator("canvas")).toHaveCount(0);
+    await page.getByRole("button", { name: "Bật 3D", exact: true }).click();
+    const canvas = page.locator("canvas");
+    await expect.poll(async () => Number(await canvas.getAttribute("data-frames"))).toBeGreaterThan(3);
+    await expect.poll(async () => Number(await canvas.getAttribute("data-geometries"))).toBeGreaterThan(10);
+    const orbit = page.getByRole("button", { name: "Xoay ngắm khung cảnh", exact: true });
+    await orbit.focus(); await page.keyboard.press("Enter");
+    await expect(canvas).toHaveAttribute("data-viewpoint", "orbit");
+    await page.screenshot({ path: `docs/reports/evidence/${evidencePrefix}-${info.project.name}-${slug}-orbit.png`, fullPage: true });
+    await page.getByRole("button", { name: "Dừng xoay khung cảnh", exact: true }).click();
+    await expect(canvas).toHaveAttribute("data-viewpoint", "postcard");
+    expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+    await canvas.evaluate((node) => {
+      const extension = node.getContext("webgl2").getExtension("WEBGL_lose_context");
+      if (!extension) throw new Error("Context-loss extension unavailable");
+      extension.loseContext();
+    });
+    await expect(page.getByText("Thiết bị chưa mở được 3D. Minh họa tĩnh vẫn sẵn sàng.")).toBeVisible();
+    await expect(canvas).toHaveCount(0);
+    await page.getByRole("button", { name: "Bật 3D", exact: true }).click();
+    await expect.poll(async () => Number(await page.locator("canvas").getAttribute("data-frames"))).toBeGreaterThan(1);
+    await page.getByRole("button", { name: "Tắt 3D", exact: true }).click(); await expect(canvas).toHaveCount(0);
+    expect(errors).toEqual([]);
+  });
+}

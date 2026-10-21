@@ -1,0 +1,31 @@
+{
+  "scope": "One five-second sample per city in local headless Chrome, desktop1440, no throttle, 30fps ceiling. Exact observed renderer; not phone/field/GPU-VRAM evidence or G7 approval.",
+  "samples": [
+    {
+      "slug": "nha-trang",
+      "elapsed_ms": 5002.10000000149,
+      "rendered_frames": 139,
+      "average_fps": 27.78832890185294,
+      "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 4060 Laptop GPU (0x000028E0) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+      "draw_calls": 30,
+      "triangles": 2582,
+      "uploaded_geometries": 30,
+      "width": 566,
+      "height": 344,
+      "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/155.0.0.0 Safari/537.36"
+    },
+    {
+      "slug": "da-lat",
+      "elapsed_ms": 5000.20000000298,
+      "rendered_frames": 138,
+      "average_fps": 27.598896044141785,
+      "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 4060 Laptop GPU (0x000028E0) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+      "draw_calls": 31,
+      "triangles": 2022,
+      "uploaded_geometries": 31,
+      "width": 566,
+      "height": 344,
+      "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/155.0.0.0 Safari/537.36"
+    }
+  ]
+}

@@ -1,0 +1,84 @@
+{
+  "name": "eslint-config-next",
+  "version": "16.4.2",
+  "originalPackage": {
+    "name": "eslint-config-next",
+    "version": "16.4.2",
+    "description": "ESLint configuration used by Next.js.",
+    "license": "MIT",
+    "repository": {
+      "url": "vercel/next.js",
+      "directory": "packages/eslint-config-next"
+    },
+    "homepage": "https://nextjs.org/docs/app/api-reference/config/eslint",
+    "files": [
+      "dist"
+    ],
+    "dependencies": {
+      "@next/eslint-plugin-next": "16.4.2",
+      "eslint-import-resolver-node": "^0.3.6",
+      "eslint-import-resolver-typescript": "^3.5.2",
+      "eslint-plugin-import": "^2.32.0",
+      "eslint-plugin-jsx-a11y": "^6.10.0",
+      "eslint-plugin-react": "^7.37.0",
+      "eslint-plugin-react-hooks": "^7.1.0",
+      "globals": "16.4.0",
+      "typescript-eslint": "^8.56.0"
+    },
+    "peerDependencies": {
+      "eslint": ">=9.0.0",
+      "typescript": ">=3.3.1"
+    },
+    "peerDependenciesMeta": {
+      "typescript": {
+        "optional": true
+      }
+    },
+    "devDependencies": {
+      "@types/eslint": "9.6.1",
+      "@types/eslint-plugin-jsx-a11y": "6.10.1",
+      "@types/node": "20.17.7",
+      "typescript": "6.0.2"
+    },
+    "exports": {
+      ".": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      },
+      "./core-web-vitals": {
+        "types": "./dist/core-web-vitals.d.ts",
+        "default": "./dist/core-web-vitals.js"
+      },
+      "./typescript": {
+        "types": "./dist/typescript.d.ts",
+        "default": "./dist/typescript.js"
+      },
+      "./parser": {
+        "types": "./dist/parser.d.ts",
+        "default": "./dist/parser.js"
+      }
+    },
+    "scripts": {
+      "dev": "pnpm build",
+      "build": "swc -d dist src && pnpm types",
+      "types": "tsc --skipLibCheck --declaration --emitDeclarationOnly --esModuleInterop --declarationDir dist --rootDir src",
+      "pack-for-isolated-tests": "pnpm pack --out ./packed.tgz"
+    }
+  },
+  "sha256": {
+    "dist/core-web-vitals.d.ts": "1e36d150c6ffb15c8817050f6992fea733a342e7a36ba43d45ee0be27a0a7e97",
+    "dist/core-web-vitals.js": "c50f0df37eff59ea77f29060bb104a789c0e776d610aff2ceaeb0b83fcf0a27e",
+    "dist/index.d.ts": "1e36d150c6ffb15c8817050f6992fea733a342e7a36ba43d45ee0be27a0a7e97",
+    "dist/index.js": "e8dc35deaf80ad705ef6f59ab0c121795f5280a96333cd8dd352b5cc23776ea9",
+    "dist/parser.d.ts": "6ae17df9cb004f10999fdc8b8d7f66b99541ff991e6f7f014b978e86e1c0e318",
+    "dist/parser.js": "623237c957790623bd0b09b9e3fdce8774fb258dc7dd64876ca7162537459468",
+    "dist/rule-context.d.ts": "24e61e5b77ed73973fcd6089a7a355a63aa47c74fc8c9e4d132e895104b8c818",
+    "dist/rule-context.js": "b8837b197ea92aaafaea55e45acbb37e39191e7e4755de4665aeb7a4d81e7488",
+    "dist/typescript.d.ts": "1e36d150c6ffb15c8817050f6992fea733a342e7a36ba43d45ee0be27a0a7e97",
+    "dist/typescript.js": "2ef66aece60b064a2111e1015d1ceddfc4503e3178cd9af49bf5043c821cf70e"
+  },
+  "modifiedFiles": [
+    "package.json",
+    "dist/index.js (remove exactly two redundant Next context wrappers; official adapters already applied)"
+  ]
+}

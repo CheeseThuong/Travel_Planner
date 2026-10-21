@@ -1,0 +1,51 @@
+name: Phase01 baseline
+on:
+  push:
+    branches: ["main", "codex/**"]
+  pull_request:
+permissions:
+  contents: read
+concurrency:
+  group: baseline-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  baseline:
+    runs-on: windows-latest
+    timeout-minutes: 20
+    env:
+      NEXT_TELEMETRY_DISABLED: "1"
+      CLOUD_ENABLED: "false"
+      GOOGLE_MAPS_LIVE_ENABLED: "false"
+      DEPLOYMENT_ENV: local
+      DEMO_EVIDENCE_PREFIX: CI-demo
+      GOOGLE_MAPS_SERVER_KEY: test-only-google-canary-never-real
+      SUPABASE_SERVICE_ROLE_KEY: test-only-service-canary-never-real
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7
+        with:
+          node-version: 24.19.0
+          cache: npm
+      - run: npm.cmd ci --strict-peer-deps
+      - run: npm.cmd audit --audit-level=low
+      - run: npm.cmd run typecheck
+      - run: npm.cmd run lint
+      - run: npm.cmd run test:unit
+      - run: npm.cmd run test:coverage
+      - run: npm.cmd run test:content
+      - run: npm.cmd run build
+      - run: node scripts/verify-client-secrets.mjs
+      - run: npm.cmd run test:integration
+      # Uses installed Chrome. Software-rendered CI is lifecycle evidence, not a GPU benchmark.
+      - run: npm.cmd run test:e2e
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7
+        if: always()
+        with:
+          name: phase01-${{ github.run_id }}
+          path: |
+            coverage/coverage-summary.json
+            docs/reports/evidence/CI-demo*
+            test-results/demo/
+          retention-days: 7

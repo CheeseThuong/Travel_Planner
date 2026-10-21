@@ -1,0 +1,105 @@
+{
+  "kind": "synthetic_test_fixture",
+  "places": [
+    {
+      "id": "nha-trang-fixture-0",
+      "destination_slug": "nha-trang",
+      "title": "Synthetic 0",
+      "lat": 12.24,
+      "lng": 109.19,
+      "duration_minutes": 45,
+      "is_required": true,
+      "hours_state": "hours_unknown"
+    },
+    {
+      "id": "nha-trang-fixture-1",
+      "destination_slug": "nha-trang",
+      "title": "Synthetic 1",
+      "lat": 12.241,
+      "lng": 109.192,
+      "duration_minutes": 45,
+      "is_required": true,
+      "hours_state": "hours_unknown"
+    },
+    {
+      "id": "nha-trang-fixture-2",
+      "destination_slug": "nha-trang",
+      "title": "Synthetic 2",
+      "lat": 12.242,
+      "lng": 109.194,
+      "duration_minutes": 45,
+      "is_required": false,
+      "hours_state": "hours_unknown"
+    },
+    {
+      "id": "nha-trang-fixture-3",
+      "destination_slug": "nha-trang",
+      "title": "Synthetic 3",
+      "lat": 12.243,
+      "lng": 109.196,
+      "duration_minutes": 45,
+      "is_required": false,
+      "hours_state": "hours_unknown"
+    },
+    {
+      "id": "nha-trang-fixture-4",
+      "destination_slug": "nha-trang",
+      "title": "Synthetic 4",
+      "lat": 12.244,
+      "lng": 109.198,
+      "duration_minutes": 45,
+      "is_required": false,
+      "hours_state": "hours_unknown"
+    },
+    {
+      "id": "nha-trang-fixture-5",
+      "destination_slug": "nha-trang",
+      "title": "Synthetic 5",
+      "lat": 12.245000000000001,
+      "lng": 109.2,
+      "duration_minutes": 45,
+      "is_required": false,
+      "hours_state": "hours_unknown"
+    },
+    {
+      "id": "nha-trang-fixture-6",
+      "destination_slug": "nha-trang",
+      "title": "Synthetic 6",
+      "lat": 12.246,
+      "lng": 109.202,
+      "duration_minutes": 45,
+      "is_required": false,
+      "hours_state": "hours_unknown"
+    },
+    {
+      "id": "nha-trang-fixture-7",
+      "destination_slug": "nha-trang",
+      "title": "Synthetic 7",
+      "lat": 12.247,
+      "lng": 109.204,
+      "duration_minutes": 45,
+      "is_required": false,
+      "hours_state": "hours_unknown"
+    },
+    {
+      "id": "nha-trang-fixture-8",
+      "destination_slug": "nha-trang",
+      "title": "Synthetic 8",
+      "lat": 12.248,
+      "lng": 109.206,
+      "duration_minutes": 45,
+      "is_required": false,
+      "hours_state": "hours_unknown"
+    },
+    {
+      "id": "nha-trang-fixture-9",
+      "destination_slug": "nha-trang",
+      "title": "Synthetic 9",
+      "lat": 12.249,
+      "lng": 109.208,
+      "duration_minutes": 45,
+      "is_required": false,
+      "hours_state": "hours_unknown"
+    }
+  ]
+}

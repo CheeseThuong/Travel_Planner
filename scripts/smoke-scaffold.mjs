@@ -46,7 +46,12 @@ try {
     assert.ok(body.includes('lang="vi"'), `${path}: Vietnamese document language`);
     console.log(`PASS: ${path}: HTTP ${status}, expected content, lang=vi`);
   }
-  console.log("Scaffold HTTP smoke PASS. No browser, cloud ownership, itinerary, save or share implementation is verified.");
+  const requestId = "a6ea84e9-2f58-49d7-87c3-eb5b82ac352e";
+  const health = await fetch(`http://127.0.0.1:${port}/api/v1/health`, { headers: { "x-request-id": requestId } });
+  assert.equal(health.status, 200); assert.equal(health.headers.get("x-request-id"), requestId);
+  assert.deepEqual(await health.json(), { data: { status: "ok" }, meta: { request_id: requestId } });
+  console.log("PASS: /api/v1/health: real HTTP status/envelope/UUID, no backend details");
+  console.log("Scaffold HTTP smoke PASS. Cloud ownership, itinerary, save or share implementation is not verified.");
 } finally {
   if (child.exitCode === null) {
     const exited = once(child, "exit");

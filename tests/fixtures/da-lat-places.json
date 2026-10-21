@@ -1,0 +1,45 @@
+{
+  "kind": "synthetic_test_fixture",
+  "places": [
+    {
+      "id": "da-lat-fixture-0",
+      "destination_slug": "da-lat",
+      "title": "Synthetic 0",
+      "lat": 11.94,
+      "lng": 108.44,
+      "duration_minutes": 45,
+      "is_required": true,
+      "hours_state": "hours_unknown"
+    },
+    {
+      "id": "da-lat-fixture-1",
+      "destination_slug": "da-lat",
+      "title": "Synthetic 1",
+      "lat": 11.940999999999999,
+      "lng": 108.442,
+      "duration_minutes": 45,
+      "is_required": true,
+      "hours_state": "hours_unknown"
+    },
+    {
+      "id": "da-lat-fixture-2",
+      "destination_slug": "da-lat",
+      "title": "Synthetic 2",
+      "lat": 11.942,
+      "lng": 108.444,
+      "duration_minutes": 45,
+      "is_required": false,
+      "hours_state": "hours_unknown"
+    },
+    {
+      "id": "da-lat-fixture-3",
+      "destination_slug": "da-lat",
+      "title": "Synthetic 3",
+      "lat": 11.943,
+      "lng": 108.446,
+      "duration_minutes": 45,
+      "is_required": false,
+      "hours_state": "hours_unknown"
+    }
+  ]
+}

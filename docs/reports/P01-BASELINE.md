@@ -1,0 +1,13 @@
+# P01-02 / P01-03 / P01-04 — Foundation implementation
+
+2026-10-21. Dependencies: P01-01 DONE via reviewed COMPAT correction. Plan recorded before edits in P01-BASELINE-PLAN and ADR0018. No P02+ implementation or production action.
+
+P01-02 DONE: Vitest5.0.5, Testing Library React16.3.3/DOM10.4.2, jsdom30.1.3, coverage-v85.0.5, all MIT/dev-only and registry-reviewed. Preserve19 Node tooling tests. Synthetic fixtures cover both destination identities, directed matrix, hours/partial/infeasible trips and safe/unsafe URL inventory, clearly test-only. Component tests exercise real Button disabled/asChild semantics. P01-02-unit/coverage logs exit0; four initial Vitest tests and two runtime modules fully covered. This small baseline is not product/engine coverage. Original browser baseline12 passed in COMPAT; expanded16 passes in P01-06. AC02-1..3 PASS.
+
+P01-03 DONE: pure trip/stop/candidate/provenance/lock models, routing/place/storage/clock ports, test-only cloneable directed fixture adapter. Lint rejects SDK/framework imports; AST test inspects all static/dynamic domain imports and public re-exports. Client source import graph checks server module boundary. P01-03-unit and P01-baseline-unit exit0; no optimizer/provider/storage/auth implementation inferred. AC03-1..3 PASS.
+
+P01-04 VERIFYING: server Zod4.6.7 MIT, default-off cloud/Google flags with complete credential/budget checks, safe UUID request IDs, bounded JSON400/422/413 errors, generic500 and allowlisted telemetry. Only implemented API is health liveness; partial OpenAPI is honest about that. Test schema/privacy/error/UUID/stream limits; real HTTP12-check smoke includes health. Next validates env at build, server canaries absent from19 client assets. Pinned official SHA Actions7 workflow prepares actual remote CI with no live APIs/production data. AC04-1..3 PASS; AC04-4 actual CI pending; G1 remains FAIL until evidence exists.
+
+Verification evidence: P01-baseline-{typecheck,lint,unit,http,build,coverage,content}.log all exit0;19 Node +18 Vitest checks; P01-06-browser.log16 PASS; P01-baseline-typography.log72 PASS,0 skips with preserved P01-typography artifacts; P01-client-secrets.log exit0. Full audit after baseline dependencies recorded separately. Actual database/RLS/owner/save/share/live provider tests NOT RUN because not implemented. No schema change.
+
+Risks/rollback: project lint snapshot maintenance, native resolver postinstall blocked by host policy but installed prebuilt bindings execute checks, Windows generated dev/prod type cache split. No lifecycle policy bypass. Rollback only task files/packages, keep licensed catalogs/fonts and future private data. CI result must refer to actual pushed commit, never infer from local checks.

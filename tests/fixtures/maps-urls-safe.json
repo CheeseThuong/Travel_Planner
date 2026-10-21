@@ -1,0 +1,7 @@
+{
+  "kind": "synthetic_test_fixture",
+  "urls": [
+    "https://www.google.com/maps/search/?api=1&query=12.24%2C109.19",
+    "https://maps.app.goo.gl/fixtureOnlyNotFetched"
+  ]
+}

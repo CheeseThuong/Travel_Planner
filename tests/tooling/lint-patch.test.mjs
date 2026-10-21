@@ -24,7 +24,18 @@ test("enabled rule IDs, severities, options and settings match before patch", as
   const eslint = new ESLint();
   for (const [file, before] of Object.entries(baseline)) {
     const config = await eslint.calculateConfigForFile(file);
-    assert.deepEqual(JSON.parse(JSON.stringify({ rules: config.rules, settings: config.settings })), before);
+    // Resolver identity/options are stable; npm may hoist the exact same module
+    // from config-next/node_modules to root and CI has a different drive/path.
+    const portable = (value) => {
+      const result = JSON.parse(JSON.stringify(value));
+      const resolvers = result.settings?.["import/resolver"];
+      if (resolvers) result.settings["import/resolver"] = Object.fromEntries(Object.entries(resolvers).map(([path, options]) => [path.replaceAll("\\", "/").split("/node_modules/").at(-1), options]));
+      // ESLint10 materializes defaults on this disabled core rule. Its active
+      // TypeScript replacement/options are compared unchanged and tested below.
+      if (result.rules["no-unused-vars"]?.[0] === 0) result.rules["no-unused-vars"] = [0];
+      return result;
+    };
+    assert.deepEqual(portable({ rules: config.rules, settings: config.settings }), portable(before));
   }
 });
 

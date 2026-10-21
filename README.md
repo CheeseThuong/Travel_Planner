@@ -13,25 +13,22 @@ Master planning package v1.0 (2026-10-21).
 
 ## Current state (2026-10-21)
 
-G0 PASS after explicit user confirmation of the [review packet](docs/phase-00/G0_REVIEW.md). Added 30 [Đà Lạt drafts](docs/content/da-lat/places.seed.json) alongside 30 Nha Trang drafts, with separate source/licensing evidence and offline validators. Each trip remains one city ([ADR-0013](docs/adr/ADR-0013.md)).
+G0 PASS. The ESLint support blocker is corrected using maintained core10 and explicit project compatibility adapters; original lint checks remain enabled. P01-02/03 foundations are implemented; G1 awaits actual CI. See [tracker](docs/WORK_ITEMS.md) and [baseline evidence](docs/reports/P01-BASELINE.md).
 
-P01-01 provides a Next.js/Tailwind/shadcn scaffold and separate destination skeletons. The vulnerable lint dependency chain has been patched without disabling rules; **full npm audit0**. **P01-01 BLOCKED / G1 FAIL** still applies because ESLint9 is EOL and upstream lint peers do not support10. Remaining baseline/CI tasks have not started. [Security correction](docs/reports/P01-01-FIX.md).
+Both city pages now have optional procedural Three.js scenes: sea/ripples/boat/clouds for Nha Trang, lake/pines/hills/clouds for Đà Lạt. Use **Bật 3D**, **Xoay ngắm khung cảnh**, **Dừng xoay khung cảnh**, **Tắt 3D**. Scenes remain symbolic illustrations; SVG/text work without JavaScript/WebGL and respect reduced motion. Catalog, wizard, planner, local/cloud save and sharing are still unimplemented pending their gates; this preview is not a working travel-planning journey.
 
-The explicitly requested local preview adds optional Three.js postcard scenes, GSAP reveal and Motion controls, using installed GSAP and authored Three.js/Motion Design skills. Open [local demo](http://127.0.0.1:3392/) and select **B?t 3D**; switch Bi?n xanh/??i th?ng or stop with T?t 3D. SVG/text/navigation remain usable without JS/WebGL and with reduced motion. This is a scaffold; planner/cloud/share and published catalogs are not implemented.
+Local demo (Node24/npm11, Windows):
 
-Local production preview (Node24/npm11; Windows uses npm.cmd):
-
-```text
-npm.cmd ci
+```powershell
+$env:NEXT_TELEMETRY_DISABLED='1'
+npm.cmd ci --strict-peer-deps
 npm.cmd run build
-npm.cmd run start -- --port 3392
+npm.cmd run start -- --port 3000
 ```
 
-Local checks: typecheck, lint, ten unit regression tests, 11 HTTP checks, five content validators and 12 desktop/mobile browser tests PASS. Lighthouse mobile simulated performance: landing97, Nha Trang99, ?? L?t99; accessibility/best-practices100, CLS0. Active3D sample27.6fps on this machine's RTX4060, ceiling30fps. Landing LCP2.566s in one local run; these results do not approve G7 or replace real-device testing. [Report, conditions, screenshots and raw evidence](docs/reports/P01-05.md). No deployment or later phase progression.
+Stop the dev server before production build/gate checks. The type-generation preparation clears only validated stale generated dev types; TypeScript remains strict. `npm.cmd run dev` starts development at loopback3000. The only implemented API is `/api/v1/health`, reporting liveness without backend readiness claims.
 
-- [Tracker](docs/WORK_ITEMS.md), [scope/acceptance mappings](docs/phase-00/PRD_BASELINE.md), [decision register](docs/phase-00/DECISION_REGISTER.md).
-- [Policy checklist](docs/phase-00/POLICY_CHECKLIST.md), [content/rights evidence](docs/content/RIGHTS.md).
-- [Execution reports](docs/reports/P00-01.md) (one file per P00 task) and exact logs in `docs/reports/evidence/`.
+Current local verification:19 tooling tests +18 Vitest/component/server/boundary tests,16 desktop/mobile demo cases and72 typography cases PASS; HTTP smoke includes health. Coverage100% currently covers only the two small runtime foundation modules, not a planner. [Tests](docs/TEST_RESULTS.md), [3D report](docs/reports/P01-06.md), [limitations](docs/KNOWN_LIMITATIONS.md). No production deployment or live Google/database claims.
 
 Offline verification (Node.js built-ins; no package installation):
 

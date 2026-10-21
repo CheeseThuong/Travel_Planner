@@ -1,6 +1,7 @@
 import { test, expect } from "@playwright/test";
 
 const routes = [["/", "home"], ["/destinations/nha-trang", "nha-trang"], ["/destinations/da-lat", "da-lat"], ["/plan/new", "wizard-shell"], ["/trips/local", "editor-shell"], ["/privacy", "privacy"], ["/terms", "terms"], ["/open", "open"], ["/shared", "shared"]];
+const evidencePrefix = process.env.TYPOGRAPHY_EVIDENCE_PREFIX ?? "R1";
 const vietnamese = "Chuyến đi nhỏ. Kỷ niệm thật to. Quyền riêng tư. Điều khoản sử dụng. Nhiều trải nghiệm. Từ phố biển đến đồi thông. Đà Lạt. Nha Trang.";
 
 test("Vietnamese headings use complete local faces and fit actual routes", async ({ page }, info) => {
@@ -13,7 +14,7 @@ test("Vietnamese headings use complete local faces and fit actual routes", async
     // Settle Next link prefetches before the next full document navigation.
     // WebKit reports fetch cancellations during teardown as page errors.
     await page.waitForLoadState("networkidle");
-    await page.screenshot({ path: `docs/reports/evidence/R1-rendered/${info.project.name}-${name}.png`, fullPage: true, animations: "disabled" });
+    await page.screenshot({ path: `docs/reports/evidence/${evidencePrefix}-rendered/${info.project.name}-${name}.png`, fullPage: true, animations: "disabled" });
     const heading = page.getByRole("heading", { level: 1 });
     await expect(heading).toBeVisible();
     expect(await heading.evaluate((node) => getComputedStyle(node).fontFamily)).toMatch(/nunito/i);
@@ -51,7 +52,7 @@ test("Vietnamese headings use complete local faces and fit actual routes", async
   const faces = await page.evaluate(() => [...document.fonts].map(({ family, status, style, weight }) => ({ family, status, style, weight })));
   expect(faces.filter((face) => face.status === "loaded").some((face) => /nunito/i.test(face.family) && face.style === "italic")).toBe(true);
   expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(info.project.use.viewport.width);
-  await page.screenshot({ path: `docs/reports/evidence/R1-rendered/${info.project.name}-nfc-nfd.png`, fullPage: true });
+  await page.screenshot({ path: `docs/reports/evidence/${evidencePrefix}-rendered/${info.project.name}-nfc-nfd.png`, fullPage: true });
   await info.attach("font-faces", { body: JSON.stringify(faces), contentType: "application/json" });
 });
 

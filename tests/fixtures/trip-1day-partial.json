@@ -1,0 +1,9 @@
+{
+  "kind": "synthetic_test_fixture",
+  "destination_slug": "nha-trang",
+  "timezone": "Asia/Ho_Chi_Minh",
+  "start_date": "2026-11-06",
+  "end_date": "2026-11-06",
+  "arrival_local_time": "17:00",
+  "departure_local_time": "19:00"
+}

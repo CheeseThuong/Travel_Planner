@@ -1,0 +1,8 @@
+{
+  "openapi": "3.1.0",
+  "info": { "title": "Travel Planner implemented API", "version": "0.1.0", "description": "Phase01 liveness only. Remaining Master endpoints are not implemented or claimed here." },
+  "servers": [{ "url": "/api/v1" }],
+  "paths": {
+    "/health": { "get": { "operationId": "health", "summary": "Application liveness only", "responses": { "200": { "description": "Liveness envelope without provider or database readiness claims", "content": { "application/json": { "schema": { "type": "object", "additionalProperties": false, "required": ["data", "meta"], "properties": { "data": { "type": "object", "additionalProperties": false, "required": ["status"], "properties": { "status": { "const": "ok" } } }, "meta": { "type": "object", "additionalProperties": false, "required": ["request_id"], "properties": { "request_id": { "type": "string", "format": "uuid" } } } } } } } } } } }
+  }
+}

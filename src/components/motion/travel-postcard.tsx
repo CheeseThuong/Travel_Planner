@@ -14,9 +14,10 @@ function subscribeMotion(callback: () => void) {
   return () => preference.removeEventListener("change", callback);
 }
 
-export function TravelPostcard() {
+export function TravelPostcard({ initialTheme = "ocean" }: { initialTheme?: "ocean" | "forest" }) {
   const root = useRef<HTMLDivElement>(null);
-  const [theme, setTheme] = useState<"ocean" | "forest">("ocean");
+  const [theme, setTheme] = useState<"ocean" | "forest">(initialTheme);
+  const [tour, setTour] = useState(false);
   const [requested, setRequested] = useState(false);
   const [status, setStatus] = useState("Tấm bưu thiếp nhỏ, một chút cảm hứng cho chuyến đi.");
   // Browser tests found the library hook did not rerender after preference changes.
@@ -58,8 +59,9 @@ export function TravelPostcard() {
         <div className="overflow-hidden rounded-[2rem] border-8 border-white bg-[#fffdf7] shadow-[0_18px_50px_-30px_#385b51]">
           <div className="relative aspect-[560/340] overflow-hidden" data-testid="postcard-scene">
             <DestinationScene theme={theme} className="absolute inset-0 h-full w-full" />
-            {requested && !reducedMotion && <ThreePostcard key={theme} theme={theme} onReady={() => setStatus("Bưu thiếp 3D đang mở. Bạn có thể đổi khung cảnh hoặc tắt 3D.")} onUnavailable={() => { setRequested(false); setStatus("Thiết bị chưa mở được 3D. Minh họa tĩnh vẫn sẵn sàng."); }} />}
+            {requested && !reducedMotion && <ThreePostcard key={theme} theme={theme} tour={tour} onReady={() => setStatus("Bưu thiếp 3D đang mở. Bạn có thể đổi khung cảnh hoặc tắt 3D.")} onUnavailable={() => { setRequested(false); setStatus("Thiết bị chưa mở được 3D. Minh họa tĩnh vẫn sẵn sàng."); }} />}
           </div>
+          {requested && !reducedMotion && <button type="button" aria-pressed={tour} onClick={() => setTour(!tour)} className="min-h-11 w-full border-t border-[#deded0] px-4 py-2 text-xs font-semibold hover:bg-[#edf0e4]">{tour ? "Dừng xoay khung cảnh" : "Xoay ngắm khung cảnh"}</button>}
           <div className="flex flex-wrap items-center justify-between gap-2 border-t border-[#deded0] px-4 py-3">
             <div role="group" aria-label="Khung cảnh bưu thiếp" className="flex gap-1">
               {([['ocean', 'Biển xanh'], ['forest', 'Đồi thông']] as const).map(([value, label]) => <m.button key={value} type="button" aria-pressed={theme === value} onClick={() => setTheme(value)} whileTap={reducedMotion ? undefined : { scale: 0.96 }} className={`min-h-11 rounded-full px-3 text-xs font-semibold ${theme === value ? 'bg-[#edf0e4]' : 'hover:bg-[#f6e5cf]'}`}>{label}</m.button>)}

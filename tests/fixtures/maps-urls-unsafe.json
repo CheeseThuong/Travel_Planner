@@ -1,0 +1,9 @@
+{
+  "kind": "synthetic_test_fixture",
+  "urls": [
+    "http://127.0.0.1/admin",
+    "https://google.com.evil.invalid/maps",
+    "file:///etc/passwd",
+    "https://www.google.com@127.0.0.1/"
+  ]
+}

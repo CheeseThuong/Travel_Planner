@@ -1,2 +1,6 @@
 # Preserve upstream vendored bytes for the recorded SHA256 integrity checks.
 vendor/eslint-plugin-next/** -text whitespace=-blank-at-eol
+vendor/eslint-plugin-react-compat/** -text whitespace=-blank-at-eol,-blank-at-eof
+vendor/eslint-plugin-jsx-a11y-compat/** -text whitespace=-blank-at-eol,-blank-at-eof
+vendor/eslint-plugin-import-compat/** -text whitespace=-blank-at-eol,-blank-at-eof
+vendor/eslint-config-next-compat/** -text whitespace=-blank-at-eol,-blank-at-eof
