@@ -2,7 +2,7 @@
 
 > Initial state as of 2026-10-21: **NONE IMPLEMENTED, NONE TESTED**. All gates are `NOT VERIFIED`.
 > Update `[ ]` -> `[x]` only after verifying tests and recording evidence, not merely writing code.
-> Current execution state: G0 PASS; P01-01 support corrected with maintained ESLint10/project adapters (ADR0017), full audit0. P01-02/03 DONE; P01-04 VERIFYING actual CI. G1 FAIL until actual pipeline evidence; no P02+ started. Independent P01-06 requested two-city 3D extension in verification. [Baseline report](reports/P01-BASELINE.md).
+> Current execution state: G0 PASS; P01-01 support corrected with maintained ESLint10/project adapters (ADR0017), full audit0. P01-02/03 DONE; P01-04 DONE; actual CI run39611614744 PASS for b91d1a8. G1 PASS; P02-01 is next. Independent P01-06 requested two-city 3D extension DONE. [Baseline report](reports/P01-BASELINE.md).
 > Recovery audit/typography R0-01/R1-01 DONE; R0-02 corrected/DONE through COMPAT. Full product NOT READY: wizard/planner/cloud/save/share remain unimplemented. Historical reports are retained; this current state supersedes their old support-blocked status.
 
 ## Task tracker rules
@@ -18,7 +18,7 @@ For each checked item, add a line to **Evidence log** with: task ID, commit hash
 - [x] **G0** Gate approval. Status: PASS; [review packet](phase-00/G0_REVIEW.md), user confirmation 2026-10-21, four document/content checks rerun exit 0 (G0-confirmed logs). No release/deployment approval inferred.
 - [x] **P00-05** Đà Lạt editorial catalog extension. Status: DONE (content design). Depends: G0, P00-04. PARALLEL-OK with P01 scaffold; required before Đà Lạt P02 seed/P03 catalog. Verify: 30 sourced drafts, rights/provenance, schema/18 negative checks, deterministic rebuild and city separation PASS. [Report](reports/P00-05.md), [scope ADR](adr/ADR-0013.md).
 
-## PHASE 01 — Scaffold and CI — Gate G1 FAIL (remaining baseline/CI; support corrected)
+## PHASE 01 — Scaffold and CI — Gate G1 PASS (actual remote baseline verified)
 
 - [x] **P01-01** Next.js TS strict, Tailwind, shadcn, route skeleton. Status: DONE after P01-01-COMPAT correction. Depends: G0 PASS. Maintained ESLint10/project adapters, valid strict peer tree, full audit0,19 tooling/12 browser/11 HTTP checks/typecheck/lint/build PASS. [Correction](reports/P01-01-COMPAT.md), [ADR0017](adr/ADR-0017.md). Original failure reports retained as history.
 - [x] **P01-01-COMPAT** Reviewed maintained-core compatibility correction. Status: DONE. All AC-C1..4 PASS; no weakened rules or forced peers. [Report](reports/P01-01-COMPAT.md). G1 still requires remaining baseline tasks/actual CI.
@@ -29,9 +29,9 @@ For each checked item, add a line to **Evidence log** with: task ID, commit hash
 - [x] **R0-02** P01-01 support correction. Status: DONE via explicitly reviewed project-maintained adapters/core10; upstream peer limits remain unchanged and are not misrepresented. [Report](reports/P01-01-COMPAT.md). NEXT: P01-02..04, actual CI.
 - [x] **P01-02** Vitest, Testing Library, Playwright and deterministic fixtures. Status: DONE. Depends: P01-01 DONE. [Report](reports/P01-BASELINE.md). Fixtures/component/coverage/browser baseline PASS; no product journey inferred.
 - [x] **P01-03** Pure domain/provider/storage interfaces and fixture adapter. Status: DONE. Depends: P01-01 DONE. Domain import/lint/client-boundary/directed clone/abort tests PASS. [Report](reports/P01-BASELINE.md).
-- [ ] **P01-04** Env/request ID/redaction/flags/health/CI. Status: VERIFYING. Depends: P01-01 DONE. Local negative tests, build canary and HTTP baseline PASS; actual CI pending. [Report](reports/P01-BASELINE.md).
+- [x] **P01-04** Env/request ID/redaction/flags/health/CI. Status: DONE. Depends: P01-01 DONE. Local negative tests, build canary and HTTP baseline PASS; actual GitHub CI run39611614744 PASS for b91d1a8. [Report](reports/P01-BASELINE.md).
 - [x] **P01-06** Requested additional two-city Three.js effects. Status: DONE. Independent P01 extension;16 browser/72 typography checks PASS; local active27.79/27.60fps (30fps cap), context-loss/orbit/stop tested. [Report](reports/P01-06.md). Does not complete catalog/planner or G7.
-- [ ] **G1** Gate approval. Status: FAIL pending actual CI. P01-01 support corrected; P01-02/03 DONE, P01-04 local baseline PASS/remote VERIFYING. Cannot infer CI from local checks; no P02 progression until pipeline evidence.
+- [x] **G1** Gate approval. Status: PASS. P01-01..04 DONE; actual remote CI completed success for b91d1a8. [Review and durable evidence](reports/G1-REVIEW.md). Next allowed task P02-01; G2+ remain NOT VERIFIED.
 
 ## PHASE 02 — PostgreSQL, Auth and permissions — Gate G2 NOT VERIFIED
 
@@ -96,6 +96,10 @@ For each checked item, add a line to **Evidence log** with: task ID, commit hash
 
 | Task ID | Status | Commit/PR | Commands & exit codes | AC/Test IDs | Blockers | Verified date |
 |---|---|---|---|---|---|---|
+| P01-01-COMPAT / R0-02 | DONE | b91d1a8 | strict npm ci/tree/audit, typecheck/lint/build/tooling -> 0; [report](reports/P01-01-COMPAT.md) | AC-C1..4 PASS | Project snapshot maintenance | 2026-10-21 |
+| P01-02 / P01-03 | DONE | b91d1a8 | unit/coverage/content/typecheck/lint -> 0; 19 tooling +18 Vitest; [report](reports/P01-BASELINE.md) | AC02-1..3 / AC03-1..3 PASS | Product implementations pending | 2026-10-21 |
+| P01-04 / G1 | DONE / PASS | b91d1a8; run39611614744 | Actual GitHub workflow all steps success; [job log](reports/evidence/P01-remote-ci.log), [review](reports/G1-REVIEW.md) | AC04-1..4 PASS | G2+ not verified | 2026-10-21 |
+| P01-06 | DONE | b91d1a8 | e2e16 / typography72 -> 0; real context loss/orbit/stop and renderer samples; [report](reports/P01-06.md) | AC06-1..4 PASS | No physical mobile/G7 claim | 2026-10-21 |
 | P00-01 | DONE | cc723ee | `node scripts/verify-p00-01.mjs` -> 0; 178 checks after ADR-0011; [report/log](reports/P00-01.md) | P00-01-AC01..04 PASS; runtime NOT RUN | G0 review pending | 2026-10-21 |
 | P00-02 | DONE | cc723ee | `node scripts/verify-p00-02.mjs` -> 0; [report/log](reports/P00-02.md) | P00-02-AC01..03 PASS | G0 catalog-license acceptance pending | 2026-10-21 |
 | P00-03 | DONE | cc723ee | `node scripts/verify-p00-03.mjs` -> 0; primary-source web review; [report](reports/P00-03.md) | P00-03-AC01..03 PASS (technical scope) | Runtime/legal P08 review NOT RUN | 2026-10-21 |

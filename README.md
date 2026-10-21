@@ -13,7 +13,7 @@ Master planning package v1.0 (2026-10-21).
 
 ## Current state (2026-10-21)
 
-G0 PASS. The ESLint support blocker is corrected using maintained core10 and explicit project compatibility adapters; original lint checks remain enabled. P01-02/03 foundations are implemented; G1 awaits actual CI. See [tracker](docs/WORK_ITEMS.md) and [baseline evidence](docs/reports/P01-BASELINE.md).
+G0 PASS. The ESLint support blocker is corrected using maintained core10 and explicit project compatibility adapters; original lint checks remain enabled. P01-02..04 foundations are implemented; actual GitHub CI run39611614744 PASS for b91d1a8, G1 PASS. See [tracker](docs/WORK_ITEMS.md) and [baseline evidence](docs/reports/P01-BASELINE.md).
 
 Both city pages now have optional procedural Three.js scenes: sea/ripples/boat/clouds for Nha Trang, lake/pines/hills/clouds for Đà Lạt. Use **Bật 3D**, **Xoay ngắm khung cảnh**, **Dừng xoay khung cảnh**, **Tắt 3D**. Scenes remain symbolic illustrations; SVG/text work without JavaScript/WebGL and respect reduced motion. Catalog, wizard, planner, local/cloud save and sharing are still unimplemented pending their gates; this preview is not a working travel-planning journey.
 

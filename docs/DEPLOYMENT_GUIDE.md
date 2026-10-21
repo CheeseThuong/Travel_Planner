@@ -1,6 +1,6 @@
 # Deployment guide — release blocked
 
-2026-10-21. Target remains Next.js/Vercel + Supabase. **NOT READY FOR PRODUCTION DEPLOYMENT**; G1 FAIL, G2–G8 NOT VERIFIED. No deployment performed.
+2026-10-21. Target remains Next.js/Vercel + Supabase. **NOT READY FOR PRODUCTION DEPLOYMENT**; G1 PASS, G2–G8 NOT VERIFIED. No deployment performed.
 
 ## Current local checks
 
@@ -24,9 +24,9 @@ Browser suites start isolated loopback production servers themselves. Build firs
 
 ## Required implementation before staging
 
-Finish P01 support/test/interfaces/env/CI and pass G1; implement/test Supabase migration/auth/RLS G2; complete catalog/import/wizard G3, planner G4, local/cloud persistence G5, sharing G6, a11y/performance G7. Maintain OpenAPI and API security tests. Create separate disposable DB/auth projects for tests/staging; never reset or run automation against production.
+P01 support, test harness, interfaces and server foundation are implemented; actual remote CI run39611614744 passed and G1 is PASS. Next implement/test Supabase migration/auth/RLS G2; complete catalog/import/wizard G3, planner G4, local/cloud persistence G5, sharing G6, a11y/performance G7. Maintain OpenAPI and API security tests. Create separate disposable DB/auth projects for tests/staging; never reset or run automation against production.
 
-Future configuration inventory is in [.env.example](../.env.example). These names are reserved documentation until P01-04 implements env validation and consuming code. Do not assume copying the file configures integrations. Keep server-only service credentials out of NEXT_PUBLIC variables and client bundles. Verify each build environment explicitly.
+Configuration inventory is in [.env.example](../.env.example). P01-04 validates the server flags, paired cloud configuration and opt-in Google key/budget; the cloud and Google adapters are not implemented yet. Copying the file does not configure working integrations. Keep server-only service credentials out of NEXT_PUBLIC variables and client bundles. Verify each build environment explicitly. The health endpoint reports application liveness only.
 
 ## G8 release checklist (all NOT RUN)
 

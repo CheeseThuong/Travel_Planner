@@ -22,7 +22,9 @@ Date: 2026-10-21. Release status: **NOT READY**. Preserve G0 acceptance and all 
 - Tests: baseline reproduction before fix; repeatable 3-engine/6-width rendered tests, existing demo regressions, font/source coverage checks, typecheck/lint/build/HTTP/unit/content. Wizard/timeline visuals NOT RUN because unimplemented.
 - Data/API impact: none. Risks: font weight/size/line-wrap changes and added font bytes; record sizes and actual browser loads. Rollback: revert local-font imports/styles/assets/tests for this task only; preserve all prior code and evidence.
 
-## R0-02 — Resolve P01-01 lint support blocker (P0, BLOCKED)
+## R0-02 — Resolve P01-01 lint support blocker (P0, DONE)
+
+Completed by ADR-0017 and [P01-01-COMPAT](reports/P01-01-COMPAT.md): maintained ESLint10, explicit project compatibility snapshots, unchanged enabled rule configuration, strict peer installation and full audit0. Upstream plugin support claims remain unchanged. P01-02/03 are now DONE; P01-04 is VERIFYING actual remote CI. The original diagnosis and acceptance below remain the historical task specification.
 
 - Dependencies: G0; correction within P01.
 - Root cause: ESLint9 EOL while React/a11y/import plugins' current peer ranges exclude ESLint10; verify public registry rather than presume fixed.

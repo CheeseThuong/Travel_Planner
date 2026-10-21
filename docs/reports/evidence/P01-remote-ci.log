@@ -1,0 +1,813 @@
+﻿2026-10-21T13:51:08.8181591Z Current runner version: '2.338.0'
+2026-10-21T13:51:08.8210197Z ##[group]Runner Image Provisioner
+2026-10-21T13:51:08.8211233Z Hosted Compute Agent
+2026-10-21T13:51:08.8211923Z Version: 20261002.596
+2026-10-21T13:51:08.8212750Z Commit: c3d12f3313a95f25162a1503be624f3b0617f8c0
+2026-10-21T13:51:08.8214235Z Build Date: 2026-10-02T22:28:27Z
+2026-10-21T13:51:08.8215030Z Worker ID: {8942aca4-f14a-47ca-9455-4a3e5c322996}
+2026-10-21T13:51:08.8215842Z Region: westus
+2026-10-21T13:51:08.8216440Z Cloud: Azure
+2026-10-21T13:51:08.8217014Z ##[endgroup]
+2026-10-21T13:51:08.8218557Z ##[group]Operating System
+2026-10-21T13:51:08.8219266Z Microsoft Windows Server 2025
+2026-10-21T13:51:08.8219958Z 10.0.26100
+2026-10-21T13:51:08.8220500Z Datacenter
+2026-10-21T13:51:08.8221028Z ##[endgroup]
+2026-10-21T13:51:08.8221608Z ##[group]Runner Image
+2026-10-21T13:51:08.8222242Z Image: windows-2025-vs2026
+2026-10-21T13:51:08.8222922Z Version: 20261007.264.1
+2026-10-21T13:51:08.8224535Z Included Software: https://github.com/actions/runner-images/blob/win25-vs2026/20261007.264/images/windows/Windows2025-VS2026-Readme.md
+2026-10-21T13:51:08.8226328Z Image Release: https://github.com/actions/runner-images/releases/tag/win25-vs2026%2F20261007.264
+2026-10-21T13:51:08.8227348Z ##[endgroup]
+2026-10-21T13:51:08.8228476Z ##[group]GITHUB_TOKEN Permissions
+2026-10-21T13:51:08.8230563Z Contents: read
+2026-10-21T13:51:08.8231173Z Metadata: read
+2026-10-21T13:51:08.8231712Z ##[endgroup]
+2026-10-21T13:51:08.8234440Z Secret source: Actions
+2026-10-21T13:51:08.8235439Z Cache mode: write
+2026-10-21T13:51:08.8236183Z Prepare workflow directory
+2026-10-21T13:51:08.8731414Z Prepare all required actions
+2026-10-21T13:51:08.8782977Z Getting action download info
+2026-10-21T13:51:09.2647966Z Download action repository 'actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1' (SHA:3d3c42e5aac5ba805825da76410c181273ba90b1)
+2026-10-21T13:51:09.4053141Z Download action repository 'actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1' (SHA:949feb2413d6458794dcd2491c4babbbce0c15c1)
+2026-10-21T13:51:09.9099679Z Download action repository 'actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9' (SHA:cf430e030ddbb5b0abf93d22962f4752f3646cd9)
+2026-10-21T13:51:10.4450002Z Complete job name: baseline
+2026-10-21T13:51:10.6080567Z ##[group]Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+2026-10-21T13:51:10.6082402Z with:
+2026-10-21T13:51:10.6083160Z   persist-credentials: false
+2026-10-21T13:51:10.6084118Z   repository: CheeseThuong/Travel_Planner
+2026-10-21T13:51:10.6092097Z   token: ***
+2026-10-21T13:51:10.6092852Z   ssh-strict: true
+2026-10-21T13:51:10.6093604Z   ssh-user: git
+2026-10-21T13:51:10.6094336Z   clean: true
+2026-10-21T13:51:10.6095177Z   sparse-checkout-cone-mode: true
+2026-10-21T13:51:10.6096116Z   fetch-depth: 1
+2026-10-21T13:51:10.6096865Z   fetch-tags: false
+2026-10-21T13:51:10.6097630Z   show-progress: true
+2026-10-21T13:51:10.6098403Z   lfs: false
+2026-10-21T13:51:10.6099532Z   submodules: false
+2026-10-21T13:51:10.6100377Z   set-safe-directory: true
+2026-10-21T13:51:10.6101266Z   allow-unsafe-pr-checkout: false
+2026-10-21T13:51:10.6102467Z env:
+2026-10-21T13:51:10.6103184Z   NEXT_TELEMETRY_DISABLED: 1
+2026-10-21T13:51:10.6104051Z   CLOUD_ENABLED: false
+2026-10-21T13:51:10.6104930Z   GOOGLE_MAPS_LIVE_ENABLED: false
+2026-10-21T13:51:10.6105841Z   DEPLOYMENT_ENV: local
+2026-10-21T13:51:10.6106661Z   DEMO_EVIDENCE_PREFIX: CI-demo
+2026-10-21T13:51:10.6107755Z   GOOGLE_MAPS_SERVER_KEY: test-only-google-canary-never-real
+2026-10-21T13:51:10.6109204Z   SUPABASE_SERVICE_ROLE_KEY: test-only-service-canary-never-real
+2026-10-21T13:51:10.6110429Z ##[endgroup]
+2026-10-21T13:51:10.7668508Z Syncing repository: CheeseThuong/Travel_Planner
+2026-10-21T13:51:10.7671215Z ##[group]Getting Git version info
+2026-10-21T13:51:10.7672425Z Working directory is 'D:\a\Travel_Planner\Travel_Planner'
+2026-10-21T13:51:10.8658342Z [command]"C:\Program Files\Git\bin\git.exe" version
+2026-10-21T13:51:11.1831957Z git version 2.56.0.windows.2
+2026-10-21T13:51:11.1889435Z ##[endgroup]
+2026-10-21T13:51:11.1909173Z Temporarily overriding HOME='D:\a\_temp\59970d7d-f033-4d77-a382-e05844537a0f' before making global git config changes
+2026-10-21T13:51:11.1911670Z Adding repository directory to the temporary git global config as a safe directory
+2026-10-21T13:51:11.1919901Z [command]"C:\Program Files\Git\bin\git.exe" config --global --add safe.directory D:\a\Travel_Planner\Travel_Planner
+2026-10-21T13:51:11.2610648Z Deleting the contents of 'D:\a\Travel_Planner\Travel_Planner'
+2026-10-21T13:51:11.2616902Z ##[group]Determining repository object format
+2026-10-21T13:51:11.2618856Z ##[endgroup]
+2026-10-21T13:51:11.2620215Z ##[group]Initializing the repository
+2026-10-21T13:51:11.2628732Z [command]"C:\Program Files\Git\bin\git.exe" init D:\a\Travel_Planner\Travel_Planner
+2026-10-21T13:51:11.3554002Z Initialized empty Git repository in D:/a/Travel_Planner/Travel_Planner/.git/
+2026-10-21T13:51:11.3609392Z [command]"C:\Program Files\Git\bin\git.exe" remote add origin https://github.com/CheeseThuong/Travel_Planner
+2026-10-21T13:51:11.4366159Z ##[endgroup]
+2026-10-21T13:51:11.4367718Z ##[group]Disabling automatic garbage collection
+2026-10-21T13:51:11.4376790Z [command]"C:\Program Files\Git\bin\git.exe" config --local gc.auto 0
+2026-10-21T13:51:11.4794853Z ##[endgroup]
+2026-10-21T13:51:11.4797289Z ##[group]Setting up auth
+2026-10-21T13:51:11.4799211Z Removing SSH command configuration
+2026-10-21T13:51:11.4808385Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp core\.sshCommand
+2026-10-21T13:51:11.5235580Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "sh -c \"git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :\""
+2026-10-21T13:51:13.0289612Z Removing HTTP extra header
+2026-10-21T13:51:13.0300242Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-10-21T13:51:13.0725910Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "sh -c \"git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :\""
+2026-10-21T13:51:13.6592966Z Removing includeIf entries pointing to credentials config files
+2026-10-21T13:51:13.6605075Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-10-21T13:51:13.7008811Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "git config --local --show-origin --name-only --get-regexp remote.origin.url"
+2026-10-21T13:51:14.2996760Z [command]"C:\Program Files\Git\bin\git.exe" config --file D:\a\_temp\git-credentials-821f04e6-d6b4-435c-a423-39c6fd85f75d.config http.https://github.com/.extraheader "AUTHORIZATION: basic ***"
+2026-10-21T13:51:14.3421569Z [command]"C:\Program Files\Git\bin\git.exe" config --local includeIf.gitdir:D:/a/Travel_Planner/Travel_Planner/.git.path D:\a\_temp\git-credentials-821f04e6-d6b4-435c-a423-39c6fd85f75d.config
+2026-10-21T13:51:14.3851218Z [command]"C:\Program Files\Git\bin\git.exe" config --local includeIf.gitdir:D:/a/Travel_Planner/Travel_Planner/.git/worktrees/*.path D:\a\_temp\git-credentials-821f04e6-d6b4-435c-a423-39c6fd85f75d.config
+2026-10-21T13:51:14.4357609Z [command]"C:\Program Files\Git\bin\git.exe" config --local includeIf.gitdir:/github/workspace/.git.path /github/runner_temp/git-credentials-821f04e6-d6b4-435c-a423-39c6fd85f75d.config
+2026-10-21T13:51:14.4779552Z [command]"C:\Program Files\Git\bin\git.exe" config --local includeIf.gitdir:/github/workspace/.git/worktrees/*.path /github/runner_temp/git-credentials-821f04e6-d6b4-435c-a423-39c6fd85f75d.config
+2026-10-21T13:51:14.5243916Z ##[endgroup]
+2026-10-21T13:51:14.5244859Z ##[group]Fetching the repository
+2026-10-21T13:51:14.5259968Z [command]"C:\Program Files\Git\bin\git.exe" -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +b91d1a8661367b5d1c02a5e3506ad5bb012c1535:refs/remotes/origin/codex/recovery-foundation
+2026-10-21T13:51:16.6558021Z From https://github.com/CheeseThuong/Travel_Planner
+2026-10-21T13:51:16.6560514Z  * [new ref]         b91d1a8661367b5d1c02a5e3506ad5bb012c1535 -> origin/codex/recovery-foundation
+2026-10-21T13:51:16.6627405Z [command]"C:\Program Files\Git\bin\git.exe" branch --list --remote origin/codex/recovery-foundation
+2026-10-21T13:51:16.7114369Z   origin/codex/recovery-foundation
+2026-10-21T13:51:16.7184804Z [command]"C:\Program Files\Git\bin\git.exe" rev-parse refs/remotes/origin/codex/recovery-foundation
+2026-10-21T13:51:16.7608441Z b91d1a8661367b5d1c02a5e3506ad5bb012c1535
+2026-10-21T13:51:16.7648799Z ##[endgroup]
+2026-10-21T13:51:16.7649319Z ##[group]Determining the checkout info
+2026-10-21T13:51:16.7650430Z ##[endgroup]
+2026-10-21T13:51:16.7661707Z [command]"C:\Program Files\Git\bin\git.exe" sparse-checkout disable
+2026-10-21T13:51:16.8200941Z [command]"C:\Program Files\Git\bin\git.exe" config --local --unset-all extensions.worktreeConfig
+2026-10-21T13:51:16.8609199Z ##[group]Checking out the ref
+2026-10-21T13:51:16.8619423Z [command]"C:\Program Files\Git\bin\git.exe" checkout --progress --force -B codex/recovery-foundation refs/remotes/origin/codex/recovery-foundation
+2026-10-21T13:51:17.6213966Z Switched to a new branch 'codex/recovery-foundation'
+2026-10-21T13:51:17.6272400Z branch 'codex/recovery-foundation' set up to track 'origin/codex/recovery-foundation'.
+2026-10-21T13:51:17.6366273Z ##[endgroup]
+2026-10-21T13:51:17.6918926Z [command]"C:\Program Files\Git\bin\git.exe" log -1 --format=%H
+2026-10-21T13:51:17.7306336Z b91d1a8661367b5d1c02a5e3506ad5bb012c1535
+2026-10-21T13:51:17.7351753Z ##[group]Removing auth
+2026-10-21T13:51:17.7352250Z Removing SSH command configuration
+2026-10-21T13:51:17.7362629Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp core\.sshCommand
+2026-10-21T13:51:17.7775811Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "sh -c \"git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :\""
+2026-10-21T13:51:18.3455017Z Removing HTTP extra header
+2026-10-21T13:51:18.3463051Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-10-21T13:51:18.3877485Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "sh -c \"git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :\""
+2026-10-21T13:51:18.9568046Z Removing includeIf entries pointing to credentials config files
+2026-10-21T13:51:18.9577509Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-10-21T13:51:18.9940121Z includeif.gitdir:D:/a/Travel_Planner/Travel_Planner/.git.path
+2026-10-21T13:51:18.9941490Z includeif.gitdir:D:/a/Travel_Planner/Travel_Planner/.git/worktrees/*.path
+2026-10-21T13:51:18.9943217Z includeif.gitdir:/github/workspace/.git.path
+2026-10-21T13:51:18.9943856Z includeif.gitdir:/github/workspace/.git/worktrees/*.path
+2026-10-21T13:51:19.0065326Z [command]"C:\Program Files\Git\bin\git.exe" config --local --get-all includeif.gitdir:D:/a/Travel_Planner/Travel_Planner/.git.path
+2026-10-21T13:51:19.0368469Z D:\a\_temp\git-credentials-821f04e6-d6b4-435c-a423-39c6fd85f75d.config
+2026-10-21T13:51:19.0414865Z [command]"C:\Program Files\Git\bin\git.exe" config --local --unset includeif.gitdir:D:/a/Travel_Planner/Travel_Planner/.git.path D\:\\a\\_temp\\git\-credentials\-821f04e6\-d6b4\-435c\-a423\-39c6fd85f75d\.config
+2026-10-21T13:51:19.0825578Z [command]"C:\Program Files\Git\bin\git.exe" config --local --get-all includeif.gitdir:D:/a/Travel_Planner/Travel_Planner/.git/worktrees/*.path
+2026-10-21T13:51:19.1178629Z D:\a\_temp\git-credentials-821f04e6-d6b4-435c-a423-39c6fd85f75d.config
+2026-10-21T13:51:19.1224755Z [command]"C:\Program Files\Git\bin\git.exe" config --local --unset includeif.gitdir:D:/a/Travel_Planner/Travel_Planner/.git/worktrees/*.path D\:\\a\\_temp\\git\-credentials\-821f04e6\-d6b4\-435c\-a423\-39c6fd85f75d\.config
+2026-10-21T13:51:19.1630718Z [command]"C:\Program Files\Git\bin\git.exe" config --local --get-all includeif.gitdir:/github/workspace/.git.path
+2026-10-21T13:51:19.1980695Z /github/runner_temp/git-credentials-821f04e6-d6b4-435c-a423-39c6fd85f75d.config
+2026-10-21T13:51:19.2025611Z [command]"C:\Program Files\Git\bin\git.exe" config --local --unset includeif.gitdir:/github/workspace/.git.path \/github\/runner_temp\/git\-credentials\-821f04e6\-d6b4\-435c\-a423\-39c6fd85f75d\.config
+2026-10-21T13:51:19.2434164Z [command]"C:\Program Files\Git\bin\git.exe" config --local --get-all includeif.gitdir:/github/workspace/.git/worktrees/*.path
+2026-10-21T13:51:19.2781680Z /github/runner_temp/git-credentials-821f04e6-d6b4-435c-a423-39c6fd85f75d.config
+2026-10-21T13:51:19.2828892Z [command]"C:\Program Files\Git\bin\git.exe" config --local --unset includeif.gitdir:/github/workspace/.git/worktrees/*.path \/github\/runner_temp\/git\-credentials\-821f04e6\-d6b4\-435c\-a423\-39c6fd85f75d\.config
+2026-10-21T13:51:19.3229166Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "git config --local --show-origin --name-only --get-regexp remote.origin.url"
+2026-10-21T13:51:19.9097693Z Removing credentials config 'D:\a\_temp\git-credentials-821f04e6-d6b4-435c-a423-39c6fd85f75d.config'
+2026-10-21T13:51:19.9112425Z ##[endgroup]
+2026-10-21T13:51:19.9618579Z ##[group]Run actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1
+2026-10-21T13:51:19.9619283Z with:
+2026-10-21T13:51:19.9619586Z   node-version: 24.19.0
+2026-10-21T13:51:19.9619935Z   cache: npm
+2026-10-21T13:51:19.9620249Z   check-latest: false
+2026-10-21T13:51:19.9625014Z   token: ***
+2026-10-21T13:51:19.9625352Z   package-manager-cache: true
+2026-10-21T13:51:19.9625757Z env:
+2026-10-21T13:51:19.9626047Z   NEXT_TELEMETRY_DISABLED: 1
+2026-10-21T13:51:19.9626437Z   CLOUD_ENABLED: false
+2026-10-21T13:51:19.9626797Z   GOOGLE_MAPS_LIVE_ENABLED: false
+2026-10-21T13:51:19.9627206Z   DEPLOYMENT_ENV: local
+2026-10-21T13:51:19.9627569Z   DEMO_EVIDENCE_PREFIX: CI-demo
+2026-10-21T13:51:19.9628093Z   GOOGLE_MAPS_SERVER_KEY: test-only-google-canary-never-real
+2026-10-21T13:51:19.9629019Z   SUPABASE_SERVICE_ROLE_KEY: test-only-service-canary-never-real
+2026-10-21T13:51:19.9629603Z ##[endgroup]
+2026-10-21T13:51:20.1195978Z Attempting to download 24.19.0...
+2026-10-21T13:51:20.7472798Z Acquiring 24.19.0 - x64 from https://github.com/actions/node-versions/releases/download/24.19.0-30872449280/node-24.19.0-win32-x64.7z
+2026-10-21T13:51:21.1419442Z Extracting ...
+2026-10-21T13:51:23.5618628Z Adding to the cache ...
+2026-10-21T13:51:29.3217626Z ##[group]Environment details
+2026-10-21T13:51:30.5536979Z node: v24.19.0
+2026-10-21T13:51:30.6269222Z npm: 11.17.0
+2026-10-21T13:51:30.6269628Z yarn: 1.22.22
+2026-10-21T13:51:30.6270306Z ##[endgroup]
+2026-10-21T13:51:30.6271083Z [command]C:\Windows\system32\cmd.exe /D /S /C "C:\hostedtoolcache\windows\node\24.19.0\x64\npm.cmd config get cache"
+2026-10-21T13:51:30.9246206Z C:\npm\cache
+2026-10-21T13:51:31.3770992Z npm cache is not found
+2026-10-21T13:51:31.4126796Z ##[group]Run npm.cmd ci --strict-peer-deps
+2026-10-21T13:51:31.4127275Z [36;1mnpm.cmd ci --strict-peer-deps[0m
+2026-10-21T13:51:31.4876063Z shell: C:\Program Files\PowerShell\7\pwsh.EXE -command ". '{0}'"
+2026-10-21T13:51:31.4876749Z env:
+2026-10-21T13:51:31.4877104Z   NEXT_TELEMETRY_DISABLED: 1
+2026-10-21T13:51:31.4877551Z   CLOUD_ENABLED: false
+2026-10-21T13:51:31.4877970Z   GOOGLE_MAPS_LIVE_ENABLED: false
+2026-10-21T13:51:31.4878451Z   DEPLOYMENT_ENV: local
+2026-10-21T13:51:31.4878864Z   DEMO_EVIDENCE_PREFIX: CI-demo
+2026-10-21T13:51:31.4879459Z   GOOGLE_MAPS_SERVER_KEY: test-only-google-canary-never-real
+2026-10-21T13:51:31.4880569Z   SUPABASE_SERVICE_ROLE_KEY: test-only-service-canary-never-real
+2026-10-21T13:51:31.4881566Z ##[endgroup]
+2026-10-21T13:51:42.8608522Z npm warn deprecated @opentelemetry/sdk-trace-base@2.12.0: Use @opentelemetry/sdk-trace package
+2026-10-21T13:52:09.0466709Z
+2026-10-21T13:52:09.0468255Z added 542 packages, and audited 548 packages in 37s
+2026-10-21T13:52:09.0468772Z
+2026-10-21T13:52:09.0470118Z 170 packages are looking for funding
+2026-10-21T13:52:09.0472135Z   run `npm fund` for details
+2026-10-21T13:52:09.0484566Z
+2026-10-21T13:52:09.0484975Z found 0 vulnerabilities
+2026-10-21T13:52:09.0498900Z npm warn allow-scripts 1 package has install scripts not yet covered by allowScripts:
+2026-10-21T13:52:09.0500280Z npm warn allow-scripts   unrs-resolver@1.12.2 (postinstall: node postinstall.js)
+2026-10-21T13:52:09.0501131Z npm warn allow-scripts
+2026-10-21T13:52:09.0502412Z npm warn allow-scripts Run `npm approve-scripts --allow-scripts-pending` to review, or `npm approve-scripts <pkg>` to allow.
+2026-10-21T13:52:10.3545689Z ##[group]Run npm.cmd audit --audit-level=low
+2026-10-21T13:52:10.3546099Z [36;1mnpm.cmd audit --audit-level=low[0m
+2026-10-21T13:52:10.3621402Z shell: C:\Program Files\PowerShell\7\pwsh.EXE -command ". '{0}'"
+2026-10-21T13:52:10.3621749Z env:
+2026-10-21T13:52:10.3621930Z   NEXT_TELEMETRY_DISABLED: 1
+2026-10-21T13:52:10.3622147Z   CLOUD_ENABLED: false
+2026-10-21T13:52:10.3622358Z   GOOGLE_MAPS_LIVE_ENABLED: false
+2026-10-21T13:52:10.3622590Z   DEPLOYMENT_ENV: local
+2026-10-21T13:52:10.3622797Z   DEMO_EVIDENCE_PREFIX: CI-demo
+2026-10-21T13:52:10.3623094Z   GOOGLE_MAPS_SERVER_KEY: test-only-google-canary-never-real
+2026-10-21T13:52:10.3623508Z   SUPABASE_SERVICE_ROLE_KEY: test-only-service-canary-never-real
+2026-10-21T13:52:10.3623831Z ##[endgroup]
+2026-10-21T13:52:11.5005821Z found 0 vulnerabilities
+2026-10-21T13:52:11.6660343Z ##[group]Run npm.cmd run typecheck
+2026-10-21T13:52:11.6660919Z [36;1mnpm.cmd run typecheck[0m
+2026-10-21T13:52:11.6732811Z shell: C:\Program Files\PowerShell\7\pwsh.EXE -command ". '{0}'"
+2026-10-21T13:52:11.6733170Z env:
+2026-10-21T13:52:11.6733356Z   NEXT_TELEMETRY_DISABLED: 1
+2026-10-21T13:52:11.6733584Z   CLOUD_ENABLED: false
+2026-10-21T13:52:11.6733806Z   GOOGLE_MAPS_LIVE_ENABLED: false
+2026-10-21T13:52:11.6734047Z   DEPLOYMENT_ENV: local
+2026-10-21T13:52:11.6734261Z   DEMO_EVIDENCE_PREFIX: CI-demo
+2026-10-21T13:52:11.6734568Z   GOOGLE_MAPS_SERVER_KEY: test-only-google-canary-never-real
+2026-10-21T13:52:11.6734996Z   SUPABASE_SERVICE_ROLE_KEY: test-only-service-canary-never-real
+2026-10-21T13:52:11.6735332Z ##[endgroup]
+2026-10-21T13:52:12.2562641Z
+2026-10-21T13:52:12.2563443Z > vietnam-playful-travel-planner@0.1.0 typecheck
+2026-10-21T13:52:12.2564417Z > node scripts/prepare-production-types.mjs && next typegen && tsc --noEmit
+2026-10-21T13:52:12.2565093Z
+2026-10-21T13:52:12.9083785Z Generating route types...
+2026-10-21T13:52:12.9335219Z ✓ Types generated successfully
+2026-10-21T13:52:21.3094235Z ##[group]Run npm.cmd run lint
+2026-10-21T13:52:21.3094614Z [36;1mnpm.cmd run lint[0m
+2026-10-21T13:52:21.3168084Z shell: C:\Program Files\PowerShell\7\pwsh.EXE -command ". '{0}'"
+2026-10-21T13:52:21.3168464Z env:
+2026-10-21T13:52:21.3168658Z   NEXT_TELEMETRY_DISABLED: 1
+2026-10-21T13:52:21.3168917Z   CLOUD_ENABLED: false
+2026-10-21T13:52:21.3169144Z   GOOGLE_MAPS_LIVE_ENABLED: false
+2026-10-21T13:52:21.3169396Z   DEPLOYMENT_ENV: local
+2026-10-21T13:52:21.3169629Z   DEMO_EVIDENCE_PREFIX: CI-demo
+2026-10-21T13:52:21.3169958Z   GOOGLE_MAPS_SERVER_KEY: test-only-google-canary-never-real
+2026-10-21T13:52:21.3170416Z   SUPABASE_SERVICE_ROLE_KEY: test-only-service-canary-never-real
+2026-10-21T13:52:21.3170781Z ##[endgroup]
+2026-10-21T13:52:21.8781468Z
+2026-10-21T13:52:21.8782386Z > vietnam-playful-travel-planner@0.1.0 lint
+2026-10-21T13:52:21.8783150Z > eslint . --max-warnings=0
+2026-10-21T13:52:21.8783445Z
+2026-10-21T13:52:31.2681018Z ##[group]Run npm.cmd run test:unit
+2026-10-21T13:52:31.2681380Z [36;1mnpm.cmd run test:unit[0m
+2026-10-21T13:52:31.2754387Z shell: C:\Program Files\PowerShell\7\pwsh.EXE -command ". '{0}'"
+2026-10-21T13:52:31.2754726Z env:
+2026-10-21T13:52:31.2754915Z   NEXT_TELEMETRY_DISABLED: 1
+2026-10-21T13:52:31.2755144Z   CLOUD_ENABLED: false
+2026-10-21T13:52:31.2755354Z   GOOGLE_MAPS_LIVE_ENABLED: false
+2026-10-21T13:52:31.2755577Z   DEPLOYMENT_ENV: local
+2026-10-21T13:52:31.2755777Z   DEMO_EVIDENCE_PREFIX: CI-demo
+2026-10-21T13:52:31.2756075Z   GOOGLE_MAPS_SERVER_KEY: test-only-google-canary-never-real
+2026-10-21T13:52:31.2756485Z   SUPABASE_SERVICE_ROLE_KEY: test-only-service-canary-never-real
+2026-10-21T13:52:31.2756812Z ##[endgroup]
+2026-10-21T13:52:31.8368464Z
+2026-10-21T13:52:31.8369552Z > vietnam-playful-travel-planner@0.1.0 test:unit
+2026-10-21T13:52:31.8370243Z > npm run test:tooling && vitest run
+2026-10-21T13:52:31.8370552Z
+2026-10-21T13:52:32.1191822Z
+2026-10-21T13:52:32.1192566Z > vietnam-playful-travel-planner@0.1.0 test:tooling
+2026-10-21T13:52:32.1193096Z > node --test tests/tooling/*.test.mjs
+2026-10-21T13:52:32.1193340Z
+2026-10-21T13:52:33.1630676Z ✔ Next config has exactly two redundant context wrappers removed and no rule changes (3.5487ms)
+2026-10-21T13:52:33.1632483Z ✔ eslint-plugin-react: all upstream rule/config bytes and metadata preserved (379.3987ms)
+2026-10-21T13:52:33.1634551Z ✔ eslint-plugin-jsx-a11y: all upstream rule/config bytes and metadata preserved (265.8685ms)
+2026-10-21T13:52:33.1637516Z ✔ eslint-plugin-import: all upstream rule/config bytes and metadata preserved (103.7427ms)
+2026-10-21T13:52:33.1639196Z ✔ maintained core10 is actually loaded, not a nested legacy eslint (1.4956ms)
+2026-10-21T13:52:34.5000261Z ✔ official adapter restores removed context methods and reports real violations (1343.8484ms)
+2026-10-21T13:52:34.7125573Z ✔ React escaping still produces its expected diagnostic (212.5817ms)
+2026-10-21T13:52:34.7570078Z ✔ ARIA value types still produces its expected diagnostic (44.8013ms)
+2026-10-21T13:52:34.7842831Z ✔ anonymous export still produces its expected diagnostic (27.4432ms)
+2026-10-21T13:52:34.8573187Z ✔ all upstream rule implementations and config exports are byte-identical (7.6886ms)
+2026-10-21T13:52:34.8574687Z ✔ enabled rule IDs, severities, options and settings match before patch (1960.1357ms)
+2026-10-21T13:52:34.8576115Z ✔ root scanner preserves literals, brace sets, globstar, arrays and Windows separators (15.2126ms)
+2026-10-21T13:52:34.8577430Z ✔ pathological glob inputs fail explicitly before recursive parsing (0.6637ms)
+2026-10-21T13:52:34.8578480Z ✔ Next image rule violation is still detected (259.1284ms)
+2026-10-21T13:52:34.8579449Z ✔ React duplicate props violation is still detected (37.4259ms)
+2026-10-21T13:52:34.8580388Z ✔ React list keys violation is still detected (52.7981ms)
+2026-10-21T13:52:34.8581362Z ✔ accessibility violation is still detected (39.9316ms)
+2026-10-21T13:52:34.8587056Z ✔ TypeScript violation is still detected (24.5568ms)
+2026-10-21T13:52:34.8587862Z ✔ hooks violation is still detected (48.8906ms)
+2026-10-21T13:52:34.8857199Z ℹ tests 19
+2026-10-21T13:52:34.8857623Z ℹ suites 0
+2026-10-21T13:52:34.8857856Z ℹ pass 19
+2026-10-21T13:52:34.8858048Z ℹ fail 0
+2026-10-21T13:52:34.8858242Z ℹ cancelled 0
+2026-10-21T13:52:34.8858448Z ℹ skipped 0
+2026-10-21T13:52:34.8858630Z ℹ todo 0
+2026-10-21T13:52:34.8858853Z ℹ duration_ms 2695.5303
+2026-10-21T13:52:35.2911972Z
+2026-10-21T13:52:35.2917119Z [1m[30m[46m RUN [49m[39m[22m [36mv5.0.5 [39m[90mD:/a/Travel_Planner/Travel_Planner[39m
+2026-10-21T13:52:35.2917539Z
+2026-10-21T13:52:35.7140663Z  [32m✓[39m tests/unit/server-foundation.test.ts [2m([22m[2m10 tests[22m[2m)[22m[32m 57[2mms[22m[39m
+2026-10-21T13:52:35.9085159Z  [32m✓[39m tests/unit/fixtures.test.ts [2m([22m[2m2 tests[22m[2m)[22m[32m 6[2mms[22m[39m
+2026-10-21T13:52:37.4336013Z  [32m✓[39m tests/components/button.test.ts [2m([22m[2m2 tests[22m[2m)[22m[32m 225[2mms[22m[39m
+2026-10-21T13:52:37.8121796Z  [32m✓[39m tests/unit/boundaries.test.ts [2m([22m[2m4 tests[22m[2m)[22m[33m 1797[2mms[22m[39m
+2026-10-21T13:52:37.8123041Z    [33m[2m✓[22m[39m lint rejects framework imports in domain source[33m 1727[2mms[22m[39m
+2026-10-21T13:52:37.8181331Z
+2026-10-21T13:52:37.8187897Z [2m Test Files [22m [1m[32m4 passed[39m[22m[90m (4)[39m
+2026-10-21T13:52:37.8189483Z [2m      Tests [22m [1m[32m18 passed[39m[22m[90m (18)[39m
+2026-10-21T13:52:37.8190454Z [2m   Start at [22m 13:52:35
+2026-10-21T13:52:37.8196506Z [2m   Duration [22m 2.52s[2m (tests 53%, environment 24%, import 18%, transform 5%, worker 1%)[22m
+2026-10-21T13:52:37.8215089Z
+2026-10-21T13:52:37.8216655Z [2m    Isolate [22m [33m4 workers spawned[39m[2m · ~392ms startup each (spawn + environment, per file)[22m
+2026-10-21T13:52:37.8218535Z [2m            [22m [2mat least ~392ms faster with [22m[33misolate: false[39m[2m — reuses workers across files instead of one per file[22m
+2026-10-21T13:52:37.8219558Z
+2026-10-21T13:52:37.9909856Z ##[group]Run npm.cmd run test:coverage
+2026-10-21T13:52:37.9910236Z [36;1mnpm.cmd run test:coverage[0m
+2026-10-21T13:52:37.9983167Z shell: C:\Program Files\PowerShell\7\pwsh.EXE -command ". '{0}'"
+2026-10-21T13:52:37.9983500Z env:
+2026-10-21T13:52:37.9983673Z   NEXT_TELEMETRY_DISABLED: 1
+2026-10-21T13:52:37.9983888Z   CLOUD_ENABLED: false
+2026-10-21T13:52:37.9984091Z   GOOGLE_MAPS_LIVE_ENABLED: false
+2026-10-21T13:52:37.9984314Z   DEPLOYMENT_ENV: local
+2026-10-21T13:52:37.9984524Z   DEMO_EVIDENCE_PREFIX: CI-demo
+2026-10-21T13:52:37.9984819Z   GOOGLE_MAPS_SERVER_KEY: test-only-google-canary-never-real
+2026-10-21T13:52:37.9985229Z   SUPABASE_SERVICE_ROLE_KEY: test-only-service-canary-never-real
+2026-10-21T13:52:37.9985546Z ##[endgroup]
+2026-10-21T13:52:38.5752163Z
+2026-10-21T13:52:38.5752903Z > vietnam-playful-travel-planner@0.1.0 test:coverage
+2026-10-21T13:52:38.5753572Z > vitest run --coverage
+2026-10-21T13:52:38.5753815Z
+2026-10-21T13:52:39.0423028Z
+2026-10-21T13:52:39.0428119Z [1m[30m[46m RUN [49m[39m[22m [36mv5.0.5 [39m[90mD:/a/Travel_Planner/Travel_Planner[39m
+2026-10-21T13:52:39.0429229Z       [2mCoverage enabled with [22m[33mv8[39m
+2026-10-21T13:52:39.0429587Z
+2026-10-21T13:52:40.8209058Z  [32m✓[39m tests/components/button.test.ts [2m([22m[2m2 tests[22m[2m)[22m[32m 239[2mms[22m[39m
+2026-10-21T13:52:41.3306994Z  [32m✓[39m tests/unit/server-foundation.test.ts [2m([22m[2m10 tests[22m[2m)[22m[32m 72[2mms[22m[39m
+2026-10-21T13:52:41.5634181Z  [32m✓[39m tests/unit/fixtures.test.ts [2m([22m[2m2 tests[22m[2m)[22m[32m 7[2mms[22m[39m
+2026-10-21T13:52:42.0827154Z  [32m✓[39m tests/unit/boundaries.test.ts [2m([22m[2m4 tests[22m[2m)[22m[33m 2029[2mms[22m[39m
+2026-10-21T13:52:42.0828432Z    [33m[2m✓[22m[39m lint rejects framework imports in domain source[33m 1925[2mms[22m[39m
+2026-10-21T13:52:42.1579283Z
+2026-10-21T13:52:42.1584244Z [2m Test Files [22m [1m[32m4 passed[39m[22m[90m (4)[39m
+2026-10-21T13:52:42.1585162Z [2m      Tests [22m [1m[32m18 passed[39m[22m[90m (18)[39m
+2026-10-21T13:52:42.1585832Z [2m   Start at [22m 13:52:39
+2026-10-21T13:52:42.1593452Z [2m   Duration [22m 3.11s[2m (tests 53%, environment 22%, import 18%, transform 5%, worker 3%)[22m
+2026-10-21T13:52:42.1611674Z
+2026-10-21T13:52:42.1613783Z [2m    Isolate [22m [33m4 workers spawned[39m[2m · ~392ms startup each (spawn + environment, per file)[22m
+2026-10-21T13:52:42.1615412Z [2m            [22m [2mat least ~392ms faster with [22m[33misolate: false[39m[2m — reuses workers across files instead of one per file[22m
+2026-10-21T13:52:42.1615993Z
+2026-10-21T13:52:42.1636946Z [34m % [39m[2mCoverage report from [22m[33mv8[39m
+2026-10-21T13:52:42.1656137Z -----------------|---------|----------|---------|---------|-------------------
+2026-10-21T13:52:42.1657988Z File             | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s
+2026-10-21T13:52:42.1659358Z -----------------|---------|----------|---------|---------|-------------------
+2026-10-21T13:52:42.1664556Z All files        |     100 |      100 |     100 |     100 |
+2026-10-21T13:52:42.1665530Z  components/ui   |     100 |      100 |     100 |     100 |
+2026-10-21T13:52:42.1667134Z   button.tsx     |     100 |      100 |     100 |     100 |
+2026-10-21T13:52:42.1667949Z  domain/model    |     100 |      100 |     100 |     100 |
+2026-10-21T13:52:42.1668634Z   destination.ts |     100 |      100 |     100 |     100 |
+2026-10-21T13:52:42.1670415Z   trip.ts        |       0 |        0 |       0 |       0 |
+2026-10-21T13:52:42.1671100Z  domain/ports    |       0 |        0 |       0 |       0 |
+2026-10-21T13:52:42.1671772Z   persistence.ts |       0 |        0 |       0 |       0 |
+2026-10-21T13:52:42.1675567Z   providers.ts   |       0 |        0 |       0 |       0 |
+2026-10-21T13:52:42.1676296Z -----------------|---------|----------|---------|---------|-------------------
+2026-10-21T13:52:42.3706637Z ##[group]Run npm.cmd run test:content
+2026-10-21T13:52:42.3707027Z [36;1mnpm.cmd run test:content[0m
+2026-10-21T13:52:42.3779255Z shell: C:\Program Files\PowerShell\7\pwsh.EXE -command ". '{0}'"
+2026-10-21T13:52:42.3779634Z env:
+2026-10-21T13:52:42.3779830Z   NEXT_TELEMETRY_DISABLED: 1
+2026-10-21T13:52:42.3780076Z   CLOUD_ENABLED: false
+2026-10-21T13:52:42.3780304Z   GOOGLE_MAPS_LIVE_ENABLED: false
+2026-10-21T13:52:42.3780554Z   DEPLOYMENT_ENV: local
+2026-10-21T13:52:42.3780778Z   DEMO_EVIDENCE_PREFIX: CI-demo
+2026-10-21T13:52:42.3781100Z   GOOGLE_MAPS_SERVER_KEY: test-only-google-canary-never-real
+2026-10-21T13:52:42.3781552Z   SUPABASE_SERVICE_ROLE_KEY: test-only-service-canary-never-real
+2026-10-21T13:52:42.3782031Z ##[endgroup]
+2026-10-21T13:52:42.9673772Z
+2026-10-21T13:52:42.9674317Z > vietnam-playful-travel-planner@0.1.0 test:content
+2026-10-21T13:52:42.9675895Z > node scripts/verify-p00-01.mjs && node scripts/verify-p00-02.mjs && node scripts/verify-p00-03.mjs && node scripts/verify-p00-04.mjs && node scripts/verify-p00-05.mjs
+2026-10-21T13:52:42.9676918Z
+2026-10-21T13:52:43.0270762Z PASS: Master declares 15 FR and 12 BR
+2026-10-21T13:52:43.0273172Z PASS: Traceability has exactly 27 rows
+2026-10-21T13:52:43.0273700Z PASS: FR-001 appears exactly once
+2026-10-21T13:52:43.0274274Z PASS: FR-001 has owner and observable expectation
+2026-10-21T13:52:43.0276180Z PASS: FR-001 has acceptance IDs
+2026-10-21T13:52:43.0277618Z PASS: BASE-001 is defined
+2026-10-21T13:52:43.0278788Z PASS: AC-014 is defined
+2026-10-21T13:52:43.0279815Z PASS: FR-001 has verification task
+2026-10-21T13:52:43.0280983Z PASS: FR-002 appears exactly once
+2026-10-21T13:52:43.0281681Z PASS: FR-002 has owner and observable expectation
+2026-10-21T13:52:43.0283311Z PASS: FR-002 has acceptance IDs
+2026-10-21T13:52:43.0284414Z PASS: BASE-002 is defined
+2026-10-21T13:52:43.0284800Z PASS: FR-002 has verification task
+2026-10-21T13:52:43.0285140Z PASS: FR-003 appears exactly once
+2026-10-21T13:52:43.0285698Z PASS: FR-003 has owner and observable expectation
+2026-10-21T13:52:43.0286071Z PASS: FR-003 has acceptance IDs
+2026-10-21T13:52:43.0287031Z PASS: AC-001 is defined
+2026-10-21T13:52:43.0287891Z PASS: BASE-003 is defined
+2026-10-21T13:52:43.0288618Z PASS: FR-003 has verification task
+2026-10-21T13:52:43.0289196Z PASS: FR-004 appears exactly once
+2026-10-21T13:52:43.0290022Z PASS: FR-004 has owner and observable expectation
+2026-10-21T13:52:43.0290378Z PASS: FR-004 has acceptance IDs
+2026-10-21T13:52:43.0290637Z PASS: BASE-004 is defined
+2026-10-21T13:52:43.0291196Z PASS: AC-005 is defined
+2026-10-21T13:52:43.0292284Z PASS: FR-004 has verification task
+2026-10-21T13:52:43.0292772Z PASS: FR-005 appears exactly once
+2026-10-21T13:52:43.0293334Z PASS: FR-005 has owner and observable expectation
+2026-10-21T13:52:43.0293863Z PASS: FR-005 has acceptance IDs
+2026-10-21T13:52:43.0294563Z PASS: BASE-005 is defined
+2026-10-21T13:52:43.0295298Z PASS: AC-002 is defined
+2026-10-21T13:52:43.0296004Z PASS: FR-005 has verification task
+2026-10-21T13:52:43.0296900Z PASS: FR-006 appears exactly once
+2026-10-21T13:52:43.0297443Z PASS: FR-006 has owner and observable expectation
+2026-10-21T13:52:43.0297976Z PASS: FR-006 has acceptance IDs
+2026-10-21T13:52:43.0298415Z PASS: AC-006 is defined
+2026-10-21T13:52:43.0298868Z PASS: AC-007 is defined
+2026-10-21T13:52:43.0299287Z PASS: FR-006 has verification task
+2026-10-21T13:52:43.0300163Z PASS: FR-007 appears exactly once
+2026-10-21T13:52:43.0301059Z PASS: FR-007 has owner and observable expectation
+2026-10-21T13:52:43.0301612Z PASS: FR-007 has acceptance IDs
+2026-10-21T13:52:43.0302048Z PASS: AC-002 is defined
+2026-10-21T13:52:43.0302422Z PASS: AC-003 is defined
+2026-10-21T13:52:43.0302797Z PASS: AC-004 is defined
+2026-10-21T13:52:43.0303157Z PASS: AC-005 is defined
+2026-10-21T13:52:43.0303970Z PASS: FR-007 has verification task
+2026-10-21T13:52:43.0304908Z PASS: FR-008 appears exactly once
+2026-10-21T13:52:43.0309640Z PASS: FR-008 has owner and observable expectation
+2026-10-21T13:52:43.0310360Z PASS: FR-008 has acceptance IDs
+2026-10-21T13:52:43.0310817Z PASS: BASE-006 is defined
+2026-10-21T13:52:43.0311218Z PASS: AC-002 is defined
+2026-10-21T13:52:43.0312015Z PASS: FR-008 has verification task
+2026-10-21T13:52:43.0312553Z PASS: FR-009 appears exactly once
+2026-10-21T13:52:43.0313162Z PASS: FR-009 has owner and observable expectation
+2026-10-21T13:52:43.0313782Z PASS: FR-009 has acceptance IDs
+2026-10-21T13:52:43.0314255Z PASS: BASE-007 is defined
+2026-10-21T13:52:43.0314742Z PASS: FR-009 has verification task
+2026-10-21T13:52:43.0315527Z PASS: FR-010 appears exactly once
+2026-10-21T13:52:43.0316143Z PASS: FR-010 has owner and observable expectation
+2026-10-21T13:52:43.0316738Z PASS: FR-010 has acceptance IDs
+2026-10-21T13:52:43.0317193Z PASS: AC-008 is defined
+2026-10-21T13:52:43.0317643Z PASS: FR-010 has verification task
+2026-10-21T13:52:43.0318168Z PASS: FR-011 appears exactly once
+2026-10-21T13:52:43.0318747Z PASS: FR-011 has owner and observable expectation
+2026-10-21T13:52:43.0319331Z PASS: FR-011 has acceptance IDs
+2026-10-21T13:52:43.0319775Z PASS: AC-011 is defined
+2026-10-21T13:52:43.0320191Z PASS: AC-013 is defined
+2026-10-21T13:52:43.0320593Z PASS: BASE-008 is defined
+2026-10-21T13:52:43.0321050Z PASS: FR-011 has verification task
+2026-10-21T13:52:43.0321570Z PASS: FR-012 appears exactly once
+2026-10-21T13:52:43.0322155Z PASS: FR-012 has owner and observable expectation
+2026-10-21T13:52:43.0322728Z PASS: FR-012 has acceptance IDs
+2026-10-21T13:52:43.0323316Z PASS: AC-009 is defined
+2026-10-21T13:52:43.0323856Z PASS: AC-010 is defined
+2026-10-21T13:52:43.0324405Z PASS: BASE-009 is defined
+2026-10-21T13:52:43.0325081Z PASS: FR-012 has verification task
+2026-10-21T13:52:43.0325720Z PASS: FR-013 appears exactly once
+2026-10-21T13:52:43.0326502Z PASS: FR-013 has owner and observable expectation
+2026-10-21T13:52:43.0327244Z PASS: FR-013 has acceptance IDs
+2026-10-21T13:52:43.0327937Z PASS: BASE-010 is defined
+2026-10-21T13:52:43.0328867Z PASS: AC-014 is defined
+2026-10-21T13:52:43.0329668Z PASS: FR-013 has verification task
+2026-10-21T13:52:43.0330368Z PASS: FR-014 appears exactly once
+2026-10-21T13:52:43.0331087Z PASS: FR-014 has owner and observable expectation
+2026-10-21T13:52:43.0331688Z PASS: FR-014 has acceptance IDs
+2026-10-21T13:52:43.0332047Z PASS: BASE-011 is defined
+2026-10-21T13:52:43.0346481Z PASS: AC-015 is defined
+2026-10-21T13:52:43.0348349Z PASS: FR-014 has verification task
+2026-10-21T13:52:43.0349285Z PASS: FR-015 appears exactly once
+2026-10-21T13:52:43.0349914Z PASS: FR-015 has owner and observable expectation
+2026-10-21T13:52:43.0350477Z PASS: FR-015 has acceptance IDs
+2026-10-21T13:52:43.0350841Z PASS: BASE-012 is defined
+2026-10-21T13:52:43.0351209Z PASS: AC-012 is defined
+2026-10-21T13:52:43.0351593Z PASS: FR-015 has verification task
+2026-10-21T13:52:43.0351887Z PASS: BR-01 appears exactly once
+2026-10-21T13:52:43.0353116Z PASS: BR-01 has owner and observable expectation
+2026-10-21T13:52:43.0353450Z PASS: BR-01 has acceptance IDs
+2026-10-21T13:52:43.0353691Z PASS: AC-001 is defined
+2026-10-21T13:52:43.0353911Z PASS: BASE-003 is defined
+2026-10-21T13:52:43.0354169Z PASS: BR-01 has verification task
+2026-10-21T13:52:43.0354443Z PASS: BR-02 appears exactly once
+2026-10-21T13:52:43.0354761Z PASS: BR-02 has owner and observable expectation
+2026-10-21T13:52:43.0355087Z PASS: BR-02 has acceptance IDs
+2026-10-21T13:52:43.0355348Z PASS: BASE-013 is defined
+2026-10-21T13:52:43.0355800Z PASS: BR-02 has verification task
+2026-10-21T13:52:43.0356247Z PASS: BR-03 appears exactly once
+2026-10-21T13:52:43.0356745Z PASS: BR-03 has owner and observable expectation
+2026-10-21T13:52:43.0357253Z PASS: BR-03 has acceptance IDs
+2026-10-21T13:52:43.0357638Z PASS: AC-004 is defined
+2026-10-21T13:52:43.0357980Z PASS: BASE-014 is defined
+2026-10-21T13:52:43.0358376Z PASS: BR-03 has verification task
+2026-10-21T13:52:43.0358874Z PASS: BR-04 appears exactly once
+2026-10-21T13:52:43.0359815Z PASS: BR-04 has owner and observable expectation
+2026-10-21T13:52:43.0360182Z PASS: BR-04 has acceptance IDs
+2026-10-21T13:52:43.0360428Z PASS: AC-001 is defined
+2026-10-21T13:52:43.0360653Z PASS: BASE-015 is defined
+2026-10-21T13:52:43.0361162Z PASS: BR-04 has verification task
+2026-10-21T13:52:43.0361441Z PASS: BR-05 appears exactly once
+2026-10-21T13:52:43.0361750Z PASS: BR-05 has owner and observable expectation
+2026-10-21T13:52:43.0362070Z PASS: BR-05 has acceptance IDs
+2026-10-21T13:52:43.0362388Z PASS: AC-003 is defined
+2026-10-21T13:52:43.0362728Z PASS: BASE-016 is defined
+2026-10-21T13:52:43.0362977Z PASS: BR-05 has verification task
+2026-10-21T13:52:43.0363239Z PASS: BR-06 appears exactly once
+2026-10-21T13:52:43.0363549Z PASS: BR-06 has owner and observable expectation
+2026-10-21T13:52:43.0363875Z PASS: BR-06 has acceptance IDs
+2026-10-21T13:52:43.0364106Z PASS: BASE-017 is defined
+2026-10-21T13:52:43.0364363Z PASS: BR-06 has verification task
+2026-10-21T13:52:43.0364640Z PASS: BR-07 appears exactly once
+2026-10-21T13:52:43.0364955Z PASS: BR-07 has owner and observable expectation
+2026-10-21T13:52:43.0365268Z PASS: BR-07 has acceptance IDs
+2026-10-21T13:52:43.0365509Z PASS: BASE-005 is defined
+2026-10-21T13:52:43.0365755Z PASS: BR-07 has verification task
+2026-10-21T13:52:43.0366020Z PASS: BR-08 appears exactly once
+2026-10-21T13:52:43.0366322Z PASS: BR-08 has owner and observable expectation
+2026-10-21T13:52:43.0366628Z PASS: BR-08 has acceptance IDs
+2026-10-21T13:52:43.0366857Z PASS: BASE-007 is defined
+2026-10-21T13:52:43.0367102Z PASS: BR-08 has verification task
+2026-10-21T13:52:43.0367361Z PASS: BR-09 appears exactly once
+2026-10-21T13:52:43.0367652Z PASS: BR-09 has owner and observable expectation
+2026-10-21T13:52:43.0367953Z PASS: BR-09 has acceptance IDs
+2026-10-21T13:52:43.0368179Z PASS: BASE-018 is defined
+2026-10-21T13:52:43.0368410Z PASS: BR-09 has verification task
+2026-10-21T13:52:43.0368667Z PASS: BR-10 appears exactly once
+2026-10-21T13:52:43.0368970Z PASS: BR-10 has owner and observable expectation
+2026-10-21T13:52:43.0369263Z PASS: BR-10 has acceptance IDs
+2026-10-21T13:52:43.0369482Z PASS: AC-012 is defined
+2026-10-21T13:52:43.0369689Z PASS: BASE-012 is defined
+2026-10-21T13:52:43.0369918Z PASS: BR-10 has verification task
+2026-10-21T13:52:43.0370175Z PASS: BR-11 appears exactly once
+2026-10-21T13:52:43.0370465Z PASS: BR-11 has owner and observable expectation
+2026-10-21T13:52:43.0370770Z PASS: BR-11 has acceptance IDs
+2026-10-21T13:52:43.0371001Z PASS: AC-009 is defined
+2026-10-21T13:52:43.0371207Z PASS: AC-010 is defined
+2026-10-21T13:52:43.0371403Z PASS: AC-011 is defined
+2026-10-21T13:52:43.0371632Z PASS: BR-11 has verification task
+2026-10-21T13:52:43.0371892Z PASS: BR-12 appears exactly once
+2026-10-21T13:52:43.0372190Z PASS: BR-12 has owner and observable expectation
+2026-10-21T13:52:43.0372492Z PASS: BR-12 has acceptance IDs
+2026-10-21T13:52:43.0373364Z PASS: BASE-019 is defined
+2026-10-21T13:52:43.0374196Z PASS: BR-12 has verification task
+2026-10-21T13:52:43.0374972Z PASS: GOV-001 has source, owner, proposal and state
+2026-10-21T13:52:43.0376475Z PASS: SCOPE-001 has source, owner, proposal and state
+2026-10-21T13:52:43.0377038Z PASS: API-001 has source, owner, proposal and state
+2026-10-21T13:52:43.0377432Z PASS: API-002 has source, owner, proposal and state
+2026-10-21T13:52:43.0377834Z PASS: ENGINE-001 has source, owner, proposal and state
+2026-10-21T13:52:43.0378226Z PASS: COST-001 has source, owner, proposal and state
+2026-10-21T13:52:43.0378600Z PASS: MAP-001 has source, owner, proposal and state
+2026-10-21T13:52:43.0378994Z PASS: HOTEL-001 has source, owner, proposal and state
+2026-10-21T13:52:43.0379394Z PASS: ACCOUNT-001 has source, owner, proposal and state
+2026-10-21T13:52:43.0379787Z PASS: RIGHTS-001 has source, owner, proposal and state
+2026-10-21T13:52:43.0380358Z PASS: POLICY-001 has source, owner, proposal and state
+2026-10-21T13:52:43.0381047Z PASS: docs/phase-00/PRD_BASELINE.md: local link ../MASTER_PLANNER.md exists
+2026-10-21T13:52:43.0381627Z PASS: docs/phase-00/PRD_BASELINE.md: local link DECISION_REGISTER.md exists
+2026-10-21T13:52:43.0382190Z PASS: docs/phase-00/DECISION_REGISTER.md: local link ../adr/ADR-0000.md exists
+2026-10-21T13:52:43.0382743Z PASS: docs/phase-00/DECISION_REGISTER.md: local link ../adr/ADR-0011.md exists
+2026-10-21T13:52:43.0383164Z PASS: Task completion requires evidence
+2026-10-21T13:52:43.0383473Z PASS: Phase gate prohibition preserved
+2026-10-21T13:52:43.0383835Z PASS: Master agrees with approved governance clarification
+2026-10-21T13:52:43.0384339Z 178 document checks PASS. Runtime behavior and G0 approval are NOT VERIFIED.
+2026-10-21T13:52:43.0908556Z PASS: docs/adr/ADR-0001.md: baseline mapping, context, decision, alternatives, trade-offs, validation
+2026-10-21T13:52:43.0912501Z PASS: docs/adr/ADR-0002.md: baseline mapping, context, decision, alternatives, trade-offs, validation
+2026-10-21T13:52:43.0913899Z PASS: docs/adr/ADR-0003.md: baseline mapping, context, decision, alternatives, trade-offs, validation
+2026-10-21T13:52:43.0915229Z PASS: docs/adr/ADR-0004.md: baseline mapping, context, decision, alternatives, trade-offs, validation
+2026-10-21T13:52:43.0916514Z PASS: docs/adr/ADR-0005.md: baseline mapping, context, decision, alternatives, trade-offs, validation
+2026-10-21T13:52:43.0918843Z PASS: docs/adr/ADR-0006.md: baseline mapping, context, decision, alternatives, trade-offs, validation
+2026-10-21T13:52:43.0920975Z PASS: docs/adr/ADR-0007.md: baseline mapping, context, decision, alternatives, trade-offs, validation
+2026-10-21T13:52:43.0922809Z PASS: docs/adr/ADR-0008.md: baseline mapping, context, decision, alternatives, trade-offs, validation
+2026-10-21T13:52:43.0924567Z PASS: docs/adr/ADR-0009.md: baseline mapping, context, decision, alternatives, trade-offs, validation
+2026-10-21T13:52:43.0926440Z PASS: docs/adr/ADR-0010.md: baseline mapping, context, decision, alternatives, trade-offs, validation
+2026-10-21T13:52:43.0928419Z PASS: architecture review: Dependency review
+2026-10-21T13:52:43.0929068Z PASS: architecture review: Build constraints
+2026-10-21T13:52:43.0929650Z PASS: architecture review: Cost-control strategy
+2026-10-21T13:52:43.0930290Z PASS: architecture review: 400 elements
+2026-10-21T13:52:43.0930945Z PASS: architecture review: no SDK, React or Next
+2026-10-21T13:52:43.0931559Z PASS: architecture review: Default external live calls disabled
+2026-10-21T13:52:43.0932172Z PASS: architecture review: G0 NOT VERIFIED
+2026-10-21T13:52:43.0933138Z P00-02 documentation validation PASS. Runtime architecture, policies, licenses and deployment NOT VERIFIED.
+2026-10-21T13:52:43.1459285Z PASS: POL-01 technical review attribution and date
+2026-10-21T13:52:43.1462206Z PASS: POL-02 technical review attribution and date
+2026-10-21T13:52:43.1463105Z PASS: POL-03 technical review attribution and date
+2026-10-21T13:52:43.1465155Z PASS: POL-04 technical review attribution and date
+2026-10-21T13:52:43.1466678Z PASS: POL-05 technical review attribution and date
+2026-10-21T13:52:43.1467512Z PASS: POL-06 technical review attribution and date
+2026-10-21T13:52:43.1468650Z PASS: POL-07 technical review attribution and date
+2026-10-21T13:52:43.1471450Z PASS: policy source present: developers.google.com/maps/documentation/places/web-service/policies
+2026-10-21T13:52:43.1473579Z PASS: policy source present: developers.google.com/maps/documentation/routes/policies
+2026-10-21T13:52:43.1474488Z PASS: policy source present: cloud.google.com/maps-platform/terms/maps-service-terms
+2026-10-21T13:52:43.1475428Z PASS: policy source present: developers.google.com/maps/documentation/urls/get-started
+2026-10-21T13:52:43.1476019Z PASS: PRIVACY_DRAFT.md explicitly unpublished
+2026-10-21T13:52:43.1476775Z PASS: TERMS_DRAFT.md explicitly unpublished
+2026-10-21T13:52:43.1477958Z PASS: technical review scope excludes live/legal approval
+2026-10-21T13:52:43.1479091Z P00-03 document checks PASS. Source inspection recorded in checklist; runtime compliance and G8 release NOT VERIFIED.
+2026-10-21T13:52:43.2138456Z PASS: 30 real-source draft records validate schema subset, unique IDs/slugs/source identities, exact source coordinates/versions, rights files, hours uncertainty and safe original SVG metadata
+2026-10-21T13:52:43.2151644Z PASS: rejects missing image rights
+2026-10-21T13:52:43.2155887Z PASS: rejects invalid latitude
+2026-10-21T13:52:43.2160156Z PASS: rejects invalid longitude
+2026-10-21T13:52:43.2165565Z PASS: rejects short duration
+2026-10-21T13:52:43.2170325Z PASS: rejects false hours verification
+2026-10-21T13:52:43.2205616Z PASS: rejects duplicate identity
+2026-10-21T13:52:43.2211493Z PASS: rejects Google source substitution
+2026-10-21T13:52:43.2216843Z PASS: rejects image traversal
+2026-10-21T13:52:43.2244013Z PASS: rejects invented coordinates
+2026-10-21T13:52:43.2262549Z PASS: rejects fake version
+2026-10-21T13:52:43.2266468Z PASS: rejects too few records
+2026-10-21T13:52:43.2270452Z PASS: rejects unexpected source content
+2026-10-21T13:52:43.2274268Z PASS: rejects premature publication
+2026-10-21T13:52:43.2277950Z PASS: unsupported schema keywords fail closed
+2026-10-21T13:52:43.2279413Z P00-04 content-design validation PASS. Drafts are NOT verified opening hours, entrances, live routes or publication approval.
+2026-10-21T13:52:43.2916657Z PASS: 30 real-source draft records validate schema subset, unique IDs/slugs/source identities, exact source coordinates/versions, rights files, hours uncertainty and safe original SVG metadata
+2026-10-21T13:52:43.2929851Z PASS: rejects wrong city
+2026-10-21T13:52:43.2935046Z PASS: rejects wrong snapshot
+2026-10-21T13:52:43.2946145Z PASS: rejects cross-city source
+2026-10-21T13:52:43.2988797Z PASS: rejects false entrance accuracy
+2026-10-21T13:52:43.3014417Z PASS: rejects missing access uncertainty
+2026-10-21T13:52:43.3020244Z PASS: rejects missing image rights
+2026-10-21T13:52:43.3025292Z PASS: rejects invalid latitude
+2026-10-21T13:52:43.3030176Z PASS: rejects invalid longitude
+2026-10-21T13:52:43.3036801Z PASS: rejects short duration
+2026-10-21T13:52:43.3042910Z PASS: rejects false hours verification
+2026-10-21T13:52:43.3069135Z PASS: rejects duplicate identity
+2026-10-21T13:52:43.3073685Z PASS: rejects Google source substitution
+2026-10-21T13:52:43.3077694Z PASS: rejects image traversal
+2026-10-21T13:52:43.3095471Z PASS: rejects invented coordinates
+2026-10-21T13:52:43.3112814Z PASS: rejects fake version
+2026-10-21T13:52:43.3116905Z PASS: rejects too few records
+2026-10-21T13:52:43.3120929Z PASS: rejects unexpected source content
+2026-10-21T13:52:43.3124640Z PASS: rejects premature publication
+2026-10-21T13:52:43.3128129Z PASS: unsupported schema keywords fail closed
+2026-10-21T13:52:43.3129810Z P00-05 content-design validation PASS. Drafts are NOT verified opening hours, entrances, live routes or publication approval.
+2026-10-21T13:52:43.3131965Z PASS: minimized selected source fields, bounded acquisition evidence and destination separation
+2026-10-21T13:52:43.4588261Z ##[group]Run npm.cmd run build
+2026-10-21T13:52:43.4588623Z [36;1mnpm.cmd run build[0m
+2026-10-21T13:52:43.4664546Z shell: C:\Program Files\PowerShell\7\pwsh.EXE -command ". '{0}'"
+2026-10-21T13:52:43.4664887Z env:
+2026-10-21T13:52:43.4665065Z   NEXT_TELEMETRY_DISABLED: 1
+2026-10-21T13:52:43.4665281Z   CLOUD_ENABLED: false
+2026-10-21T13:52:43.4665488Z   GOOGLE_MAPS_LIVE_ENABLED: false
+2026-10-21T13:52:43.4665720Z   DEPLOYMENT_ENV: local
+2026-10-21T13:52:43.4665925Z   DEMO_EVIDENCE_PREFIX: CI-demo
+2026-10-21T13:52:43.4666234Z   GOOGLE_MAPS_SERVER_KEY: test-only-google-canary-never-real
+2026-10-21T13:52:43.4666640Z   SUPABASE_SERVICE_ROLE_KEY: test-only-service-canary-never-real
+2026-10-21T13:52:43.4666973Z ##[endgroup]
+2026-10-21T13:52:44.0377477Z
+2026-10-21T13:52:44.0378266Z > vietnam-playful-travel-planner@0.1.0 prebuild
+2026-10-21T13:52:44.0379010Z > node scripts/prepare-production-types.mjs
+2026-10-21T13:52:44.0379760Z
+2026-10-21T13:52:44.1088715Z
+2026-10-21T13:52:44.1089375Z > vietnam-playful-travel-planner@0.1.0 build
+2026-10-21T13:52:44.1089754Z > next build
+2026-10-21T13:52:44.1089877Z
+2026-10-21T13:52:44.6434708Z ▲ Next.js 16.4.2 (Turbopack)
+2026-10-21T13:52:44.8547529Z ✓ Running next.config.ts took 211ms
+2026-10-21T13:52:44.8551895Z ⚠ No build cache found. Please configure build caching for faster rebuilds. Read more: https://nextjs.org/docs/messages/no-cache
+2026-10-21T13:52:44.8676796Z
+2026-10-21T13:52:44.9008064Z   Creating an optimized production build ...
+2026-10-21T13:52:50.9053052Z ✓ Compiled successfully in 6.0s
+2026-10-21T13:52:50.9078373Z   Running TypeScript ...
+2026-10-21T13:52:59.8316456Z   Finished TypeScript in 8.9s ...
+2026-10-21T13:52:59.8343049Z   Collecting page data using 3 workers ...
+2026-10-21T13:53:00.6701530Z   Generating static pages using 3 workers (0/12) ...
+2026-10-21T13:53:00.9921675Z   Generating static pages using 3 workers (3/12)
+2026-10-21T13:53:01.0033637Z   Generating static pages using 3 workers (6/12)
+2026-10-21T13:53:01.0795222Z   Generating static pages using 3 workers (9/12)
+2026-10-21T13:53:01.0806001Z ✓ Generating static pages using 3 workers (12/12) in 411ms
+2026-10-21T13:53:01.0880975Z   Finalizing page optimization ...
+2026-10-21T13:53:01.1020151Z
+2026-10-21T13:53:01.1021319Z Route (app)
+2026-10-21T13:53:01.1022007Z ┌ ○ /
+2026-10-21T13:53:01.1022436Z ├ ○ /_not-found
+2026-10-21T13:53:01.1022921Z ├ ƒ /api/v1/health
+2026-10-21T13:53:01.1023442Z ├   /destinations/[slug]
+2026-10-21T13:53:01.1024263Z │ ├ ● /destinations/nha-trang
+2026-10-21T13:53:01.1024915Z │ └ ● /destinations/da-lat
+2026-10-21T13:53:01.1025343Z ├ ○ /icon.svg
+2026-10-21T13:53:01.1025552Z ├ ○ /open
+2026-10-21T13:53:01.1025751Z ├ ○ /plan/new
+2026-10-21T13:53:01.1025957Z ├ ○ /privacy
+2026-10-21T13:53:01.1026137Z ├ ○ /shared
+2026-10-21T13:53:01.1026309Z ├ ○ /terms
+2026-10-21T13:53:01.1026518Z └ ƒ /trips/[tripId]
+2026-10-21T13:53:01.1026639Z
+2026-10-21T13:53:01.1026647Z
+2026-10-21T13:53:01.1026891Z ○  (Static)   prerendered as static content
+2026-10-21T13:53:01.1027644Z ●  (SSG)      prerendered as static HTML (uses generateStaticParams)
+2026-10-21T13:53:01.1028408Z ƒ  (Dynamic)  server-rendered on demand
+2026-10-21T13:53:01.1028703Z
+2026-10-21T13:53:01.2962405Z ##[group]Run node scripts/verify-client-secrets.mjs
+2026-10-21T13:53:01.2962852Z [36;1mnode scripts/verify-client-secrets.mjs[0m
+2026-10-21T13:53:01.3036739Z shell: C:\Program Files\PowerShell\7\pwsh.EXE -command ". '{0}'"
+2026-10-21T13:53:01.3037080Z env:
+2026-10-21T13:53:01.3037390Z   NEXT_TELEMETRY_DISABLED: 1
+2026-10-21T13:53:01.3037728Z   CLOUD_ENABLED: false
+2026-10-21T13:53:01.3038014Z   GOOGLE_MAPS_LIVE_ENABLED: false
+2026-10-21T13:53:01.3038245Z   DEPLOYMENT_ENV: local
+2026-10-21T13:53:01.3038456Z   DEMO_EVIDENCE_PREFIX: CI-demo
+2026-10-21T13:53:01.3038757Z   GOOGLE_MAPS_SERVER_KEY: test-only-google-canary-never-real
+2026-10-21T13:53:01.3039167Z   SUPABASE_SERVICE_ROLE_KEY: test-only-service-canary-never-real
+2026-10-21T13:53:01.3039716Z ##[endgroup]
+2026-10-21T13:53:01.6501351Z PASS: 19 client assets contain neither synthetic server canary. No real secret was inspected or printed.
+2026-10-21T13:53:01.7966830Z ##[group]Run npm.cmd run test:integration
+2026-10-21T13:53:01.7967201Z [36;1mnpm.cmd run test:integration[0m
+2026-10-21T13:53:01.8038472Z shell: C:\Program Files\PowerShell\7\pwsh.EXE -command ". '{0}'"
+2026-10-21T13:53:01.8038806Z env:
+2026-10-21T13:53:01.8038992Z   NEXT_TELEMETRY_DISABLED: 1
+2026-10-21T13:53:01.8039213Z   CLOUD_ENABLED: false
+2026-10-21T13:53:01.8039423Z   GOOGLE_MAPS_LIVE_ENABLED: false
+2026-10-21T13:53:01.8039653Z   DEPLOYMENT_ENV: local
+2026-10-21T13:53:01.8039857Z   DEMO_EVIDENCE_PREFIX: CI-demo
+2026-10-21T13:53:01.8040153Z   GOOGLE_MAPS_SERVER_KEY: test-only-google-canary-never-real
+2026-10-21T13:53:01.8040565Z   SUPABASE_SERVICE_ROLE_KEY: test-only-service-canary-never-real
+2026-10-21T13:53:01.8040893Z ##[endgroup]
+2026-10-21T13:53:02.3679515Z
+2026-10-21T13:53:02.3680784Z > vietnam-playful-travel-planner@0.1.0 test:integration
+2026-10-21T13:53:02.3681507Z > node scripts/smoke-scaffold.mjs
+2026-10-21T13:53:02.3681696Z
+2026-10-21T13:53:03.2953981Z PASS: /: HTTP 200, expected content, lang=vi
+2026-10-21T13:53:03.3176915Z PASS: /destinations/nha-trang: HTTP 200, expected content, lang=vi
+2026-10-21T13:53:03.3330538Z PASS: /destinations/da-lat: HTTP 200, expected content, lang=vi
+2026-10-21T13:53:03.4293265Z PASS: /destinations/unsupported-city: HTTP 404, expected content, lang=vi
+2026-10-21T13:53:03.4529597Z PASS: /plan/new: HTTP 200, expected content, lang=vi
+2026-10-21T13:53:03.4845260Z PASS: /trips/not-an-owner-credential: HTTP 200, expected content, lang=vi
+2026-10-21T13:53:03.4983838Z PASS: /open: HTTP 200, expected content, lang=vi
+2026-10-21T13:53:03.5126717Z PASS: /shared: HTTP 200, expected content, lang=vi
+2026-10-21T13:53:03.5269816Z PASS: /privacy: HTTP 200, expected content, lang=vi
+2026-10-21T13:53:03.5470862Z PASS: /terms: HTTP 200, expected content, lang=vi
+2026-10-21T13:53:03.5807809Z PASS: /missing-route: HTTP 404, expected content, lang=vi
+2026-10-21T13:53:03.6128973Z PASS: /api/v1/health: real HTTP status/envelope/UUID, no backend details
+2026-10-21T13:53:03.6129784Z Scaffold HTTP smoke PASS. Cloud ownership, itinerary, save or share implementation is not verified.
+2026-10-21T13:53:03.7703802Z ##[group]Run npm.cmd run test:e2e
+2026-10-21T13:53:03.7704299Z [36;1mnpm.cmd run test:e2e[0m
+2026-10-21T13:53:03.7775458Z shell: C:\Program Files\PowerShell\7\pwsh.EXE -command ". '{0}'"
+2026-10-21T13:53:03.7775796Z env:
+2026-10-21T13:53:03.7775977Z   NEXT_TELEMETRY_DISABLED: 1
+2026-10-21T13:53:03.7776193Z   CLOUD_ENABLED: false
+2026-10-21T13:53:03.7776461Z   GOOGLE_MAPS_LIVE_ENABLED: false
+2026-10-21T13:53:03.7776816Z   DEPLOYMENT_ENV: local
+2026-10-21T13:53:03.7777125Z   DEMO_EVIDENCE_PREFIX: CI-demo
+2026-10-21T13:53:03.7777513Z   GOOGLE_MAPS_SERVER_KEY: test-only-google-canary-never-real
+2026-10-21T13:53:03.7777983Z   SUPABASE_SERVICE_ROLE_KEY: test-only-service-canary-never-real
+2026-10-21T13:53:03.7778380Z ##[endgroup]
+2026-10-21T13:53:04.3424194Z
+2026-10-21T13:53:04.3424819Z > vietnam-playful-travel-planner@0.1.0 test:e2e
+2026-10-21T13:53:04.3425580Z > playwright test --config playwright.demo.config.mjs
+2026-10-21T13:53:04.3426008Z
+2026-10-21T13:53:06.0350844Z
+2026-10-21T13:53:06.0351414Z Running 16 tests using 1 worker
+2026-10-21T13:53:06.0351783Z
+2026-10-21T13:53:14.2780132Z   ok  1 [desktop] › tests\demo\postcard.spec.mjs:5:1 › three local pages render without errors or horizontal overflow (3.8s)
+2026-10-21T13:53:17.2477694Z   ok  2 [desktop] › tests\demo\postcard.spec.mjs:17:1 › 3D is lazy, renders, changes theme, pauses offscreen and disposes on stop (3.0s)
+2026-10-21T13:53:18.7996262Z   ok  3 [desktop] › tests\demo\postcard.spec.mjs:48:1 › reduced motion blocks 3D and preference changes stop a running scene (1.5s)
+2026-10-21T13:53:20.4222808Z   ok  4 [desktop] › tests\demo\postcard.spec.mjs:63:1 › no WebGL keeps the readable SVG fallback and navigation (1.6s)
+2026-10-21T13:53:21.1081634Z   ok  5 [desktop] › tests\demo\postcard.spec.mjs:77:1 › without JavaScript core text and links remain usable (668ms)
+2026-10-21T13:53:21.8369214Z   ok  6 [desktop] › tests\demo\postcard.spec.mjs:88:1 › keyboard can reach and activate the optional demo control (711ms)
+2026-10-21T13:53:23.8927406Z   ok  7 [desktop] › tests\demo\postcard.spec.mjs:97:3 › nha-trang has a themed optional scene, orbit control and context-loss recovery (2.0s)
+2026-10-21T13:53:25.8804661Z   ok  8 [desktop] › tests\demo\postcard.spec.mjs:97:3 › da-lat has a themed optional scene, orbit control and context-loss recovery (2.0s)
+2026-10-21T13:53:28.3792858Z   ok  9 [mobile] › tests\demo\postcard.spec.mjs:5:1 › three local pages render without errors or horizontal overflow (1.5s)
+2026-10-21T13:53:31.1299012Z   ok 10 [mobile] › tests\demo\postcard.spec.mjs:17:1 › 3D is lazy, renders, changes theme, pauses offscreen and disposes on stop (2.7s)
+2026-10-21T13:53:32.7001294Z   ok 11 [mobile] › tests\demo\postcard.spec.mjs:48:1 › reduced motion blocks 3D and preference changes stop a running scene (1.5s)
+2026-10-21T13:53:34.3804594Z   ok 12 [mobile] › tests\demo\postcard.spec.mjs:63:1 › no WebGL keeps the readable SVG fallback and navigation (1.7s)
+2026-10-21T13:53:35.0763041Z   ok 13 [mobile] › tests\demo\postcard.spec.mjs:77:1 › without JavaScript core text and links remain usable (662ms)
+2026-10-21T13:53:35.7378928Z   ok 14 [mobile] › tests\demo\postcard.spec.mjs:88:1 › keyboard can reach and activate the optional demo control (645ms)
+2026-10-21T13:53:37.7058551Z   ok 15 [mobile] › tests\demo\postcard.spec.mjs:97:3 › nha-trang has a themed optional scene, orbit control and context-loss recovery (2.0s)
+2026-10-21T13:53:39.6239853Z   ok 16 [mobile] › tests\demo\postcard.spec.mjs:97:3 › da-lat has a themed optional scene, orbit control and context-loss recovery (1.9s)
+2026-10-21T13:53:39.9608816Z
+2026-10-21T13:53:39.9614036Z   16 passed (35.0s)
+2026-10-21T13:53:40.1117857Z ##[group]Run actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
+2026-10-21T13:53:40.1118426Z with:
+2026-10-21T13:53:40.1118623Z   name: phase01-39611614744
+2026-10-21T13:53:40.1119052Z   path: coverage/coverage-summary.json
+docs/reports/evidence/CI-demo*
+test-results/demo/
+
+2026-10-21T13:53:40.1119489Z   retention-days: 7
+2026-10-21T13:53:40.1119689Z   if-no-files-found: warn
+2026-10-21T13:53:40.1119906Z   compression-level: 6
+2026-10-21T13:53:40.1120108Z   overwrite: false
+2026-10-21T13:53:40.1120312Z   include-hidden-files: false
+2026-10-21T13:53:40.1120534Z   archive: true
+2026-10-21T13:53:40.1120711Z env:
+2026-10-21T13:53:40.1120881Z   NEXT_TELEMETRY_DISABLED: 1
+2026-10-21T13:53:40.1121100Z   CLOUD_ENABLED: false
+2026-10-21T13:53:40.1121306Z   GOOGLE_MAPS_LIVE_ENABLED: false
+2026-10-21T13:53:40.1121543Z   DEPLOYMENT_ENV: local
+2026-10-21T13:53:40.1121755Z   DEMO_EVIDENCE_PREFIX: CI-demo
+2026-10-21T13:53:40.1122098Z   GOOGLE_MAPS_SERVER_KEY: test-only-google-canary-never-real
+2026-10-21T13:53:40.1122536Z   SUPABASE_SERVICE_ROLE_KEY: test-only-service-canary-never-real
+2026-10-21T13:53:40.1122871Z ##[endgroup]
+2026-10-21T13:53:40.3324943Z Multiple search paths detected. Calculating the least common ancestor of all paths
+2026-10-21T13:53:40.3329433Z The least common ancestor is D:\a\Travel_Planner\Travel_Planner. This will be the root directory of the artifact
+2026-10-21T13:53:40.3330553Z With the provided path, there will be 14 files uploaded
+2026-10-21T13:53:40.3335393Z Artifact name is valid!
+2026-10-21T13:53:40.3337377Z Root directory input is valid!
+2026-10-21T13:53:40.7265671Z Uploading artifact: phase01-39611614744.zip
+2026-10-21T13:53:40.7307837Z Beginning upload of artifact content to blob storage
+2026-10-21T13:53:41.7793824Z Uploaded bytes 1345014
+2026-10-21T13:53:41.8681167Z Finished uploading artifact content to blob storage!
+2026-10-21T13:53:41.8682916Z SHA256 digest of uploaded artifact is ef4d4a420f993c5a509e8b3d1fea3842c1e480964766304c875d37f43be7419d
+2026-10-21T13:53:41.8685255Z Finalizing artifact upload
+2026-10-21T13:53:42.3014909Z Artifact phase01-39611614744 successfully finalized. Artifact ID 12350811619
+2026-10-21T13:53:42.3015951Z Artifact phase01-39611614744 has been successfully uploaded! Final size is 1345014 bytes. Artifact ID is 12350811619
+2026-10-21T13:53:42.3023123Z Artifact download URL: https://github.com/CheeseThuong/Travel_Planner/actions/runs/39611614744/artifacts/12350811619
+2026-10-21T13:53:42.3381639Z Post job cleanup.
+2026-10-21T13:53:42.6095748Z [command]"C:\Program Files\Git\usr\bin\tar.exe" --posix -cf cache.tzst --exclude cache.tzst -P -C D:/a/Travel_Planner/Travel_Planner --files-from manifest.txt --force-local --use-compress-program "zstd -T0"
+2026-10-21T13:53:44.9892842Z Sent 0 of 171913524 (0.0%), 0.0 MBs/sec
+2026-10-21T13:53:45.9910283Z Sent 0 of 171913524 (0.0%), 0.0 MBs/sec
+2026-10-21T13:53:46.3037285Z Sent 171913524 of 171913524 (100.0%), 70.8 MBs/sec
+2026-10-21T13:53:46.6677025Z Cache saved with the key: node-cache-Windows-x64-npm-9891b42b4afd256ff634ce4fbda1ae8cafcb3065e503cfe71346aff71a175f85
+2026-10-21T13:53:46.6992772Z Post job cleanup.
+2026-10-21T13:53:46.9010547Z [command]"C:\Program Files\Git\bin\git.exe" version
+2026-10-21T13:53:46.9444262Z git version 2.56.0.windows.2
+2026-10-21T13:53:46.9526083Z Temporarily overriding HOME='D:\a\_temp\e1abb6a5-d69d-4d3e-a4bb-5c153c9ba74e' before making global git config changes
+2026-10-21T13:53:46.9527781Z Adding repository directory to the temporary git global config as a safe directory
+2026-10-21T13:53:46.9537655Z [command]"C:\Program Files\Git\bin\git.exe" config --global --add safe.directory D:\a\Travel_Planner\Travel_Planner
+2026-10-21T13:53:46.9927687Z Removing SSH command configuration
+2026-10-21T13:53:46.9938804Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp core\.sshCommand
+2026-10-21T13:53:47.0318735Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "sh -c \"git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :\""
+2026-10-21T13:53:47.6123775Z Removing HTTP extra header
+2026-10-21T13:53:47.6134611Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-10-21T13:53:47.6534428Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "sh -c \"git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :\""
+2026-10-21T13:53:48.2027385Z Removing includeIf entries pointing to credentials config files
+2026-10-21T13:53:48.2038863Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-10-21T13:53:48.2426111Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "git config --local --show-origin --name-only --get-regexp remote.origin.url"
+2026-10-21T13:53:48.8965661Z Cleaning up orphan processes

@@ -1,10 +1,10 @@
 # Execution report — full implementation recovery
 
-Date:2026-10-21. Overall requested implementation: **BLOCKED**. Release:**NOT READY**. No production/preview deployment, push, credential mutation, database change or gate waiver.
+Date:2026-10-21. Overall requested implementation: **IN PROGRESS**. Release:**NOT READY**. Review branch pushed with explicit user approval; actual GitHub CI PASS for b91d1a8. No merge, production deployment, credential mutation, database change or gate waiver.
 
 ## Current continuation
 
-Renewed user request: complete unfinished functions and add/demo both city Three.js scenes. Support blocker is now corrected under ADR0017; P01-01/R0-02 DONE, P01-02/03 DONE. P01-04 VERIFYING actual CI; G1 remains FAIL until its result. [Foundation report](reports/P01-BASELINE.md), [compatibility report](reports/P01-01-COMPAT.md), [3D extension](reports/P01-06.md). User's workspace dev server was stopped to release SWC during dependency reinstall and will be reopened for demo. Historical table below describes the prior recovery turn; it is superseded by this continuation.
+Renewed user request: complete unfinished functions and add/demo both city Three.js scenes. Support blocker is corrected under ADR0017; P01-01..04 and R0-02 DONE. Actual CI completed success; [G1 PASS review](reports/G1-REVIEW.md). [Foundation report](reports/P01-BASELINE.md), [compatibility report](reports/P01-01-COMPAT.md), [3D extension](reports/P01-06.md). Docker local29.8.2 is running; next allowed task P02-01. User's workspace dev server was stopped to release SWC during dependency reinstall and will be reopened for demo. Historical table below describes the prior recovery turn; it is superseded by this continuation.
 
 | TASK ID | PHASE | STATUS | ROOT CAUSE / IMPLEMENTATION | EVIDENCE / ACCEPTANCE | GATE / NEXT |
 |---|---|---|---|---|---|
