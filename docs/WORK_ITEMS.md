@@ -2,7 +2,7 @@
 
 > Initial state as of 2026-10-21: **NONE IMPLEMENTED, NONE TESTED**. All gates are `NOT VERIFIED`.
 > Update `[ ]` -> `[x]` only after verifying tests and recording evidence, not merely writing code.
-> Current execution state: G0 PASS; P01-01 support corrected with maintained ESLint10/project adapters (ADR0017), full audit0. P01-02/03 DONE; P01-04 DONE; actual CI run39611614744 PASS for b91d1a8. G1 PASS; P02-01 is next. Independent P01-06 requested two-city 3D extension DONE. [Baseline report](reports/P01-BASELINE.md).
+> Current execution state: G0 PASS; P01-01 support corrected with maintained ESLint10/project adapters (ADR0017), full audit0. P01-02/03 DONE; P01-04 DONE; actual CI run39611614744 PASS for b91d1a8. G1 PASS; P02-01 DONE with actual database CI; P02-02 is next. Independent P01-06 requested two-city 3D extension DONE. [Baseline report](reports/P01-BASELINE.md).
 > Recovery audit/typography R0-01/R1-01 DONE; R0-02 corrected/DONE through COMPAT. Full product NOT READY: wizard/planner/cloud/save/share remain unimplemented. Historical reports are retained; this current state supersedes their old support-blocked status.
 
 ## Task tracker rules
@@ -35,7 +35,7 @@ For each checked item, add a line to **Evidence log** with: task ID, commit hash
 
 ## PHASE 02 — PostgreSQL, Auth and permissions — Gate G2 NOT VERIFIED
 
-- [ ] **P02-01** Supabase local setup, destination/place migrations, separate Nha Trang/Đà Lạt editorial seed (ADR-0013). Status: IN_PROGRESS. Depends: G1, P00-04, P00-05 DONE. [Plan](reports/P02-01-PLAN.md), [ADR0019](adr/ADR-0019.md). Offline seed/tooling, typecheck/lint/unit/content/audit PASS; actual local reset/pgTAP pending.
+- [x] **P02-01** Supabase local setup, destination/place migrations, separate Nha Trang/Đà Lạt editorial seed (ADR-0013). Status: DONE. Depends: G1, P00-04, P00-05 DONE. [Report](reports/P02-01.md), [ADR0019](adr/ADR-0019.md). Actual Ubuntu CI startup/reset/pgTAP42 twice/cleanup and Windows full baseline PASS for0a2df28; original60 drafts/provenance preserved. Windows host DB runtime not yet verified (image download pending); no Linux-to-Windows inference.
 - [ ] **P02-02** Trips/stops/share tables with constraints, transactional repositories and indexes. Depends: P02-01. Tests: migration integrity; invalid rows rejected.
 - [ ] **P02-03** Auth session (guest via anonymous sign-in), owner API guards and RLS/grants for each private table. Depends: P02-02. Tests: user A/B, null auth, forged owner_id.
 - [ ] **P02-04** pgTAP DB negative permission tests + migrations idempotent/replayable from blank DB. Depends: P02-03. Tests: `supabase test db` and reset.
@@ -96,6 +96,7 @@ For each checked item, add a line to **Evidence log** with: task ID, commit hash
 
 | Task ID | Status | Commit/PR | Commands & exit codes | AC/Test IDs | Blockers | Verified date |
 |---|---|---|---|---|---|---|
+| P02-01 | DONE | 0a2df28; run39706971745 | Real local Supabase on Ubuntu CI: reset/42pgTAP twice/stop ->0; full Windows baseline PASS; [report](reports/P02-01.md) | AC01..04 PASS in recorded environments | Windows host image download; P02-02..04/G2 pending | 2026-10-22 |
 | P01-01-COMPAT / R0-02 | DONE | b91d1a8 | strict npm ci/tree/audit, typecheck/lint/build/tooling -> 0; [report](reports/P01-01-COMPAT.md) | AC-C1..4 PASS | Project snapshot maintenance | 2026-10-21 |
 | P01-02 / P01-03 | DONE | b91d1a8 | unit/coverage/content/typecheck/lint -> 0; 19 tooling +18 Vitest; [report](reports/P01-BASELINE.md) | AC02-1..3 / AC03-1..3 PASS | Product implementations pending | 2026-10-21 |
 | P01-04 / G1 | DONE / PASS | b91d1a8; run39611614744 | Actual GitHub workflow all steps success; [job log](reports/evidence/P01-remote-ci.log), [review](reports/G1-REVIEW.md) | AC04-1..4 PASS | G2+ not verified | 2026-10-21 |

@@ -1,0 +1,337 @@
+﻿2026-10-22T01:39:50.0061235Z Current runner version: '2.338.0'
+2026-10-22T01:39:50.0095459Z ##[group]Runner Image Provisioner
+2026-10-22T01:39:50.0096722Z Hosted Compute Agent
+2026-10-22T01:39:50.0097719Z Version: 20261012.601
+2026-10-22T01:39:50.0098931Z Commit: f3dc54e1fb89da6852db922499a0233137369e1d
+2026-10-22T01:39:50.0100191Z Build Date: 2026-10-12T17:48:21Z
+2026-10-22T01:39:50.0101505Z Worker ID: {b7628eac-8fb2-4e7e-8ec7-67e73e5dd5bf}
+2026-10-22T01:39:50.0102697Z Region: eastus
+2026-10-22T01:39:50.0103762Z Cloud: Azure
+2026-10-22T01:39:50.0104829Z ##[endgroup]
+2026-10-22T01:39:50.0107012Z ##[group]Operating System
+2026-10-22T01:39:50.0108133Z Ubuntu
+2026-10-22T01:39:50.0109085Z 24.04.5
+2026-10-22T01:39:50.0110000Z LTS
+2026-10-22T01:39:50.0111134Z ##[endgroup]
+2026-10-22T01:39:50.0112163Z ##[group]Runner Image
+2026-10-22T01:39:50.0113950Z Image: ubuntu-24.04
+2026-10-22T01:39:50.0114928Z Version: 20261012.334.1
+2026-10-22T01:39:50.0117121Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20261012.334/images/ubuntu/Ubuntu2404-Readme.md
+2026-10-22T01:39:50.0119857Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20261012.334
+2026-10-22T01:39:50.0121645Z ##[endgroup]
+2026-10-22T01:39:50.0123400Z ##[group]GITHUB_TOKEN Permissions
+2026-10-22T01:39:50.0126687Z Contents: read
+2026-10-22T01:39:50.0127706Z Metadata: read
+2026-10-22T01:39:50.0128761Z ##[endgroup]
+2026-10-22T01:39:50.0131797Z Secret source: Actions
+2026-10-22T01:39:50.0133343Z Cache mode: write
+2026-10-22T01:39:50.0135214Z Prepare workflow directory
+2026-10-22T01:39:50.0689217Z Prepare all required actions
+2026-10-22T01:39:50.0759350Z Getting action download info
+2026-10-22T01:39:50.2548894Z Download action repository 'actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1' (SHA:3d3c42e5aac5ba805825da76410c181273ba90b1)
+2026-10-22T01:39:50.3489045Z Download action repository 'actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1' (SHA:949feb2413d6458794dcd2491c4babbbce0c15c1)
+2026-10-22T01:39:50.6334417Z Complete job name: local-database
+2026-10-22T01:39:50.7131487Z ##[group]Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+2026-10-22T01:39:50.7132569Z with:
+2026-10-22T01:39:50.7133029Z   persist-credentials: false
+2026-10-22T01:39:50.7133806Z   repository: CheeseThuong/Travel_Planner
+2026-10-22T01:39:50.7137838Z   token: ***
+2026-10-22T01:39:50.7138286Z   ssh-strict: true
+2026-10-22T01:39:50.7138740Z   ssh-user: git
+2026-10-22T01:39:50.7139188Z   clean: true
+2026-10-22T01:39:50.7139644Z   sparse-checkout-cone-mode: true
+2026-10-22T01:39:50.7140177Z   fetch-depth: 1
+2026-10-22T01:39:50.7140614Z   fetch-tags: false
+2026-10-22T01:39:50.7141074Z   show-progress: true
+2026-10-22T01:39:50.7141521Z   lfs: false
+2026-10-22T01:39:50.7141936Z   submodules: false
+2026-10-22T01:39:50.7142392Z   set-safe-directory: true
+2026-10-22T01:39:50.7142903Z   allow-unsafe-pr-checkout: false
+2026-10-22T01:39:50.7143842Z env:
+2026-10-22T01:39:50.7144280Z   NEXT_TELEMETRY_DISABLED: 1
+2026-10-22T01:39:50.7144784Z ##[endgroup]
+2026-10-22T01:39:50.8152290Z Syncing repository: CheeseThuong/Travel_Planner
+2026-10-22T01:39:50.8154559Z ##[group]Getting Git version info
+2026-10-22T01:39:50.8155497Z Working directory is '/home/runner/work/Travel_Planner/Travel_Planner'
+2026-10-22T01:39:50.8156648Z [command]/usr/bin/git version
+2026-10-22T01:39:50.8221026Z git version 2.55.0
+2026-10-22T01:39:50.8250522Z ##[endgroup]
+2026-10-22T01:39:50.8262233Z Temporarily overriding HOME='/home/runner/work/_temp/36487b81-7fa6-43d4-83ef-213afcb20a52' before making global git config changes
+2026-10-22T01:39:50.8265052Z Adding repository directory to the temporary git global config as a safe directory
+2026-10-22T01:39:50.8269300Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/Travel_Planner/Travel_Planner
+2026-10-22T01:39:50.8326395Z Deleting the contents of '/home/runner/work/Travel_Planner/Travel_Planner'
+2026-10-22T01:39:50.8330320Z ##[group]Determining repository object format
+2026-10-22T01:39:50.8332502Z ##[endgroup]
+2026-10-22T01:39:50.8334986Z ##[group]Initializing the repository
+2026-10-22T01:39:50.8338312Z [command]/usr/bin/git init /home/runner/work/Travel_Planner/Travel_Planner
+2026-10-22T01:39:50.8478971Z hint: Using 'master' as the name for the initial branch. This default branch name
+2026-10-22T01:39:50.8480929Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+2026-10-22T01:39:50.8482999Z hint: to use in all of your new repositories, which will suppress this warning,
+2026-10-22T01:39:50.8484841Z hint: call:
+2026-10-22T01:39:50.8485829Z hint:
+2026-10-22T01:39:50.8486946Z hint: 	git config --global init.defaultBranch <name>
+2026-10-22T01:39:50.8488224Z hint:
+2026-10-22T01:39:50.8489438Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2026-10-22T01:39:50.8491418Z hint: 'development'. The just-created branch can be renamed via this command:
+2026-10-22T01:39:50.8493053Z hint:
+2026-10-22T01:39:50.8494293Z hint: 	git branch -m <name>
+2026-10-22T01:39:50.8495421Z hint:
+2026-10-22T01:39:50.8496677Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2026-10-22T01:39:50.8498779Z Initialized empty Git repository in /home/runner/work/Travel_Planner/Travel_Planner/.git/
+2026-10-22T01:39:50.8502659Z [command]/usr/bin/git remote add origin https://github.com/CheeseThuong/Travel_Planner
+2026-10-22T01:39:50.8546549Z ##[endgroup]
+2026-10-22T01:39:50.8548025Z ##[group]Disabling automatic garbage collection
+2026-10-22T01:39:50.8550054Z [command]/usr/bin/git config --local gc.auto 0
+2026-10-22T01:39:50.8588826Z ##[endgroup]
+2026-10-22T01:39:50.8590431Z ##[group]Setting up auth
+2026-10-22T01:39:50.8591588Z Removing SSH command configuration
+2026-10-22T01:39:50.8596201Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-10-22T01:39:50.8633382Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-10-22T01:39:50.9035648Z Removing HTTP extra header
+2026-10-22T01:39:50.9041625Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-10-22T01:39:50.9078726Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-10-22T01:39:50.9297017Z Removing includeIf entries pointing to credentials config files
+2026-10-22T01:39:50.9301075Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-10-22T01:39:50.9335675Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-10-22T01:39:50.9564888Z [command]/usr/bin/git config --file /home/runner/work/_temp/git-credentials-276d3548-ec9e-4a55-ba68-6d37a7d3119d.config http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2026-10-22T01:39:50.9614954Z [command]/usr/bin/git config --local includeIf.gitdir:/home/runner/work/Travel_Planner/Travel_Planner/.git.path /home/runner/work/_temp/git-credentials-276d3548-ec9e-4a55-ba68-6d37a7d3119d.config
+2026-10-22T01:39:50.9651888Z [command]/usr/bin/git config --local includeIf.gitdir:/home/runner/work/Travel_Planner/Travel_Planner/.git/worktrees/*.path /home/runner/work/_temp/git-credentials-276d3548-ec9e-4a55-ba68-6d37a7d3119d.config
+2026-10-22T01:39:50.9690500Z [command]/usr/bin/git config --local includeIf.gitdir:/github/workspace/.git.path /github/runner_temp/git-credentials-276d3548-ec9e-4a55-ba68-6d37a7d3119d.config
+2026-10-22T01:39:50.9725754Z [command]/usr/bin/git config --local includeIf.gitdir:/github/workspace/.git/worktrees/*.path /github/runner_temp/git-credentials-276d3548-ec9e-4a55-ba68-6d37a7d3119d.config
+2026-10-22T01:39:50.9758806Z ##[endgroup]
+2026-10-22T01:39:50.9760033Z ##[group]Fetching the repository
+2026-10-22T01:39:50.9766245Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +0a2df283f2b7f3f48574b74bbb7ec7d82904e5da:refs/remotes/origin/codex/recovery-foundation
+2026-10-22T01:39:52.1464157Z From https://github.com/CheeseThuong/Travel_Planner
+2026-10-22T01:39:52.1466755Z  * [new ref]         0a2df283f2b7f3f48574b74bbb7ec7d82904e5da -> origin/codex/recovery-foundation
+2026-10-22T01:39:52.1474918Z [command]/usr/bin/git branch --list --remote origin/codex/recovery-foundation
+2026-10-22T01:39:52.1506633Z   origin/codex/recovery-foundation
+2026-10-22T01:39:52.1516339Z [command]/usr/bin/git rev-parse refs/remotes/origin/codex/recovery-foundation
+2026-10-22T01:39:52.1546679Z 0a2df283f2b7f3f48574b74bbb7ec7d82904e5da
+2026-10-22T01:39:52.1557141Z ##[endgroup]
+2026-10-22T01:39:52.1558802Z ##[group]Determining the checkout info
+2026-10-22T01:39:52.1560485Z ##[endgroup]
+2026-10-22T01:39:52.1561453Z [command]/usr/bin/git sparse-checkout disable
+2026-10-22T01:39:52.1616321Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2026-10-22T01:39:52.1655035Z ##[group]Checking out the ref
+2026-10-22T01:39:52.1659754Z [command]/usr/bin/git checkout --progress --force -B codex/recovery-foundation refs/remotes/origin/codex/recovery-foundation
+2026-10-22T01:39:52.3965712Z Switched to a new branch 'codex/recovery-foundation'
+2026-10-22T01:39:52.3975546Z branch 'codex/recovery-foundation' set up to track 'origin/codex/recovery-foundation'.
+2026-10-22T01:39:52.3986364Z ##[endgroup]
+2026-10-22T01:39:52.4035417Z [command]/usr/bin/git log -1 --format=%H
+2026-10-22T01:39:52.4064414Z 0a2df283f2b7f3f48574b74bbb7ec7d82904e5da
+2026-10-22T01:39:52.4074666Z ##[group]Removing auth
+2026-10-22T01:39:52.4075801Z Removing SSH command configuration
+2026-10-22T01:39:52.4078855Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-10-22T01:39:52.4113779Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-10-22T01:39:52.4343796Z Removing HTTP extra header
+2026-10-22T01:39:52.4346997Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-10-22T01:39:52.4385425Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-10-22T01:39:52.4617719Z Removing includeIf entries pointing to credentials config files
+2026-10-22T01:39:52.4622627Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-10-22T01:39:52.4667218Z includeif.gitdir:/home/runner/work/Travel_Planner/Travel_Planner/.git.path
+2026-10-22T01:39:52.4670202Z includeif.gitdir:/home/runner/work/Travel_Planner/Travel_Planner/.git/worktrees/*.path
+2026-10-22T01:39:52.4672696Z includeif.gitdir:/github/workspace/.git.path
+2026-10-22T01:39:52.4674956Z includeif.gitdir:/github/workspace/.git/worktrees/*.path
+2026-10-22T01:39:52.4689451Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/home/runner/work/Travel_Planner/Travel_Planner/.git.path
+2026-10-22T01:39:52.4707695Z /home/runner/work/_temp/git-credentials-276d3548-ec9e-4a55-ba68-6d37a7d3119d.config
+2026-10-22T01:39:52.4719819Z [command]/usr/bin/git config --local --unset includeif.gitdir:/home/runner/work/Travel_Planner/Travel_Planner/.git.path \/home\/runner\/work\/_temp\/git\-credentials\-276d3548\-ec9e\-4a55\-ba68\-6d37a7d3119d\.config
+2026-10-22T01:39:52.4760218Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/home/runner/work/Travel_Planner/Travel_Planner/.git/worktrees/*.path
+2026-10-22T01:39:52.4791694Z /home/runner/work/_temp/git-credentials-276d3548-ec9e-4a55-ba68-6d37a7d3119d.config
+2026-10-22T01:39:52.4802595Z [command]/usr/bin/git config --local --unset includeif.gitdir:/home/runner/work/Travel_Planner/Travel_Planner/.git/worktrees/*.path \/home\/runner\/work\/_temp\/git\-credentials\-276d3548\-ec9e\-4a55\-ba68\-6d37a7d3119d\.config
+2026-10-22T01:39:52.4840473Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/github/workspace/.git.path
+2026-10-22T01:39:52.4869237Z /github/runner_temp/git-credentials-276d3548-ec9e-4a55-ba68-6d37a7d3119d.config
+2026-10-22T01:39:52.4879300Z [command]/usr/bin/git config --local --unset includeif.gitdir:/github/workspace/.git.path \/github\/runner_temp\/git\-credentials\-276d3548\-ec9e\-4a55\-ba68\-6d37a7d3119d\.config
+2026-10-22T01:39:52.4914270Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/github/workspace/.git/worktrees/*.path
+2026-10-22T01:39:52.4940106Z /github/runner_temp/git-credentials-276d3548-ec9e-4a55-ba68-6d37a7d3119d.config
+2026-10-22T01:39:52.4957573Z [command]/usr/bin/git config --local --unset includeif.gitdir:/github/workspace/.git/worktrees/*.path \/github\/runner_temp\/git\-credentials\-276d3548\-ec9e\-4a55\-ba68\-6d37a7d3119d\.config
+2026-10-22T01:39:52.4987774Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-10-22T01:39:52.5212133Z Removing credentials config '/home/runner/work/_temp/git-credentials-276d3548-ec9e-4a55-ba68-6d37a7d3119d.config'
+2026-10-22T01:39:52.5218955Z ##[endgroup]
+2026-10-22T01:39:52.5661616Z ##[group]Run actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1
+2026-10-22T01:39:52.5663259Z with:
+2026-10-22T01:39:52.5664417Z   node-version: 24.19.0
+2026-10-22T01:39:52.5665388Z   cache: npm
+2026-10-22T01:39:52.5666269Z   check-latest: false
+2026-10-22T01:39:52.5676758Z   token: ***
+2026-10-22T01:39:52.5677740Z   package-manager-cache: true
+2026-10-22T01:39:52.5678805Z env:
+2026-10-22T01:39:52.5679658Z   NEXT_TELEMETRY_DISABLED: 1
+2026-10-22T01:39:52.5680733Z ##[endgroup]
+2026-10-22T01:39:52.6941337Z Attempting to download 24.19.0...
+2026-10-22T01:39:53.2569218Z Acquiring 24.19.0 - x64 from https://github.com/actions/node-versions/releases/download/24.19.0-30872449280/node-24.19.0-linux-x64.tar.gz
+2026-10-22T01:39:53.6550442Z Extracting ...
+2026-10-22T01:39:53.6676336Z [command]/usr/bin/tar xz --strip 1 --warning=no-unknown-keyword --overwrite -C /home/runner/work/_temp/85769eac-e173-40f5-9507-7f4aa48fe8b5 -f /home/runner/work/_temp/f23b2cff-bbca-4e69-bc01-fedb68d43f60
+2026-10-22T01:39:54.8865029Z Adding to the cache ...
+2026-10-22T01:39:56.8719428Z ##[group]Environment details
+2026-10-22T01:39:57.0972731Z node: v24.19.0
+2026-10-22T01:39:57.0973121Z npm: 11.17.0
+2026-10-22T01:39:57.0973659Z yarn: 1.22.22
+2026-10-22T01:39:57.0974501Z ##[endgroup]
+2026-10-22T01:39:57.0993935Z [command]/opt/hostedtoolcache/node/24.19.0/x64/bin/npm config get cache
+2026-10-22T01:39:57.1934656Z /home/runner/.npm
+2026-10-22T01:39:57.2828783Z npm cache is not found
+2026-10-22T01:39:57.3007413Z ##[group]Run npm ci --strict-peer-deps
+2026-10-22T01:39:57.3007827Z [36;1mnpm ci --strict-peer-deps[0m
+2026-10-22T01:39:57.3305342Z shell: /usr/bin/bash -e {0}
+2026-10-22T01:39:57.3305739Z env:
+2026-10-22T01:39:57.3306013Z   NEXT_TELEMETRY_DISABLED: 1
+2026-10-22T01:39:57.3306395Z ##[endgroup]
+2026-10-22T01:40:03.4900823Z npm warn deprecated @opentelemetry/sdk-trace-base@2.12.0: Use @opentelemetry/sdk-trace package
+2026-10-22T01:40:15.5981226Z
+2026-10-22T01:40:15.5982145Z added 551 packages, and audited 557 packages in 18s
+2026-10-22T01:40:15.5982795Z
+2026-10-22T01:40:15.5983185Z 175 packages are looking for funding
+2026-10-22T01:40:15.5984109Z   run `npm fund` for details
+2026-10-22T01:40:15.5998956Z
+2026-10-22T01:40:15.5999712Z found 0 vulnerabilities
+2026-10-22T01:40:15.6007619Z npm warn allow-scripts 1 package has install scripts not yet covered by allowScripts:
+2026-10-22T01:40:15.6008819Z npm warn allow-scripts   unrs-resolver@1.12.2 (postinstall: node postinstall.js)
+2026-10-22T01:40:15.6009421Z npm warn allow-scripts
+2026-10-22T01:40:15.6010546Z npm warn allow-scripts Run `npm approve-scripts --allow-scripts-pending` to review, or `npm approve-scripts <pkg>` to allow.
+2026-10-22T01:40:15.6801129Z ##[group]Run npm run db:seed:check
+2026-10-22T01:40:15.6801703Z [36;1mnpm run db:seed:check[0m
+2026-10-22T01:40:15.6867909Z shell: /usr/bin/bash -e {0}
+2026-10-22T01:40:15.6868194Z env:
+2026-10-22T01:40:15.6868413Z   NEXT_TELEMETRY_DISABLED: 1
+2026-10-22T01:40:15.6868682Z ##[endgroup]
+2026-10-22T01:40:15.7914103Z
+2026-10-22T01:40:15.7914829Z > vietnam-playful-travel-planner@0.1.0 db:seed:check
+2026-10-22T01:40:15.7915614Z > node scripts/build-catalog-db-seed.mjs --check
+2026-10-22T01:40:15.7915928Z
+2026-10-22T01:40:15.8237864Z Catalog DB seed: 60 original draft records, two destinations, metadata retained.
+2026-10-22T01:40:15.8344410Z ##[group]Run npm run db:start
+2026-10-22T01:40:15.8344741Z [36;1mnpm run db:start[0m
+2026-10-22T01:40:15.8410797Z shell: /usr/bin/bash -e {0}
+2026-10-22T01:40:15.8411071Z env:
+2026-10-22T01:40:15.8411284Z   NEXT_TELEMETRY_DISABLED: 1
+2026-10-22T01:40:15.8411547Z ##[endgroup]
+2026-10-22T01:40:15.9460950Z
+2026-10-22T01:40:15.9461923Z > vietnam-playful-travel-planner@0.1.0 db:start
+2026-10-22T01:40:15.9462787Z > node scripts/supabase-local.mjs start
+2026-10-22T01:40:15.9463206Z
+2026-10-22T01:41:08.5829236Z Local Supabase start: exit 0. Generated local credentials stay in ignored .tools output.
+2026-10-22T01:41:08.5949237Z ##[group]Run npm run db:reset
+2026-10-22T01:41:08.5949558Z [36;1mnpm run db:reset[0m
+2026-10-22T01:41:08.6012326Z shell: /usr/bin/bash -e {0}
+2026-10-22T01:41:08.6012600Z env:
+2026-10-22T01:41:08.6012822Z   NEXT_TELEMETRY_DISABLED: 1
+2026-10-22T01:41:08.6013086Z ##[endgroup]
+2026-10-22T01:41:08.7020734Z
+2026-10-22T01:41:08.7021264Z > vietnam-playful-travel-planner@0.1.0 db:reset
+2026-10-22T01:41:08.7021862Z > node scripts/supabase-local.mjs reset
+2026-10-22T01:41:08.7022161Z
+2026-10-22T01:41:09.2254439Z Resetting local database...
+2026-10-22T01:41:09.5249908Z Recreating database...
+2026-10-22T01:41:19.9696904Z Initialising schema...
+2026-10-22T01:41:20.4338893Z Seeding globals from roles.sql...
+2026-10-22T01:41:20.4354868Z Applying migration 20261022000100_catalog.sql...
+2026-10-22T01:41:20.4681593Z Seeding data from supabase/seed.sql...
+2026-10-22T01:41:20.4906507Z Restarting containers...
+2026-10-22T01:41:20.9006866Z Finished supabase db reset on branch codex/recovery-foundation.
+2026-10-22T01:41:21.2518979Z ##[group]Run npm run test:db
+2026-10-22T01:41:21.2519282Z [36;1mnpm run test:db[0m
+2026-10-22T01:41:21.2583176Z shell: /usr/bin/bash -e {0}
+2026-10-22T01:41:21.2583436Z env:
+2026-10-22T01:41:21.2583886Z   NEXT_TELEMETRY_DISABLED: 1
+2026-10-22T01:41:21.2584137Z ##[endgroup]
+2026-10-22T01:41:21.3574210Z
+2026-10-22T01:41:21.3575003Z > vietnam-playful-travel-planner@0.1.0 test:db
+2026-10-22T01:41:21.3575933Z > node scripts/supabase-local.mjs test
+2026-10-22T01:41:21.3576321Z
+2026-10-22T01:41:21.8515864Z Connecting to local database...
+2026-10-22T01:41:22.2223743Z Error response from daemon: toomanyrequests: Data limit exceeded
+2026-10-22T01:41:22.2232164Z Retrying after 4s: public.ecr.aws/supabase/pg_prove:3.36
+2026-10-22T01:41:26.3230444Z Error response from daemon: toomanyrequests: Data limit exceeded
+2026-10-22T01:41:26.3255063Z Retrying after 8s: public.ecr.aws/supabase/pg_prove:3.36
+2026-10-22T01:41:34.4223718Z Error response from daemon: toomanyrequests: Data limit exceeded
+2026-10-22T01:41:34.6185444Z 3.36: Pulling from supabase/pg_prove
+2026-10-22T01:41:34.6630954Z dcccee43ad5d: Pulling fs layer
+2026-10-22T01:41:34.6634300Z 06d62d0de6d7: Pulling fs layer
+2026-10-22T01:41:34.6635623Z a22cb17b3b93: Pulling fs layer
+2026-10-22T01:41:34.6636596Z 4f4fb700ef54: Pulling fs layer
+2026-10-22T01:41:34.6637112Z 4f4fb700ef54: Waiting
+2026-10-22T01:41:34.7147212Z a22cb17b3b93: Verifying Checksum
+2026-10-22T01:41:34.7147780Z a22cb17b3b93: Download complete
+2026-10-22T01:41:34.7367704Z dcccee43ad5d: Download complete
+2026-10-22T01:41:34.7601396Z 4f4fb700ef54: Verifying Checksum
+2026-10-22T01:41:34.7602474Z 4f4fb700ef54: Download complete
+2026-10-22T01:41:34.8521205Z dcccee43ad5d: Pull complete
+2026-10-22T01:41:34.9005240Z 06d62d0de6d7: Verifying Checksum
+2026-10-22T01:41:34.9008024Z 06d62d0de6d7: Download complete
+2026-10-22T01:41:35.4842451Z 06d62d0de6d7: Pull complete
+2026-10-22T01:41:35.5130800Z a22cb17b3b93: Pull complete
+2026-10-22T01:41:35.5211241Z 4f4fb700ef54: Pull complete
+2026-10-22T01:41:35.5249095Z Digest: sha256:eda7c5e68719e9c8287e78c017118407b48df904a51c935f5ab6098b8c0bc6bc
+2026-10-22T01:41:35.5260800Z Status: Downloaded newer image for ghcr.io/supabase/pg_prove:3.36
+2026-10-22T01:41:35.5267785Z ghcr.io/supabase/pg_prove:3.36
+2026-10-22T01:41:35.7715678Z psql:/home/runner/work/Travel_Planner/Travel_Planner/supabase/tests/001_catalog.test.sql:2: NOTICE:  extension "pgtap" already exists, skipping
+2026-10-22T01:41:35.8076879Z /home/runner/work/Travel_Planner/Travel_Planner/supabase/tests/001_catalog.test.sql .. ok
+2026-10-22T01:41:35.8079936Z All tests successful.
+2026-10-22T01:41:35.8080780Z Files=1, Tests=42,  0 wallclock secs ( 0.02 usr +  0.00 sys =  0.02 CPU)
+2026-10-22T01:41:35.8081383Z Result: PASS
+2026-10-22T01:41:36.2612046Z ##[group]Run npm run db:reset
+2026-10-22T01:41:36.2612348Z [36;1mnpm run db:reset[0m
+2026-10-22T01:41:36.2674941Z shell: /usr/bin/bash -e {0}
+2026-10-22T01:41:36.2675198Z env:
+2026-10-22T01:41:36.2675394Z   NEXT_TELEMETRY_DISABLED: 1
+2026-10-22T01:41:36.2675633Z ##[endgroup]
+2026-10-22T01:41:36.3682422Z
+2026-10-22T01:41:36.3683171Z > vietnam-playful-travel-planner@0.1.0 db:reset
+2026-10-22T01:41:36.3684281Z > node scripts/supabase-local.mjs reset
+2026-10-22T01:41:36.8879663Z
+2026-10-22T01:41:36.8880406Z Resetting local database...
+2026-10-22T01:41:37.1797427Z Recreating database...
+2026-10-22T01:41:47.6441173Z Initialising schema...
+2026-10-22T01:41:48.1292525Z Seeding globals from roles.sql...
+2026-10-22T01:41:48.1310394Z Applying migration 20261022000100_catalog.sql...
+2026-10-22T01:41:48.1655676Z Seeding data from supabase/seed.sql...
+2026-10-22T01:41:48.1907451Z Restarting containers...
+2026-10-22T01:41:48.6016430Z Finished supabase db reset on branch codex/recovery-foundation.
+2026-10-22T01:41:48.9394682Z ##[group]Run npm run test:db
+2026-10-22T01:41:48.9394993Z [36;1mnpm run test:db[0m
+2026-10-22T01:41:48.9457683Z shell: /usr/bin/bash -e {0}
+2026-10-22T01:41:48.9457940Z env:
+2026-10-22T01:41:48.9458140Z   NEXT_TELEMETRY_DISABLED: 1
+2026-10-22T01:41:48.9458385Z ##[endgroup]
+2026-10-22T01:41:49.0470727Z
+2026-10-22T01:41:49.0471248Z > vietnam-playful-travel-planner@0.1.0 test:db
+2026-10-22T01:41:49.0472132Z > node scripts/supabase-local.mjs test
+2026-10-22T01:41:49.0472604Z
+2026-10-22T01:41:49.5335258Z Connecting to local database...
+2026-10-22T01:41:49.9566087Z psql:/home/runner/work/Travel_Planner/Travel_Planner/supabase/tests/001_catalog.test.sql:2: NOTICE:  extension "pgtap" already exists, skipping
+2026-10-22T01:41:49.9905542Z /home/runner/work/Travel_Planner/Travel_Planner/supabase/tests/001_catalog.test.sql .. ok
+2026-10-22T01:41:49.9906318Z All tests successful.
+2026-10-22T01:41:49.9907064Z Files=1, Tests=42,  0 wallclock secs ( 0.01 usr  0.01 sys +  0.01 cusr  0.00 csys =  0.03 CPU)
+2026-10-22T01:41:49.9907663Z Result: PASS
+2026-10-22T01:41:50.4465389Z ##[group]Run npm run db:stop
+2026-10-22T01:41:50.4465694Z [36;1mnpm run db:stop[0m
+2026-10-22T01:41:50.4528105Z shell: /usr/bin/bash -e {0}
+2026-10-22T01:41:50.4528350Z env:
+2026-10-22T01:41:50.4528543Z   NEXT_TELEMETRY_DISABLED: 1
+2026-10-22T01:41:50.4528779Z ##[endgroup]
+2026-10-22T01:41:50.5496721Z
+2026-10-22T01:41:50.5497206Z > vietnam-playful-travel-planner@0.1.0 db:stop
+2026-10-22T01:41:50.5497967Z > node scripts/supabase-local.mjs stop
+2026-10-22T01:41:50.5498222Z
+2026-10-22T01:41:53.5638728Z Local Supabase stop: exit 0. Generated local credentials stay in ignored .tools output.
+2026-10-22T01:41:53.5834964Z Post job cleanup.
+2026-10-22T01:41:53.7160010Z [command]/usr/bin/tar --posix -cf cache.tzst --exclude cache.tzst -P -C /home/runner/work/Travel_Planner/Travel_Planner --files-from manifest.txt --use-compress-program zstdmt
+2026-10-22T01:41:55.1740513Z Sent 34946241 of 236272833 (14.8%), 33.3 MBs/sec
+2026-10-22T01:41:55.8509828Z Sent 236272833 of 236272833 (100.0%), 134.4 MBs/sec
+2026-10-22T01:41:55.9740023Z Cache saved with the key: node-cache-Linux-x64-npm-5fc495aa88bba43680bad668ab9ca2d8d81eb804cf71e367731f5d0ba3067b8a
+2026-10-22T01:41:55.9917307Z Post job cleanup.
+2026-10-22T01:41:56.0866108Z [command]/usr/bin/git version
+2026-10-22T01:41:56.0925292Z git version 2.55.0
+2026-10-22T01:41:56.0967602Z Temporarily overriding HOME='/home/runner/work/_temp/ccb4c097-23ef-42e2-b653-a2068947fc5a' before making global git config changes
+2026-10-22T01:41:56.0971127Z Adding repository directory to the temporary git global config as a safe directory
+2026-10-22T01:41:56.0973308Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/Travel_Planner/Travel_Planner
+2026-10-22T01:41:56.1014143Z Removing SSH command configuration
+2026-10-22T01:41:56.1020831Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-10-22T01:41:56.1065511Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-10-22T01:41:56.1341013Z Removing HTTP extra header
+2026-10-22T01:41:56.1346819Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-10-22T01:41:56.1387143Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-10-22T01:41:56.1692434Z Removing includeIf entries pointing to credentials config files
+2026-10-22T01:41:56.1702709Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-10-22T01:41:56.1747139Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-10-22T01:41:56.2198252Z Cleaning up orphan processes

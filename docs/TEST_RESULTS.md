@@ -1,6 +1,8 @@
-# Test results — 2026-10-21
+# Test results — updated 2026-10-22
 
 Release **NOT READY**. G0 historical PASS with content validators rerun; G1 PASS; G2–G8 NOT VERIFIED. Passing commands below cover the scaffold and typography only.
+
+2026-10-22: P02-01 actual CI run39706971745 PASS on0a2df28. Ubuntu local-Supabase startup, clean reset,42pgTAP cases, repeated reset/42cases and stop all passed. Windows full baseline passed26 tooling +18 Vitest,16 E2E, install/audit/typecheck/lint/coverage/content/build/client-canary/HTTP checks. [DB log](reports/evidence/P02-ci-db-pass.log), [baseline](reports/evidence/P02-ci-baseline-pass.log), [metadata](reports/evidence/P02-ci-result.json). Initial guard failure and pre-fix regression are retained. This verifies catalog schema/RLS/seed; private trip/auth/owner/save/share tests are NOT RUN. Windows host DB runtime remains unverified pending its image download.
 
 Latest continuation: maintained ESLint10 strict tree/audit0;19 tooling +18 Vitest tests,16 demo E2E,72 typography checks, build/typecheck/lint/HTTP health/canary/coverage/content PASS. Evidence uses P01-COMPAT/P01-baseline/P01-06 prefixes; previous R1 screenshots/results preserved byte-for-byte. Actual remote CI run39611614744 PASS for b91d1a8; see [G1 review](reports/G1-REVIEW.md). See [current baseline report](reports/P01-BASELINE.md); historical R0/R1 results below remain the original turn's evidence.
 

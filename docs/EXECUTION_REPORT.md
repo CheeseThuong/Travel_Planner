@@ -1,10 +1,12 @@
 # Execution report — full implementation recovery
 
-Date:2026-10-21. Overall requested implementation: **IN PROGRESS**. Release:**NOT READY**. Review branch pushed with explicit user approval; actual GitHub CI PASS for b91d1a8. No merge, production deployment, credential mutation, database change or gate waiver.
+Date:2026-10-22. Overall requested implementation: **IN PROGRESS**. Release:**NOT READY**. Review branch pushed with explicit user approval; actual GitHub CI PASS for0a2df28 including disposable database tests. No merge, production deployment, real cloud database change or gate waiver.
 
 ## Current continuation
 
 Renewed user request: complete unfinished functions and add/demo both city Three.js scenes. Support blocker is corrected under ADR0017; P01-01..04 and R0-02 DONE. Actual CI completed success; [G1 PASS review](reports/G1-REVIEW.md). [Foundation report](reports/P01-BASELINE.md), [compatibility report](reports/P01-01-COMPAT.md), [3D extension](reports/P01-06.md). Docker local29.8.2 is running; next allowed task P02-01. User's workspace dev server was stopped to release SWC during dependency reinstall and will be reopened for demo. Historical table below describes the prior recovery turn; it is superseded by this continuation.
+
+2026-10-22 continuation: [P02-01 DONE](reports/P02-01.md), actual local database reset and42pgTAP twice on Ubuntu CI plus full Windows baseline PASS. Initial guard failure was reproduced and corrected using pinned CLI source; all negative security checks remain. Original60 city drafts and provenance retained. Windows host DB image download remains pending; no host DB success inferred. Next allowed task P02-02; G2 remains NOT VERIFIED.
 
 | TASK ID | PHASE | STATUS | ROOT CAUSE / IMPLEMENTATION | EVIDENCE / ACCEPTANCE | GATE / NEXT |
 |---|---|---|---|---|---|

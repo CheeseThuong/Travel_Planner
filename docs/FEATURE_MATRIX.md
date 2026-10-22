@@ -2,6 +2,8 @@
 
 Audit date: 2026-10-21. Status describes actual product behavior, not future task completion. Source: `src/app/**`, components, package scripts, HTTP and rendered-browser evidence. Destination/plan screenshots show **skeletons**, not completed journeys.
 
+2026-10-22 update: G1 PASS; P02-01 catalog schema/seed/RLS verified on actual Ubuntu local-Supabase CI,42 checks twice. Runtime catalog UI and private trip/auth/save/share modules remain absent. Database evidence alone does not open those product journeys.
+
 | Feature | Route | Expected Behavior | Current Status | Root Cause | Priority | Required Tests |
 |---|---|---|---|---|---|---|
 | Brand/home illustration | `/` | Responsive cream/green landing with decorative postcard | WORKING | SSR text/SVG plus optional motion demo exist | P2 | Render/no-JS/reduced-motion/overflow; existing demo suite |
@@ -22,12 +24,12 @@ Audit date: 2026-10-21. Status describes actual product behavior, not future tas
 | Candidate review/apply | Editor | Separate user-confirmed atomic versioned application | NOT IMPLEMENTED | No plan-run storage/endpoints/model | P0 | Generate does not mutate; stale run/version conflict/atomic rollback |
 | Timeline/map editing | `/trips/[tripId]` | Move/reorder/time/lock/delete/regenerate and map | PLACEHOLDER | ComingSoon; no owner data loaded | P1 | Real timeline/keyboard/conflict/map-fallback E2E |
 | Local draft autosave/reload/offline | Wizard/editor | Durable IndexedDB drafts/migrations/two-tab conflicts | NOT IMPLEMENTED | No IndexedDB/Dexie/storage adapter; app adds no draft storage | P0 | Reload/reopen/offline/quota/migration/concurrent tabs |
-| Cloud ownership and save | Owner API/editor | Verified anonymous owner auth + RLS/versioned transactions | NOT IMPLEMENTED | No Supabase package/project/migrations/auth/owner endpoints | P0 | Actual pgTAP A/B/null/forged owner/transaction tests |
+| Cloud ownership and save | Owner API/editor | Verified anonymous owner auth + RLS/versioned transactions | NOT IMPLEMENTED | Catalog-only CLI/config/migration exist; no private trip/auth/owner endpoints | P0 | Actual pgTAP A/B/null/forged owner/transaction tests |
 | Create/copy/list/revoke share | Editor | CSPRNG128-bit hash-only view codes | NOT IMPLEMENTED | No token service/database/API/UI | P0 | Entropy/storage/redaction/list/revoke/rate-limit |
 | Open existing code | `/open` | Validate code and resolve read-only itinerary | PLACEHOLDER | ComingSoon; no input form/network pathway | P0 | Invalid/revoked/expired code and cross-context valid share |
 | Shared view | `/shared` | Fragment → POST → sanitized read-only data | PLACEHOLDER | ComingSoon; no fragment parser or resolver | P0 | No owner data or mutation privilege with share token |
 | Privacy/terms | `/privacy`, `/terms` | Accurate implemented-data policy + operator review | PLACEHOLDER | Honest preview disclaimer only; full legal/operational requirements remain | P1 | Data/delete/revoke/retention flows and operator/legal review |
 | API `/api/v1/*` | All15 requested endpoints | Validated envelopes/auth/rate-limit/contracts/OpenAPI | PARTIALLY IMPLEMENTED | P01-04 implements health liveness and shared validation/envelope foundation only; all trip/import/share endpoints remain absent | P0 | Health HTTP/envelope and400/422/413/500 privacy helper tests PASS; auth/idempotency/version/rate-limit NOT RUN |
-| Staging/prod/monitoring/rollback | Deployment | Separate environments and live bounded integration smoke | BLOCKED | G1 FAIL; G2–G8 unverified; no deploy config/credential setup established | P0 release | Actual CI/staging/live provider/backup/rollback evidence |
+| Staging/prod/monitoring/rollback | Deployment | Separate environments and live bounded integration smoke | BLOCKED | G1 PASS; G2–G8 unverified; no staging/production setup verified | P0 release | Actual CI/staging/live provider/backup/rollback evidence |
 
 No trip form, endpoint, schema, cloud save, share or planner behavior is inferred from HTTP200 on a shell page. The current UI has no hidden functioning backend.
