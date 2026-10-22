@@ -1,0 +1,9 @@
+{
+  "version": "2.121.0",
+  "license": "MIT",
+  "dependencies": {
+    "jose": "^6.2.10",
+    "eciesjs": "^0.5.0"
+  },
+  "dist.integrity": "sha512-xffhOgD9rXsXLK+DQ+3Gq8b2KmavMjPHGuJr7lfVlD8vKK1HHFggYlmzdRECqPmOL8g3Yd5PN3URcUR8xWZcWw=="
+}

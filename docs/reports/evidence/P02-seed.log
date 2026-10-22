@@ -1,0 +1,5 @@
+
+> vietnam-playful-travel-planner@0.1.0 db:seed:check
+> node scripts/build-catalog-db-seed.mjs --check
+
+Catalog DB seed: 60 original draft records, two destinations, metadata retained.

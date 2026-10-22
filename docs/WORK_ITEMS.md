@@ -35,7 +35,7 @@ For each checked item, add a line to **Evidence log** with: task ID, commit hash
 
 ## PHASE 02 — PostgreSQL, Auth and permissions — Gate G2 NOT VERIFIED
 
-- [ ] **P02-01** Supabase local setup, destination/place migrations, separate Nha Trang/Đà Lạt editorial seed (ADR-0013). Depends: G1, P00-04, P00-05. Tests: clean reset, seed validation and destination isolation.
+- [ ] **P02-01** Supabase local setup, destination/place migrations, separate Nha Trang/Đà Lạt editorial seed (ADR-0013). Status: IN_PROGRESS. Depends: G1, P00-04, P00-05 DONE. [Plan](reports/P02-01-PLAN.md), [ADR0019](adr/ADR-0019.md). Offline seed/tooling, typecheck/lint/unit/content/audit PASS; actual local reset/pgTAP pending.
 - [ ] **P02-02** Trips/stops/share tables with constraints, transactional repositories and indexes. Depends: P02-01. Tests: migration integrity; invalid rows rejected.
 - [ ] **P02-03** Auth session (guest via anonymous sign-in), owner API guards and RLS/grants for each private table. Depends: P02-02. Tests: user A/B, null auth, forged owner_id.
 - [ ] **P02-04** pgTAP DB negative permission tests + migrations idempotent/replayable from blank DB. Depends: P02-03. Tests: `supabase test db` and reset.

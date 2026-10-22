@@ -1,0 +1,67 @@
+# Disposable local test project only. Never supabase link this directory.
+# https://supabase.com/docs/guides/local-development/cli/config
+project_id = "travel-planner-disposable-local"
+
+[api]
+enabled = true
+port = 55321
+schemas = ["public"]
+extra_search_path = ["public", "extensions"]
+max_rows = 100
+# Every exposed table/function requires explicit grants in migrations.
+auto_expose_new_tables = false
+
+[db]
+port = 55322
+shadow_port = 55320
+major_version = 17
+health_timeout = "2m"
+
+[db.migrations]
+enabled = true
+schema_paths = []
+
+[db.seed]
+enabled = true
+sql_paths = ["./seed.sql"]
+
+[db.pooler]
+enabled = false
+port = 55329
+
+[auth]
+enabled = true
+site_url = "http://127.0.0.1:3000"
+additional_redirect_urls = []
+enable_signup = true
+enable_anonymous_sign_ins = true
+
+[auth.email]
+enable_signup = false
+
+[auth.sms]
+enable_signup = false
+
+[realtime]
+enabled = false
+
+[studio]
+enabled = false
+port = 55323
+
+[local_smtp]
+enabled = false
+port = 55324
+
+[storage]
+enabled = false
+
+[storage.vector]
+enabled = false
+
+[edge_runtime]
+enabled = false
+
+[analytics]
+enabled = false
+port = 55327

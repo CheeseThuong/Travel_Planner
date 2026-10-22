@@ -1,0 +1,52 @@
+
+> vietnam-playful-travel-planner@0.1.0 test:unit
+> npm run test:tooling && vitest run
+
+
+> vietnam-playful-travel-planner@0.1.0 test:tooling
+> node --test tests/tooling/*.test.mjs
+
+✔ database seed retains every exact source record, city and draft boundary (4.5292ms)
+✔ SQL seed literals escape quotes and retain ordinary backslashes (0.1084ms)
+✔ Next config has exactly two redundant context wrappers removed and no rule changes (4.8728ms)
+✔ eslint-plugin-react: all upstream rule/config bytes and metadata preserved (209.6544ms)
+✔ eslint-plugin-jsx-a11y: all upstream rule/config bytes and metadata preserved (203.2548ms)
+✔ eslint-plugin-import: all upstream rule/config bytes and metadata preserved (88.6995ms)
+✔ maintained core10 is actually loaded, not a nested legacy eslint (0.6919ms)
+✔ official adapter restores removed context methods and reports real violations (668.0565ms)
+✔ React escaping still produces its expected diagnostic (94.1758ms)
+✔ ARIA value types still produces its expected diagnostic (19.8674ms)
+✔ anonymous export still produces its expected diagnostic (14.387ms)
+✔ all upstream rule implementations and config exports are byte-identical (5.227ms)
+✔ enabled rule IDs, severities, options and settings match before patch (1097.1724ms)
+✔ root scanner preserves literals, brace sets, globstar, arrays and Windows separators (8.2483ms)
+✔ pathological glob inputs fail explicitly before recursive parsing (0.3456ms)
+✔ Next image rule violation is still detected (153.6161ms)
+✔ React duplicate props violation is still detected (18.9023ms)
+✔ React list keys violation is still detected (28.5786ms)
+✔ accessibility violation is still detected (17.8858ms)
+✔ TypeScript violation is still detected (11.3695ms)
+✔ hooks violation is still detected (26.1734ms)
+✔ disposable DB cannot target a remote Docker daemon (2.9334ms)
+✔ local network guard requires repository ownership and loopback binding (0.6138ms)
+✔ disposable command allowlist cannot forward remote flags (1.4155ms)
+✔ local guard rejects foreign project identity and linked metadata (4.1636ms)
+ℹ tests 25
+ℹ suites 0
+ℹ pass 25
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1551.1136
+
+ RUN  v5.0.5 D:/Projects/travel_plan
+
+
+ Test Files  4 passed (4)
+      Tests  18 passed (18)
+   Start at  08:34:26
+   Duration  1.38s (tests 45%, environment 32%, import 19%, transform 3%, worker 1%)
+
+    Isolate  4 workers spawned · ~295ms startup each (spawn + environment, per file)
+             at least ~295ms faster with isolate: false — reuses workers across files instead of one per file

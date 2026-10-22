@@ -49,3 +49,26 @@ jobs:
             docs/reports/evidence/CI-demo*
             test-results/demo/
           retention-days: 7
+  local-database:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    env:
+      NEXT_TELEMETRY_DISABLED: "1"
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7
+        with:
+          node-version: 24.19.0
+          cache: npm
+      - run: npm ci --strict-peer-deps
+      - run: npm run db:seed:check
+      - run: npm run db:start
+      - run: npm run db:reset
+      - run: npm run test:db
+      # Rebuild from blank a second time to catch migration/seed replay drift.
+      - run: npm run db:reset
+      - run: npm run test:db
+      - run: npm run db:stop
+        if: always()

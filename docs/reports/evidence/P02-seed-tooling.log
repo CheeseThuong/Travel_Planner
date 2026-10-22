@@ -1,0 +1,10 @@
+✔ database seed retains every exact source record, city and draft boundary (6.5549ms)
+✔ SQL seed literals escape quotes and retain ordinary backslashes (0.1034ms)
+ℹ tests 2
+ℹ suites 0
+ℹ pass 2
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 75.3906
