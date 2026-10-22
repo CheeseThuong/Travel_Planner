@@ -1,7 +1,7 @@
 begin;
 create extension if not exists pgtap with schema extensions;
 set search_path=public,extensions;
-select plan(68);
+select plan(71);
 
 insert into auth.users(id,is_anonymous) values ('b2000000-0000-4000-8000-000000000001',true),('b2000000-0000-4000-8000-000000000002',true);
 -- Publication is a rolled-back synthetic test setup, never a seed promotion.
@@ -22,7 +22,8 @@ select jsonb_build_object('id',p_id,'version',p_version,'destination_slug',p_cit
       'user_title','Untrusted catalog override','location',jsonb_build_object('lat',89,'lng',179),'coordinate_provenance','user_entered',
       'requested_duration_min',90,'is_required',false,'hours',jsonb_build_object('state','hours_unknown'),'transport_constraint','land')));
 $$;
-grant usage on schema pg_temp to authenticated;
+-- Temporary namespace belongs to this session; only fixture-function EXECUTE is
+-- needed across SET ROLE. Do not attempt unsupported GRANT on managed pg_temp_N.
 grant execute on function pg_temp.draft(uuid,integer,text) to authenticated;
 
 select has_table('public','trips','trips exists');
@@ -39,6 +40,8 @@ select ok(has_function_privilege('authenticated','public.owner_save_trip(jsonb,i
 select ok(not has_function_privilege('authenticated','public.trip_store_replace_stops(public.trips,jsonb,boolean)','EXECUTE'),'internal stop helper not public RPC');
 select ok(not has_column_privilege('authenticated','trip_shares','token_hash','SELECT'),'share hash not exposed in owner columns');
 select ok((select prosecdef and proowner='trip_storage_writer'::regrole from pg_proc where oid='public.owner_save_trip(jsonb,integer,uuid,boolean)'::regprocedure),'save definer is the constrained writer');
+select ok(not has_schema_privilege('trip_storage_writer','auth','USAGE'),'writer has no broad managed Auth schema access');
+select ok(not has_function_privilege('anon','trip_private.current_user_id()','EXECUTE') and not has_schema_privilege('authenticated','trip_private','CREATE'),'UID helper is narrowly granted, non-exposed and not writable');
 
 select set_config('request.jwt.claim.sub','b2000000-0000-4000-8000-000000000001',true);
 set local role authenticated;
@@ -58,7 +61,8 @@ select throws_ok($$select owner_save_trip(pg_temp.draft()||'{"title":42}',0,'b24
 reset role;
 update trip_stops set created_at='2000-01-01' where id='b2200000-0000-4000-8000-000000000001';
 set local role authenticated;
-select is(owner_save_trip(pg_temp.draft()||'{"title":"Updated trip"}',1,'b2400000-0000-4000-8000-000000000002')->>'version','2','owner save increments once');
+select is(owner_save_trip(jsonb_set(pg_temp.draft(),'{stops}',jsonb_build_array(pg_temp.draft()->'stops'->1,pg_temp.draft()->'stops'->0))||'{"title":"Updated trip"}',1,'b2400000-0000-4000-8000-000000000002')->>'version','2','owner save increments once');
+select is((select array_agg(id order by selection_index) from trip_stops),array['b2300000-0000-4000-8000-000000000001'::uuid,'b2200000-0000-4000-8000-000000000001'::uuid],'save preserves requested selection order independently of UUID order');
 select is((select created_at::date::text from trip_stops where id='b2200000-0000-4000-8000-000000000001'),'2000-01-01','stop replacement preserves creation metadata');
 select is(owner_save_trip(pg_temp.draft(),1,'b2400000-0000-4000-8000-000000000003')->>'status','version_conflict','stale update conflicts');
 select is((select title from trips),'Updated trip','stale update does not overwrite');
@@ -98,7 +102,7 @@ reset role;
 set local role trip_storage_writer;
 select is((select count(*)::integer from trips where id='b2100000-0000-4000-8000-000000000001'),0,'writer itself obeys A/B RLS');
 select throws_ok($$insert into trips(id,owner_id,destination_id,title,start_date,end_date,timezone,arrival_local_time,departure_local_time,base_lat,base_lng,base_label,transport_mode,pace,preferences_json)
-  select 'b2100000-0000-4000-8000-000000000003','b2000000-0000-4000-8000-000000000001',destination_id,title,start_date,end_date,timezone,arrival_local_time,departure_local_time,base_lat,base_lng,base_label,transport_mode,pace,preferences_json from trips where owner_id=auth.uid()$$,'42501',null,'writer RLS rejects a forged owner even outside RPC');
+  select 'b2100000-0000-4000-8000-000000000003','b2000000-0000-4000-8000-000000000001',destination_id,title,start_date,end_date,timezone,arrival_local_time,departure_local_time,base_lat,base_lng,base_label,transport_mode,pace,preferences_json from trips where owner_id=trip_private.current_user_id()$$,'42501',null,'writer RLS rejects a forged owner even outside RPC');
 select throws_ok($$select * from provider_usage_daily$$,'42501',null,'writer has no unrelated provider ledger access');
 reset role;
 set local role authenticated;

@@ -1,0 +1,43 @@
+
+> vietnam-playful-travel-planner@0.1.0 test:db
+> node scripts/supabase-local.mjs test
+
+Connecting to local database...
+3.36: Pulling from supabase/pg_prove
+4f4fb700ef54: Pulling fs layer
+06d62d0de6d7: Pulling fs layer
+dcccee43ad5d: Pulling fs layer
+a22cb17b3b93: Pulling fs layer
+a008cf086da5: Download complete
+4f4fb700ef54: Download complete
+a22cb17b3b93: Download complete
+dcccee43ad5d: Download complete
+dcccee43ad5d: Pull complete
+06d62d0de6d7: Download complete
+a22cb17b3b93: Pull complete
+06d62d0de6d7: Pull complete
+4f4fb700ef54: Pull complete
+Digest: sha256:eda7c5e68719e9c8287e78c017118407b48df904a51c935f5ab6098b8c0bc6bc
+Status: Downloaded newer image for public.ecr.aws/supabase/pg_prove:3.36
+public.ecr.aws/supabase/pg_prove:3.36
+psql:/Projects/travel_plan/supabase/tests/001_catalog.test.sql:2: NOTICE:  extension "pgtap" already exists, skipping
+/Projects/travel_plan/supabase/tests/001_catalog.test.sql ....... ok
+psql:/Projects/travel_plan/supabase/tests/002_trip_storage.test.sql:2: NOTICE:  extension "pgtap" already exists, skipping
+psql:/Projects/travel_plan/supabase/tests/002_trip_storage.test.sql:28: WARNING:  no privileges were granted for "pg_temp_18"
+psql:/Projects/travel_plan/supabase/tests/002_trip_storage.test.sql:48: ERROR:  permission denied for schema auth
+LINE 1: auth.uid()
+        ^
+QUERY:  auth.uid()
+CONTEXT:  PL/pgSQL function public.owner_save_trip(jsonb,integer,uuid,boolean) line 2 during statement block local variable initialization
+/Projects/travel_plan/supabase/tests/002_trip_storage.test.sql ..
+Dubious, test returned 3 (wstat 768, 0x300)
+Failed 54/68 subtests
+
+Test Summary Report
+-------------------
+/Projects/travel_plan/supabase/tests/002_trip_storage.test.sql (Wstat: 768 (exited 3) Tests: 14 Failed: 0)
+  Non-zero exit status: 3
+  Parse errors: Bad plan.  You planned 68 tests but ran 14.
+Files=2, Tests=56,  0 wallclock secs ( 0.01 usr  0.01 sys +  0.00 cusr  0.01 csys =  0.03 CPU)
+Result: FAIL
+error running container: exit 1

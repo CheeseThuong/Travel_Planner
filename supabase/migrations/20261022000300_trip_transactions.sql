@@ -6,7 +6,7 @@ returns void language plpgsql set search_path='' as $$
 declare s jsonb; previous jsonb; old_stops jsonb; old_entry jsonb; old_id text;
   place public.places; cat_id uuid; stop_id uuid; stop_title text; lat numeric; lng numeric;
   provenance text; hours jsonb; transport text; provider_id text; locked boolean;
-  scheduled_date date; scheduled_start time; scheduled_end time; position integer; stop_status text; reason text;
+  scheduled_date date; scheduled_start time; scheduled_end time; position integer; selection_position integer; stop_status text; reason text;
 begin
   if jsonb_typeof(p_stops) is distinct from 'array' or jsonb_array_length(p_stops)>30 then
     raise exception 'Invalid stop list' using errcode='22023';
@@ -28,7 +28,7 @@ begin
   end if;
 
   delete from public.trip_stops where trip_id=p_trip.id;
-  for s in select value from jsonb_array_elements(p_stops) loop
+  for s,selection_position in select value,(ordinality-1)::integer from jsonb_array_elements(p_stops) with ordinality order by ordinality loop
     if jsonb_typeof(s) is distinct from 'object' or s ? 'owner_id'
       or jsonb_typeof(s->'id') is distinct from 'string' or jsonb_typeof(s->'requested_duration_min') is distinct from 'number'
       or jsonb_typeof(s->'is_required') is distinct from 'boolean'
@@ -66,9 +66,9 @@ begin
       stop_status=coalesce(previous->>'status','selected'); reason=previous->>'unscheduled_reason';
     end if;
     insert into public.trip_stops(id,trip_id,destination_id,catalog_place_id,provider_place_id,user_title,user_lat,user_lng,coordinate_provenance,
-      requested_duration_min,is_required,is_locked,hours_json,transport_constraint,plan_date,sort_index,planned_start_local,planned_end_local,status,unscheduled_reason,created_at)
+      requested_duration_min,is_required,is_locked,selection_index,hours_json,transport_constraint,plan_date,sort_index,planned_start_local,planned_end_local,status,unscheduled_reason,created_at)
     values(stop_id,p_trip.id,p_trip.destination_id,cat_id,provider_id,stop_title,lat,lng,provenance,
-      (s->>'requested_duration_min')::integer,(s->>'is_required')::boolean,locked,hours,transport,scheduled_date,position,scheduled_start,scheduled_end,stop_status,reason,
+      (s->>'requested_duration_min')::integer,(s->>'is_required')::boolean,locked,selection_position,hours,transport,scheduled_date,position,scheduled_start,scheduled_end,stop_status,reason,
       coalesce((previous->>'created_at')::timestamptz,statement_timestamp()));
   end loop;
 end;
@@ -77,7 +77,7 @@ revoke all on function public.trip_store_replace_stops(public.trips,jsonb,boolea
 
 create function public.owner_save_trip(p_draft jsonb,p_expected_version integer,p_idempotency_key uuid,p_confirm_locked_changes boolean default false)
 returns jsonb language plpgsql security definer set search_path='' set lock_timeout='2s' as $$
-declare uid uuid=auth.uid(); trip_id uuid; destination uuid; stored public.trips; saved public.trips;
+declare uid uuid=trip_private.current_user_id(); trip_id uuid; destination uuid; stored public.trips; saved public.trips;
   fingerprint text; prior public.trip_mutations; response jsonb; prefs jsonb; base jsonb;
 begin
   if uid is null then raise exception 'Authentication required' using errcode='28000'; end if;
@@ -144,8 +144,8 @@ begin
   end if;
   perform public.trip_store_replace_stops(saved,p_draft->'stops',p_confirm_locked_changes);
   -- Force deferred schedule/FK/order validation before recording success or idempotency.
-  set constraints public.trips_schedule,public.stops_schedule,public.trip_stops_trip_id_plan_date_sort_index_key immediate;
-  set constraints public.trips_schedule,public.stops_schedule,public.trip_stops_trip_id_plan_date_sort_index_key deferred;
+  set constraints public.trips_schedule,public.stops_schedule,public.trip_stops_trip_id_plan_date_sort_index_key,public.trip_stops_selection_unique immediate;
+  set constraints public.trips_schedule,public.stops_schedule,public.trip_stops_trip_id_plan_date_sort_index_key,public.trip_stops_selection_unique deferred;
   response=jsonb_build_object('status','saved','id',saved.id,'version',saved.version,'state',saved.state);
   insert into public.trip_mutations(owner_id,idempotency_key,request_hash,response_json) values(uid,p_idempotency_key,fingerprint,response);
   return response;
@@ -155,7 +155,7 @@ revoke all on function public.owner_save_trip(jsonb,integer,uuid,boolean) from p
 
 create function public.owner_delete_trip(p_trip_id uuid,p_expected_version integer) returns jsonb
 language plpgsql security definer set search_path='' set lock_timeout='2s' as $$
-declare uid uuid=auth.uid(); stored public.trips;
+declare uid uuid=trip_private.current_user_id(); stored public.trips;
 begin
   if uid is null then raise exception 'Authentication required' using errcode='28000'; end if;
   if p_expected_version is null or p_expected_version<1 then raise exception 'Expected version required' using errcode='22023'; end if;

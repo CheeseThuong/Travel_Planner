@@ -1,0 +1,23 @@
+
+> vietnam-playful-travel-planner@0.1.0 test:db
+> node scripts/supabase-local.mjs test
+
+Connecting to local database...
+psql:/Projects/travel_plan/supabase/tests/001_catalog.test.sql:2: NOTICE:  extension "pgtap" already exists, skipping
+/Projects/travel_plan/supabase/tests/001_catalog.test.sql ....... ok
+psql:/Projects/travel_plan/supabase/tests/002_trip_storage.test.sql:2: NOTICE:  extension "pgtap" already exists, skipping
+psql:/Projects/travel_plan/supabase/tests/002_trip_storage.test.sql:65: ERROR:  column "selection_index" does not exist
+LINE 1: select is((select array_agg(id order by selection_index) fro...
+                                                ^
+/Projects/travel_plan/supabase/tests/002_trip_storage.test.sql ..
+Dubious, test returned 3 (wstat 768, 0x300)
+Failed 42/71 subtests
+
+Test Summary Report
+-------------------
+/Projects/travel_plan/supabase/tests/002_trip_storage.test.sql (Wstat: 768 (exited 3) Tests: 29 Failed: 0)
+  Non-zero exit status: 3
+  Parse errors: Bad plan.  You planned 71 tests but ran 29.
+Files=2, Tests=71,  0 wallclock secs ( 0.01 usr  0.01 sys +  0.01 cusr  0.01 csys =  0.04 CPU)
+Result: FAIL
+error running container: exit 1

@@ -15,8 +15,16 @@ begin
 end;
 $$;
 grant trip_storage_writer to postgres;
-grant usage on schema public, auth, extensions to trip_storage_writer;
-grant execute on function auth.uid() to trip_storage_writer;
+grant usage on schema public, extensions to trip_storage_writer;
+-- Managed Auth ACLs cannot be delegated by postgres. Expose only the current UID,
+-- following Supabase's supported custom-role helper pattern, not Auth table access.
+create schema trip_private;
+revoke all on schema trip_private from public,anon,authenticated;
+grant usage on schema trip_private to authenticated,trip_storage_writer;
+create function trip_private.current_user_id() returns uuid
+language sql security definer stable set search_path='' as $$ select auth.uid(); $$;
+revoke all on function trip_private.current_user_id() from public,anon,authenticated;
+grant execute on function trip_private.current_user_id() to authenticated,trip_storage_writer;
 grant select on public.destinations, public.places to trip_storage_writer;
 alter policy destinations_public_read on public.destinations to anon, authenticated, trip_storage_writer;
 alter policy places_public_read on public.places to anon, authenticated, trip_storage_writer;
@@ -63,6 +71,7 @@ create table public.trip_stops (
   requested_duration_min integer not null check (requested_duration_min between 15 and 720),
   is_required boolean not null default false,
   is_locked boolean not null default false,
+  selection_index integer not null check (selection_index between 0 and 29),
   hours_json jsonb not null default '{"state":"hours_unknown"}' check (
     jsonb_typeof(hours_json)='object' and hours_json ? 'state' and hours_json->>'state' in ('hours_unknown','verified_editorial')
   ),
@@ -78,6 +87,7 @@ create table public.trip_stops (
   foreign key(trip_id,destination_id) references public.trips(id,destination_id) on delete cascade,
   foreign key(catalog_place_id,destination_id) references public.places(id,destination_id),
   unique(trip_id,plan_date,sort_index) deferrable initially deferred,
+  constraint trip_stops_selection_unique unique(trip_id,selection_index) deferrable initially deferred,
   check (catalog_place_id is not null or coordinate_provenance='user_entered'),
   check ((status in ('scheduled','completed') and plan_date is not null and sort_index is not null and planned_start_local is not null and planned_end_local is not null)
     or (status in ('selected','unscheduled') and plan_date is null and sort_index is null and planned_start_local is null and planned_end_local is null)),
@@ -144,18 +154,18 @@ grant select on public.trips,public.trip_stops,public.trip_plan_runs to authenti
 grant select(id,trip_id,permission,created_by,expires_at,revoked_at,created_at,last_accessed_at) on public.trip_shares to authenticated;
 grant select,insert,update,delete on public.trips,public.trip_stops,public.trip_plan_runs,public.trip_shares,public.trip_mutations to trip_storage_writer;
 create policy trips_owner on public.trips for all to authenticated,trip_storage_writer
-  using (owner_id=(select auth.uid())) with check (owner_id=(select auth.uid()));
+  using (owner_id=(select trip_private.current_user_id())) with check (owner_id=(select trip_private.current_user_id()));
 create policy stops_owner on public.trip_stops for all to authenticated,trip_storage_writer
-  using (exists(select 1 from public.trips t where t.id=trip_id and t.owner_id=(select auth.uid())))
-  with check (exists(select 1 from public.trips t where t.id=trip_id and t.owner_id=(select auth.uid())));
+  using (exists(select 1 from public.trips t where t.id=trip_id and t.owner_id=(select trip_private.current_user_id())))
+  with check (exists(select 1 from public.trips t where t.id=trip_id and t.owner_id=(select trip_private.current_user_id())));
 create policy runs_owner on public.trip_plan_runs for all to authenticated,trip_storage_writer
-  using (exists(select 1 from public.trips t where t.id=trip_id and t.owner_id=(select auth.uid())))
-  with check (exists(select 1 from public.trips t where t.id=trip_id and t.owner_id=(select auth.uid())));
+  using (exists(select 1 from public.trips t where t.id=trip_id and t.owner_id=(select trip_private.current_user_id())))
+  with check (exists(select 1 from public.trips t where t.id=trip_id and t.owner_id=(select trip_private.current_user_id())));
 create policy shares_owner on public.trip_shares for all to authenticated,trip_storage_writer
-  using (exists(select 1 from public.trips t where t.id=trip_id and t.owner_id=(select auth.uid())))
-  with check (created_by=(select auth.uid()) and exists(select 1 from public.trips t where t.id=trip_id and t.owner_id=(select auth.uid())));
+  using (exists(select 1 from public.trips t where t.id=trip_id and t.owner_id=(select trip_private.current_user_id())))
+  with check (created_by=(select trip_private.current_user_id()) and exists(select 1 from public.trips t where t.id=trip_id and t.owner_id=(select trip_private.current_user_id())));
 create policy mutations_owner on public.trip_mutations for all to trip_storage_writer
-  using (owner_id=(select auth.uid())) with check (owner_id=(select auth.uid()));
+  using (owner_id=(select trip_private.current_user_id())) with check (owner_id=(select trip_private.current_user_id()));
 -- Provider ledger intentionally has no policy/grant until its bounded adapter exists.
 
 create function public.trip_identity_immutable() returns trigger language plpgsql set search_path='' as $$

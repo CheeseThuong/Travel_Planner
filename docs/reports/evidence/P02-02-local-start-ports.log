@@ -1,0 +1,5 @@
+
+> vietnam-playful-travel-planner@0.1.0 db:start
+> node scripts/supabase-local.mjs start
+
+Local Supabase start: exit 0. Generated local credentials stay in ignored .tools output.

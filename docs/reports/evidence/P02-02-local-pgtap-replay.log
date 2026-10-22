@@ -1,0 +1,12 @@
+
+> vietnam-playful-travel-planner@0.1.0 test:db
+> node scripts/supabase-local.mjs test
+
+Connecting to local database...
+psql:/Projects/travel_plan/supabase/tests/001_catalog.test.sql:2: NOTICE:  extension "pgtap" already exists, skipping
+/Projects/travel_plan/supabase/tests/001_catalog.test.sql ....... ok
+psql:/Projects/travel_plan/supabase/tests/002_trip_storage.test.sql:2: NOTICE:  extension "pgtap" already exists, skipping
+/Projects/travel_plan/supabase/tests/002_trip_storage.test.sql .. ok
+All tests successful.
+Files=2, Tests=112,  1 wallclock secs ( 0.02 usr  0.00 sys +  0.01 cusr  0.01 csys =  0.04 CPU)
+Result: PASS
