@@ -2,7 +2,7 @@
 
 > Initial state as of 2026-10-21: **NONE IMPLEMENTED, NONE TESTED**. All gates are `NOT VERIFIED`.
 > Update `[ ]` -> `[x]` only after verifying tests and recording evidence, not merely writing code.
-> Current execution state: G0/G1/G2 PASS. P02-04 and G2 closed by GitHub Actions run39716637974. P03-01 two-city catalog DONE; P03-02 wizard is next. Independent P01-06 requested two-city 3D extension DONE. [Baseline report](reports/P01-BASELINE.md).
+> Current execution state: G0/G1/G2 PASS. P02-04 and G2 closed by GitHub Actions run39716637974. P03-01 catalog and P03-02 party/budget/manual-mode wizard DONE; P03-03 is next. Independent P01-06 requested two-city 3D extension DONE. [Baseline report](reports/P01-BASELINE.md).
 > Recovery audit/typography R0-01/R1-01 DONE; R0-02 corrected/DONE through COMPAT. Full product NOT READY: wizard/planner/cloud/save/share remain unimplemented. Historical reports are retained; this current state supersedes their old support-blocked status.
 
 ## Task tracker rules
@@ -44,7 +44,7 @@ For each checked item, add a line to **Evidence log** with: task ID, commit hash
 ## PHASE 03 — Catalog, wizard and safe place import — Gate G3 NOT VERIFIED
 
 - [x] **P03-01** Nha Trang/Đà Lạt destination landing/catalog/filter/pagination/mobile. Status: DONE. Depends: G2 PASS. Search, empty state, 360px, destination isolation, pagination and attribution PASS. [Report](reports/P03-01.md).
-- [ ] **P03-02** Wizard dates/time/lodging/transport/pace, party size, VND budget, assisted/manual mode and stop selection. Depends: P03-01. Tests: AC-001/016/017/018; validation, date and money boundaries.
+- [x] **P03-02** Wizard dates/lodging/transport/pace, party size, VND budget, assisted/manual mode and stop selection. Status: DONE. Depends: P03-01 DONE. AC-001/016/017/018 and desktop/mobile E2E PASS. [Report](reports/P03-02.md).
 - [ ] **P03-03** Google Maps full/short URL parser, allowlist redirect, candidate selection and manual fallback. Depends: G1, P03-02. Tests: T-012/13/14, SSRF guards.
 - [ ] **P03-04** Loading/error/offline/reduced-motion states. Depends: P03-01..03. Tests: UI a11y and keyboard.
 - [ ] **G3** Gate approval. Verify: create accurate local draft without live Google API key.
@@ -96,7 +96,8 @@ For each checked item, add a line to **Evidence log** with: task ID, commit hash
 
 | Task ID | Status | Commit/PR | Commands & exit codes | AC/Test IDs | Blockers | Verified date |
 |---|---|---|---|---|---|---|
-| P03-01 | DONE | working tree | typecheck/lint/unit/build ->0; E2E18 ->0; Playwright CLI mobile demo; [report](reports/P03-01.md) | search/empty/mobile/isolation/attribution/pagination PASS | P03-02..04/G3 pending | 2026-10-22 |
+| P03-02 | DONE | working tree | typecheck/lint/build ->0; wizard E2E4/full E2E22 ->0; Playwright CLI mobile demo; [report](reports/P03-02.md) | AC-001/016/017/018 PASS | P03-03..04/G3 pending | 2026-10-22 |
+| P03-01 | DONE | 1e8a09a; run39752205015 | typecheck/lint/unit/build ->0; E2E18 ->0; CI PASS; Playwright CLI mobile demo; [report](reports/P03-01.md) | search/empty/mobile/isolation/attribution/pagination PASS | P03-02..04/G3 pending | 2026-10-22 |
 | P02-04 / G2 | DONE / PASS | f837ac8; run39716637974 | CI baseline and local-database jobs PASS; DB reset/121 pgTAP twice/Auth cleanup ->0; [report](reports/P02-04.md) | AC01..04 PASS | G3+ not verified | 2026-10-22 |
 | P02-01 | DONE | 0a2df28; run39706971745 | Real local Supabase on Ubuntu CI: reset/42pgTAP twice/stop ->0; full Windows baseline PASS; [report](reports/P02-01.md) | AC01..04 PASS in recorded environments | Windows host image download; P02-02..04/G2 pending | 2026-10-22 |
 | P01-01-COMPAT / R0-02 | DONE | b91d1a8 | strict npm ci/tree/audit, typecheck/lint/build/tooling -> 0; [report](reports/P01-01-COMPAT.md) | AC-C1..4 PASS | Project snapshot maintenance | 2026-10-21 |
