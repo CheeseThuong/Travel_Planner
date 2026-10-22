@@ -1,0 +1,13 @@
+{
+  "repository": "CheeseThuong/Travel_Planner",
+  "workflow_run_id": 39711636934,
+  "workflow_url": "https://github.com/CheeseThuong/Travel_Planner/actions/runs/39711636934",
+  "head_sha": "8fac5b8a13d0a91aa7afc7ffbd51748f8adf4752",
+  "event": "push",
+  "status": "completed",
+  "conclusion": "success",
+  "jobs": [
+    {"id": 119604092380, "name": "local-database", "conclusion": "success", "database_replays": 2, "tests_per_replay": 113},
+    {"id": 119604092620, "name": "baseline", "conclusion": "success", "browser_tests": 16, "client_assets_scanned": 19}
+  ]
+}

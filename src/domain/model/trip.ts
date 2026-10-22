@@ -3,6 +3,16 @@ import type { DestinationSlug } from "./destination";
 export type Coordinates = Readonly<{ lat: number; lng: number }>;
 export type TransportMode = "walk" | "motorbike" | "drive";
 export type Pace = "relaxed" | "balanced" | "active";
+export type PlanningMode = "assisted" | "manual";
+export type CostProvenance = "user_entered" | "unknown";
+export type CostEstimate =
+  | Readonly<{ provenance: "unknown" }>
+  | Readonly<{ provenance: "user_entered"; amount_vnd: number; applies_to: "group" | "per_person" }>;
+export type TripBudget = Readonly<{
+  currency: "VND";
+  total_vnd: number | null;
+  known_costs_vnd: Readonly<{ lodging: number; transport: number; meals: number; other: number }>;
+}>;
 export type EstimateSource = "approximate" | "google_routes";
 export type UnscheduledReason = "CLOSED" | "TIME_WINDOW" | "TRAVEL_TOO_LONG" | "CAPACITY" | "UNREACHABLE" | "DUPLICATE" | "OUT_OF_AREA" | "LOCK_CONFLICT" | "UNKNOWN";
 export type OpeningHours =
@@ -22,6 +32,7 @@ export interface TripStop {
   readonly hours: OpeningHours;
   readonly lock?: Readonly<{ plan_date: string; start_local: string; sort_index: number }>;
   readonly transport_constraint: "land" | "manual_transfer" | "access_unverified";
+  readonly cost_estimate: CostEstimate;
 }
 
 export interface TripDraft {
@@ -37,6 +48,9 @@ export interface TripDraft {
   readonly base_location: Coordinates & Readonly<{ label: string; temporary: boolean }>;
   readonly transport_mode: TransportMode;
   readonly pace: Pace;
+  readonly party_size: number;
+  readonly planning_mode: PlanningMode;
+  readonly budget: TripBudget;
   readonly preferences: Readonly<{ day_start: string; day_end: string; lunch_buffer_minutes: number; rest_buffer_minutes: number; return_to_base: boolean }>;
   readonly stops: readonly TripStop[];
 }

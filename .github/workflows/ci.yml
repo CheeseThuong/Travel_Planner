@@ -70,5 +70,6 @@ jobs:
       # Rebuild from blank a second time to catch migration/seed replay drift.
       - run: npm run db:reset
       - run: npm run test:db
+      - run: npm run test:auth
       - run: npm run db:stop
         if: always()

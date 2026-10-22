@@ -17,8 +17,8 @@ function check(condition, message) {
 }
 const expected = [...master.matchAll(/^\| (FR-\d{3}) \|/gm), ...master.matchAll(/^- (BR-\d{2}):/gm)].map((m) => m[1]);
 const rows = [...baseline.matchAll(/^\| ((?:FR-\d{3}|BR-\d{2})) \| ([^|]+) \| ([^|]+) \| ([^|]+) \| ([^|]+) \|/gm)];
-check(expected.length === 27, 'Master declares 15 FR and 12 BR');
-check(rows.length === expected.length, 'Traceability has exactly 27 rows');
+check(expected.length === 32, 'Master declares 17 FR and 15 BR including ADR0022 amendment');
+check(rows.length === expected.length, 'Traceability has exactly 32 rows');
 for (const id of expected) {
   const matching = rows.filter((row) => row[1] === id);
   check(matching.length === 1, `${id} appears exactly once`);

@@ -1,7 +1,7 @@
 begin;
 create extension if not exists pgtap with schema extensions;
 set search_path=public,extensions;
-select plan(71);
+select plan(79);
 
 insert into auth.users(id,is_anonymous) values ('b2000000-0000-4000-8000-000000000001',true),('b2000000-0000-4000-8000-000000000002',true);
 -- Publication is a rolled-back synthetic test setup, never a seed promotion.
@@ -12,15 +12,19 @@ create function pg_temp.draft(p_id uuid default 'b2100000-0000-4000-8000-0000000
 select jsonb_build_object('id',p_id,'version',p_version,'destination_slug',p_city,'title','Synthetic trip',
   'start_date','2026-12-01','end_date','2026-12-03','timezone','Asia/Ho_Chi_Minh','arrival_local_time','10:00','departure_local_time','16:00',
   'base_location',jsonb_build_object('label','Synthetic base','lat',12.24,'lng',109.19,'temporary',false),'transport_mode','walk','pace','balanced',
+  'party_size',4,'planning_mode','assisted','budget',jsonb_build_object('currency','VND','total_vnd',12000000,
+    'known_costs_vnd',jsonb_build_object('lodging',2000000,'transport',1000000,'meals',0,'other',0)),
   'preferences',jsonb_build_object('day_start','08:00','day_end','21:00','lunch_buffer_minutes',60,'rest_buffer_minutes',15,'return_to_base',true),
   'stops',jsonb_build_array(
     jsonb_build_object('id',replace(p_id::text,'b2100000','b2200000'),'destination_slug',p_city,'user_title','Manual fixture',
       'location',jsonb_build_object('lat',12.25,'lng',109.19),'coordinate_provenance','user_entered','requested_duration_min',60,'is_required',true,
-      'hours',jsonb_build_object('state','hours_unknown'),'transport_constraint','land'),
+      'hours',jsonb_build_object('state','hours_unknown'),'transport_constraint','land',
+      'cost_estimate',jsonb_build_object('provenance','user_entered','amount_vnd',200000,'applies_to','per_person')),
     jsonb_build_object('id',replace(p_id::text,'b2100000','b2300000'),'destination_slug',p_city,
       'catalog_place_id',(select p.id from places p join destinations d on d.id=p.destination_id where d.slug=p_city order by p.id limit 1),
       'user_title','Untrusted catalog override','location',jsonb_build_object('lat',89,'lng',179),'coordinate_provenance','user_entered',
-      'requested_duration_min',90,'is_required',false,'hours',jsonb_build_object('state','hours_unknown'),'transport_constraint','land')));
+      'requested_duration_min',90,'is_required',false,'hours',jsonb_build_object('state','hours_unknown'),'transport_constraint','land',
+      'cost_estimate',jsonb_build_object('provenance','unknown'))));
 $$;
 -- Temporary namespace belongs to this session; only fixture-function EXECUTE is
 -- needed across SET ROLE. Do not attempt unsupported GRANT on managed pg_temp_N.
@@ -32,11 +36,15 @@ select has_table('public','trip_plan_runs','canonical trip_plan_runs exists');
 select has_table('public','trip_shares','shares exists');
 select has_table('public','trip_mutations','idempotency store exists');
 select has_table('public','provider_usage_daily','provider ledger exists');
+select ok((select count(*)=4 from information_schema.columns where table_schema='public' and
+  ((table_name='trips' and column_name in ('party_size','planning_mode','budget_total_vnd'))
+    or (table_name='trip_stops' and column_name='estimated_cost_vnd'))),'budget and planning columns exist');
 select ok((select not rolsuper and not rolcanlogin and not rolbypassrls and not rolcreaterole and not rolcreatedb and not rolinherit from pg_roles where rolname='trip_storage_writer'),'writer cannot login or bypass RLS');
 select ok((select bool_and(relrowsecurity) from pg_class where oid in ('trips'::regclass,'trip_stops'::regclass,'trip_plan_runs'::regclass,'trip_shares'::regclass,'trip_mutations'::regclass,'provider_usage_daily'::regclass)),'all private tables have RLS');
 select ok(not has_table_privilege('authenticated','trips','INSERT') and not has_table_privilege('authenticated','trip_stops','UPDATE'),'direct owner writes cannot bypass version RPC');
 select ok(not has_schema_privilege('trip_storage_writer','public','CREATE'),'writer cannot create schema objects');
 select ok(has_function_privilege('authenticated','public.owner_save_trip(jsonb,integer,uuid,boolean)','EXECUTE') and not has_function_privilege('anon','public.owner_save_trip(jsonb,integer,uuid,boolean)','EXECUTE'),'save RPC only authenticated');
+select ok(not has_function_privilege('authenticated','public.owner_save_trip_legacy(jsonb,integer,uuid,boolean)','EXECUTE'),'legacy save is internal only');
 select ok(not has_function_privilege('authenticated','public.trip_store_replace_stops(public.trips,jsonb,boolean)','EXECUTE'),'internal stop helper not public RPC');
 select ok(not has_column_privilege('authenticated','trip_shares','token_hash','SELECT'),'share hash not exposed in owner columns');
 select ok((select prosecdef and proowner='trip_storage_writer'::regrole from pg_proc where oid='public.owner_save_trip(jsonb,integer,uuid,boolean)'::regprocedure),'save definer is the constrained writer');
@@ -46,6 +54,12 @@ select ok(not has_function_privilege('anon','trip_private.current_user_id()','EX
 select set_config('request.jwt.claim.sub','b2000000-0000-4000-8000-000000000001',true);
 set local role authenticated;
 select is(owner_save_trip(pg_temp.draft(),0,'b2400000-0000-4000-8000-000000000001')->>'status','saved','owner A creates atomic trip');
+select is((select party_size from trips where id='b2100000-0000-4000-8000-000000000001'),4,'party size roundtrips');
+select is((select planning_mode from trips where id='b2100000-0000-4000-8000-000000000001'),'assisted','planning mode roundtrips');
+select is((select budget_total_vnd from trips where id='b2100000-0000-4000-8000-000000000001'),12000000::bigint,'trip budget roundtrips');
+select is((select estimated_cost_vnd from trip_stops where trip_id='b2100000-0000-4000-8000-000000000001' and cost_provenance='user_entered'),200000::bigint,'stop cost roundtrips');
+select throws_ok($$select owner_save_trip(jsonb_set(pg_temp.draft(),'{party_size}','0'),0,'b2400000-0000-4000-8000-000000000012')$$,'22023',null,'invalid party size rejected');
+select throws_ok($$select owner_save_trip(jsonb_set(pg_temp.draft(),'{budget,total_vnd}','1.5'),0,'b2400000-0000-4000-8000-000000000013')$$,'22023',null,'fractional VND rejected');
 select is((select version from trips),1,'created version one');
 select is((select count(*)::integer from trip_stops),2,'both selected stops retained');
 select ok((select bool_and(owner_id=auth.uid()) from trips),'owner always derives from auth');

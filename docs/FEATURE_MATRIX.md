@@ -2,7 +2,7 @@
 
 Audit date: 2026-10-21. Status describes actual product behavior, not future task completion. Source: `src/app/**`, components, package scripts, HTTP and rendered-browser evidence. Destination/plan screenshots show **skeletons**, not completed journeys.
 
-2026-10-22 update: G1 PASS; P02-01 catalog schema/seed/RLS verified on actual Ubuntu local-Supabase CI,42 checks twice. Runtime catalog UI and private trip/auth/save/share modules remain absent. Database evidence alone does not open those product journeys.
+2026-10-22 update: G1 PASS; P02-01/P02-02 DONE. P02-03 local verification adds party/budget/manual domain and private persistence plus real anonymous owner A/B adapter tests; fresh CI is pending and G2 remains NOT VERIFIED. Runtime catalog/wizard/editor/share routes remain absent, so database/adapter evidence does not open those journeys.
 
 | Feature | Route | Expected Behavior | Current Status | Root Cause | Priority | Required Tests |
 |---|---|---|---|---|---|---|
@@ -17,7 +17,8 @@ Audit date: 2026-10-21. Status describes actual product behavior, not future tas
 | Selected/favorite places | Catalog/wizard | Persist selected state without city contamination | NOT IMPLEMENTED | No shared selection state or persistence | P0 | Add/remove/duration/required/reload |
 | Trip dates/arrival/departure | `/plan/new` | Validated 1–7-day local calendar | PLACEHOLDER | ComingSoon component; no form | P0 | AC-001, malformed dates, partial days |
 | Accommodation/base location | `/plan/new` | Name/address/Maps/manual coordinates and base confirmation | NOT IMPLEMENTED | No wizard fields or resolver | P0 | Coordinate/date validation and temporary-base warning |
-| Transport/preferences/budget | `/plan/new` | Choose mode/pace/interests/activity/breaks | NOT IMPLEMENTED | No model/form/validation | P0 | Preferences bounds, keyboard, daily feasibility |
+| Transport/preferences/party/budget | `/plan/new` | Choose mode/pace,1–30 people, VND budget/costs and see honest per-person/day result | PARTIALLY IMPLEMENTED | Domain math, storage and owner roundtrip local PASS; form/result UI and planner use remain P03/P04 | P0 | AC-016/017, bounds, unknown-cost honesty, keyboard/mobile |
+| Personal planning mode | Wizard/editor | Assisted generation or manual date/time/order with non-mutating validation | PARTIALLY IMPLEMENTED | Mode and exact owner persistence local PASS; manual editor/validator remain P03/P04 | P0 | AC-018, overlaps/bounds/order/locks/reload |
 | Maps full/short URL import | Wizard/import | Safe parser/resolver + candidate confirmation/manual fallback | NOT IMPLEMENTED | No parser, endpoint or adapter | P1 | Allowlist, redirects/private addresses, timeout/rate limits/provider failures |
 | Routing/approximate provenance | Generate/editor | Bounded directed matrix with explicit uncertainty | NOT IMPLEMENTED | No RoutingProvider or matrix implementations | P0 | Unreachable legs, quota/timeout/fallback; truthful labels |
 | Deterministic itinerary generation | Wizard/editor | Feasible candidate, explicit unscheduled accounting | NOT IMPLEMENTED | No planner/calendar/constraint verifier | P0 | Full Master13 edge cases, properties, locks, p95 benchmark |

@@ -1,0 +1,19 @@
+Evidence excerpt recorded from GitHub Actions run 39711636934 for commit 8fac5b8a13d0a91aa7afc7ffbd51748f8adf4752.
+Source: https://github.com/CheeseThuong/Travel_Planner/actions/runs/39711636934
+
+local-database job 119604092380 (Ubuntu 24.04):
+- npm ci --strict-peer-deps: PASS; found 0 vulnerabilities during install.
+- db:seed:check: PASS.
+- db:start: PASS, including the actual published-port guard.
+- first db:reset + test:db: Files=2, Tests=113, Result: PASS.
+- second db:reset + test:db: Files=2, Tests=113, Result: PASS.
+- db:stop: PASS.
+
+baseline job 119604092620 (Windows):
+- strict install, audit, typecheck, lint, unit, coverage, content and build: PASS.
+- client secret scan: 19 assets checked, PASS.
+- real HTTP integration smoke: PASS.
+- Playwright: 16 passed.
+- artifact phase01-39711636934 uploaded as artifact 12396728612.
+
+This evidence closes the P02-01 loopback correction and P02-02 cross-platform verification only. Authenticated SDK sessions, parallel concurrency and the G2 review remain P02-03/P02-04 work.

@@ -2,7 +2,7 @@
 
 > Initial state as of 2026-10-21: **NONE IMPLEMENTED, NONE TESTED**. All gates are `NOT VERIFIED`.
 > Update `[ ]` -> `[x]` only after verifying tests and recording evidence, not merely writing code.
-> Current execution state: G0 PASS; P01-01 support corrected with maintained ESLint10/project adapters (ADR0017), full audit0. P01-02/03 DONE; P01-04 DONE; actual CI run39611614744 PASS for b91d1a8. G1 PASS; P02-01 network correction and P02-02 VERIFYING after actual local112 tests twice; fresh CI pending. Independent P01-06 requested two-city 3D extension DONE. [Baseline report](reports/P01-BASELINE.md).
+> Current execution state: G0/G1 PASS. P02-01 and P02-02 DONE after actual Windows local verification and CI run39711636934. P02-03 is VERIFYING: clean local reset,121 pgTAP, real two-session Auth/RLS integration and applicable baseline PASS; fresh CI pending. G2 remains NOT VERIFIED. Independent P01-06 requested two-city 3D extension DONE. [Baseline report](reports/P01-BASELINE.md).
 > Recovery audit/typography R0-01/R1-01 DONE; R0-02 corrected/DONE through COMPAT. Full product NOT READY: wizard/planner/cloud/save/share remain unimplemented. Historical reports are retained; this current state supersedes their old support-blocked status.
 
 ## Task tracker rules
@@ -35,16 +35,16 @@ For each checked item, add a line to **Evidence log** with: task ID, commit hash
 
 ## PHASE 02 — PostgreSQL, Auth and permissions — Gate G2 NOT VERIFIED
 
-- [ ] **P02-01** Supabase local setup, destination/place migrations, separate Nha Trang/Đà Lạt editorial seed (ADR-0013). Status: VERIFYING correction after DONE. Depends: G1, P00-04, P00-05 DONE. [Report](reports/P02-01.md), [ADR0021](adr/ADR-0021.md). Catalog/reset/42pgTAP PASS remains recorded; actual Windows binding correction and112 tests twice now PASS with scoped adapter. Fresh CI pending; no global Docker/PATH changes.
-- [ ] **P02-02** Trips/stops/share tables with constraints, transactional repositories and indexes. Status: VERIFYING. Depends: P02-01 preceding DONE reopened for network correction, now locally verified. [Report](reports/P02-02.md), [ADR0020](adr/ADR-0020.md). Actual local112 pgTAP twice and static/unit PASS after documented corrections; fresh CI pending. No owner UI/API functionality claimed.
-- [ ] **P02-03** Auth session (guest via anonymous sign-in), owner API guards and RLS/grants for each private table. Depends: P02-02. Tests: user A/B, null auth, forged owner_id.
+- [x] **P02-01** Supabase local setup, destination/place migrations, separate Nha Trang/Đà Lạt editorial seed (ADR-0013). Status: DONE. Depends: G1, P00-04, P00-05 DONE. [Report](reports/P02-01.md), [ADR0021](adr/ADR-0021.md). Actual Windows loopback bindings and Ubuntu CI startup/port guard/reset/replay verified; no global Docker/PATH changes.
+- [x] **P02-02** Trips/stops/share tables with constraints, transactional repositories and indexes. Status: DONE. Depends: P02-01. [Report](reports/P02-02.md), [ADR0020](adr/ADR-0020.md). Local strengthened113-case suite and CI reset/113 tests twice PASS; full Windows baseline PASS. No owner UI/API functionality claimed.
+- [ ] **P02-03** Auth session (guest via anonymous sign-in), verified-owner repository, and ADR0022 party/budget/planning-mode persistence. Status: VERIFYING. Depends: P02-02 DONE. Tests: real session A/B, null/forged auth, exact expanded TripDraft roundtrip. [Plan](reports/P02-03-PLAN.md), [report](reports/P02-03.md).
 - [ ] **P02-04** pgTAP DB negative permission tests + migrations idempotent/replayable from blank DB. Depends: P02-03. Tests: `supabase test db` and reset.
 - [ ] **G2** Gate approval. Verify: no public private-data access and all auth tests pass.
 
 ## PHASE 03 — Catalog, wizard and safe place import — Gate G3 NOT VERIFIED
 
 - [ ] **P03-01** Nha Trang/Đà Lạt destination landing/catalog/filter/pagination/mobile. Depends: G2. Tests: search, empty state, 360px, destination isolation and attribution.
-- [ ] **P03-02** Wizard dates/time/lodging/transport/pace and stop selection. Depends: P03-01. Tests: AC-001; validation, date boundaries.
+- [ ] **P03-02** Wizard dates/time/lodging/transport/pace, party size, VND budget, assisted/manual mode and stop selection. Depends: P03-01. Tests: AC-001/016/017/018; validation, date and money boundaries.
 - [ ] **P03-03** Google Maps full/short URL parser, allowlist redirect, candidate selection and manual fallback. Depends: G1, P03-02. Tests: T-012/13/14, SSRF guards.
 - [ ] **P03-04** Loading/error/offline/reduced-motion states. Depends: P03-01..03. Tests: UI a11y and keyboard.
 - [ ] **G3** Gate approval. Verify: create accurate local draft without live Google API key.
@@ -53,7 +53,7 @@ For each checked item, add a line to **Evidence log** with: task ID, commit hash
 
 - [ ] **P04-01** Time-window model, trip-calendar bounds, locks and deterministic fixtures. Depends: G3. Tests: T-001/004/005/010/011.
 - [ ] **P04-02** RoutingProvider interface, safe approximate fallback, optional Google route adapter and API usage budget. Depends: P04-01. Tests: T-006/007/015/016/028.
-- [ ] **P04-03** Required-first feasible insertion, optional insertion, local search, unscheduled explanation, constraint verifier. Depends: P04-02. Tests: T-008/009 plus 13 edge cases in Master Planner.
+- [ ] **P04-03** Required-first feasible insertion, budget-aware optional insertion, local search, unscheduled explanation and non-mutating manual validator. Depends: P04-02. Tests: T-008/009/031/032/033 plus edge cases in Master Planner.
 - [ ] **P04-04** Generate candidate/apply-plan endpoints, optimistic version. Depends: P04-03, G2. Tests: T-008, stale run, contract schemas.
 - [ ] **P04-05** Planner benchmark, property-based invariants, no API from domain, budget metrics. Depends: P04-04. Tests: NFR-03, no data loss.
 - [ ] **G4** Gate approval. Verify: candidate itinerary deterministic, feasible, complete or explicitly unscheduled.

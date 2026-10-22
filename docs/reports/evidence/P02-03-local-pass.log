@@ -1,0 +1,13 @@
+2026-10-22 local verification summary (no credentials or provider bodies retained)
+
+npm.cmd run db:reset -> exit 0; migrations 001..004 and seed applied from clean database.
+npm.cmd run test:db -> exit 0; Files=2, Tests=121, Result: PASS.
+npm.cmd run test:auth -> exit 0; one integration file/test PASS; two disposable anonymous sessions exercised and cleaned.
+npm.cmd run typecheck -> exit 0.
+npm.cmd run lint -> exit 0.
+npm.cmd run test:unit -> exit 0;30 Node tooling and28 Vitest tests PASS.
+npm.cmd run test:content -> exit 0;204 PRD traceability checks and content/ADR suites PASS.
+npm.cmd run build -> exit 0;12 pages generated, TypeScript PASS.
+node scripts/verify-client-secrets.mjs -> exit 0;19 client assets PASS.
+
+Independent npm audit: attempted but registry response stalled; interrupted, so NOT VERIFIED locally. Temporary SDK strict install reported0 vulnerabilities, but the SDK and all eight transitive packages were subsequently uninstalled after the upstream TypeScript6 failure. CI audit remains mandatory.

@@ -25,7 +25,8 @@
     "db:start": "node scripts/supabase-local.mjs start",
     "db:stop": "node scripts/supabase-local.mjs stop",
     "db:reset": "node scripts/supabase-local.mjs reset",
-    "test:db": "node scripts/supabase-local.mjs test"
+    "test:db": "node scripts/supabase-local.mjs test",
+    "test:auth": "node scripts/test-local-auth.mjs"
   },
   "dependencies": {
     "@radix-ui/react-slot": "1.5.0",

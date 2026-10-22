@@ -5,6 +5,7 @@
 > Ngôn ngữ giao diện MVP: tiếng Việt; kiến trúc sẵn sàng i18n.  
 > Điểm đến thử nghiệm: Nha Trang. Mở rộng bằng dữ liệu tới Đà Lạt, Đà Nẵng, Hà Nội.
 > Scope amendment 2026-10-21: user yêu cầu bổ sung catalog Đà Lạt ngay (ADR-0013); mỗi trip vẫn một thành phố. G0 baseline/ODbL đã được user duyệt; chưa cho phép bỏ qua gate triển khai.
+> Scope amendment 2026-10-22: user yêu cầu ngân sách chuyến đi, số người và chế độ tự lập kế hoạch là P0 (ADR-0022). Ước tính phải nêu nguồn và phần chi phí chưa biết; manual mode không được engine tự sửa lịch.
 
 ## 0. Executive decisions — các quyết định mặc định
 
@@ -79,10 +80,12 @@ Website chuyển các địa điểm người dùng quan tâm thành lịch trì
 | FR-013 | Có nút mở Google Maps tới từng điểm và itinerary mobile responsive | MUST |
 | FR-014 | Loading, empty, error, offline states; giao diện tiếng Việt | MUST |
 | FR-015 | Dữ liệu demo / test hoạt động không phụ thuộc khóa Maps thật | MUST |
+| FR-016 | Nhập tổng ngân sách VND và số người; tính phần/người, phần/ngày, chi phí đã biết, còn lại và khoản chưa biết | MUST |
+| FR-017 | Chọn lập kế hoạch có hỗ trợ hoặc tự lập; manual mode giữ nguyên lịch người dùng và chỉ kiểm tra/xuất cảnh báo | MUST |
 
 ### 2.2 Nên có (P1, sau khi P0 pass)
 
-- PWA và offline trip pack đã tải; PDF/export; ước tính chi phí cơ bản dựa dữ liệu tự nhập; export lịch; lịch sử phiên bản; thêm catalog nhiều tỉnh; cải thiện POI discovery; nâng cấp tài khoản anonymous -> Google/email.
+- PWA và offline trip pack đã tải; PDF/export; export lịch; lịch sử phiên bản; thêm catalog nhiều tỉnh; cải thiện POI discovery; nâng cấp tài khoản anonymous -> Google/email. Ước tính chi phí cơ bản dựa dữ liệu tự nhập đã được đưa vào P0 theo ADR-0022.
 - Preferences nâng cao: “tránh đi quá nhiều”, giờ ăn ưu tiên, hạn chế quãng đường. Chọn điểm bắt buộc/không bắt buộc và required-first là P0 theo FR-005 và engine (ADR-0011).
 
 ### 2.3 Chưa thực hiện ở MVP (P2)
@@ -107,7 +110,7 @@ Website chuyển các địa điểm người dùng quan tâm thành lịch trì
 1. Chọn Nha Trang; xem catalog; có thể thêm điểm trước khi tạo trip.
 2. Nhập `start_date`, `end_date`, giờ đến và giờ rời vào hai ngày rìa; hệ thống **dẫn xuất** số ngày theo lịch địa phương, không cho nhập số ngày độc lập mâu thuẫn.
 3. Nhập chỗ ở (nếu chưa biết thì cho chọn `base_location` tạm; lịch dựa trên tọa độ tạm phải hiển thị cảnh báo).
-4. Chọn phương tiện, nhịp độ, điểm must-visit; nhấn Generate.
+4. Chọn số người, tổng ngân sách/ước tính đã biết, phương tiện, nhịp độ và chế độ assisted/manual. Assisted chọn điểm must-visit rồi Generate; manual tự xếp ngày/giờ/thứ tự.
 5. Xem timeline, điểm chưa xếp, travel times (ước tính hoặc lấy từ API có nhãn), chỉnh sửa.
 6. Nhấn Save; hệ thống tạo/duy trì anonymous session, lưu trip. Người dùng chọn tạo mã xem-only, sao chép code/link.
 7. Người nhập mã ở thiết bị khác chỉ **xem** kế hoạch; không thể sửa bản gốc nếu chưa xác thực là chủ sở hữu.
@@ -126,6 +129,9 @@ Website chuyển các địa điểm người dùng quan tâm thành lịch trì
 - BR-10: nếu route API lỗi/không có key, planner chạy approximate offline mode và đánh dấu `estimate_source=approximate` (không quảng cáo là ETA thực tế).
 - BR-11: thao tác xem mã read-only không xác lập quyền sở hữu; xóa code không xóa chuyến đi.
 - BR-12: không thu thập vị trí GPS hiện tại theo mặc định; chỉ xin quyền khi người dùng chọn một tính năng cần vị trí.
+- BR-13: `party_size` từ1–30; ngân sách và chi phí là số nguyên VND không âm, tối đa1.000.000.000.000 VND/trip. Null khác0: null là chưa nhập,0 là kế hoạch không chi tiêu.
+- BR-14: tổng chi phí chỉ cộng dữ liệu có provenance. Nếu còn khoản chưa biết, kết quả phải là `incomplete_estimate`; không khẳng định kế hoạch chắc chắn nằm trong ngân sách.
+- BR-15: manual mode không gọi optimizer và không tự đổi/xóa lịch. Hệ thống chỉ validate khoảng ngày/giờ, overlap, capacity, lock và ngân sách rồi trả cảnh báo cụ thể.
 
 ## 4. Acceptance criteria cấp sản phẩm (Gherkin rút gọn)
 
@@ -144,6 +150,9 @@ Website chuyển các địa điểm người dùng quan tâm thành lịch trì
 - AC-013 — Given save cạnh tranh từ 2 tab, When gửi version cũ, Then server báo `VERSION_CONFLICT` và có chọn reload/giữ bản local.
 - AC-014 — Given thiết bị màn hình 360px, When xem landing, wizard, timeline, Then không có horizontal overflow và mọi điều khiển sử dụng được.
 - AC-015 — Given lựa chọn reduced motion, When chuyển trang, Then animation lớn được tắt/giảm.
+- AC-016 — Given ngân sách12.000.000 VND,4 người,3 ngày và2.000.000 chi phí cố định, When tính, Then số còn lại/người/ngày dùng số nguyên xác định và không mất đồng do số thực.
+- AC-017 — Given một stop chưa có giá, When kế hoạch nằm trong phần chi phí đã biết, Then UI ghi `incomplete_estimate` và nêu số khoản chưa biết thay vì cam kết đủ ngân sách.
+- AC-018 — Given manual mode với lịch do user xếp, When validate/save/reload, Then thứ tự/ngày/giờ giữ nguyên; xung đột được báo nhưng không tự sửa.
 
 ## 5. Non-functional requirements (NFR) và SLO mục tiêu
 
@@ -295,8 +304,8 @@ UI edit -> Dexie write (debounced) -> Save button
 |---|---|---|---|
 | `destinations` | id UUID PK, slug unique, name_vi, name_en, timezone, center_lat, center_lng, cover_image_key, status | unique slug; status published/draft | Published public read, admin write |
 | `places` | id, destination_id FK, slug, title_vi, category, description_vi, lat, lng, recommended_duration_min, visit_priority, hours_json, hours_source, hours_checked_at, image_key, content_license, provider_place_id nullable, status | `(destination_id,slug)` unique; city/category index; lat/lng bounds | Published public read, editorial write only |
-| `trips` | id, owner_id FK auth.users, destination_id FK, title, start_date, end_date, timezone, arrival_local_time, departure_local_time, base_lat, base_lng, base_label, transport_mode, pace, preferences_json, state, version int | owner_id index; date check; version >=1 | Owner CRUD via RLS |
-| `trip_stops` | id, trip_id FK cascade, catalog_place_id nullable FK, provider_place_id nullable, user_title, user_lat, user_lng, requested_duration_min, is_required, is_locked, plan_date nullable, sort_index nullable, planned_start_local nullable, planned_end_local nullable, status, unscheduled_reason | `(trip_id,plan_date,sort_index)` (allow null), trip_id index; status enum | Owner via trips JOIN; no public direct access |
+| `trips` | id, owner_id FK auth.users, destination_id FK, title, dates/times/base, transport_mode, pace, party_size, planning_mode, budget_total_vnd nullable, budget_costs_json, preferences_json, state, version int | owner_id index; date/party/budget checks; version >=1 | Owner CRUD via RLS |
+| `trip_stops` | id, trip_id FK cascade, catalog/provider ref nullable, user title/location, duration/required/lock, selection_index, plan date/order/time nullable, estimated_cost_vnd nullable, cost_provenance, status/reason | unique selection/schedule order, trip_id index; status and cost bounds | Owner via trips JOIN; no public direct access |
 | `trip_plan_runs` | id, trip_id FK, input_version, engine_version, seed, mode, score_json, warning_count, created_at | `(trip_id,created_at)` | Owner read, server insert |
 | `trip_shares` | id, trip_id FK, token_hash unique, permission enum `'read'`, created_by, expires_at nullable, revoked_at nullable, created_at, last_accessed_at nullable | hash unique; trip_id index; never plaintext token | Owner creates/revokes; resolver via constrained server function only |
 | `trip_versions` (P1) | id, trip_id FK, version, snapshot_json, created_at | `(trip_id,version)` unique | Owner read/server write |
@@ -318,6 +327,7 @@ UI edit -> Dexie write (debounced) -> Save button
 - `status`: `selected|scheduled|unscheduled|completed` (completed P1); unscheduled reason enum `CLOSED|TIME_WINDOW|TRAVEL_TOO_LONG|CAPACITY|UNREACHABLE|DUPLICATE|OUT_OF_AREA|LOCK_CONFLICT|UNKNOWN`.
 - DB constraints kiểm tra integrity; schema validation trước insert; mọi thay đổi trip + stops gói trong 1 transaction.
 - `version` optimistic concurrency; `updated_at` trigger.
+- `party_size BETWEEN 1 AND 30`; `planning_mode IN ('assisted','manual')`; all VND amounts are whole nonnegative integers <=1,000,000,000,000. Unknown cost remains null with `cost_provenance='unknown'`.
 
 ### 9.4 Đề xuất migration chain
 
@@ -430,6 +440,9 @@ Response (ví dụ hình thức; không phải dữ liệu thật từ Google):
   "base_location": {"label": "Khách sạn của tôi", "lat": 12.24, "lng": 109.19},
   "transport_mode": "drive",
   "pace": "balanced",
+  "party_size": 4,
+  "planning_mode": "assisted",
+  "budget": {"currency": "VND", "total_vnd": 12000000, "known_costs_vnd": {"lodging": 2000000, "transport": 1000000, "meals": 0, "other": 0}},
   "preferences": {"lunch_buffer_minutes": 60, "day_start": "08:00", "day_end": "21:00"},
   "stops": [{"catalog_place_id": "00000000-0000-0000-0000-000000000001", "is_required": true, "requested_duration_min": 90}]
 }
@@ -674,6 +687,10 @@ buildTripCalendar(input)
 | T-028 | input same route repeated | provider usage respects quota/dedup | integration |
 | T-029 | build without Google credentials | full fixture test suite succeeds | CI |
 | T-030 | privacy notice/delete trip | deleted cloud record + revoked share | E2E |
+| T-031 | budget12m,4 people,3 days, fixed2m | deterministic integer per-person/day result | unit |
+| T-032 | known spend under limit + unknown stop costs | incomplete estimate, no affordability guarantee | unit+UI |
+| T-033 | manual plan has overlap/out-of-bounds | explicit conflicts; input order/time unchanged | unit+integration |
+| T-034 | party/budget/cost bounds and roundtrip | reject invalid; valid owner data persists exactly | DB+API |
 
 ### 18.1 Test fixtures bắt buộc
 
@@ -727,7 +744,7 @@ buildTripCalendar(input)
 ### PHASE 03 — UX catalog & import (G3)
 
 - P03-01 Create destination landing/catalog/list filters and map context.
-- P03-02 Wizard dates, hotel, vehicle, pace, select stops.
+- P03-02 Wizard dates, hotel, vehicle, pace, party size, budget, assisted/manual mode and stop selection.
 - P03-03 Safe Maps URL parser/redirect resolution, PlaceResolver adapter, manual fallback.
 - P03-04 Error/loading/empty/reduced motion UI; test mobile.
 - **Exit:** user can assemble validated trip draft with/without Maps key.
@@ -736,7 +753,7 @@ buildTripCalendar(input)
 
 - P04-01 Domain constraints + fixtures + clock abstraction.
 - P04-02 Routing adapter interface, approximate fallback, optional Google Routes adapter with limits.
-- P04-03 Required-first feasible insertion, optional insertion, local improvement, reason codes.
+- P04-03 Required-first feasible insertion, budget-aware optional insertion, local improvement/reason codes; manual-mode validator never mutates input.
 - P04-04 Generate endpoint + review/apply two-step, input version validation.
 - P04-05 Benchmark and invariant/property-based tests.
 - **Exit:** deterministic, no invalid visits in fixtures, no lost POI, documented fallback.

@@ -6,9 +6,9 @@ Owner dưới đây là vai trò chịu trách nhiệm; chưa có cá nhân đư
 
 ## Phạm vi và non-goals
 
-P0: Nha Trang và catalog Đà Lạt theo yêu cầu user 2026-10-21 (ADR-0013), tiếng Việt, mỗi catalog 30–50 địa điểm có quyền dữ liệu/ảnh; mỗi trip một thành phố, 1–7 ngày; tối đa 30 điểm chọn và 8 điểm/ngày; timeline, nhập địa điểm thủ công, Maps import an toàn, planner deterministic, local draft, cloud owner save, chia sẻ chỉ xem và thu hồi. Generate tạo candidate; apply cần user xác nhận và atomic version check. Anonymous session mất có thể mất quyền sửa; share không khôi phục quyền owner.
+P0: Nha Trang và catalog Đà Lạt theo yêu cầu user 2026-10-21 (ADR-0013), tiếng Việt, mỗi catalog 30–50 địa điểm có quyền dữ liệu/ảnh; mỗi trip một thành phố, 1–7 ngày; tối đa 30 điểm chọn và 8 điểm/ngày; timeline, nhập địa điểm thủ công, Maps import an toàn, planner deterministic, local draft, cloud owner save, chia sẻ chỉ xem và thu hồi. Amendment 2026-10-22 (ADR-0022) thêm party size, ngân sách VND có provenance/unknown và assisted/manual mode vào P0. Generate tạo candidate; apply cần user xác nhận và atomic version check; manual mode không tự sửa lịch. Anonymous session mất có thể mất quyền sửa; share không khôi phục quyền owner.
 
-P1 chỉ sau P0: PWA/offline pack, PDF/export/lịch, chi phí tự nhập, lịch sử phiên bản, đa tỉnh, account upgrade, preferences nâng cao. Must-visit/required-first thuộc P0; user đã duyệt làm rõ SCOPE-001 tại ADR-0011, Master 2.2 đã đồng bộ.
+P1 chỉ sau P0: PWA/offline pack, PDF/export/lịch, lịch sử phiên bản, đa tỉnh, account upgrade, preferences nâng cao. Chi phí tự nhập cơ bản đã chuyển vào P0 theo ADR-0022. Must-visit/required-first thuộc P0; user đã duyệt làm rõ SCOPE-001 tại ADR-0011, Master 2.2 đã đồng bộ.
 
 P2 ngoài MVP: đặt vé/phòng, thanh toán, realtime collaboration, nội dung/lịch AI không kiểm chứng, live weather, scraping Google Maps, 3D nặng, tối ưu đa thành phố/đa khách sạn, native mobile. Dùng outbound Maps, lodging nhập tay, không tối ưu tàu/đảo; không mô tả approximate duration là ETA chính xác. Đây là defaults mục 23, không đổi kiến trúc.
 
@@ -35,6 +35,8 @@ Chỉ parse HTTPS trên allowlist chính xác trong mục 7; không substring-ma
 | FR-013 | Frontend | BASE-010, AC-014 | P03-01, P07-03 | Outbound Maps từng điểm và mobile usable |
 | FR-014 | Frontend | BASE-011, AC-015 | P03-04, P05-04 | Tiếng Việt; loading/empty/error/offline; reduced motion |
 | FR-015 | QA | BASE-012, AC-012 | P01-02, P04-02 | Fixture/demo không key; CI không live API |
+| FR-016 | Domain | AC-016, AC-017 | P02-03, P03-02, P04-03 | Party/budget bounds; integer summary; unknown costs remain explicit |
+| FR-017 | Domain | AC-018 | P02-03, P03-02, P04-03 | Assisted/manual persisted; manual validation never rewrites input |
 
 ## Truy vết BR
 
@@ -52,10 +54,13 @@ Chỉ parse HTTPS trên allowlist chính xác trong mục 7; không substring-ma
 | BR-10 | Adapters | AC-012, BASE-012 | P04-02 | Missing key/429/5xx fallback có estimate_source |
 | BR-11 | Security | AC-009, AC-010, AC-011 | P06-02, P06-03 | Share không cho owner access; revoke không xóa trip |
 | BR-12 | Privacy | BASE-019 | P03-02, P08-03 | Không xin GPS mặc định; chỉ xin cho action rõ ràng |
+| BR-13 | Domain | AC-016 | P02-03, P03-02 | Party1–30; nullable/zero/whole-VND bounds enforced |
+| BR-14 | Domain | AC-017 | P03-02, P04-03 | Provenance-only totals and incomplete estimate honesty |
+| BR-15 | Domain | AC-018 | P03-02, P04-03 | Manual schedule conflicts reported without mutation |
 
 ## Acceptance bổ sung (đặc tả, runtime NOT RUN)
 
-AC-001..AC-015 giữ nguyên nghĩa tại MASTER_PLANNER mục 4. BASE bổ sung khoảng thiếu, không thay AC gốc.
+AC-001..AC-018 giữ nguyên nghĩa tại MASTER_PLANNER mục 4. BASE bổ sung khoảng thiếu, không thay AC gốc.
 
 - BASE-001: Chọn Nha Trang/Đà Lạt từ landing mở đúng destination; không quảng cáo city khác đã hỗ trợ hoặc trộn hai catalog trong một trip (ADR-0013).
 - BASE-002: Catalog published có 30–50 record với category, description, valid coordinates/duration, image, provenance/license, hours state và verified date trung thực.
