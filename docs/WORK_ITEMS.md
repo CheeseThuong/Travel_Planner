@@ -2,7 +2,7 @@
 
 > Initial state as of 2026-10-21: **NONE IMPLEMENTED, NONE TESTED**. All gates are `NOT VERIFIED`.
 > Update `[ ]` -> `[x]` only after verifying tests and recording evidence, not merely writing code.
-> Current execution state: G0 PASS; P01-01 support corrected with maintained ESLint10/project adapters (ADR0017), full audit0. P01-02/03 DONE; P01-04 DONE; actual CI run39611614744 PASS for b91d1a8. G1 PASS; P02-01 DONE with actual database CI; P02-02 is next. Independent P01-06 requested two-city 3D extension DONE. [Baseline report](reports/P01-BASELINE.md).
+> Current execution state: G0 PASS; P01-01 support corrected with maintained ESLint10/project adapters (ADR0017), full audit0. P01-02/03 DONE; P01-04 DONE; actual CI run39611614744 PASS for b91d1a8. G1 PASS; P02-01 network correction and P02-02 VERIFYING after actual local112 tests twice; fresh CI pending. Independent P01-06 requested two-city 3D extension DONE. [Baseline report](reports/P01-BASELINE.md).
 > Recovery audit/typography R0-01/R1-01 DONE; R0-02 corrected/DONE through COMPAT. Full product NOT READY: wizard/planner/cloud/save/share remain unimplemented. Historical reports are retained; this current state supersedes their old support-blocked status.
 
 ## Task tracker rules
@@ -35,8 +35,8 @@ For each checked item, add a line to **Evidence log** with: task ID, commit hash
 
 ## PHASE 02 — PostgreSQL, Auth and permissions — Gate G2 NOT VERIFIED
 
-- [x] **P02-01** Supabase local setup, destination/place migrations, separate Nha Trang/Đà Lạt editorial seed (ADR-0013). Status: DONE. Depends: G1, P00-04, P00-05 DONE. [Report](reports/P02-01.md), [ADR0019](adr/ADR-0019.md). Actual Ubuntu CI startup/reset/pgTAP42 twice/cleanup and Windows full baseline PASS for0a2df28; original60 drafts/provenance preserved. Windows host DB runtime not yet verified (image download pending); no Linux-to-Windows inference.
-- [ ] **P02-02** Trips/stops/share tables with constraints, transactional repositories and indexes. Status: IN_PROGRESS. Depends: P02-01 DONE. [Plan](reports/P02-02-PLAN.md), [ADR0020](adr/ADR-0020.md). Additive private schema/RLS draft; actual transaction/replay/security tests not yet run. No owner UI/API functionality claimed.
+- [ ] **P02-01** Supabase local setup, destination/place migrations, separate Nha Trang/Đà Lạt editorial seed (ADR-0013). Status: VERIFYING correction after DONE. Depends: G1, P00-04, P00-05 DONE. [Report](reports/P02-01.md), [ADR0021](adr/ADR-0021.md). Catalog/reset/42pgTAP PASS remains recorded; actual Windows binding correction and112 tests twice now PASS with scoped adapter. Fresh CI pending; no global Docker/PATH changes.
+- [ ] **P02-02** Trips/stops/share tables with constraints, transactional repositories and indexes. Status: VERIFYING. Depends: P02-01 preceding DONE reopened for network correction, now locally verified. [Report](reports/P02-02.md), [ADR0020](adr/ADR-0020.md). Actual local112 pgTAP twice and static/unit PASS after documented corrections; fresh CI pending. No owner UI/API functionality claimed.
 - [ ] **P02-03** Auth session (guest via anonymous sign-in), owner API guards and RLS/grants for each private table. Depends: P02-02. Tests: user A/B, null auth, forged owner_id.
 - [ ] **P02-04** pgTAP DB negative permission tests + migrations idempotent/replayable from blank DB. Depends: P02-03. Tests: `supabase test db` and reset.
 - [ ] **G2** Gate approval. Verify: no public private-data access and all auth tests pass.

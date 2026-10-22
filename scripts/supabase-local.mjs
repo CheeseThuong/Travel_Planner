@@ -1,12 +1,28 @@
 import assert from "node:assert/strict";
-import { existsSync, readFileSync, realpathSync, mkdirSync, createWriteStream } from "node:fs";
+import { existsSync, readFileSync, realpathSync, mkdirSync, createWriteStream, writeFileSync } from "node:fs";
 import { dirname, resolve, sep } from "node:path";
 import { fileURLToPath } from "node:url";
 import { spawn, execFileSync } from "node:child_process";
+import { prepareWindowsDockerAdapter } from "./prepare-docker-loopback.mjs";
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 export const localProjectId = "travel-planner-disposable-local";
 export const localNetworkId = "travel-planner-disposable-loopback";
+export function verifyPublishedPorts(ports) {
+  assert.equal(ports.length, 2, "Both database and gateway must be inspected");
+  for (const service of ports) {
+    let count = 0;
+    for (const bindings of Object.values(service)) for (const binding of bindings ?? []) {
+      assert.ok(binding.HostIp === "127.0.0.1" || binding.HostIp === "::1", "Actual published service address must be loopback"); count++;
+    }
+    assert.ok(count > 0, "Service binding must be present");
+  }
+}
+function checkPublishedPorts() {
+  const ports = execFileSync("docker", ["inspect", `supabase_db_${localProjectId}`, `supabase_kong_${localProjectId}`, "--format", "{{json .NetworkSettings.Ports}}"], { encoding: "utf8", stdio: ["ignore", "pipe", "ignore"] }).trim().split(/\r?\n/).map((line) => JSON.parse(line));
+  verifyPublishedPorts(ports);
+  return ports;
+}
 export function startupDiagnostics(output) {
   const migrations = [...output.matchAll(/Applying migration ([0-9]{14}_[a-z0-9_]+\.sql)/g)];
   return { last_migration: migrations.at(-1)?.[1] ?? null, sqlstates: [...new Set([...output.matchAll(/SQLSTATE ([A-Z0-9]{5})\b/g)].map((match) => match[1]))] };
@@ -62,8 +78,10 @@ if (process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.ur
   assertLocalProject(root);
   assertLocalDocker();
   ensureLocalNetwork();
+  if (action === "test") checkPublishedPorts();
   const env = { ...process.env };
   for (const key of ["SUPABASE_ACCESS_TOKEN", "SUPABASE_DB_PASSWORD", "SUPABASE_PROJECT_ID", "DATABASE_URL", "SUPABASE_WORKDIR"]) delete env[key];
+  if (process.platform === "win32") prepareWindowsDockerAdapter(root, env);
   mkdirSync(resolve(root, ".tools"), { recursive: true });
   const privateLog = action === "start" || action === "stop" ? createWriteStream(resolve(root, `.tools/supabase-${action}.log`)) : undefined;
   const child = spawn(process.execPath, [resolve(root, "node_modules/supabase/dist/supabase.js"), ...args, "--network-id", localNetworkId], { cwd: root, env, stdio: ["ignore", "pipe", "pipe"] });
@@ -73,12 +91,20 @@ if (process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.ur
   });
   child.on("error", () => { console.error("Local Supabase CLI could not start"); process.exitCode = 1; });
   child.on("close", (code) => {
+    let result = code ?? 1;
+    if ((action === "start" || action === "reset") && result === 0) {
+      try { writeFileSync(resolve(root, ".tools/supabase-published-ports.json"), JSON.stringify(checkPublishedPorts(), null, 2)); }
+      catch {
+        execFileSync(process.execPath, [resolve(root, "node_modules/supabase/dist/supabase.js"), ...localCommand("stop"), "--network-id", localNetworkId], { cwd: root, env, stdio: "ignore" });
+        console.error("Local service port verification failed; project stack stopped."); result = 1;
+      }
+    }
     if (action === "start" || action === "stop") {
       privateLog.end(() => {
         if (code !== 0) console.error("Local CLI diagnostic:", JSON.stringify(startupDiagnostics(readFileSync(resolve(root, `.tools/supabase-${action}.log`), "utf8"))));
       });
-      console.log(`Local Supabase ${action}: exit ${code}. Generated local credentials stay in ignored .tools output.`);
+      console.log(`Local Supabase ${action}: exit ${result}. Generated local credentials stay in ignored .tools output.`);
     }
-    process.exitCode = code ?? 1;
+    process.exitCode = result;
   });
 }

@@ -1,0 +1,16 @@
+✔ Windows adapter builds offline and validates scoped argument forwarding (6797.1178ms)
+✔ actual port guard rejects public mappings, absent gateway and unpublished services (1.3072ms)
+✔ startup diagnostics contain only migration identity and SQLSTATE, never raw payloads (1.5255ms)
+✔ disposable DB cannot target a remote Docker daemon (0.2898ms)
+✔ local network guard requires repository ownership and loopback binding (0.5037ms)
+✔ disposable command allowlist cannot forward remote flags (0.2728ms)
+✔ local guard rejects foreign project identity and linked metadata (3.1936ms)
+✔ CLI-generated main marker is local, while named branches remain rejected (2.7107ms)
+ℹ tests 8
+ℹ suites 0
+ℹ pass 8
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 6866.3404

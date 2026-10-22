@@ -1,0 +1,6 @@
+
+> vietnam-playful-travel-planner@0.1.0 typecheck
+> node scripts/prepare-production-types.mjs && next typegen && tsc --noEmit
+
+Generating route types...
+✓ Types generated successfully

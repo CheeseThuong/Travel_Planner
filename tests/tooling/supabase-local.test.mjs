@@ -3,7 +3,16 @@ import assert from "node:assert/strict";
 import { mkdtempSync, mkdirSync, writeFileSync, rmSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { join, resolve, sep } from "node:path";
-import { assertLocalProject, localCommand, verifyLocalNetwork, localNetworkId, assertLocalDockerEndpoint, startupDiagnostics } from "../../scripts/supabase-local.mjs";
+import { assertLocalProject, localCommand, verifyLocalNetwork, localNetworkId, assertLocalDockerEndpoint, startupDiagnostics, verifyPublishedPorts } from "../../scripts/supabase-local.mjs";
+
+test("actual port guard rejects public mappings, absent gateway and unpublished services", () => {
+  const safe = { "5432/tcp": [{ HostIp: "127.0.0.1", HostPort: "35322" }] };
+  verifyPublishedPorts([safe, safe]);
+  assert.throws(() => verifyPublishedPorts([safe]));
+  assert.throws(() => verifyPublishedPorts([safe, { "8000/tcp": null }]));
+  assert.throws(() => verifyPublishedPorts([safe, { "8000/tcp": [{ HostIp: "0.0.0.0", HostPort: "35321" }] }]));
+  assert.throws(() => verifyPublishedPorts([safe, { "8000/tcp": [{ HostIp: "::", HostPort: "35321" }] }]));
+});
 
 test("startup diagnostics contain only migration identity and SQLSTATE, never raw payloads", () => {
   const output = 'Applying migration 20261022000300_trip_transactions.sql\nERROR: test failure (SQLSTATE 42501)\nprivate coordinates and token=do-not-print-me';

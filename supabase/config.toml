@@ -4,7 +4,7 @@ project_id = "travel-planner-disposable-local"
 
 [api]
 enabled = true
-port = 55321
+port = 35321
 schemas = ["public"]
 extra_search_path = ["public", "extensions"]
 max_rows = 100
@@ -12,8 +12,8 @@ max_rows = 100
 auto_expose_new_tables = false
 
 [db]
-port = 55322
-shadow_port = 55320
+port = 35322
+shadow_port = 35320
 major_version = 17
 health_timeout = "2m"
 
@@ -27,7 +27,7 @@ sql_paths = ["./seed.sql"]
 
 [db.pooler]
 enabled = false
-port = 55329
+port = 35329
 
 [auth]
 enabled = true
@@ -47,11 +47,11 @@ enabled = false
 
 [studio]
 enabled = false
-port = 55323
+port = 35323
 
 [local_smtp]
 enabled = false
-port = 55324
+port = 35324
 
 [storage]
 enabled = false
@@ -64,4 +64,4 @@ enabled = false
 
 [analytics]
 enabled = false
-port = 55327
+port = 35327

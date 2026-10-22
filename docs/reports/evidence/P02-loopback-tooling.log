@@ -1,0 +1,39 @@
+✖ Windows adapter builds offline and validates scoped argument forwarding (44.5219ms)
+✔ actual port guard rejects public mappings, absent gateway and unpublished services (1.4533ms)
+✔ startup diagnostics contain only migration identity and SQLSTATE, never raw payloads (1.1218ms)
+✔ disposable DB cannot target a remote Docker daemon (0.1841ms)
+✔ local network guard requires repository ownership and loopback binding (0.3172ms)
+✔ disposable command allowlist cannot forward remote flags (0.2346ms)
+✔ local guard rejects foreign project identity and linked metadata (3.1129ms)
+✔ CLI-generated main marker is local, while named branches remain rejected (2.4922ms)
+ℹ tests 8
+ℹ suites 0
+ℹ pass 7
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 103.2403
+
+✖ failing tests:
+
+test at tests\tooling\docker-loopback.test.mjs:8:35
+✖ Windows adapter builds offline and validates scoped argument forwarding (44.5219ms)
+  Error: Command failed: where.exe docker.exe
+      at genericNodeError (node:internal/errors:985:15)
+      at wrappedFn (node:internal/errors:539:14)
+      at checkExecSyncError (node:child_process:942:11)
+      at execFileSync (node:child_process:978:15)
+      at prepareWindowsDockerAdapter (file:///D:/Projects/travel_plan/scripts/prepare-docker-loopback.mjs:10:22)
+      at TestContext.<anonymous> (file:///D:/Projects/travel_plan/tests/tooling/docker-loopback.test.mjs:10:22)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.start (node:internal/test_runner/test:1242:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:387:17) {
+    status: 1,
+    signal: null,
+    output: [ null, '', null ],
+    pid: 31120,
+    stdout: '',
+    stderr: null
+  }

@@ -1,0 +1,11 @@
+
+> vietnam-playful-travel-planner@0.1.0 db:start
+> node scripts/supabase-local.mjs start
+
+Local Supabase start: exit 1. Generated local credentials stay in ignored .tools output.
+npm.cmd : Local CLI diagnostic: {"last_migration":null,"sqlstates":[]}
+At line:2 char:1
++ npm.cmd run db:start *> docs/reports/evidence/P02-loopback-local-star ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (Local CLI diagn..."sqlstates":[]}:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
