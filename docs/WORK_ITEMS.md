@@ -2,7 +2,7 @@
 
 > Initial state as of 2026-10-21: **NONE IMPLEMENTED, NONE TESTED**. All gates are `NOT VERIFIED`.
 > Update `[ ]` -> `[x]` only after verifying tests and recording evidence, not merely writing code.
-> Current execution state: G0/G1 PASS. P02-01..03 DONE; P02-03 CI run39714338214 passed audit/full baseline, two clean121-case DB replays and real Auth integration. P02-04 concurrency/replay closure is IN_PROGRESS; G2 remains NOT VERIFIED. Independent P01-06 requested two-city 3D extension DONE. [Baseline report](reports/P01-BASELINE.md).
+> Current execution state: G0/G1/G2 PASS. P02-04 and G2 closed by GitHub Actions run39716637974. P03-01 two-city catalog DONE; P03-02 wizard is next. Independent P01-06 requested two-city 3D extension DONE. [Baseline report](reports/P01-BASELINE.md).
 > Recovery audit/typography R0-01/R1-01 DONE; R0-02 corrected/DONE through COMPAT. Full product NOT READY: wizard/planner/cloud/save/share remain unimplemented. Historical reports are retained; this current state supersedes their old support-blocked status.
 
 ## Task tracker rules
@@ -33,17 +33,17 @@ For each checked item, add a line to **Evidence log** with: task ID, commit hash
 - [x] **P01-06** Requested additional two-city Three.js effects. Status: DONE. Independent P01 extension;16 browser/72 typography checks PASS; local active27.79/27.60fps (30fps cap), context-loss/orbit/stop tested. [Report](reports/P01-06.md). Does not complete catalog/planner or G7.
 - [x] **G1** Gate approval. Status: PASS. P01-01..04 DONE; actual remote CI completed success for b91d1a8. [Review and durable evidence](reports/G1-REVIEW.md). Next allowed task P02-01; G2+ remain NOT VERIFIED.
 
-## PHASE 02 — PostgreSQL, Auth and permissions — Gate G2 NOT VERIFIED
+## PHASE 02 — PostgreSQL, Auth and permissions — Gate G2 PASS
 
 - [x] **P02-01** Supabase local setup, destination/place migrations, separate Nha Trang/Đà Lạt editorial seed (ADR-0013). Status: DONE. Depends: G1, P00-04, P00-05 DONE. [Report](reports/P02-01.md), [ADR0021](adr/ADR-0021.md). Actual Windows loopback bindings and Ubuntu CI startup/port guard/reset/replay verified; no global Docker/PATH changes.
 - [x] **P02-02** Trips/stops/share tables with constraints, transactional repositories and indexes. Status: DONE. Depends: P02-01. [Report](reports/P02-02.md), [ADR0020](adr/ADR-0020.md). Local strengthened113-case suite and CI reset/113 tests twice PASS; full Windows baseline PASS. No owner UI/API functionality claimed.
 - [x] **P02-03** Auth session (guest via anonymous sign-in), verified-owner repository, and ADR0022 party/budget/planning-mode persistence. Status: DONE. Depends: P02-02 DONE. Real session A/B, null/forged auth, exact expanded TripDraft roundtrip plus CI audit/replay PASS. [Plan](reports/P02-03-PLAN.md), [report](reports/P02-03.md).
-- [ ] **P02-04** pgTAP negative permissions, parallel owner CAS, clean migration replay and G2 review. Status: VERIFYING. Depends: P02-03 DONE. Local CAS repeated and clean replay PASS; fresh CI pending. [Plan](reports/P02-04-PLAN.md), [report](reports/P02-04.md).
-- [ ] **G2** Gate approval. Verify: no public private-data access and all auth tests pass.
+- [x] **P02-04** pgTAP negative permissions, parallel owner CAS, clean migration replay and G2 review. Status: DONE. Depends: P02-03 DONE. Local CAS/replay and GitHub Actions run39716637974 PASS. [Plan](reports/P02-04-PLAN.md), [report](reports/P02-04.md).
+- [x] **G2** Gate approval. Status: PASS. No public private-data access; two DB replays and real Auth integration passed in run39716637974.
 
 ## PHASE 03 — Catalog, wizard and safe place import — Gate G3 NOT VERIFIED
 
-- [ ] **P03-01** Nha Trang/Đà Lạt destination landing/catalog/filter/pagination/mobile. Depends: G2. Tests: search, empty state, 360px, destination isolation and attribution.
+- [x] **P03-01** Nha Trang/Đà Lạt destination landing/catalog/filter/pagination/mobile. Status: DONE. Depends: G2 PASS. Search, empty state, 360px, destination isolation, pagination and attribution PASS. [Report](reports/P03-01.md).
 - [ ] **P03-02** Wizard dates/time/lodging/transport/pace, party size, VND budget, assisted/manual mode and stop selection. Depends: P03-01. Tests: AC-001/016/017/018; validation, date and money boundaries.
 - [ ] **P03-03** Google Maps full/short URL parser, allowlist redirect, candidate selection and manual fallback. Depends: G1, P03-02. Tests: T-012/13/14, SSRF guards.
 - [ ] **P03-04** Loading/error/offline/reduced-motion states. Depends: P03-01..03. Tests: UI a11y and keyboard.
@@ -96,6 +96,8 @@ For each checked item, add a line to **Evidence log** with: task ID, commit hash
 
 | Task ID | Status | Commit/PR | Commands & exit codes | AC/Test IDs | Blockers | Verified date |
 |---|---|---|---|---|---|---|
+| P03-01 | DONE | working tree | typecheck/lint/unit/build ->0; E2E18 ->0; Playwright CLI mobile demo; [report](reports/P03-01.md) | search/empty/mobile/isolation/attribution/pagination PASS | P03-02..04/G3 pending | 2026-10-22 |
+| P02-04 / G2 | DONE / PASS | f837ac8; run39716637974 | CI baseline and local-database jobs PASS; DB reset/121 pgTAP twice/Auth cleanup ->0; [report](reports/P02-04.md) | AC01..04 PASS | G3+ not verified | 2026-10-22 |
 | P02-01 | DONE | 0a2df28; run39706971745 | Real local Supabase on Ubuntu CI: reset/42pgTAP twice/stop ->0; full Windows baseline PASS; [report](reports/P02-01.md) | AC01..04 PASS in recorded environments | Windows host image download; P02-02..04/G2 pending | 2026-10-22 |
 | P01-01-COMPAT / R0-02 | DONE | b91d1a8 | strict npm ci/tree/audit, typecheck/lint/build/tooling -> 0; [report](reports/P01-01-COMPAT.md) | AC-C1..4 PASS | Project snapshot maintenance | 2026-10-21 |
 | P01-02 / P01-03 | DONE | b91d1a8 | unit/coverage/content/typecheck/lint -> 0; 19 tooling +18 Vitest; [report](reports/P01-BASELINE.md) | AC02-1..3 / AC03-1..3 PASS | Product implementations pending | 2026-10-21 |
