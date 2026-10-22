@@ -1,0 +1,44 @@
+✔ disposable DB cannot target a remote Docker daemon (1.6099ms)
+✔ local network guard requires repository ownership and loopback binding (0.4665ms)
+✔ disposable command allowlist cannot forward remote flags (0.6115ms)
+✔ local guard rejects foreign project identity and linked metadata (3.4453ms)
+✖ CLI-generated main marker is local, while named branches remain rejected (2.1618ms)
+ℹ tests 5
+ℹ suites 0
+ℹ pass 4
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 71.6493
+
+✖ failing tests:
+
+test at tests\tooling\supabase-local.test.mjs:44:1
+✖ CLI-generated main marker is local, while named branches remain rejected (2.1618ms)
+  AssertionError [ERR_ASSERTION]: Got unwanted exception.
+  Actual message: "Linked or branched projects cannot use disposable DB commands"
+      at TestContext.<anonymous> (file:///D:/Projects/travel_plan/tests/tooling/supabase-local.test.mjs:51:12)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: AssertionError [ERR_ASSERTION]: Linked or branched projects cannot use disposable DB commands
+        at assertLocalProject (file:///D:/Projects/travel_plan/scripts/supabase-local.mjs:39:12)
+        at file:///D:/Projects/travel_plan/tests/tooling/supabase-local.test.mjs:51:31
+        at getActual (node:assert:611:5)
+        at strict.doesNotThrow (node:assert:779:32)
+        at TestContext.<anonymous> (file:///D:/Projects/travel_plan/tests/tooling/supabase-local.test.mjs:51:12)
+        at Test.runInAsyncScope (node:async_hooks:227:14)
+        at Test.run (node:internal/test_runner/test:1382:25)
+        at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+        at Test.postRun (node:internal/test_runner/test:1522:19)
+        at Test.run (node:internal/test_runner/test:1447:12),
+    expected: undefined,
+    operator: 'doesNotThrow',
+    diff: 'simple'
+  }

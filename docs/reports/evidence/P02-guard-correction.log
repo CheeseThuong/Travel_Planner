@@ -1,0 +1,13 @@
+✔ disposable DB cannot target a remote Docker daemon (1.6797ms)
+✔ local network guard requires repository ownership and loopback binding (0.4755ms)
+✔ disposable command allowlist cannot forward remote flags (0.5734ms)
+✔ local guard rejects foreign project identity and linked metadata (3.973ms)
+✔ CLI-generated main marker is local, while named branches remain rejected (2.9373ms)
+ℹ tests 5
+ℹ suites 0
+ℹ pass 5
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 72.5364

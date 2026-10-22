@@ -40,3 +40,19 @@ test("local guard rejects foreign project identity and linked metadata", () => {
     rmSync(root, { recursive: true, force: true });
   }
 });
+
+test("CLI-generated main marker is local, while named branches remain rejected", () => {
+  const root = mkdtempSync(join(tmpdir(), "planner-local-main-"));
+  try {
+    mkdirSync(join(root, "supabase/.branches"), { recursive: true });
+    writeFileSync(join(root, "supabase/config.toml"), 'project_id = "travel-planner-disposable-local"');
+    const marker = join(root, "supabase/.branches/_current_branch");
+    writeFileSync(marker, "main");
+    assert.doesNotThrow(() => assertLocalProject(root));
+    writeFileSync(marker, "feature-private-branch");
+    assert.throws(() => assertLocalProject(root));
+  } finally {
+    assert.ok(resolve(root).startsWith(resolve(tmpdir()) + sep));
+    rmSync(root, { recursive: true, force: true });
+  }
+});

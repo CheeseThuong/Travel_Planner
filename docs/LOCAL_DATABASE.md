@@ -10,7 +10,7 @@ npm.cmd run test:db
 npm.cmd run db:stop
 ```
 
-`db:reset` destroys and recreates this disposable local database. Never store personal trips in it. The command wrapper requires the exact local project identity, rejects linked/branch metadata and extra arguments, strips inherited remote credential variables, and always supplies `--local` to reset. Do not use `supabase link` in this directory. Cloud schema operations need a separate reviewed release procedure.
+`db:reset` destroys and recreates this disposable local database. Never store personal trips in it. The command wrapper requires the exact local project identity, rejects cloud project-ref metadata, named branches other than the CLI-generated local `main` marker and extra arguments, strips inherited remote credential variables, and always supplies `--local` to reset. Do not use `supabase link` in this directory. Cloud schema operations need a separate reviewed release procedure.
 
 Docker must use a local Unix socket or Windows named pipe. The wrapper checks both inherited `DOCKER_HOST` and the active Docker context, and rejects TCP/SSH endpoints before creating a network or running database commands.
 

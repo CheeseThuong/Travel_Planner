@@ -35,9 +35,9 @@ export function assertLocalProject(workspace) {
   assert.ok(config.startsWith(resolve(base, "supabase") + sep), "Config must stay inside workspace supabase directory");
   const text = readFileSync(config, "utf8");
   assert.match(text, /^project_id\s*=\s*"travel-planner-disposable-local"\s*$/m, "Unexpected local project identity");
-  for (const file of ["supabase/.temp/project-ref", "supabase/.branches/_current_branch"]) {
-    assert.ok(!existsSync(resolve(base, file)), "Linked or branched projects cannot use disposable DB commands");
-  }
+  assert.ok(!existsSync(resolve(base, "supabase/.temp/project-ref")), "Linked projects cannot use disposable DB commands");
+  const branch = resolve(base, "supabase/.branches/_current_branch");
+  if (existsSync(branch)) assert.equal(readFileSync(branch, "utf8").trim(), "main", "Named branches cannot use disposable DB commands");
   return base;
 }
 
