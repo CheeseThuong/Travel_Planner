@@ -1,0 +1,39 @@
+
+> vietnam-playful-travel-planner@0.1.0 test:tooling
+> node --test tests/tooling/*.test.mjs
+
+✔ database seed retains every exact source record, city and draft boundary (7.3034ms)
+✔ SQL seed literals escape quotes and retain ordinary backslashes (0.1236ms)
+✔ Next config has exactly two redundant context wrappers removed and no rule changes (2.8433ms)
+✔ eslint-plugin-react: all upstream rule/config bytes and metadata preserved (205.2172ms)
+✔ eslint-plugin-jsx-a11y: all upstream rule/config bytes and metadata preserved (152.9468ms)
+✔ eslint-plugin-import: all upstream rule/config bytes and metadata preserved (63.1933ms)
+✔ maintained core10 is actually loaded, not a nested legacy eslint (0.7117ms)
+✔ official adapter restores removed context methods and reports real violations (648.8709ms)
+✔ React escaping still produces its expected diagnostic (92.531ms)
+✔ ARIA value types still produces its expected diagnostic (18.2276ms)
+✔ anonymous export still produces its expected diagnostic (13.4531ms)
+✔ all upstream rule implementations and config exports are byte-identical (6.8129ms)
+✔ enabled rule IDs, severities, options and settings match before patch (944.8019ms)
+✔ root scanner preserves literals, brace sets, globstar, arrays and Windows separators (8.7894ms)
+✔ pathological glob inputs fail explicitly before recursive parsing (0.3431ms)
+✔ Next image rule violation is still detected (146.4048ms)
+✔ React duplicate props violation is still detected (18.092ms)
+✔ React list keys violation is still detected (27.0157ms)
+✔ accessibility violation is still detected (16.5292ms)
+✔ TypeScript violation is still detected (12.2949ms)
+✔ hooks violation is still detected (25.2246ms)
+✔ startup diagnostics contain only migration identity and SQLSTATE, never raw payloads (1.4985ms)
+✔ disposable DB cannot target a remote Docker daemon (0.543ms)
+✔ local network guard requires repository ownership and loopback binding (0.4736ms)
+✔ disposable command allowlist cannot forward remote flags (0.2414ms)
+✔ local guard rejects foreign project identity and linked metadata (3.2388ms)
+✔ CLI-generated main marker is local, while named branches remain rejected (2.7034ms)
+ℹ tests 27
+ℹ suites 0
+ℹ pass 27
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1382.768

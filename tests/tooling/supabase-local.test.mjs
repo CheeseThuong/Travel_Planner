@@ -3,7 +3,13 @@ import assert from "node:assert/strict";
 import { mkdtempSync, mkdirSync, writeFileSync, rmSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { join, resolve, sep } from "node:path";
-import { assertLocalProject, localCommand, verifyLocalNetwork, localNetworkId, assertLocalDockerEndpoint } from "../../scripts/supabase-local.mjs";
+import { assertLocalProject, localCommand, verifyLocalNetwork, localNetworkId, assertLocalDockerEndpoint, startupDiagnostics } from "../../scripts/supabase-local.mjs";
+
+test("startup diagnostics contain only migration identity and SQLSTATE, never raw payloads", () => {
+  const output = 'Applying migration 20261022000300_trip_transactions.sql\nERROR: test failure (SQLSTATE 42501)\nprivate coordinates and token=do-not-print-me';
+  assert.deepEqual(startupDiagnostics(output), { last_migration: "20261022000300_trip_transactions.sql", sqlstates: ["42501"] });
+  assert.deepEqual(startupDiagnostics("Unstructured secret value"), { last_migration: null, sqlstates: [] });
+});
 
 test("disposable DB cannot target a remote Docker daemon", () => {
   assertLocalDockerEndpoint("npipe:////./pipe/dockerDesktopLinuxEngine");

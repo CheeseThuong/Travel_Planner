@@ -7,6 +7,10 @@ import { spawn, execFileSync } from "node:child_process";
 const root = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 export const localProjectId = "travel-planner-disposable-local";
 export const localNetworkId = "travel-planner-disposable-loopback";
+export function startupDiagnostics(output) {
+  const migrations = [...output.matchAll(/Applying migration ([0-9]{14}_[a-z0-9_]+\.sql)/g)];
+  return { last_migration: migrations.at(-1)?.[1] ?? null, sqlstates: [...new Set([...output.matchAll(/SQLSTATE ([A-Z0-9]{5})\b/g)].map((match) => match[1]))] };
+}
 export function assertLocalDockerEndpoint(endpoint) {
   assert.ok(typeof endpoint === "string" && (endpoint.startsWith("npipe:////./pipe/") || endpoint.startsWith("unix:///")), "Disposable DB requires a local Docker socket, never TCP/SSH Docker hosts");
 }
@@ -70,7 +74,9 @@ if (process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.ur
   child.on("error", () => { console.error("Local Supabase CLI could not start"); process.exitCode = 1; });
   child.on("close", (code) => {
     if (action === "start" || action === "stop") {
-      privateLog.end();
+      privateLog.end(() => {
+        if (code !== 0) console.error("Local CLI diagnostic:", JSON.stringify(startupDiagnostics(readFileSync(resolve(root, `.tools/supabase-${action}.log`), "utf8"))));
+      });
       console.log(`Local Supabase ${action}: exit ${code}. Generated local credentials stay in ignored .tools output.`);
     }
     process.exitCode = code ?? 1;
