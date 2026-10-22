@@ -4,4 +4,4 @@
 - db:reset -> test:db (121 PASS) repeated twice from clean schema.
 - final test:auth after second reset PASS.
 - typecheck, lint, test:unit (30 tooling +28 Vitest), test:integration (12 HTTP checks) and build exit0.
-- test:e2e first invocation printed16 passed; tool exit code was not returned and a repeat found port3391 still held by the prior test webserver. Automatic review rejected force-stopping three candidate PIDs because process ownership was not sufficiently proven. No PID was stopped. Local E2E exit is NOT VERIFIED; fresh CI remains required.
+- test:e2e first invocation printed16 passed but its tool exit code was not returned and the prior test webserver retained port3391. Automatic review rejected force-stopping candidate PIDs because process ownership was not sufficiently proven; no PID was stopped. A safe explicit `PLAYWRIGHT_REUSE_EXISTING_SERVER=true` run reused the HTTP200 workspace server, completed16/16 and returned exit0. CI/default reuse remains false.
