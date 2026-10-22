@@ -1,0 +1,13 @@
+{
+  "repository": "CheeseThuong/Travel_Planner",
+  "workflow_run_id": 39714338214,
+  "workflow_url": "https://github.com/CheeseThuong/Travel_Planner/actions/runs/39714338214",
+  "head_branch": "codex/recovery-foundation",
+  "head_sha": "0aadcacb28d952a9a0048ce1d90ec8aa0c9f025b",
+  "status": "completed",
+  "conclusion": "success",
+  "jobs": [
+    {"id": 119612750729, "name": "local-database", "conclusion": "success", "database_replays": 2, "tests_per_replay": 121, "auth_integration": "pass"},
+    {"id": 119612750876, "name": "baseline", "conclusion": "success", "audit_vulnerabilities": 0, "browser_tests": 16, "artifact_id": 12398488104}
+  ]
+}

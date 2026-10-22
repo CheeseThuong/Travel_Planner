@@ -1,0 +1,16 @@
+GitHub Actions run39714338214 for 0aadcacb28d952a9a0048ce1d90ec8aa0c9f025b completed SUCCESS on branch codex/recovery-foundation.
+
+Ubuntu local-database job119612750729:
+- strict npm ci and seed check PASS.
+- safe local stack startup/port guard PASS.
+- reset + pgTAP: Files=2, Tests=121, Result PASS.
+- second clean reset + pgTAP: Files=2, Tests=121, Result PASS.
+- real local Auth owner integration: one file/test PASS; two disposable sessions exercised without logging credentials.
+- cleanup and db:stop PASS.
+
+Windows baseline job119612750876:
+- strict npm ci and independent audit PASS; found0 vulnerabilities.
+- typecheck, lint,30 tooling tests,28 Vitest tests, coverage,204 traceability checks/content and production build PASS.
+-19 client assets secret-canary scan and HTTP smoke PASS.
+-16 Playwright tests PASS.
+- artifact phase01-39714338214 uploaded, ID12398488104.

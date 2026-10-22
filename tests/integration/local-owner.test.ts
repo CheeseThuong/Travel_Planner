@@ -46,12 +46,21 @@ describe("real local anonymous owner repository", () => {
     expect(created.stops[0]?.cost_estimate).toEqual(input.stops[0]?.cost_estimate);
     await expect(ownerB.load(input.id)).resolves.toBeNull();
     await expect(ownerB.saveWithKey(input, 1, randomUUID())).resolves.toEqual({ status: "not_found" });
-    const update: TripDraft = { ...created, planning_mode: "manual", budget: { ...created.budget, total_vnd: 10_000_000 } };
-    const saved = await ownerA.saveWithKey(update, 1, randomUUID());
-    expect(saved.status).toBe("saved");
-    if (saved.status !== "saved") throw new Error("Expected saved result");
-    expect(saved.draft).toMatchObject({ version: 2, planning_mode: "manual", budget: { total_vnd: 10_000_000 } });
-    await expect(ownerA.saveWithKey(update, 1, randomUUID())).resolves.toEqual({ status: "version_conflict", current_version: 2 });
+    const updateA: TripDraft = { ...created, title: "Concurrent A", planning_mode: "manual", budget: { ...created.budget, total_vnd: 10_000_000 } };
+    const updateB: TripDraft = { ...created, title: "Concurrent B", planning_mode: "manual", budget: { ...created.budget, total_vnd: 9_000_000 } };
+    const concurrent = await Promise.all([
+      ownerA.saveWithKey(updateA, 1, randomUUID()),
+      ownerA.saveWithKey(updateB, 1, randomUUID()),
+    ]);
+    expect(concurrent.map((result) => result.status).sort()).toEqual(["saved", "version_conflict"]);
+    const saved = concurrent.find((result) => result.status === "saved");
+    const conflict = concurrent.find((result) => result.status === "version_conflict");
+    if (!saved || saved.status !== "saved") throw new Error("Expected one saved result");
+    expect(conflict).toEqual({ status: "version_conflict", current_version: 2 });
+    expect(saved.draft).toMatchObject({ version: 2, planning_mode: "manual" });
+    const final = await ownerA.load(input.id);
+    expect(final).toMatchObject({ version: 2, title: saved.draft.title, budget: { total_vnd: saved.draft.budget.total_vnd } });
+    await expect(ownerA.saveWithKey(created, 1, randomUUID())).resolves.toEqual({ status: "version_conflict", current_version: 2 });
     await expect(ownerA.remove(input.id, 2)).resolves.toBe("removed");
     await expect(ownerA.load(input.id)).resolves.toBeNull();
   }, 30_000);

@@ -2,7 +2,7 @@
 
 > Initial state as of 2026-10-21: **NONE IMPLEMENTED, NONE TESTED**. All gates are `NOT VERIFIED`.
 > Update `[ ]` -> `[x]` only after verifying tests and recording evidence, not merely writing code.
-> Current execution state: G0/G1 PASS. P02-01 and P02-02 DONE after actual Windows local verification and CI run39711636934. P02-03 is VERIFYING: clean local reset,121 pgTAP, real two-session Auth/RLS integration and applicable baseline PASS; fresh CI pending. G2 remains NOT VERIFIED. Independent P01-06 requested two-city 3D extension DONE. [Baseline report](reports/P01-BASELINE.md).
+> Current execution state: G0/G1 PASS. P02-01..03 DONE; P02-03 CI run39714338214 passed audit/full baseline, two clean121-case DB replays and real Auth integration. P02-04 concurrency/replay closure is IN_PROGRESS; G2 remains NOT VERIFIED. Independent P01-06 requested two-city 3D extension DONE. [Baseline report](reports/P01-BASELINE.md).
 > Recovery audit/typography R0-01/R1-01 DONE; R0-02 corrected/DONE through COMPAT. Full product NOT READY: wizard/planner/cloud/save/share remain unimplemented. Historical reports are retained; this current state supersedes their old support-blocked status.
 
 ## Task tracker rules
@@ -37,8 +37,8 @@ For each checked item, add a line to **Evidence log** with: task ID, commit hash
 
 - [x] **P02-01** Supabase local setup, destination/place migrations, separate Nha Trang/Đà Lạt editorial seed (ADR-0013). Status: DONE. Depends: G1, P00-04, P00-05 DONE. [Report](reports/P02-01.md), [ADR0021](adr/ADR-0021.md). Actual Windows loopback bindings and Ubuntu CI startup/port guard/reset/replay verified; no global Docker/PATH changes.
 - [x] **P02-02** Trips/stops/share tables with constraints, transactional repositories and indexes. Status: DONE. Depends: P02-01. [Report](reports/P02-02.md), [ADR0020](adr/ADR-0020.md). Local strengthened113-case suite and CI reset/113 tests twice PASS; full Windows baseline PASS. No owner UI/API functionality claimed.
-- [ ] **P02-03** Auth session (guest via anonymous sign-in), verified-owner repository, and ADR0022 party/budget/planning-mode persistence. Status: VERIFYING. Depends: P02-02 DONE. Tests: real session A/B, null/forged auth, exact expanded TripDraft roundtrip. [Plan](reports/P02-03-PLAN.md), [report](reports/P02-03.md).
-- [ ] **P02-04** pgTAP DB negative permission tests + migrations idempotent/replayable from blank DB. Depends: P02-03. Tests: `supabase test db` and reset.
+- [x] **P02-03** Auth session (guest via anonymous sign-in), verified-owner repository, and ADR0022 party/budget/planning-mode persistence. Status: DONE. Depends: P02-02 DONE. Real session A/B, null/forged auth, exact expanded TripDraft roundtrip plus CI audit/replay PASS. [Plan](reports/P02-03-PLAN.md), [report](reports/P02-03.md).
+- [ ] **P02-04** pgTAP negative permissions, parallel owner CAS, clean migration replay and G2 review. Status: VERIFYING. Depends: P02-03 DONE. Local CAS repeated and clean replay PASS; fresh CI pending. [Plan](reports/P02-04-PLAN.md), [report](reports/P02-04.md).
 - [ ] **G2** Gate approval. Verify: no public private-data access and all auth tests pass.
 
 ## PHASE 03 — Catalog, wizard and safe place import — Gate G3 NOT VERIFIED

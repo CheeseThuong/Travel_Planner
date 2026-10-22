@@ -36,7 +36,13 @@ try {
   exitCode = result.status ?? 1;
 } finally {
   const safeMarker = marker.replaceAll("'", "''");
-  sql(`delete from auth.users where raw_user_meta_data->>'test_marker'='${safeMarker}'; update public.destinations set status='draft'; update public.places set status='draft';`);
+  sql(`delete from auth.users where raw_user_meta_data->>'test_marker'='${safeMarker}'; update public.destinations set status='draft'; update public.places set status='draft';
+    do $cleanup$ begin
+      if exists(select 1 from auth.users where raw_user_meta_data->>'test_marker'='${safeMarker}')
+        or exists(select 1 from public.destinations where status<>'draft') or exists(select 1 from public.places where status<>'draft') then
+        raise exception 'Local Auth fixture cleanup failed';
+      end if;
+    end $cleanup$;`);
 }
 if (exitCode !== 0) process.exit(exitCode);
 console.log("Local Auth owner integration PASS; two disposable sessions exercised without logging credentials.");
