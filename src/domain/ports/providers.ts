@@ -3,7 +3,7 @@ import type { Coordinates, EstimateSource, TransportMode } from "../model/trip";
 
 export type RouteCell = Readonly<{ status: "unreachable" }> | Readonly<{ status: "reachable"; duration_minutes: number; estimate_source: EstimateSource; uncertainty: "low" | "high" }>;
 export interface MatrixInput { readonly nodes: readonly (Coordinates & { readonly id: string })[]; readonly transport_mode: TransportMode; readonly departure_at?: string }
-export interface MatrixResult { readonly node_ids: readonly string[]; readonly cells: readonly (readonly RouteCell[])[]; readonly warnings: readonly string[]; readonly elements_requested: number }
+export interface MatrixResult { readonly node_ids: readonly string[]; readonly cells: readonly (readonly RouteCell[])[]; readonly warnings: readonly string[]; readonly elements_requested: number | null }
 export interface RoutingProvider { estimateMatrix(input: MatrixInput, signal?: AbortSignal): Promise<MatrixResult> }
 
 export interface PlaceResolution {

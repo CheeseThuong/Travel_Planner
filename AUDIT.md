@@ -36,6 +36,8 @@ A-12 editorial hours/access/prices are unverified. A-13 physical-device performa
 
 **P04-01 foundation completed:** pure local-day calendar, split/overnight opening windows, unknown/holiday warnings and immutable lock diagnostics; [report](docs/reports/P04-01.md). Lint/typecheck/build and67 Vitest tests pass. No public planner behavior yet; A-01/A-08 remain incomplete until the full engine/integration is verified. Next P04-02; G4–G8 NOT VERIFIED.
 
+**P04-02 routing foundation completed:** directed identity/cell validation, explicit approximate/high-uncertainty no-key matrix and bounded injected-provider fallback. Unknown failed usage is null, not invented zero. [Evidence](docs/reports/P04-02.md): lint/typecheck/build and72 Vitest cases PASS. Optional live Google adapter remains OFF/unimplemented; no route accuracy or planner journey claim. Next P04-03; G4–G8 NOT VERIFIED.
+
 ---
 
 ## Historical static audit — 2026-10-27
