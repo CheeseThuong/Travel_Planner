@@ -11,7 +11,11 @@ Master planning package v1.0 (2026-10-21).
 
 
 
-## Current state (2026-10-22)
+## Current state (2026-10-28)
+
+The tracker records G0/G1/G2 PASS and P03-01 catalog/P03-02 budget and planning-mode input wizard DONE at HEAD33beb14. P03-03 safe import and P03-04 UI states are next; G3–G8 remain NOT VERIFIED. The wizard prepares inputs; it does not generate, save or share an itinerary. The baseline audit and fresh local verification are tracked in [AUDIT.md](AUDIT.md) and the [recovery report](docs/reports/AUDIT-BASELINE-20261028.md). Earlier verification and limitations below are historical and do not establish current gate approval.
+
+## Historical implementation notes (2026-10-22)
 
 G0 PASS. The ESLint support blocker is corrected using maintained core10 and explicit project compatibility adapters; original lint checks remain enabled. P01-02..04 foundations are implemented; actual GitHub CI run39611614744 PASS for b91d1a8, G1 PASS. See [tracker](docs/WORK_ITEMS.md) and [baseline evidence](docs/reports/P01-BASELINE.md).
 

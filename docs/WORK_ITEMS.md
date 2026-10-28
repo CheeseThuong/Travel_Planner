@@ -7,6 +7,8 @@
 
 ## Task tracker rules
 
+2026-10-28 recovery: **P03-BASELINE DONE**, corrective prerequisite to P03-03. [Plan/evidence](reports/AUDIT-BASELINE-20261028.md), [audit](../AUDIT.md). Lint, typecheck, build,31 tooling +30 Vitest,12 HTTP,22 E2E and72 typography cases PASS locally. Missing browsers resolved using existing `.tools/browsers`. G3 remains NOT VERIFIED. P03-02's recorded DONE conflicts with missing accurate-draft inputs (arrival/departure/base/required controls); resolve within Phase03 before G3. Historical G0/G1/G2 approvals are retained, not fresh DB/CI tests.
+
 For each checked item, add a line to **Evidence log** with: task ID, commit hash/PR, commands and exit codes, associated acceptance tests, date and outstanding defects. Dependencies must be closed before work begins unless marked `PARALLEL-OK` and the phase gate discipline is preserved.
 
 ## PHASE 00 — Foundation decisions — Gate G0 PASS
@@ -96,6 +98,7 @@ For each checked item, add a line to **Evidence log** with: task ID, commit hash
 
 | Task ID | Status | Commit/PR | Commands & exit codes | AC/Test IDs | Blockers | Verified date |
 |---|---|---|---|---|---|---|
+| P03-BASELINE | DONE | task commit | lint/typecheck/unit/build/integration/e2e/typography ->0; [report](reports/AUDIT-BASELINE-20261028.md) | AC-B1..B4 PASS | G3 accurate draft/import pending; package changes preserved | 2026-10-28 |
 | P03-02 | DONE | working tree | typecheck/lint/build ->0; wizard E2E4/full E2E22 ->0; Playwright CLI mobile demo; [report](reports/P03-02.md) | AC-001/016/017/018 PASS | P03-03..04/G3 pending | 2026-10-22 |
 | P03-01 | DONE | 1e8a09a; run39752205015 | typecheck/lint/unit/build ->0; E2E18 ->0; CI PASS; Playwright CLI mobile demo; [report](reports/P03-01.md) | search/empty/mobile/isolation/attribution/pagination PASS | P03-02..04/G3 pending | 2026-10-22 |
 | P02-04 / G2 | DONE / PASS | f837ac8; run39716637974 | CI baseline and local-database jobs PASS; DB reset/121 pgTAP twice/Auth cleanup ->0; [report](reports/P02-04.md) | AC01..04 PASS | G3+ not verified | 2026-10-22 |

@@ -30,7 +30,7 @@ try {
     ["/destinations/nha-trang", 200, "Nha Trang"],
     ["/destinations/da-lat", 200, "Đà Lạt"],
     ["/destinations/unsupported-city", 404, "Chưa tìm thấy nơi này."],
-    ["/plan/new", 200, "Chuyến đi của riêng bạn"],
+    ["/plan/new", 200, "Lên kế hoạch theo cách của bạn"],
     ["/trips/not-an-owner-credential", 200, "Không gian chuyến đi"],
     ["/open", 200, "Mở lại một kỷ niệm"],
     ["/shared", 200, "Cùng xem một hành trình"],
