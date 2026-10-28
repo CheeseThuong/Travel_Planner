@@ -36,8 +36,9 @@ test("Maps import requires confirmation, preserves selected places and supports 
   await expect(page.getByLabel("Tên điểm nhập tay")).toHaveValue("");
 });
 
-test("confirmed catalog result outside the old twelve-place picker is removable", async ({ page }) => {
+test("catalog confirmation survives filtering and is removable", async ({ page }) => {
   await page.goto("/plan/new?destination=da-lat");
+  await page.getByLabel("Tìm trong catalog").fill("không-có-kết-quả");
   await expect(page.getByRole("checkbox", { name: /Vườn hoa thành phố Đà Lạt/ })).toHaveCount(0);
   await page.getByLabel("Liên kết Google Maps").fill("https://www.google.com/maps?query=V%C6%B0%E1%BB%9Dn+hoa+th%C3%A0nh+ph%E1%BB%91");
   await page.getByRole("button", { name: "Tìm ứng viên" }).click();

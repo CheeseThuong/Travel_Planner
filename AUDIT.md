@@ -30,7 +30,9 @@ A-12 editorial hours/access/prices are unverified. A-13 physical-device performa
 
 **P03-03 completed:** safe no-fetch parser/resolver/API, editorial confirmation, manual entry, duplicate/capacity protection. [Exact files and results](docs/reports/P03-03.md): lint/typecheck/build/integration/unit (31 tooling +51 Vitest)/E2E28 all exit0. Shortlinks remain opaque and use manual fallback; no Google resolution or new verified provider data claimed. The earlier statement that P03-03 was absent describes the audited baseline.
 
-**Dependency order:** P03-02-CORRECT → P03-04 → G3 review → P04. G3–G8 remain NOT VERIFIED. The original audit below is retained as historical material.
+**P03-02 correction completed:** A-04/A-05/A-07 input/selection/copy defects resolved within Phase03, including real local-date validation, edge-day times/base coordinates, required flags, all30 catalog records, mixed selection order and truthful unsaved input review. [Files/evidence](docs/reports/P03-02-CORRECT.md): lint/typecheck/build/HTTP/unit62/E2E30 pass. This supplies validated inputs, not a planner/manual timeline/save feature.
+
+**Dependency order:** P03-04 → G3 review → P04. G3–G8 remain NOT VERIFIED. The original audit below is retained as historical material.
 
 ---
 

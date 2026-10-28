@@ -5,6 +5,9 @@ test("wizard calculates group budget and preserves manual planning mode", async 
   await expect(page.getByLabel("Điểm đến")).toHaveValue("da-lat");
   await page.getByLabel("Ngày bắt đầu").fill("2026-11-10");
   await page.getByLabel("Ngày kết thúc").fill("2026-11-12");
+  await page.getByLabel("Tên nơi lưu trú hoặc điểm gốc").fill("Nơi ở của nhóm");
+  await page.getByLabel("Vĩ độ điểm gốc").fill("11.94");
+  await page.getByLabel("Kinh độ điểm gốc").fill("108.44");
   await page.getByLabel("Số người").fill("4");
   await page.getByLabel("Tổng ngân sách").fill("12000000");
   await page.getByLabel("Chi phí chỗ ở").fill("2000000");
@@ -14,7 +17,8 @@ test("wizard calculates group budget and preserves manual planning mode", async 
   await page.getByLabel("Tôi tự lên kế hoạch").check();
   await page.getByRole("button", { name: "Xem kết quả chuẩn bị" }).click();
 
-  await expect(page.getByText("Kế hoạch cá nhân đã sẵn sàng")).toBeVisible();
+  await expect(page.getByText("Đã kiểm tra thông tin sơ bộ")).toBeVisible();
+  await expect(page.getByText("Chưa tạo lịch trình và chưa lưu.", { exact: false })).toBeVisible();
   await expect(page.getByText("Hệ thống sẽ giữ nguyên danh sách để bạn tự xếp lịch.")).toBeVisible();
   await expect(page.getByText(/750\.000/)).toBeVisible();
   await expect(page.getByText("Chi phí tại 2 điểm vẫn chưa biết.")).toBeVisible();
