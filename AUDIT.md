@@ -28,7 +28,9 @@ A-12 editorial hours/access/prices are unverified. A-13 physical-device performa
 
 **Fresh verification:** baseline corrections DONE. `npm.cmd run lint`, `typecheck`, `test:unit` (31 tooling +30 Vitest), `build`, `test:integration` (12 HTTP), `test:e2e` (22) and `test:typography` (72) all exited0. Existing `.tools/browsers` contains the exact Firefox/WebKit revisions; full tests passed with `PLAYWRIGHT_BROWSERS_PATH` set there. Stalled download cancelled and test-owned server cleaned up; details and command logs in the report. No production/DB/live-provider claim.
 
-**Dependency order:** P03-03 → P03-04 → G3 review → P04. G3–G8 remain NOT VERIFIED. The original audit below is retained as historical material.
+**P03-03 completed:** safe no-fetch parser/resolver/API, editorial confirmation, manual entry, duplicate/capacity protection. [Exact files and results](docs/reports/P03-03.md): lint/typecheck/build/integration/unit (31 tooling +51 Vitest)/E2E28 all exit0. Shortlinks remain opaque and use manual fallback; no Google resolution or new verified provider data claimed. The earlier statement that P03-03 was absent describes the audited baseline.
+
+**Dependency order:** P03-02-CORRECT → P03-04 → G3 review → P04. G3–G8 remain NOT VERIFIED. The original audit below is retained as historical material.
 
 ---
 

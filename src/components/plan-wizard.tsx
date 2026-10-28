@@ -4,6 +4,7 @@ import { useMemo, useState, type FormEvent } from "react";
 import { MAX_VND_INPUT, summarizeTripBudget } from "@/domain/budget";
 import type { CatalogPlace } from "@/domain/catalog";
 import type { Pace, PlanningMode, TransportMode } from "@/domain/model/trip";
+import { PlaceImport, type ManualPlaceInput } from "./place-import";
 
 const money = new Intl.NumberFormat("vi-VN", { style: "currency", currency: "VND", maximumFractionDigits: 0 });
 const paceStops: Record<Pace, number> = { relaxed: 2, balanced: 3, active: 4 };
@@ -29,17 +30,19 @@ export function PlanWizard({ initialDestination, catalogs }: Readonly<{
   const [pace, setPace] = useState<Pace>("balanced");
   const [planningMode, setPlanningMode] = useState<PlanningMode>("assisted");
   const [selectedIds, setSelectedIds] = useState<string[]>([]);
+  const [manualPlaces, setManualPlaces] = useState<(ManualPlaceInput & { id: string })[]>([]);
   const [submitted, setSubmitted] = useState(false);
   const places = catalogs[destination];
   const dayCount = inclusiveDays(startDate, endDate);
   const selected = useMemo(() => places.filter((place) => selectedIds.includes(place.id)), [places, selectedIds]);
+  const selectedCount = selected.length + manualPlaces.length;
   const validMoney = (value: number) => Number.isSafeInteger(value) && value >= 0 && value <= MAX_VND_INPUT;
   const valid = dayCount >= 1 && dayCount <= 7 && Number.isInteger(partySize) && partySize >= 1 && partySize <= 30 && validMoney(budget) && validMoney(lodging) && validMoney(transportCost);
   const summary = valid ? summarizeTripBudget(
     { currency: "VND", total_vnd: budget, known_costs_vnd: { lodging, transport: transportCost, meals: 0, other: 0 } },
     partySize,
     dayCount,
-    selected.map(() => ({ provenance: "unknown" as const })),
+    Array.from({ length: selectedCount }, () => ({ provenance: "unknown" as const })),
   ) : null;
 
   function submit(event: FormEvent) {
@@ -50,7 +53,23 @@ export function PlanWizard({ initialDestination, catalogs }: Readonly<{
   function changeDestination(value: "nha-trang" | "da-lat") {
     setDestination(value);
     setSelectedIds([]);
+    setManualPlaces([]);
     setSubmitted(false);
+  }
+
+  function confirmEditorial(id: string): string {
+    if (!places.some((place) => place.id === id)) return "Điểm này không thuộc catalog của chuyến đi.";
+    if (selectedIds.includes(id)) return "Điểm này đã được chọn.";
+    if (selectedCount >= 30) return "Mỗi chuyến đi tối đa 30 điểm.";
+    setSelectedIds((ids) => [...ids, id]); setSubmitted(false);
+    return "Đã thêm điểm từ catalog. Giờ hoạt động và chi phí vẫn chưa xác minh.";
+  }
+
+  function addManual(input: ManualPlaceInput): string {
+    if (selectedCount >= 30) return "Mỗi chuyến đi tối đa 30 điểm.";
+    if (manualPlaces.some((place) => place.title.toLocaleLowerCase("vi") === input.title.toLocaleLowerCase("vi") && place.location.lat === input.location.lat && place.location.lng === input.location.lng)) return "Điểm này đã được chọn.";
+    setManualPlaces((current) => [...current, { ...input, id: crypto.randomUUID() }]); setSubmitted(false);
+    return "Đã thêm điểm nhập tay. Giờ hoạt động, chi phí và khả năng tiếp cận chưa xác minh.";
   }
 
   return (
@@ -83,14 +102,19 @@ export function PlanWizard({ initialDestination, catalogs }: Readonly<{
               <label className="flex gap-3 rounded-2xl border border-input bg-white p-4"><input type="radio" name="planning-mode" value="manual" checked={planningMode === "manual"} onChange={() => setPlanningMode("manual")} /><span><strong>Tôi tự lên kế hoạch</strong><small className="mt-1 block text-[#58675b]">Không tự đổi thứ tự hoặc loại điểm đã chọn.</small></span></label>
             </div>
             <div className="mt-6 grid max-h-80 gap-3 overflow-auto pr-1 sm:grid-cols-2" aria-label="Chọn điểm ghé">
-              {places.slice(0, 12).map((place) => <label key={place.id} className="flex gap-3 rounded-2xl border border-[#deded0] bg-[#fffdf8] p-4"><input type="checkbox" checked={selectedIds.includes(place.id)} onChange={(event) => setSelectedIds((ids) => event.target.checked ? [...ids, place.id] : ids.filter((id) => id !== place.id))} /><span><strong>{place.title}</strong><small className="mt-1 block text-[#58675b]">{place.durationMinutes} phút</small></span></label>)}
+              {places.slice(0, 12).map((place) => <label key={place.id} className="flex gap-3 rounded-2xl border border-[#deded0] bg-[#fffdf8] p-4"><input type="checkbox" checked={selectedIds.includes(place.id)} disabled={!selectedIds.includes(place.id) && selectedCount >= 30} onChange={(event) => { setSelectedIds((ids) => event.target.checked ? [...ids, place.id] : ids.filter((id) => id !== place.id)); setSubmitted(false); }} /><span><strong>{place.title}</strong><small className="mt-1 block text-[#58675b]">{place.durationMinutes} phút</small></span></label>)}
             </div>
+            <ul aria-label="Các điểm đã thêm" className="mt-4 grid gap-2 text-sm">
+              {selected.map((place) => <li key={place.id} className="flex flex-wrap items-center justify-between gap-2"><span>{place.title}</span><button type="button" aria-label={`Bỏ ${place.title}`} className="min-h-11 px-3" onClick={() => { setSelectedIds((ids) => ids.filter((id) => id !== place.id)); setSubmitted(false); }}>Bỏ chọn</button></li>)}
+              {manualPlaces.map((place) => <li key={place.id} className="flex flex-wrap items-center justify-between gap-2"><span>{place.title} · nhập tay · chưa xác minh</span><button type="button" aria-label={`Bỏ ${place.title}`} className="min-h-11 px-3" onClick={() => { setManualPlaces((current) => current.filter((item) => item.id !== place.id)); setSubmitted(false); }}>Bỏ chọn</button></li>)}
+            </ul>
           </fieldset>
+          <PlaceImport key={destination} destination={destination} onEditorial={confirmEditorial} onManual={addManual} />
         </div>
 
         <aside className="h-fit rounded-3xl bg-[#edf0e4] p-6 lg:sticky lg:top-5">
           <h2 className="display-type text-2xl">Tóm tắt tức thì</h2>
-          <dl className="mt-5 grid gap-3 text-sm"><div className="flex justify-between gap-4"><dt>Số ngày</dt><dd className="font-semibold">{dayCount > 0 ? dayCount : "—"}</dd></div><div className="flex justify-between gap-4"><dt>Số người</dt><dd className="font-semibold">{partySize || "—"}</dd></div><div className="flex justify-between gap-4"><dt>Điểm đã chọn</dt><dd className="font-semibold">{selected.length}</dd></div><div className="flex justify-between gap-4"><dt>Mức tải gợi ý</dt><dd className="font-semibold">{paceStops[pace]} điểm/ngày</dd></div></dl>
+          <dl className="mt-5 grid gap-3 text-sm"><div className="flex justify-between gap-4"><dt>Số ngày</dt><dd className="font-semibold">{dayCount > 0 ? dayCount : "—"}</dd></div><div className="flex justify-between gap-4"><dt>Số người</dt><dd className="font-semibold">{partySize || "—"}</dd></div><div className="flex justify-between gap-4"><dt>Điểm đã chọn</dt><dd className="font-semibold">{selectedCount}</dd></div><div className="flex justify-between gap-4"><dt>Mức tải gợi ý</dt><dd className="font-semibold">{paceStops[pace]} điểm/ngày</dd></div></dl>
           {summary && <div className="mt-5 border-t border-[#bdc5b4] pt-5 text-sm"><p>Còn lại sau chi phí đã biết</p><p className="mt-1 text-xl font-bold">{money.format(summary.remaining_known_budget_vnd ?? 0)}</p><p className="mt-2 text-[#58675b]">Khoảng {money.format(summary.available_per_person_day_vnd ?? 0)}/người/ngày. Chi phí tại {summary.unknown_cost_count} điểm vẫn chưa biết.</p></div>}
           {!valid && submitted && <p role="alert" className="mt-5 rounded-xl bg-[#f6e5cf] p-3 text-sm">Ngày đi phải từ 1–7 ngày; số người từ 1–30 và ngân sách không âm.</p>}
           <button type="submit" className="mt-6 min-h-11 w-full rounded-full bg-primary px-5 py-3 font-semibold text-primary-foreground">Xem kết quả chuẩn bị</button>

@@ -8,7 +8,7 @@ export interface RoutingProvider { estimateMatrix(input: MatrixInput, signal?: A
 
 export interface PlaceResolution {
   readonly status: "candidate_selection_required" | "manual_entry_required";
-  readonly candidates: readonly { provider: "editorial" | "google"; provider_place_id?: string; display_name: string; location?: Coordinates; confidence: "low" | "medium" | "high" }[];
+  readonly candidates: readonly { provider: "editorial" | "google"; editorial_place_id?: string; provider_place_id?: string; display_name: string; location?: Coordinates; confidence: "low" | "medium" | "high" }[];
   readonly manual_entry_available: true;
 }
 export interface PlaceResolver { resolve(input: Readonly<{ url: string; destination_slug: DestinationSlug }>, signal?: AbortSignal): Promise<PlaceResolution> }

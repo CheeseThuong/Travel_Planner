@@ -47,7 +47,8 @@ For each checked item, add a line to **Evidence log** with: task ID, commit hash
 
 - [x] **P03-01** Nha Trang/Đà Lạt destination landing/catalog/filter/pagination/mobile. Status: DONE. Depends: G2 PASS. Search, empty state, 360px, destination isolation, pagination and attribution PASS. [Report](reports/P03-01.md).
 - [x] **P03-02** Wizard dates/lodging/transport/pace, party size, VND budget, assisted/manual mode and stop selection. Status: DONE. Depends: P03-01 DONE. AC-001/016/017/018 and desktop/mobile E2E PASS. [Report](reports/P03-02.md).
-- [ ] **P03-03** Google Maps full/short URL parser, allowlist redirect, candidate selection and manual fallback. Depends: G1, P03-02. Tests: T-012/13/14, SSRF guards.
+- [x] **P03-03** Google Maps full/short URL parser, allowlist redirect validation, editorial candidate selection and manual fallback. Status: DONE (no-fetch pathway, ADR0024). Depends: G1, P03-02. T-012/13/14 and SSRF/no-network/API/mobile tests PASS. Shortlinks intentionally require expanded URL/manual entry; no expansion claim. [Report](reports/P03-03.md).
+- [ ] **P03-02-CORRECT** Resolve accurate-draft acceptance conflict: arrival/departure/base coordinates, required controls, all30 catalog places and truthful prepared-input status. Status: TODO. Depends: P03-03. Corrective Phase03 prerequisite to P03-04/G3; no planner implementation.
 - [ ] **P03-04** Loading/error/offline/reduced-motion states. Depends: P03-01..03. Tests: UI a11y and keyboard.
 - [ ] **G3** Gate approval. Verify: create accurate local draft without live Google API key.
 
@@ -98,6 +99,7 @@ For each checked item, add a line to **Evidence log** with: task ID, commit hash
 
 | Task ID | Status | Commit/PR | Commands & exit codes | AC/Test IDs | Blockers | Verified date |
 |---|---|---|---|---|---|---|
+| P03-03 | DONE | task commit | lint/typecheck/unit/build/integration/e2e ->0;31 tooling +51 Vitest +28 E2E; [report](reports/P03-03.md) | AC-I1..4 PASS; T-012/13/14 | No-fetch fallback; distributed limits/live providers deferred; G3 pending | 2026-10-28 |
 | P03-BASELINE | DONE | task commit | lint/typecheck/unit/build/integration/e2e/typography ->0; [report](reports/AUDIT-BASELINE-20261028.md) | AC-B1..B4 PASS | G3 accurate draft/import pending; package changes preserved | 2026-10-28 |
 | P03-02 | DONE | working tree | typecheck/lint/build ->0; wizard E2E4/full E2E22 ->0; Playwright CLI mobile demo; [report](reports/P03-02.md) | AC-001/016/017/018 PASS | P03-03..04/G3 pending | 2026-10-22 |
 | P03-01 | DONE | 1e8a09a; run39752205015 | typecheck/lint/unit/build ->0; E2E18 ->0; CI PASS; Playwright CLI mobile demo; [report](reports/P03-01.md) | search/empty/mobile/isolation/attribution/pagination PASS | P03-02..04/G3 pending | 2026-10-22 |

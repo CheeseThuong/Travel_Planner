@@ -2,7 +2,7 @@ import { z } from "zod";
 import { logEvent } from "../telemetry/events.server";
 
 export class ApiError extends Error {
-  constructor(readonly status: number, readonly code: "VALIDATION_ERROR" | "AUTH_REQUIRED" | "NOT_FOUND" | "VERSION_CONFLICT" | "RATE_LIMITED" | "INTERNAL_ERROR", message: string) { super(message); }
+  constructor(readonly status: number, readonly code: "VALIDATION_ERROR" | "AUTH_REQUIRED" | "NOT_FOUND" | "VERSION_CONFLICT" | "RATE_LIMITED" | "INTERNAL_ERROR" | "UNSUPPORTED_URL" | "UNSAFE_REDIRECT", message: string) { super(message); }
 }
 export function requestId(request: Request): string {
   const raw = request.headers.get("x-request-id");
