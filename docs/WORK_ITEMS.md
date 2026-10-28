@@ -54,7 +54,7 @@ For each checked item, add a line to **Evidence log** with: task ID, commit hash
 
 ## PHASE 04 — Routing and planner — Gate G4 NOT VERIFIED
 
-- [ ] **P04-01** Time-window model, trip-calendar bounds, locks and deterministic fixtures. Depends: G3. Tests: T-001/004/005/010/011.
+- [x] **P04-01** Time-window model, trip-calendar bounds, lock diagnostics and deterministic fixtures. Status: DONE. Depends: G3 PASS. T-001/004/005/010/011 foundation tests PASS; directed travel feasibility follows in P04-03. [Report](reports/P04-01.md).
 - [ ] **P04-02** RoutingProvider interface, safe approximate fallback, optional Google route adapter and API usage budget. Depends: P04-01. Tests: T-006/007/015/016/028.
 - [ ] **P04-03** Required-first feasible insertion, budget-aware optional insertion, local search, unscheduled explanation and non-mutating manual validator. Depends: P04-02. Tests: T-008/009/031/032/033 plus edge cases in Master Planner.
 - [ ] **P04-04** Generate candidate/apply-plan endpoints, optimistic version. Depends: P04-03, G2. Tests: T-008, stale run, contract schemas.
@@ -99,6 +99,7 @@ For each checked item, add a line to **Evidence log** with: task ID, commit hash
 
 | Task ID | Status | Commit/PR | Commands & exit codes | AC/Test IDs | Blockers | Verified date |
 |---|---|---|---|---|---|---|
+| P04-01 | DONE | task commit | lint/typecheck/unit/build ->0;31 tooling +67 Vitest; [report](reports/P04-01.md) | AC-C1..4 PASS | No public planner yet; G4 pending | 2026-10-28 |
 | P03-04 / G3 | DONE / PASS | task commit | lint/typecheck/unit/build/integration/e2e/content/typography ->0;34 E2E/72 typography; [review](reports/G3-REVIEW.md) | AC-S1..4 PASS | G4+ not verified; no live-provider/persistence claim | 2026-10-28 |
 | P03-02-CORRECT | DONE | task commit | lint/typecheck/unit/build/integration/e2e ->0;31 tooling +62 Vitest +30 E2E; [report](reports/P03-02-CORRECT.md) | AC-D1..4 PASS | P03-04/G3 pending | 2026-10-28 |
 | P03-03 | DONE | task commit | lint/typecheck/unit/build/integration/e2e ->0;31 tooling +51 Vitest +28 E2E; [report](reports/P03-03.md) | AC-I1..4 PASS; T-012/13/14 | No-fetch fallback; distributed limits/live providers deferred; G3 pending | 2026-10-28 |

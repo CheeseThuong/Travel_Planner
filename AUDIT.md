@@ -34,6 +34,8 @@ A-12 editorial hours/access/prices are unverified. A-13 physical-device performa
 
 **P03-04/G3 completed:** pending/error/retry/offline/empty/keyboard/reduced-motion states verified; final mandatory suite passes with34 E2E and72 typography cases,0 skipped. [G3 review](docs/reports/G3-REVIEW.md) records local no-key PASS and exact limitations. A-10's Phase03 import states are resolved; future planner/save async states remain incomplete. Next permitted P04-01. G4–G8 remain NOT VERIFIED. The original audit below is retained as historical material.
 
+**P04-01 foundation completed:** pure local-day calendar, split/overnight opening windows, unknown/holiday warnings and immutable lock diagnostics; [report](docs/reports/P04-01.md). Lint/typecheck/build and67 Vitest tests pass. No public planner behavior yet; A-01/A-08 remain incomplete until the full engine/integration is verified. Next P04-02; G4–G8 NOT VERIFIED.
+
 ---
 
 ## Historical static audit — 2026-10-27
