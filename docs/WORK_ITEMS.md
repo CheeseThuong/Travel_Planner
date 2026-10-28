@@ -2,12 +2,12 @@
 
 > Initial state as of 2026-10-21: **NONE IMPLEMENTED, NONE TESTED**. All gates are `NOT VERIFIED`.
 > Update `[ ]` -> `[x]` only after verifying tests and recording evidence, not merely writing code.
-> Current execution state: G0/G1/G2 PASS. P02-04 and G2 closed by GitHub Actions run39716637974. P03-01 catalog and P03-02 party/budget/manual-mode wizard DONE; P03-03 is next. Independent P01-06 requested two-city 3D extension DONE. [Baseline report](reports/P01-BASELINE.md).
-> Recovery audit/typography R0-01/R1-01 DONE; R0-02 corrected/DONE through COMPAT. Full product NOT READY: wizard/planner/cloud/save/share remain unimplemented. Historical reports are retained; this current state supersedes their old support-blocked status.
+> Current execution state: G0/G1/G2 historical PASS; G3 local no-key review PASS2026-10-28. P03-03, accurate-draft correction and P03-04 DONE. P04-01 next. [G3 review](reports/G3-REVIEW.md). Independent P01-06 two-city3D preview remains separate from G7.
+> Recovery audit/typography R0-01/R1-01 DONE; R0-02 corrected/DONE through COMPAT. Full product NOT READY: planner/cloud/save/share remain unimplemented. Wizard now prepares validated unsaved inputs. Historical reports are retained; this current state supersedes their old support-blocked status.
 
 ## Task tracker rules
 
-2026-10-28 recovery: **P03-BASELINE DONE**, corrective prerequisite to P03-03. [Plan/evidence](reports/AUDIT-BASELINE-20261028.md), [audit](../AUDIT.md). Lint, typecheck, build,31 tooling +30 Vitest,12 HTTP,22 E2E and72 typography cases PASS locally. Missing browsers resolved using existing `.tools/browsers`. G3 remains NOT VERIFIED. P03-02's recorded DONE conflicts with missing accurate-draft inputs (arrival/departure/base/required controls); resolve within Phase03 before G3. Historical G0/G1/G2 approvals are retained, not fresh DB/CI tests.
+2026-10-28 recovery: **P03-BASELINE DONE**, corrective prerequisite to P03-03. [Plan/evidence](reports/AUDIT-BASELINE-20261028.md), [audit](../AUDIT.md). Its local suite passed; missing browsers resolved using existing `.tools/browsers`. P03-02's inaccurate-draft acceptance conflict was subsequently resolved by697a06d; G3 now PASS per the final review above. Historical G0/G1/G2 approvals are retained, not fresh DB/CI tests.
 
 For each checked item, add a line to **Evidence log** with: task ID, commit hash/PR, commands and exit codes, associated acceptance tests, date and outstanding defects. Dependencies must be closed before work begins unless marked `PARALLEL-OK` and the phase gate discipline is preserved.
 
@@ -43,14 +43,14 @@ For each checked item, add a line to **Evidence log** with: task ID, commit hash
 - [x] **P02-04** pgTAP negative permissions, parallel owner CAS, clean migration replay and G2 review. Status: DONE. Depends: P02-03 DONE. Local CAS/replay and GitHub Actions run39716637974 PASS. [Plan](reports/P02-04-PLAN.md), [report](reports/P02-04.md).
 - [x] **G2** Gate approval. Status: PASS. No public private-data access; two DB replays and real Auth integration passed in run39716637974.
 
-## PHASE 03 — Catalog, wizard and safe place import — Gate G3 NOT VERIFIED
+## PHASE 03 — Catalog, wizard and safe place import — Gate G3 PASS
 
 - [x] **P03-01** Nha Trang/Đà Lạt destination landing/catalog/filter/pagination/mobile. Status: DONE. Depends: G2 PASS. Search, empty state, 360px, destination isolation, pagination and attribution PASS. [Report](reports/P03-01.md).
 - [x] **P03-02** Wizard dates/lodging/transport/pace, party size, VND budget, assisted/manual mode and stop selection. Status: DONE. Depends: P03-01 DONE. AC-001/016/017/018 and desktop/mobile E2E PASS. [Report](reports/P03-02.md).
 - [x] **P03-03** Google Maps full/short URL parser, allowlist redirect validation, editorial candidate selection and manual fallback. Status: DONE (no-fetch pathway, ADR0024). Depends: G1, P03-02. T-012/13/14 and SSRF/no-network/API/mobile tests PASS. Shortlinks intentionally require expanded URL/manual entry; no expansion claim. [Report](reports/P03-03.md).
 - [x] **P03-02-CORRECT** Accurate-draft acceptance conflict resolved. Status: DONE. Arrival/departure/base coordinates, required controls, all30 catalog places, selection order and truthful unsaved prepared-input review. Depends: P03-03 DONE. [Report](reports/P03-02-CORRECT.md); no planner implementation.
-- [ ] **P03-04** Loading/error/offline/reduced-motion states. Depends: P03-01..03. Tests: UI a11y and keyboard.
-- [ ] **G3** Gate approval. Verify: create accurate local draft without live Google API key.
+- [x] **P03-04** Loading/error/offline/empty/reduced-motion states. Status: DONE. Depends: P03-01..03 and accurate-draft correction. UI keyboard/offline/error/retry/mobile tests PASS. [Report](reports/P03-04.md).
+- [x] **G3** Gate approval. Status: PASS2026-10-28. Accurate in-memory draft/no-key safe import/manual fallback verified. [Review](reports/G3-REVIEW.md);34 E2E/72 typography and mandatory suite PASS. No persistence/planner/live-provider claim.
 
 ## PHASE 04 — Routing and planner — Gate G4 NOT VERIFIED
 
@@ -99,6 +99,7 @@ For each checked item, add a line to **Evidence log** with: task ID, commit hash
 
 | Task ID | Status | Commit/PR | Commands & exit codes | AC/Test IDs | Blockers | Verified date |
 |---|---|---|---|---|---|---|
+| P03-04 / G3 | DONE / PASS | task commit | lint/typecheck/unit/build/integration/e2e/content/typography ->0;34 E2E/72 typography; [review](reports/G3-REVIEW.md) | AC-S1..4 PASS | G4+ not verified; no live-provider/persistence claim | 2026-10-28 |
 | P03-02-CORRECT | DONE | task commit | lint/typecheck/unit/build/integration/e2e ->0;31 tooling +62 Vitest +30 E2E; [report](reports/P03-02-CORRECT.md) | AC-D1..4 PASS | P03-04/G3 pending | 2026-10-28 |
 | P03-03 | DONE | task commit | lint/typecheck/unit/build/integration/e2e ->0;31 tooling +51 Vitest +28 E2E; [report](reports/P03-03.md) | AC-I1..4 PASS; T-012/13/14 | No-fetch fallback; distributed limits/live providers deferred; G3 pending | 2026-10-28 |
 | P03-BASELINE | DONE | task commit | lint/typecheck/unit/build/integration/e2e/typography ->0; [report](reports/AUDIT-BASELINE-20261028.md) | AC-B1..B4 PASS | G3 accurate draft/import pending; package changes preserved | 2026-10-28 |

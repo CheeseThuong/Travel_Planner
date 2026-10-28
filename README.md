@@ -13,7 +13,7 @@ Master planning package v1.0 (2026-10-21).
 
 ## Current state (2026-10-28)
 
-The tracker records G0/G1/G2 PASS and P03-01 catalog/P03-02 budget and planning-mode input wizard DONE at HEAD33beb14. P03-03 safe import and P03-04 UI states are next; G3–G8 remain NOT VERIFIED. The wizard prepares inputs; it does not generate, save or share an itinerary. The baseline audit and fresh local verification are tracked in [AUDIT.md](AUDIT.md) and the [recovery report](docs/reports/AUDIT-BASELINE-20261028.md). Earlier verification and limitations below are historical and do not establish current gate approval.
+G0/G1/G2 retain historical PASS. [G3 local no-key review](docs/reports/G3-REVIEW.md) PASS2026-10-28: both30-place catalogs, accurate draft inputs, safe no-fetch Maps import with explicit confirmation/manual fallback, and loading/error/offline/empty/keyboard/reduced-motion checks. Final local suite includes31 tooling +62 unit,12 HTTP,34 E2E and72 typography cases; lint/typecheck/build/content pass. The wizard prepares unsaved inputs; it does not generate, save or share an itinerary. Shortlinks require an expanded link or manual entry. To use cached test browsers set `PLAYWRIGHT_BROWSERS_PATH` to `.tools/browsers` before typography tests. Next is P04-01; G4–G8 remain NOT VERIFIED. See [AUDIT.md](AUDIT.md) for historical versus confirmed findings. Earlier notes below are historical.
 
 ## Historical implementation notes (2026-10-22)
 

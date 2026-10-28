@@ -32,7 +32,7 @@ A-12 editorial hours/access/prices are unverified. A-13 physical-device performa
 
 **P03-02 correction completed:** A-04/A-05/A-07 input/selection/copy defects resolved within Phase03, including real local-date validation, edge-day times/base coordinates, required flags, all30 catalog records, mixed selection order and truthful unsaved input review. [Files/evidence](docs/reports/P03-02-CORRECT.md): lint/typecheck/build/HTTP/unit62/E2E30 pass. This supplies validated inputs, not a planner/manual timeline/save feature.
 
-**Dependency order:** P03-04 → G3 review → P04. G3–G8 remain NOT VERIFIED. The original audit below is retained as historical material.
+**P03-04/G3 completed:** pending/error/retry/offline/empty/keyboard/reduced-motion states verified; final mandatory suite passes with34 E2E and72 typography cases,0 skipped. [G3 review](docs/reports/G3-REVIEW.md) records local no-key PASS and exact limitations. A-10's Phase03 import states are resolved; future planner/save async states remain incomplete. Next permitted P04-01. G4–G8 remain NOT VERIFIED. The original audit below is retained as historical material.
 
 ---
 

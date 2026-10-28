@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState, type FormEvent } from "react";
+import { useMemo, useState, useSyncExternalStore, type FormEvent } from "react";
 import { MAX_VND_INPUT, summarizeTripBudget } from "@/domain/budget";
 import { filterCatalog, type CatalogPlace } from "@/domain/catalog";
 import type { Pace, PlanningMode, TransportMode, TripDraft, TripStop } from "@/domain/model/trip";
@@ -10,10 +10,18 @@ import { PlaceImport, type ManualPlaceInput } from "./place-import";
 const money = new Intl.NumberFormat("vi-VN", { style: "currency", currency: "VND", maximumFractionDigits: 0 });
 const paceStops: Record<Pace, number> = { relaxed: 2, balanced: 3, active: 4 };
 
+function subscribeOnline(notify: () => void) {
+  window.addEventListener("online", notify); window.addEventListener("offline", notify);
+  return () => { window.removeEventListener("online", notify); window.removeEventListener("offline", notify); };
+}
+const onlineSnapshot = () => navigator.onLine;
+const serverOnlineSnapshot = () => true;
+
 export function PlanWizard({ initialDestination, catalogs }: Readonly<{
   initialDestination: "nha-trang" | "da-lat";
   catalogs: Readonly<Record<"nha-trang" | "da-lat", readonly CatalogPlace[]>>;
 }>) {
+  const online = useSyncExternalStore(subscribeOnline, onlineSnapshot, serverOnlineSnapshot);
   const [destination, setDestination] = useState(initialDestination);
   const [startDate, setStartDate] = useState("");
   const [endDate, setEndDate] = useState("");
@@ -96,6 +104,7 @@ export function PlanWizard({ initialDestination, catalogs }: Readonly<{
   return (
     <div className="page-shell py-12">
       <div className="max-w-3xl"><p className="eyebrow mb-3 text-[#68745b]">P03-02 · Bản nháp cục bộ</p><h1 className="display-type text-4xl sm:text-6xl">Lên kế hoạch theo cách của bạn</h1><p className="mt-5 text-base leading-8 text-[#58675b]">Nhập giới hạn thực tế trước. Hệ thống tính phần ngân sách còn lại và mức tải điểm ghé; chế độ cá nhân giữ nguyên lựa chọn để bạn tự sắp xếp.</p></div>
+      {!online && <p role="status" className="mt-5 rounded-2xl bg-[#f6e5cf] p-4 text-sm leading-6">Bạn đang ngoại tuyến. Vẫn có thể chọn và nhập điểm trong phiên này. Chưa lưu bền vững; tải lại trang có thể mất dữ liệu. Tìm từ liên kết sẽ dùng lại khi có mạng.</p>}
 
       <form onSubmit={submit} onChange={() => { setPreparedDraft(null); setSubmitted(false); }} className="mt-9 grid gap-7 lg:grid-cols-[1fr_22rem]">
         <div className="grid gap-7">
@@ -132,11 +141,13 @@ export function PlanWizard({ initialDestination, catalogs }: Readonly<{
             <div className="mt-6 grid max-h-80 gap-3 overflow-auto pr-1 sm:grid-cols-2" aria-label="Chọn điểm ghé">
               {visiblePlaces.map((place) => <label key={place.id} className="flex gap-3 rounded-2xl border border-[#deded0] bg-[#fffdf8] p-4"><input type="checkbox" checked={selectedIds.includes(place.id)} disabled={!selectedIds.includes(place.id) && selectedCount >= 30} onChange={(event) => { setSelectedIds((ids) => event.target.checked ? [...ids, place.id] : ids.filter((id) => id !== place.id)); setSubmitted(false); }} /><span><strong>{place.title}</strong><small className="mt-1 block text-[#58675b]">{place.durationMinutes} phút</small></span></label>)}
             </div>
+            {visiblePlaces.length === 0 && <p role="status" className="mt-3 text-sm">Không có điểm phù hợp. Thử từ khóa khác; các điểm đã chọn vẫn được giữ.</p>}
+            {selectedCount === 0 && <p className="mt-3 text-sm">Chưa chọn điểm ghé. Chọn trong catalog hoặc nhập tay bên dưới.</p>}
             <ul aria-label="Các điểm đã thêm" className="mt-4 grid gap-2 text-sm">
               {selectedStops.map((place) => <li key={place.id} className="flex flex-wrap items-center justify-between gap-2"><span>{place.user_title}{place.coordinate_provenance === "user_entered" ? " · nhập tay · chưa xác minh" : ""}</span><label className="flex min-h-11 items-center gap-2"><input type="checkbox" aria-label={`Bắt buộc ${place.user_title}`} checked={place.is_required} onChange={(event) => setRequiredIds((ids) => event.target.checked ? [...ids, place.id] : ids.filter((id) => id !== place.id))} />Bắt buộc</label><button type="button" aria-label={`Bỏ ${place.user_title}`} className="min-h-11 px-3" onClick={() => { setSelectedIds((ids) => ids.filter((id) => id !== place.id)); setManualPlaces((current) => current.filter((item) => item.id !== place.id)); setRequiredIds((ids) => ids.filter((id) => id !== place.id)); setSubmitted(false); setPreparedDraft(null); }}>Bỏ chọn</button></li>)}
             </ul>
           </fieldset>
-          <PlaceImport key={destination} destination={destination} onEditorial={confirmEditorial} onManual={addManual} />
+          <PlaceImport key={destination} destination={destination} online={online} onEditorial={confirmEditorial} onManual={addManual} />
         </div>
 
         <aside className="h-fit rounded-3xl bg-[#edf0e4] p-6 lg:sticky lg:top-5">
