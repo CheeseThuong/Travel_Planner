@@ -38,6 +38,8 @@ A-12 editorial hours/access/prices are unverified. A-13 physical-device performa
 
 **P04-02 routing foundation completed:** directed identity/cell validation, explicit approximate/high-uncertainty no-key matrix and bounded injected-provider fallback. Unknown failed usage is null, not invented zero. [Evidence](docs/reports/P04-02.md): lint/typecheck/build and72 Vitest cases PASS. Optional live Google adapter remains OFF/unimplemented; no route accuracy or planner journey claim. Next P04-03; G4–G8 NOT VERIFIED.
 
+**P04-03 pure engine completed:** required-first feasible insertion, geographic clusters, directed improvement, soft budget guidance, immutable locks, explicit unscheduled reasons and separate manual validator. [Evidence](docs/reports/P04-03.md):113 unit tests (including25 independent invariant fixtures),31 tooling, lint/typecheck/build PASS. A-01/A-06/A-08 now have tested domain implementations, but user-facing generation/manual timeline and A-02 generate/apply integration remain incomplete. No save/share/route accuracy claim; next P04-04; G4–G8 NOT VERIFIED.
+
 ---
 
 ## Historical static audit — 2026-10-27

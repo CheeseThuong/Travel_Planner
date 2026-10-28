@@ -56,7 +56,7 @@ For each checked item, add a line to **Evidence log** with: task ID, commit hash
 
 - [x] **P04-01** Time-window model, trip-calendar bounds, lock diagnostics and deterministic fixtures. Status: DONE. Depends: G3 PASS. T-001/004/005/010/011 foundation tests PASS; directed travel feasibility follows in P04-03. [Report](reports/P04-01.md).
 - [x] **P04-02** Strict directed RoutingProvider matrix validation, safe approximate fallback and bounded one-attempt provider deadline/size cap. Status: DONE (no-key/injected-provider scope; optional live Google adapter remains deferred/OFF). Depends: P04-01 DONE. T-006/007/015/016/028 PASS; unknown failed usage remains null. [Report](reports/P04-02.md), [ADR0027](adr/ADR-0027.md).
-- [ ] **P04-03** Required-first feasible insertion, budget-aware optional insertion, local search, unscheduled explanation and non-mutating manual validator. Depends: P04-02. Tests: T-008/009/031/032/033 plus edge cases in Master Planner.
+- [x] **P04-03** Required-first feasible insertion, geographic clustering/directed improvement, soft budget-aware optional priority, explicit unscheduled/unfulfilled required and non-mutating manual validator. Status: DONE (pure engine; public integration next). Depends: P04-02 DONE.113 Vitest cases including25 independent seeded invariants PASS. [Report](reports/P04-03.md), [ADR0028](adr/ADR-0028.md).
 - [ ] **P04-04** Generate candidate/apply-plan endpoints, optimistic version. Depends: P04-03, G2. Tests: T-008, stale run, contract schemas.
 - [ ] **P04-05** Planner benchmark, property-based invariants, no API from domain, budget metrics. Depends: P04-04. Tests: NFR-03, no data loss.
 - [ ] **G4** Gate approval. Verify: candidate itinerary deterministic, feasible, complete or explicitly unscheduled.
@@ -99,6 +99,7 @@ For each checked item, add a line to **Evidence log** with: task ID, commit hash
 
 | Task ID | Status | Commit/PR | Commands & exit codes | AC/Test IDs | Blockers | Verified date |
 |---|---|---|---|---|---|---|
+| P04-03 | DONE | task commit | lint/typecheck/unit/build ->0;31 tooling +113 Vitest; [report](reports/P04-03.md) | AC-E1..4 PASS in pure-engine scope | P04-04 stale apply/public integration and P04-05/G4 pending | 2026-10-28 |
 | P04-02 | DONE | task commit | lint/typecheck/unit/build ->0;31 tooling +72 Vitest; [report](reports/P04-02.md) | AC-R1..4 PASS | Optional live provider unimplemented/OFF; G4 pending | 2026-10-28 |
 | P04-01 | DONE | task commit | lint/typecheck/unit/build ->0;31 tooling +67 Vitest; [report](reports/P04-01.md) | AC-C1..4 PASS | No public planner yet; G4 pending | 2026-10-28 |
 | P03-04 / G3 | DONE / PASS | task commit | lint/typecheck/unit/build/integration/e2e/content/typography ->0;34 E2E/72 typography; [review](reports/G3-REVIEW.md) | AC-S1..4 PASS | G4+ not verified; no live-provider/persistence claim | 2026-10-28 |

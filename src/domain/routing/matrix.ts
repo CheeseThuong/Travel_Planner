@@ -1,6 +1,10 @@
-import type { Coordinates } from "../model/trip";
+import type { Coordinates, TripDraft } from "../model/trip";
 import type { MatrixInput, MatrixResult } from "../ports/providers";
 import { validCoordinates } from "../trip-draft";
+
+export function routingInputForDraft(draft: TripDraft): MatrixInput {
+  return { transport_mode: draft.transport_mode, nodes: [{ id: "base", lat: draft.base_location.lat, lng: draft.base_location.lng }, ...draft.stops.map((stop) => ({ id: stop.id, ...stop.location }))] };
+}
 
 export function haversineKm(a: Coordinates, b: Coordinates): number {
   if (!validCoordinates(a) || !validCoordinates(b)) throw new RangeError("Invalid routing coordinates");
