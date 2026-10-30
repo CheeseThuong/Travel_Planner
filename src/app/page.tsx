@@ -1,27 +1,47 @@
+import Image from "next/image";
+import { DocWeather } from "@/components/doc-weather";
 import Link from "next/link";
+import { docDaLatPlaces } from "@/content/doc-dalat-suggestions";
 
-const areas = [
-  {slug:"nha-trang",code:"12.2388° N / 109.1967° E",name:"Nha Trang",sub:"Chạm biển từ những con đường nhỏ",index:"01",tag:"PHỐ BIỂN"},
-  {slug:"da-lat",code:"11.9404° N / 108.4583° E",name:"Đà Lạt",sub:"Qua đèo, tìm một buổi sáng se lạnh",index:"02",tag:"CAO NGUYÊN"},
-];
+const benefits = [
+  { number: "01", title: "Khám phá đúng gu", body: "Chọn những nơi thật sự khiến bạn tò mò: một góc quán nhỏ, đường thông, hay nơi có nắng sớm.", href: "/destinations/da-lat", accent: "compass" },
+  { number: "02", title: "Lập tuyến có căn cứ", body: "Xem thời gian, quãng đường ước lượng và những điểm chưa thể xếp — không bỏ sót trong im lặng.", href: "/plan/new", accent: "route" },
+  { number: "03", title: "Góp thêm một nơi hay", body: "Dán JSON gTrack, kiểm tra tọa độ, viết lời giới thiệu riêng và gửi kiểm duyệt trước khi công khai.", href: "/contribute", accent: "pin" },
+  { number: "04", title: "Giữ lại hành trình", body: "Đặt tên cho chuyến đi và quay lại những cung đường mình đã chọn, theo khả năng lưu kế hoạch hiện có.", href: "/open", accent: "journal" },
+] as const;
 
-export default function HomePage(){return <>
-  <section className="atlas-homehero atlas-container" aria-labelledby="hero-title">
-    <div className="atlas-home-intro"><p className="atlas-kicker">THIẾT KẾ CHUYẾN ĐI / VIỆT NAM</p><h1 id="hero-title">Đi đâu,<br/><i>đi cho đáng.</i></h1><p>Đừng bắt đầu với một danh sách dài vô tận. Chọn nơi muốn ghé, xác định quỹ thời gian, rồi xếp từng chặng thành lịch đi rõ ràng.</p><Link href="/plan/new" className="atlas-primary-link">BẮT ĐẦU XẾP LỊCH <span aria-hidden="true">↗</span></Link><small>BẢN THỬ · TÍNH TOÁN TUYẾN ĐƯỜNG ƯỚC LƯỢNG · KHÔNG ĐẶT DỊCH VỤ</small></div>
-    <div className="atlas-home-art" aria-label="Minh họa sơ đồ tuyến đường Việt Nam"><div className="atlas-home-arttop"><span>TỌA ĐỘ / HÀNH TRÌNH</span><span>VIETNAM — 2026</span></div><svg viewBox="0 0 540 600" role="img" aria-label="Minh họa hai điểm Nha Trang và Đà Lạt trên một sơ đồ trừu tượng">
-      <defs><pattern id="paper-grid" width="28" height="28" patternUnits="userSpaceOnUse"><path d="M28 0H0V28" fill="none" stroke="#d1d9d3" strokeWidth="1"/></pattern></defs>
-      <rect width="540" height="600" fill="#e5ede7"/><rect width="540" height="600" fill="url(#paper-grid)" />
-      <path d="M220-30Q410 140 318 272T380 510L290 660" stroke="#b4c7be" strokeWidth="95" fill="none"/>
-      <path d="M220-30Q410 140 318 272T380 510L290 660" stroke="#f7f3e7" strokeWidth="4" strokeDasharray="15 18" fill="none"/>
-      <path d="M-30 427C118 370 147 463 264 386S418 314 578 344" stroke="#b6c9c0" strokeWidth="22" fill="none"/>
-      <path d="M205 210Q307 294 353 392" stroke="#c45b41" strokeWidth="5" strokeDasharray="9 10" strokeLinecap="round" fill="none"/>
-      <circle cx="205" cy="210" r="22" fill="#c45b41" stroke="#fffdf4" strokeWidth="6"/><circle cx="353" cy="392" r="22" fill="#172f3b" stroke="#fffdf4" strokeWidth="6"/>
-      <text x="205" y="217" textAnchor="middle" fontSize="20" fontWeight="800" fill="#fffdf4">1</text><text x="353" y="399" textAnchor="middle" fontSize="20" fontWeight="800" fill="#fffdf4">2</text>
-      <g fill="#172f3b" fontFamily="Arial,sans-serif"><text x="66" y="173" fontSize="14" letterSpacing="2">CAO NGUYÊN</text><text x="61" y="199" fontSize="28" fontWeight="700">ĐÀ LẠT</text><text x="359" y="439" fontSize="14" letterSpacing="2">PHỐ BIỂN</text><text x="359" y="465" fontSize="28" fontWeight="700">NHA TRANG</text></g>
-      <text x="20" y="573" fill="#4f726b" fontSize="11" letterSpacing="3">BẢN ĐỒ Ý NIỆM — KHÔNG ĐÚNG TỈ LỆ</text>
-    </svg><div className="atlas-home-artfoot"><span>Không vội đi thật xa.</span><strong>Đi theo nhịp của mình.</strong></div></div>
-    <div className="atlas-home-vertical" aria-hidden="true">TỪ VỊ TRÍ ĐẾN KỶ NIỆM / 01 — 02</div>
-  </section>
-  <section className="atlas-container atlas-home-places" id="diem-den"><div className="atlas-home-divider"><span>01 / CHỌN THÀNH PHỐ</span><span>GHI LẠI NHỮNG NƠI MUỐN GHÉ</span></div><div className="atlas-home-placesheader"><h2>Hai thành phố.<br/><i>Nhiều ngã rẽ.</i></h2><p>Khởi đầu với hai bộ dữ liệu 30 địa điểm có nguồn. Lịch trình được tính bằng logic riêng; những gì chưa biết sẽ được ghi rõ thay vì đoán.</p></div><div className="atlas-area-list">{areas.map(area=><Link href={`/destinations/${area.slug}`} key={area.slug} className="atlas-area"><span className="atlas-area-index">{area.index}</span><span className="atlas-area-main"><small>{area.tag}</small><strong>{area.name}</strong><em>{area.sub}</em></span><span className="atlas-area-end"><small>{area.code}</small><span aria-hidden="true">↗</span></span></Link>)}</div></section>
-  <section className="atlas-home-last"><div className="atlas-container"><span className="atlas-kicker">DỮ LIỆU PHẢI CÓ NGUỒN GỐC</span><h2>Lịch trình đẹp là lịch trình <i>đi được.</i></h2><p>Đường đi hiện tính gần đúng từ tọa độ, không phải thời gian Google Maps. Bạn sẽ thấy điểm nào chưa xếp được, lý do và phần chi phí còn thiếu.</p><Link href="/plan/new" className="atlas-primary-link">TẠO TUYẾN THỬ →</Link></div></section>
-</>}
+export default function HomePage() {
+  return <>
+    <section className="doc-hero atlas-container" aria-labelledby="doc-hero-title">
+      <div className="doc-hero-copy">
+        <p className="doc-overline">DỌC / THIẾT KẾ HÀNH TRÌNH VIỆT NAM</p>
+        <h1 id="doc-hero-title">Đi đâu,<span>đi cho đáng.</span></h1>
+        <p className="doc-lead">Một chuyến đi đáng nhớ không cần quá nhiều điểm dừng. Bắt đầu bằng nơi bạn muốn đến, rồi để DỌC giúp nối những ý tưởng thành một hành trình có nhịp điệu.</p>
+        <div className="doc-actions"><Link className="doc-button doc-button-primary" href="/plan/new">Bắt đầu vẽ hành trình <span aria-hidden="true">↗</span></Link><Link href="/cau-chuyen" className="doc-textlink">Đọc câu chuyện DỌC</Link></div>
+        <div className="doc-hero-steps" aria-label="Ba bước khám phá"><span><b>01</b> Chọn địa điểm</span><span><b>02</b> Sắp xếp lịch trình</span><span><b>03</b> Đi theo cách của bạn</span></div>
+      </div>
+      <figure className="doc-vietnam-card"><div className="doc-map-head"><span>TỌA ĐỘ / HÀNH TRÌNH</span><span>VIỆT NAM — DỌC</span></div>
+        <Image src="/assets/editorial/vietnam-outline.svg" alt="Bản đồ đường nét Việt Nam, đánh dấu Đà Lạt và Nha Trang" width={550} height={760} unoptimized priority />
+        <figcaption><span>Hai nơi gặp nhau trên một cung đường.</span><strong>Đà Lạt · Nha Trang</strong></figcaption>
+      </figure>
+    </section>
+
+    <div className="atlas-container doc-weather-showcase"><DocWeather city="da-lat" /></div>
+
+    <section className="doc-storyband" aria-labelledby="doc-story-heading"><div className="atlas-container doc-storygrid">
+      <div className="doc-photo-frame"><Image src="/assets/editorial/hills-scenery.webp" width={960} height={560} alt="Minh họa cung đường núi đón ánh bình minh"/><span>01 — Đường dài và những điều nhỏ bé</span></div>
+      <div className="doc-storycopy"><p className="doc-overline">CÂU CHUYỆN THƯƠNG HIỆU</p><h2 id="doc-story-heading">Mỗi chuyến đi,<br/><em>một câu chuyện để kể.</em></h2><p>“Dọc” là những cung đường men theo bờ biển, băng qua cao nguyên và len vào những con phố nhỏ. Với DỌC, điều đáng nhớ không chỉ là nơi đến, mà còn là cách bạn đi qua nơi ấy.</p><blockquote>DỌC theo cung đường.<br/>ĐI theo cách của bạn.</blockquote><Link href="/cau-chuyen" className="doc-textlink">Tìm hiểu về DỌC ↗</Link></div>
+    </div></section>
+
+    <section className="atlas-container doc-features" aria-labelledby="doc-feature-heading"><div className="doc-section-header"><div><p className="doc-overline">MỘT ĐƯỜNG ĐI / NHIỀU ĐIỀU ĐÁNG NHỚ</p><h2 id="doc-feature-heading">Từ ý tưởng đến <em>hành trình.</em></h2></div><p>Tập trung vào chuyến đi của bạn, thay vì dành cả tối chỉ để sắp xếp điểm đến.</p></div>
+      <div className="doc-featuregrid">{benefits.map(item=><Link key={item.number} href={item.href} className={`doc-feature doc-feature-${item.accent}`}><span className="doc-feature-index">CHẶNG {item.number}</span><span className="doc-feature-signet" aria-hidden="true">{item.accent==="compass"?"✧":item.accent==="route"?"⌁":item.accent==="pin"?"⌾":"✎"}</span><h3>{item.title}</h3><p>{item.body}</p><span className="doc-feature-arrow" aria-hidden="true">↗</span></Link>)}</div>
+    </section>
+
+    <section className="doc-discover atlas-container" id="diem-den" aria-labelledby="doc-discover-heading"><div className="doc-section-header"><div><p className="doc-overline">ĐIỂM ĐẾN / CAO NGUYÊN</p><h2 id="doc-discover-heading">Đà Lạt, <em>một chút khác.</em></h2></div><p>Những địa điểm gợi mở để bạn tiếp tục khám phá. Các điểm mới phải được kiểm tra vị trí trước khi đưa vào lịch trình.</p></div>
+      <div className="doc-placegrid">{docDaLatPlaces.slice(0,6).map((place,index)=><article key={place.slug} className="doc-placecard"><div className="doc-place-art"><span>{String(index+1).padStart(2,"0")}</span><span aria-hidden="true">{place.icon}</span></div><div className="doc-place-inner"><p className="doc-place-kind">{place.categoryLabel}</p><h3>{place.name}</h3><p>{place.teaser}</p><span className="doc-place-source">Cần xác nhận tọa độ và tình trạng hoạt động</span></div></article>)}</div>
+      <div className="doc-actions doc-discover-actions"><Link className="doc-button doc-button-primary" href="/cam-hung/da-lat">Khám phá danh sách mở rộng ↗</Link><Link className="doc-textlink" href="/destinations/da-lat">Xem danh mục có tọa độ nguồn</Link><Link className="doc-textlink" href="/destinations/nha-trang">Khám phá Nha Trang</Link></div>
+    </section>
+
+    <section className="doc-ending"><div className="atlas-container doc-ending-grid"><div><p className="doc-overline">NHỮNG CUNG ĐƯỜNG ĐƯỢC VIẾT TIẾP</p><h2>Đi theo nhịp của mình.</h2><p>Có người chọn bình minh giữa đồi thông. Có người muốn ngồi cả chiều trong một quán cà phê. DỌC không định nghĩa chuyến đi hoàn hảo thay bạn.</p></div><div className="doc-ending-actions"><Link href="/plan/new" className="doc-button doc-button-primary">Bắt đầu hành trình ↗</Link><Link href="/contribute" className="doc-textlink">Chia sẻ một địa điểm mới</Link></div></div></section>
+  </>;
+}

@@ -8,6 +8,6 @@ export default defineConfig({
   // Real Auth cookies must never be embedded in public traces/videos/screenshots.
   use: { baseURL: "http://127.0.0.1:3397", channel: "chrome", trace: "off", video: "off", screenshot: "off" },
   webServer: { command: "node node_modules/next/dist/bin/next start --hostname 127.0.0.1 --port 3397", url: "http://127.0.0.1:3397", reuseExistingServer: false, timeout: 30000,
-    env: { CLOUD_ENABLED: "true", DEPLOYMENT_ENV: "local", NEXT_PUBLIC_SUPABASE_URL: url, NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY: key, BRAVE_ENABLED: "false", GROQ_ENABLED: "false", GROQ_MODEL: "", GOOGLE_MAPS_LIVE_ENABLED: "false", NEXT_TELEMETRY_DISABLED: "1" } },
+    env: { CLOUD_ENABLED: "true", DOC_WEATHER_ENABLED: "false", DEPLOYMENT_ENV: "local", NEXT_PUBLIC_SUPABASE_URL: url, NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY: key, BRAVE_ENABLED: "false", GROQ_ENABLED: "false", GROQ_MODEL: "", GOOGLE_MAPS_LIVE_ENABLED: "false", NEXT_TELEMETRY_DISABLED: "1" } },
   projects: [{ name: "desktop", use: { viewport: { width: 1440, height: 1000 } } }, { name: "mobile", use: { viewport: { width: 360, height: 800 }, isMobile: true, hasTouch: true } }],
 });

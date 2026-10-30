@@ -7,7 +7,7 @@ test("planner really schedules selected places instead of returning intake-only 
  await page.getByLabel("Tổng ngân sách").fill("12000000");
  await page.locator('[aria-label="Chọn điểm ghé"] button').filter({hasText:"Chợ Đà Lạt"}).first().click();
  await page.getByRole("button",{name:/XẾP LỊCH TRÌNH/}).click();
- await expect(page.getByRole("status")).toContainText("Đã lập lịch thử");
+ await expect(page.locator(".atlas-result-note")).toContainText("Đã lập lịch thử");
  await expect(page.getByRole("tab",{name:/NGÀY 1/})).toBeVisible();
  await expect(page.getByRole("button",{name:"TẢI BẢN NHÁP JSON"})).toBeVisible();
 });

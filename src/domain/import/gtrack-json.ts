@@ -31,7 +31,7 @@ export function inferGTrackCategory(raw: readonly string[]): PlaceCategory | nul
     if (/khach san|hotel|lodging|homestay|resort|nha nghi|hostel|motel|villa/.test(value)) return "lodging";
     if (/ca phe|cafe|coffee|tra sua|bakery|tiem banh/.test(value)) return "cafe";
     if (/nha hang|restaurant|quan an|am thuc|food|eatery|street food/.test(value)) return "food";
-    if (/danh lam|di tich|bao tang|museum|temple|historic|landmark|kien truc/.test(value)) return "landmarks";
+    if (/danh lam|danh thang|di tich|bao tang|museum|temple|historic|landmark|kien truc/.test(value)) return "landmarks";
     if (/thien nhien|thac|ho nuoc|rung|nature|forest|waterfall|beach|bien/.test(value)) return "nature";
     if (/trek|camp|outdoor|di bo duong dai|kayak/.test(value)) return "outdoor";
     if (/viewpoint|ngam canh|san may|check in|view point/.test(value)) return "viewpoint";

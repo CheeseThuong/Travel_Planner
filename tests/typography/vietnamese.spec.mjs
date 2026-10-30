@@ -1,5 +1,5 @@
 import {test,expect} from "@playwright/test";
-const routes=[["/","home"],["/destinations/nha-trang","nha-trang"],["/destinations/da-lat","da-lat"],["/plan/new","workbench"],["/contribute","contribute"],["/trips/local","trip-shell"],["/privacy","privacy"],["/terms","terms"],["/open","open"],["/shared","shared"]];
+const routes=[["/","home"],["/destinations/nha-trang","nha-trang"],["/destinations/da-lat","da-lat"],["/plan/new","workbench"],["/contribute","contribute"],["/trips/local","trip-shell"],["/privacy","privacy"],["/terms","terms"],["/open","open"],["/shared","shared"],["/plans","plans"],["/cam-hung/da-lat","inspiration"],["/cau-chuyen","story"]];
 const prefix=process.env.TYPOGRAPHY_EVIDENCE_PREFIX??"ATLAS-V2";
 const sample="Đường đi đẹp, Nha Trang, Đà Lạt. Dấu hỏi, dấu ngã, chữ ă â ê ô ơ ư và tiếng Việt không bị tách nét.";
 

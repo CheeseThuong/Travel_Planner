@@ -2,6 +2,7 @@
 
 import { useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import type { CatalogPlace } from "@/domain/catalog";
 import { filterCatalogDiscovery, legacySummaryDiscovery } from "@/domain/catalog";
 import { discoveryPreferences, type DiscoveryPreferences } from "@/domain/discovery/recommendations";
@@ -16,7 +17,12 @@ import { summarizeTripBudget } from "@/domain/budget";
 import { ApproximateRoutingProvider } from "@/adapters/routing/approximate";
 import { routingInputForDraft, type EngineCandidate } from "@/domain/planning/engine";
 import { validateManualPlan, type ManualConflict } from "@/domain/planning/manual";
+import { DocWeather } from "./doc-weather";
 import { RouteSketch } from "./route-sketch";
+import { DocLodgingInput } from "./doc-lodging-input";
+import { DocCommunityPicker } from "./doc-community-picker";
+import { saveLocalPlan } from "@/lib/doc/local-vault";
+import { generatePlanCode, validatedSavedPlan } from "@/lib/doc/saved-plan";
 import { PlaceImport, type ManualPlaceInput } from "./place-import";
 import { DiscoveryFilters } from "./discovery-filters";
 import { PlaceDetails } from "./place-details";
@@ -60,6 +66,7 @@ export function TravelWorkbench({ initialDestination, catalogs, localDraftId }: 
   localDraftId: string;
 }>) {
   const online=useOnline();
+  const router=useRouter();
   const [destination, setDestination] = useState<DestinationSlug>(initialDestination);
   const [startDate, setStartDate] = useState("");
   const [endDate, setEndDate] = useState("");
@@ -73,6 +80,8 @@ export function TravelWorkbench({ initialDestination, catalogs, localDraftId }: 
   const [baseLabel, setBaseLabel] = useState(centers[initialDestination].label);
   const [baseLat, setBaseLat] = useState(String(centers[initialDestination].lat));
   const [baseLng, setBaseLng] = useState(String(centers[initialDestination].lng));
+  const [baseTemporary, setBaseTemporary] = useState(true);
+  const [lodgingCost, setLodgingCost] = useState(0);
   const [selectedIds, setSelectedIds] = useState<string[]>([]);
   const [manualPlaces, setManualPlaces] = useState<Array<ManualPlaceInput & {id:string}>>([]);
   const [requiredIds, setRequiredIds] = useState<string[]>([]);
@@ -115,9 +124,9 @@ export function TravelWorkbench({ initialDestination, catalogs, localDraftId }: 
     title:`Lịch trình ${destination === "da-lat" ? "Đà Lạt":"Nha Trang"}`,
     timezone:"Asia/Ho_Chi_Minh",start_date:startDate,end_date:endDate,
     arrival_local_time:arrival,departure_local_time:departure,
-    base_location:{label:baseLabel.trim(),lat:baseLat.trim()?Number(baseLat):NaN,lng:baseLng.trim()?Number(baseLng):NaN,temporary:true},
+    base_location:{label:baseLabel.trim(),lat:baseLat.trim()?Number(baseLat):NaN,lng:baseLng.trim()?Number(baseLng):NaN,temporary:baseTemporary},
     transport_mode:transport,pace,party_size:partySize,planning_mode:mode,
-    budget:{currency:"VND",total_vnd:budget,known_costs_vnd:{lodging:0,transport:0,meals:0,other:0}},
+    budget:{currency:"VND",total_vnd:budget,known_costs_vnd:{lodging:lodgingCost,transport:0,meals:0,other:0}},
     preferences:{day_start:"08:00",day_end:"21:00",lunch_buffer_minutes:60,rest_buffer_minutes:15,return_to_base:true},stops:selected,
   };
   const budgetStops=preview?.mode==="assisted"?preview.hybrid.candidate_draft.stops:selected;
@@ -128,7 +137,7 @@ export function TravelWorkbench({ initialDestination, catalogs, localDraftId }: 
   function changeDestination(next:DestinationSlug) {
     if(next===destination)return;
     if((selectedIds.length || preview) && !window.confirm("Đổi điểm đến sẽ xóa các điểm đã chọn và bản lịch trình hiện tại. Bạn muốn tiếp tục?"))return;
-    setDestination(next);setBaseLabel(centers[next].label);setBaseLat(String(centers[next].lat));setBaseLng(String(centers[next].lng));
+    setDestination(next);setBaseLabel(centers[next].label);setBaseLat(String(centers[next].lat));setBaseLng(String(centers[next].lng));setBaseTemporary(true);setLodgingCost(0);
     setSelectedIds([]);setManualPlaces([]);setRequiredIds([]);setAssignments({});setQuery("");setCategory("all");setZone("all");setDetailsPlace(null);setDiscoveryPrefs(previous=>({...previous,excluded_place_ids:[]}));clearPreview();
   }
   function choose(id:string) {
@@ -195,6 +204,19 @@ export function TravelWorkbench({ initialDestination, catalogs, localDraftId }: 
     setSelectedIds(ids=>[...ids,...additions.map(place=>place.id)]);setRequiredIds(ids=>[...new Set([...ids,...additions.filter(place=>required.has(place.id)).map(place=>place.id)])]);
     clearPreview();setNotice(`Đã xác nhận thêm ${additions.length} gợi ý. Xếp lịch lại để xem bản mới.`);
   }
+  async function docConfirmAndSave() {
+    if (!preview) return;
+    if (preview.mode === "manual" && !preview.result.valid) { setErrors(["Hãy sửa các xung đột trước khi xác nhận lưu."]); return; }
+    if (preview.mode === "assisted" && (preview.result.unfulfilled_required.length > 0 || preview.hybrid.suggested_places.length > 0)) { setErrors(["Hãy xác nhận các điểm gợi ý và xếp lại lịch; tất cả điểm bắt buộc phải có trong lịch trước khi lưu."]); return; }
+    if (!window.confirm("Lưu bản lịch trình dự kiến trên THIẾT BỊ NÀY? Đây không phải đơn đặt chỗ hoặc thời gian đi lại Google Maps.")) return;
+    try {
+      const content = validatedSavedPlan({ schemaVersion:1, code:generatePlanCode(), createdAt:new Date().toISOString(),
+        draft, days:scheduledDays.map(item=>({date:item.date,stops:item.stops.map(stop=>({id:stop.id,start:stop.start,end:stop.end,travel:stop.travel})),...(item.returnTime?{returnTime:item.returnTime}:{})})),
+        warnings:["Khoảng thời gian đi lại chỉ là ước lượng, không phải Google Maps ETA.","Giờ mở cửa và chi phí chưa được xác minh.", ...(preview.mode==="assisted"?preview.result.warnings:[])],
+        status:"confirmed_preview" });
+      await saveLocalPlan(content); try{sessionStorage.setItem("doc-last-created-code",content.code);}catch{window.prompt("Lưu mã kế hoạch này để mở lại:",content.code);} router.push("/plans");
+    } catch(error) { setErrors([error instanceof Error?error.message:"Không lưu được bản kế hoạch trên trình duyệt này."]); }
+  }
   function exportJson() {
     if(!preview)return;
     const data={preview_only:true,exported_at:new Date().toISOString(),assumptions:["Approximate straight-line routing, not road ETA","Opening hours and entry prices are unverified","Departure location uses an approximate temporary reference"],draft,discovery_preferences:preferenceInput(),preview};
@@ -224,6 +246,8 @@ export function TravelWorkbench({ initialDestination, catalogs, localDraftId }: 
           <div className="atlas-pace" role="group" aria-label="Nhịp chuyến đi"><span>NHỊP ĐI</span>{([{value:"relaxed",label:"Thong thả"},{value:"balanced",label:"Vừa đủ"},{value:"active",label:"Đi nhiều"}] as const).map(option=><button type="button" key={option.value} aria-pressed={pace===option.value} className={pace===option.value?"active":""} onClick={()=>{setPace(option.value);clearPreview();}}>{option.label}</button>)}</div>
           <PlanningPreferences value={discoveryPrefs} onChange={setDiscoveryPrefs} useAi={useAi} useProvider={useProvider} onAi={setUseAi} onProvider={setUseProvider}/>
           <details className="atlas-details"><summary>Giờ đến/đi & phương tiện</summary><p>Mặc định đến lúc 10:00, rời lúc 17:00 và đi xe máy; đổi khi bạn đã có giờ thực tế.</p><div className="atlas-fields"><label>Đến lúc<input aria-label="Giờ đến" type="time" value={arrival} onChange={e=>setArrival(e.target.value)}/></label><label>Rời lúc<input aria-label="Giờ rời đi" type="time" value={departure} onChange={e=>setDeparture(e.target.value)}/></label><label>Phương tiện<select aria-label="Phương tiện" value={transport} onChange={e=>setTransport(e.target.value as TransportMode)}><option value="motorbike">Xe máy</option><option value="drive">Ô tô</option><option value="walk">Đi bộ</option></select></label></div></details>
+          <DocLodgingInput destination={destination} onChoose={hotel=>{setBaseLabel(hotel.title);setBaseLat(String(hotel.lat));setBaseLng(String(hotel.lng));setBaseTemporary(false);clearPreview();setNotice("Đã dùng chỗ ở làm điểm xuất phát. Hãy tự xác minh lối vào.");}}/>
+          <label className="atlas-search">Dự kiến chi phí chỗ ở cho cả nhóm (VND)<input type="number" min="0" max="1000000000000" value={lodgingCost} onChange={e=>{setLodgingCost(e.target.valueAsNumber);clearPreview();}}/></label>
           <details className="atlas-details"><summary>Chỉnh điểm xuất phát (nâng cao)</summary><p>Đang dùng tọa độ trung tâm thành phố làm điểm xuất phát tạm. Nếu ở khách sạn khác, hãy thay bằng tọa độ thực tế.</p><div className="atlas-fields"><label>Tên điểm xuất phát<input aria-label="Tên nơi lưu trú hoặc điểm gốc" value={baseLabel} onChange={e=>setBaseLabel(e.target.value)}/></label><label>Vĩ độ<input aria-label="Vĩ độ điểm gốc" value={baseLat} onChange={e=>setBaseLat(e.target.value)}/></label><label>Kinh độ<input aria-label="Kinh độ điểm gốc" value={baseLng} onChange={e=>setBaseLng(e.target.value)}/></label></div></details>
         </section>
         <section className="atlas-panel" aria-labelledby="places-heading"><div className="atlas-section-title"><span>02 / BẠN MUỐN GHÉ ĐÂU?</span><h2 id="places-heading">Gom các điểm dừng</h2><p>Chọn tối đa 30 điểm. Chưa có giờ mở cửa, vé vào cổng hoặc dữ liệu đường đi được xác minh.</p></div>
@@ -234,6 +258,7 @@ export function TravelWorkbench({ initialDestination, catalogs, localDraftId }: 
           {visiblePlaces.length===0&&<div className="atlas-empty">Chưa có địa điểm khớp từ khóa. Thử tìm ngắn hơn nhé.</div>}
           <div className="atlas-selected"><h3>Điểm trong túi <span>{selected.length}/30</span></h3>{selected.length?<ol aria-label="Các điểm đã thêm">{selected.map((stop,i)=><li key={stop.id}><span className="atlas-queue-no">{i+1}</span><strong>{stop.user_title}</strong><label className="atlas-required"><input type="checkbox" aria-label={`Bắt buộc ${stop.user_title}`} checked={requiredIds.includes(stop.id)} onChange={e=>{setRequiredIds(list=>e.target.checked?[...list,stop.id]:list.filter(id=>id!==stop.id));clearPreview();}}/>Phải ghé</label><button type="button" aria-label={`Bỏ ${stop.user_title}`} onClick={()=>choose(stop.id)}>Bỏ</button></li>)}</ol>:<p>Chưa chọn điểm ghé. Bắt đầu với hai hoặc ba nơi bạn thực sự muốn đến.</p>}</div>
           <details ref={importPanel} className="atlas-details atlas-import"><summary>Thêm điểm từ Google Maps / nhập tay</summary><PlaceImport key={destination} destination={destination} online={online} onEditorial={addCatalog} onManual={addManual}/></details>
+          <DocCommunityPicker key={destination} destination={destination} onAdd={addManual}/>
           <Link href={`/contribute?destination=${destination}`} className="mt-4 inline-flex min-h-11 items-center underline">Đóng góp địa điểm cho cộng đồng</Link>
         </section>
         <section className="atlas-panel" aria-labelledby="plan-heading"><div className="atlas-section-title"><span>03 / XẾP TUYẾN</span><h2 id="plan-heading">Bạn muốn đi theo cách nào?</h2></div>
@@ -250,10 +275,12 @@ export function TravelWorkbench({ initialDestination, catalogs, localDraftId }: 
             {preview.mode==="assisted"&&<div className="atlas-unscheduled"><h3>Điểm chưa xếp được <span>{preview.unscheduled.length}</span></h3>{preview.unscheduled.length?<ul>{preview.unscheduled.map(stop=><li key={stop.stop_id}><strong>{displayStops.find(s=>s.id===stop.stop_id)?.user_title??stop.stop_id}</strong> — {stop.message==="MANUAL_TRANSFER_REQUIRED" ? conflictLabels.MANUAL_TRANSFER_REQUIRED : unscheduledLabels[stop.reason]??stop.reason}</li>)}</ul>:<p>Mọi điểm đã chọn đều có mặt trong bản thử.</p>}{preview.result.unfulfilled_required.length>0&&<p className="atlas-warning">Có điểm “phải ghé” chưa sắp xếp được. Lịch này chưa đạt yêu cầu.</p>}</div>}
             {preview.mode==="manual"&&<div className="atlas-unscheduled"><h3>Kiểm tra xung đột</h3>{preview.result.conflicts.length?<ul>{preview.result.conflicts.map((conflict,i)=><li key={`${conflict.stop_id}-${i}`}><strong>{selected.find(s=>s.id===conflict.stop_id)?.user_title??conflict.stop_id}</strong> — {conflictLabels[conflict.code]}</li>)}</ul>:<p>Chưa phát hiện xung đột trong các điểm đã được gán giờ.</p>}{preview.result.unscheduled.length>0&&<p>{preview.result.unscheduled.length} điểm chưa gán ngày/giờ và sẽ không tự động được thêm.</p>}</div>}
             <div className="atlas-export"><button type="button" onClick={exportJson}>TẢI BẢN NHÁP JSON</button><p>Chỉ tải trên máy, không lưu vào tài khoản hay chia sẻ công khai.</p></div>
+            <div className="doc-saved-confirm"><button type="button" onClick={()=>void docConfirmAndSave()}>XÁC NHẬN & LƯU KẾ HOẠCH ↗</button><p>Kế hoạch sau xác nhận sẽ hiện trong “Kế hoạch đã lưu”. Có thể đồng bộ máy chủ sau nếu bạn chủ động chọn.</p></div>
           </div>}
         </section>
       </div>
       <aside className="atlas-rail"><div className="atlas-rail-top"><span>THÔNG TIN TUYẾN / {destination==="da-lat"?"ĐÀ LẠT":"NHA TRANG"}</span><strong>{selected.length.toString().padStart(2,"0")}<small> điểm đã chọn</small></strong><div><span>{dayDates.length||"—"} ngày</span><span>{paceStops[pace]} điểm/ngày (gợi ý)</span></div></div>
+        <DocWeather city={destination} compact />
         <RouteSketch base={draft.base_location} points={preview?routePoints:selected.slice(0,7).map(item=>({id:item.id,name:item.user_title,location:item.location}))}/>
         <div className="atlas-budget"><span>QUỸ DỰ KIẾN</span><strong>{budget===null?"Chưa nhập ngân sách":Number.isSafeInteger(budget)&&budget>=0?formatMoney(budget):"Chưa hợp lệ"}</strong><p>{budgetSummary ? budgetSummary.available_per_person_day_vnd===null?"Chưa có ngân sách để chia cho từng ngày.":`${formatMoney(budgetSummary.available_per_person_day_vnd)} mỗi người / ngày nếu chia đều toàn bộ ngân sách.` : "Nhập ngày và số người để xem mức chia ngân sách."}</p><p className="atlas-caveat">Chưa trừ vé, ăn uống, chỗ ở, di chuyển và {budgetStops.length} điểm có chi phí chưa biết. Không phải giá tour.</p></div>
         <div className="atlas-rail-foot">TỌA ĐỘ ĐIỂM GỐC: {baseLat}, {baseLng}<p>Điểm xuất phát tạm. Khoảng thời gian đi lại sử dụng ước lượng đường chim bay, không phải ETA điều hướng.</p></div>

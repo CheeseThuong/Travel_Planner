@@ -19,7 +19,7 @@ for(const count of [1,2])test(`${count} selected places and required flags survi
   await expect(queue(page).getByRole("listitem")).toHaveCount(count);await expect(page.getByLabel("Bắt buộc Chợ Đà Lạt")).toBeChecked();await expect(page.getByRole("region",{name:"Các điểm gợi ý"})).toBeVisible();
 });
 test("honest empty interests pool can be widened without inventing food places",async({page})=>{
-  await basics(page);await page.getByLabel("Sở thích Ăn uống địa phương").check();await generate(page);await expect(page.getByRole("status")).toContainText("Chưa có điểm độc lập");await expect(page.getByRole("region",{name:"Các điểm gợi ý"})).toHaveCount(0);
+  await basics(page);await page.getByLabel("Sở thích Ăn uống địa phương").check();await generate(page);await expect(page.locator(".atlas-result-note")).toContainText("Chưa có điểm độc lập");await expect(page.getByRole("region",{name:"Các điểm gợi ý"})).toHaveCount(0);
   await page.getByRole("button",{name:"Xóa lọc gợi ý"}).click();await expect(page.getByLabel("Sở thích Ăn uống địa phương")).not.toBeChecked();await generate(page);await expect(page.getByRole("region",{name:"Các điểm gợi ý"})).toBeVisible();
 });
 test("HTTP validation failure keeps prior candidate; server failure falls back once without losing selected/required input",async({page})=>{
@@ -28,7 +28,7 @@ test("HTTP validation failure keeps prior candidate; server failure falls back o
   await page.route("**/api/v1/plans/preview",route=>route.fulfill({status:422,contentType:"application/json",body:'{"error":{"message":"Kiểm tra điểm khóa, giữ nguyên bản thử trước."}}'}));await generate(page);
   await expect(page.getByRole("region",{name:"Bạn muốn đi theo cách nào?"}).getByRole("alert")).toContainText("giữ nguyên bản thử trước");await expect(tabs).toHaveText(before);await expect(page.getByLabel("Bắt buộc Chợ Đà Lạt")).toBeChecked();
   await page.unroute("**/api/v1/plans/preview");let calls=0;await page.route("**/api/v1/plans/preview",route=>{calls++;return route.fulfill({status:503,contentType:"application/json",body:'{"error":{"message":"fixture unavailable"}}'});});await generate(page);
-  await expect(page.getByRole("status")).toContainText("thuật toán trên máy");expect(calls).toBe(1);await expect(queue(page).getByRole("listitem")).toHaveCount(1);await expect(page.getByLabel("Bắt buộc Chợ Đà Lạt")).toBeChecked();
+  await expect(page.locator(".atlas-result-note")).toContainText("thuật toán trên máy");expect(calls).toBe(1);await expect(queue(page).getByRole("listitem")).toHaveCount(1);await expect(page.getByLabel("Bắt buộc Chợ Đà Lạt")).toBeChecked();
 });
 test("offline zero-selection generation uses source-complete local catalog and no preview request",async({page,context})=>{
   await basics(page);let calls=0;page.on("request",request=>{if(request.url().endsWith("/api/v1/plans/preview"))calls++;});await context.setOffline(true);await generate(page);

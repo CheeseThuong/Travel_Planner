@@ -32,3 +32,15 @@
 /* Official DỌC raster-traced vector identity; responsive across header and footer. */
 .atlas-brand-logo{display:block;width:clamp(116px,11vw,146px);height:auto;object-fit:contain}
 .atlas-brand-footer{display:block;width:146px;max-width:100%;height:auto;object-fit:contain}
+
+/* DỌC brand identity: modern, accessible travel editorial layout. */
+:root{--atlas-ink:#183a3a;--atlas-rust:#d56a4f;--atlas-paper:#fbf6ed;--atlas-wash:#eaf1ec}
+.atlas-brand-logo{display:block;width:clamp(110px,11vw,145px);height:auto;object-fit:contain}
+.atlas-brand-footer{display:block;width:146px;max-width:100%;height:auto;object-fit:contain}
+.atlas-nav-contribute{border-bottom:1px solid currentColor;padding-block:.45rem}
+.atlas-contribute-steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.75rem;margin:1rem 0 1.5rem;padding:0;list-style:none}
+.atlas-contribute-steps li{border:1px solid var(--atlas-line);background:var(--atlas-white);padding:1rem;border-radius:1rem;font-size:.8rem;line-height:1.6}
+.atlas-contribute-steps strong{display:block;color:var(--atlas-ink)}
+.atlas-contribute-steps .done{border-color:#7fa19a;background:#f1f8f2}
+.atlas-form-note{font-size:.8rem;color:var(--atlas-muted);line-height:1.7}
+@media(max-width:720px){.atlas-contribute-steps{grid-template-columns:1fr}.atlas-nav-contribute{display:none}}

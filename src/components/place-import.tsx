@@ -35,6 +35,7 @@ export function PlaceImport({ destination, online, onEditorial, onManual }: Read
   const [gTrackFeedback, setGTrackFeedback] = useState("");
   const pending = useRef<AbortController | null>(null);
   useEffect(() => () => { const controller = pending.current; pending.current = null; controller?.abort(); }, []);
+  useEffect(() => { const receive=(event:Event)=>{const raw=(event as CustomEvent<string>).detail;if(typeof raw==="string"&&raw.length<=32768){setGTrackJson(raw);setGTrackPreview(null);setGTrackFeedback("Đã nhận JSON; nhấn Phân tích JSON gTrack để xem trước.");}};window.addEventListener("doc:gtrack-select",receive);return ()=>window.removeEventListener("doc:gtrack-select",receive);}, []);
 
   async function resolve(mode: "url" | "name") {
     pending.current?.abort();

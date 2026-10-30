@@ -20,7 +20,7 @@ export async function withApi(request: Request, operation: (id: string) => Promi
     return Response.json({ error: { code: safe.code, message: safe.message, details: safe.details }, meta: { request_id: id } }, { status: safe.status, headers: { "x-request-id": id, "cache-control": "no-store" } });
   }
 }
-export async function readJson<T>(request: Request, schema: z.ZodType<T>, limit = 65536): Promise<T> {
+export async function readJson<T>(request: Pick<Request, "body">, schema: z.ZodType<T>, limit = 65536): Promise<T> {
   const reader = request.body?.getReader();
   if (!reader) throw new ApiError(400, "VALIDATION_ERROR", "Cần nội dung JSON.");
   const chunks: Uint8Array[] = []; let size = 0;

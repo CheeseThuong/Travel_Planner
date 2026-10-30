@@ -7,6 +7,8 @@
 
 ## Task tracker rules
 
+Current corrective task2026-10-30: **R-HYDRATION-20261030 IN_PROGRESS**, per latest user attachment. Fresh HEAD31242c4 and new uncommitted DOC Vault/editorial/gTrack changes are preserved; old99d6a29 evidence remains historical. Reproduced1 lint error/3 warnings; scope, rollback, installation/hydration checks in [report](reports/R-HYDRATION-20261030.md). UX01-01B remains pending final verification; no G5–G8 approval inferred from added vault code.
+
 2026-10-28 recovery: **P03-BASELINE DONE**, corrective prerequisite to P03-03. [Plan/evidence](reports/AUDIT-BASELINE-20261028.md), [audit](../AUDIT.md). Its local suite passed; missing browsers resolved using existing `.tools/browsers`. P03-02's inaccurate-draft acceptance conflict was subsequently resolved by697a06d; G3 now PASS per the final review above. Historical G0/G1/G2 approvals are retained, not fresh DB/CI tests.
 
 For each checked item, add a line to **Evidence log** with: task ID, commit hash/PR, commands and exit codes, associated acceptance tests, date and outstanding defects. Dependencies must be closed before work begins unless marked `PARALLEL-OK` and the phase gate discipline is preserved.

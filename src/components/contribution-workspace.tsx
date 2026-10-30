@@ -40,6 +40,8 @@ function ContributionPanel({ destination, enabled }: Readonly<{ destination: Des
   const [offset, setOffset] = useState(0), [publicOffset, setPublicOffset] = useState(0);
   const [notes, setNotes] = useState<Record<string, string>>({}), [busy, setBusy] = useState(false), [message, setMessage] = useState(""), [error, setError] = useState("");
   const attempt = useRef<{ body: string; key: string } | null>(null);
+  const contributionReady = Boolean(session && online && enabled && point && description.trim() && rights && !busy);
+  const formProgress = [Boolean(point), Boolean(description.trim()), Boolean(rights)];
   useEffect(() => {
     if (!enabled) return;
     const abort = new AbortController();
@@ -58,14 +60,27 @@ function ContributionPanel({ destination, enabled }: Readonly<{ destination: Des
     catch (failure) { if (failure instanceof ContributionRequestError && failure.status === 401) setSession(null); setError(failure instanceof Error ? failure.message : "Không thể xử lý lúc này. Nội dung đã nhập vẫn được giữ."); }
     finally { setBusy(false); }
   }
+  function docSaveContributionDraft() {try {
+    if(!point) {setMessage("Chọn vị trí trước khi lưu nháp.");return;}
+    localStorage.setItem("doc-contribution-draft-"+destination,JSON.stringify({point,description,address,category,tags,transfer}));
+    setMessage("Đã lưu bản nháp đóng góp trên trình duyệt này (chưa gửi máy chủ).");
+   } catch {setError("Thiết bị không cho lưu bản nháp. Hãy sao chép nội dung ra nơi an toàn.");}}
+  function docRestoreContributionDraft() {try {
+    const raw=localStorage.getItem("doc-contribution-draft-"+destination);if(!raw){setMessage("Chưa có bản nháp đóng góp trên máy này.");return;}
+    const p=JSON.parse(raw) as {point?:ManualPlaceInput;description?:string;address?:string;category?:PlaceCategory;tags?:string;transfer?:boolean};
+    if(!p.point||typeof p.point.title!=="string"||!p.point.location||!Number.isFinite(p.point.location.lat)||!Number.isFinite(p.point.location.lng))throw Error();
+    setPoint(p.point);setDescription(typeof p.description==="string"?p.description.slice(0,1000):"");setAddress(typeof p.address==="string"?p.address.slice(0,300):"");
+    if(p.category && Object.hasOwn(placeCategories,p.category))setCategory(p.category);
+    setTags(typeof p.tags==="string"?p.tags.slice(0,329):"");setTransfer(Boolean(p.transfer));setRights(false);setMessage("Đã khôi phục bản nháp. Cần xác nhận lại quyền chia sẻ.");
+  }catch {setError("Bản nháp trên trình duyệt không hợp lệ.");}}
   async function submit() {
     const parsed = contributionSchema.safeParse({ destination_slug: destination, title: point?.title, description, address: address.trim() || null, location: point?.location, categories: [category], tags: tags.split(",").map(value => value.trim()).filter(Boolean), suggested_duration_min: point?.duration, transport_constraint: transfer ? "manual_transfer" : "access_unverified", source: "original_user_contribution", rights_confirmed: rights });
-    if (!parsed.success) { setError("Cần xác nhận tên/vị trí, nội dung tự viết và quyền chia sẻ. Tên tối đa 160 ký tự; mô tả 1000; tối đa 10 thẻ khác nhau, mỗi thẻ 32 ký tự."); return; }
+    if (!parsed.success) { const fields = [...new Set(parsed.error.issues.map(issue => String(issue.path[0] ?? "thông tin")))]; setError(`Dữ liệu chưa hợp lệ (${fields.join(", ")}). Kiểm tra tên/vị trí, mô tả tự viết, loại địa điểm, thẻ và quyền chia sẻ trước khi gửi.`); return; }
     const body = JSON.stringify(parsed.data);
     if (attempt.current?.body !== body) attempt.current = { body, key: crypto.randomUUID() };
     const result = await request<{ status: string }>("/api/v1/contributions", parsed.data, attempt.current!.key);
     setMessage(result.status === "duplicate" || result.status === "replayed" ? "Đóng góp này đã được nhận trước đó; không tạo bản trùng." : "Đã gửi đóng góp riêng, đang chờ kiểm duyệt. Chưa công khai.");
-    await load();
+    try { await load(); } catch { setMessage("Máy chủ đã nhận đóng góp, nhưng chưa tải được danh sách. Dùng nút Tải đóng góp của tôi để kiểm tra lại."); }
   }
   async function transition(row: SubmissionSummary, action: string) {
     await request(`/api/v1/contributions/${row.id}`, { expected_version: row.version, action, note: notes[row.id] ?? "" });
@@ -78,14 +93,15 @@ function ContributionPanel({ destination, enabled }: Readonly<{ destination: Des
     <section className="atlas-panel" aria-label="Phiên đóng góp"><h2 className="text-xl">Quyền quản lý đóng góp</h2><p className="my-3">Phiên ẩn danh chỉ thuộc trình duyệt hiện tại, hết hạn sau khoảng một giờ. Đóng trình duyệt hoặc mất thông tin phiên có thể mất quyền quản lý; đây chưa phải tài khoản có thể khôi phục.</p>
       {session ? <p>Phiên đã xác thực{session.moderator ? " · Có quyền kiểm duyệt" : " · Người đóng góp"}.</p> : <button type="button" className={button} disabled={!enabled || !online || busy} onClick={() => void operation(async () => { setSession(await request("/api/v1/contributions/session", {})); setMessage("Đã tạo phiên đóng góp trên trình duyệt này."); })}>Tạo phiên đóng góp</button>}
     </section>
-    <section className="atlas-panel" aria-label="Nội dung đóng góp"><h2 className="text-xl">Chọn vị trí & viết nội dung</h2><p className="my-3">Tìm tên hoặc dán Maps để kiểm tra điểm đã có. Với điểm mới, nhập tên riêng, chọn ghim và xác nhận. Không chép mô tả, đánh giá, giờ mở cửa hoặc giá từ Google/Brave.</p>
+    <section className="atlas-panel" aria-label="Nội dung đóng góp"><h2 className="text-xl">Chọn vị trí & viết nội dung</h2><ol className="atlas-contribute-steps" aria-label="Tiến độ đóng góp"><li className={formProgress[0] ? "done" : ""}><strong>01 / Địa điểm</strong>Dán JSON gTrack hoặc chọn ghim.</li><li className={formProgress[1] ? "done" : ""}><strong>02 / Nội dung</strong>Viết mô tả bằng lời của bạn.</li><li className={formProgress[2] ? "done" : ""}><strong>03 / Xác nhận</strong>Kiểm tra thông tin và quyền chia sẻ.</li></ol><p className="my-3">Tìm tên hoặc dán Maps để kiểm tra điểm đã có. Với điểm mới, nhập tên riêng, chọn ghim và xác nhận. Không chép mô tả, đánh giá, giờ mở cửa hoặc giá từ Google/Brave.</p>
       <PlaceImport destination={destination} online={online} onEditorial={() => "Điểm đã có trong danh mục độc lập. Bạn có thể dùng điểm này khi lập lịch; không cần gửi bản trùng."} onManual={value => { setPoint(value); if (value.address) setAddress(value.address); if (value.category) setCategory(value.category); setMessage("Đã chọn vị trí cho đóng góp. Viết mô tả và xác nhận quyền chia sẻ trước khi gửi."); return "Đã chọn tên/vị trí cho đóng góp; chưa gửi và chưa công khai."; }}/>
       {point && <output aria-label="Vị trí đóng góp" className="my-4 block">{point.title} · {point.location.lat}, {point.location.lng} · {point.duration} phút gợi ý</output>}
       <div className="atlas-fields my-4"><label>Mô tả do bạn tự viết<textarea className={field} maxLength={1000} value={description} onChange={event => setDescription(event.target.value)}/></label><label>Địa chỉ (tùy chọn)<input className={field} maxLength={300} value={address} onChange={event => setAddress(event.target.value)}/></label>
         <label>Nhóm địa điểm<select className={field} value={category} onChange={event => setCategory(event.target.value as PlaceCategory)}>{Object.entries(placeCategories).map(([value, label]) => <option key={value} value={value}>{label}</option>)}</select></label><label>Thẻ, cách nhau bằng dấu phẩy (tùy chọn)<input className={field} maxLength={329} value={tags} onChange={event => setTags(event.target.value)}/></label></div>
       <label className="my-3 flex min-h-11 items-center gap-3"><input type="checkbox" checked={transfer} onChange={event => setTransfer(event.target.checked)}/>Cần trung chuyển riêng (tàu, thuyền…)</label>
       <label className="my-3 flex min-h-11 items-center gap-3"><input type="checkbox" checked={rights} onChange={event => setRights(event.target.checked)}/>Tôi tự viết nội dung, đã kiểm tra ghim và có quyền cho phép công khai đóng góp này.</label>
-      <button type="button" className={button} disabled={!session || !online || busy || !enabled} onClick={() => void operation(submit)}>Gửi đóng góp để kiểm duyệt</button>
+      <p className="atlas-form-note" role="status">{!enabled ? "Chức năng gửi chưa bật trên máy chủ (kiểm tra CLOUD_ENABLED và Supabase)." : !session ? "Bước bắt buộc: tạo phiên đóng góp ở mục Quyền quản lý trước khi gửi." : !point ? "Chưa chọn hoặc xác nhận địa điểm." : !description.trim() ? "Chưa nhập mô tả tự viết." : !rights ? "Cần tích xác nhận quyền chia sẻ." : !online ? "Đang ngoại tuyến; nội dung chưa thể gửi." : "Sẵn sàng gửi để kiểm duyệt. Địa điểm chưa được công khai ngay."}</p><button type="button" className={button} disabled={!contributionReady} onClick={() => void operation(submit)}>Gửi đóng góp để kiểm duyệt</button>
+      <div className="doc-contribution-save"><button type="button" onClick={docSaveContributionDraft}>LƯU NHÁP TRÊN MÁY</button><button type="button" onClick={docRestoreContributionDraft}>KHÔI PHỤC NHÁP</button><p>Nháp chỉ ở trình duyệt này. Địa điểm được người khác nhìn thấy sau khi bạn gửi và người kiểm duyệt chấp thuận.</p></div>
     </section>
     {(error || message) && <section aria-label="Thông báo đóng góp">{error && <p role="alert">{error}</p>}{message && <p role="status">{message}</p>}</section>}
     {session && <section className="atlas-panel" aria-label="Quản lý đóng góp"><h2 className="text-xl">Theo dõi & xử lý</h2><div className="my-4 flex flex-wrap gap-3"><button type="button" className={button} disabled={busy || !online} onClick={() => void operation(async () => { await load("mine",0); setScope("mine"); })}>Tải đóng góp của tôi</button>{session.moderator && <button type="button" className={button} disabled={busy || !online} onClick={() => void operation(async () => { await load("review",0); setScope("review"); })}>Tải hàng đợi kiểm duyệt</button>}</div>

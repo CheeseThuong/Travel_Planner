@@ -17,7 +17,7 @@ test("assisted mode generates a timeline and exposes unscheduled points",async({
  await page.goto("/plan/new?destination=da-lat");await dates(page);
  await choosePlace(page,"Chợ Đà Lạt");
  await page.getByRole("button",{name:/XẾP LỊCH TRÌNH/}).click();
- await expect(page.getByRole("status")).toContainText("Đã lập lịch thử");
+ await expect(page.locator(".atlas-result-note")).toContainText("Đã lập lịch thử");
  await expect(page.getByRole("tab",{name:/NGÀY 1/})).toBeVisible();
  await expect(page.getByRole("heading",{name:/Điểm chưa xếp được/})).toBeVisible();
  await expect(page.getByRole("button",{name:"TẢI BẢN NHÁP JSON"})).toBeVisible();

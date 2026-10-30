@@ -13,7 +13,7 @@ await once(reservation, "listening");
 const port = reservation.address().port;
 await new Promise((done, reject) => reservation.close((error) => error ? reject(error) : done()));
 const child = spawn(process.execPath, [resolve(root, "node_modules/next/dist/bin/next"), "start", "--hostname", "127.0.0.1", "--port", String(port)], {
-  cwd: root, stdio: ["ignore", "pipe", "pipe"], env: { ...process.env, NEXT_TELEMETRY_DISABLED: "1", DEPLOYMENT_ENV: "local", CLOUD_ENABLED: "false", NEXT_PUBLIC_SUPABASE_URL: "", NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY: "", GOOGLE_MAPS_LIVE_ENABLED: "false", BRAVE_ENABLED: "false", GROQ_ENABLED: "false", GROQ_MODEL: "" },
+  cwd: root, stdio: ["ignore", "pipe", "pipe"], env: { ...process.env, NEXT_TELEMETRY_DISABLED: "1", DEPLOYMENT_ENV: "local", CLOUD_ENABLED: "false", DOC_WEATHER_ENABLED: "false", NEXT_PUBLIC_SUPABASE_URL: "", NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY: "", GOOGLE_MAPS_LIVE_ENABLED: "false", BRAVE_ENABLED: "false", GROQ_ENABLED: "false", GROQ_MODEL: "" },
 });
 let output = "";
 child.stdout.on("data", (chunk) => { output += chunk; });
@@ -32,8 +32,9 @@ try {
     ["/destinations/unsupported-city", 404, "KHÔNG TÌM THẤY / 404"],
     ["/plan/new", 200, "Tuyến đường"],
     ["/contribute", 200, "Đóng góp địa điểm"],
-    ["/trips/not-an-owner-credential", 200, "Chưa thể mở chuyến đi"],
-    ["/open", 200, "Mã chia sẻ chưa mở"],
+    ["/plans", 200, "Những chuyến đi"],
+    ["/cam-hung/da-lat", 200, "Đà Lạt không chỉ có"],
+    ["/cau-chuyen", 200, "Mỗi chuyến đi,"],
     ["/shared", 200, "Tuyến chia sẻ chưa sẵn sàng"],
     ["/privacy", 200, "Quyền riêng tư"],
     ["/terms", 200, "Điều khoản đang hoàn thiện"],
@@ -48,10 +49,30 @@ try {
     console.log(`PASS: ${path}: HTTP ${status}, expected content, lang=vi`);
   }
   const requestId = "a6ea84e9-2f58-49d7-87c3-eb5b82ac352e";
+  for (const path of ["/trips/not-an-owner-credential", "/open"]) {
+    const response = await fetch(`http://127.0.0.1:${port}${path}`, { redirect: "manual" });
+    // App Router may commit the streaming shell before a dynamic-page redirect.
+    if (response.status === 307) assert.equal(response.headers.get("location"), "/plans");
+    else {
+      assert.equal(response.status, 200);
+      assert.match(await response.text(), /<meta id="__next-page-redirect" http-equiv="refresh" content="1;url=\/plans"\/>/);
+    }
+    console.log(`PASS: ${path}: HTTP ${response.status}, redirects to vault`);
+  }
   const health = await fetch(`http://127.0.0.1:${port}/api/v1/health`, { headers: { "x-request-id": requestId } });
   assert.equal(health.status, 200); assert.equal(health.headers.get("x-request-id"), requestId);
   assert.deepEqual(await health.json(), { data: { status: "ok" }, meta: { request_id: requestId } });
   console.log("PASS: /api/v1/health: real HTTP status/envelope/UUID, no backend details");
+  const capabilities = await fetch(`http://127.0.0.1:${port}/api/v1/doc-status`, { headers: { "x-request-id": requestId } });
+  assert.equal(capabilities.status, 200); const snapshot = await capabilities.json();
+  assert.equal(snapshot.data.contributions, "disabled"); assert.equal(snapshot.meta.request_id, requestId);
+  console.log("PASS: /api/v1/doc-status: disabled cloud capability, request ID");
+  for (const [query, expected] of [["", 503], ["?city=__proto__", 400]]) {
+    const response = await fetch(`http://127.0.0.1:${port}/api/v1/doc-weather${query}`, { headers: { "x-request-id": requestId } });
+    assert.equal(response.status, expected); assert.equal(response.headers.get("cache-control"), "no-store");
+    assert.equal((await response.json()).meta.request_id, requestId);
+    console.log(`PASS: /api/v1/doc-weather${query}: ${expected}, safe error envelope`);
+  }
   const discovery = await fetch(`http://127.0.0.1:${port}/api/v1/places/search`, { method: "POST", headers: { "content-type": "application/json", "x-request-id": requestId }, body: JSON.stringify({ destination_slug: "da-lat", query: "cho da lat", category: "shopping", use_provider: false }) });
   assert.equal(discovery.status, 200); assert.equal(discovery.headers.get("cache-control"), "no-store");
   const discovered = await discovery.json();

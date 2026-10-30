@@ -1,0 +1,3480 @@
+{
+  "config": {
+    "argv": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "D:\\Projects\\travel_plan\\node_modules\\@playwright\\test\\cli.js",
+      "test",
+      "--config",
+      "playwright.demo.config.mjs"
+    ],
+    "configFile": "D:\\Projects\\travel_plan\\playwright.demo.config.mjs",
+    "rootDir": "D:/Projects/travel_plan/tests/demo",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "D:/Projects/travel_plan/test-results/demo",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "desktop",
+        "name": "desktop",
+        "testDir": "D:/Projects/travel_plan/tests/demo",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "D:/Projects/travel_plan/test-results/demo",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "mobile",
+        "name": "mobile",
+        "testDir": "D:/Projects/travel_plan/tests/demo",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      }
+    ],
+    "filteredProjects": [
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "D:\\Projects\\travel_plan\\test-results\\demo",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "name": "desktop",
+        "testDir": "D:\\Projects\\travel_plan\\tests\\demo",
+        "snapshotDir": "D:\\Projects\\travel_plan\\tests\\demo",
+        "testIgnore": [],
+        "testMatch": "**/*.@(spec|test).?(c|m)[jt]s?(x)",
+        "timeout": 30000,
+        "use": {
+          "baseURL": "http://127.0.0.1:3391",
+          "channel": "chrome",
+          "trace": "retain-on-failure",
+          "launchOptions": {
+            "args": []
+          },
+          "viewport": {
+            "width": 1440,
+            "height": 1000
+          }
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "desktop"
+      },
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "D:\\Projects\\travel_plan\\test-results\\demo",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "name": "mobile",
+        "testDir": "D:\\Projects\\travel_plan\\tests\\demo",
+        "snapshotDir": "D:\\Projects\\travel_plan\\tests\\demo",
+        "testIgnore": [],
+        "testMatch": "**/*.@(spec|test).?(c|m)[jt]s?(x)",
+        "timeout": 30000,
+        "use": {
+          "baseURL": "http://127.0.0.1:3391",
+          "channel": "chrome",
+          "trace": "retain-on-failure",
+          "launchOptions": {
+            "args": []
+          },
+          "viewport": {
+            "width": 360,
+            "height": 800
+          },
+          "isMobile": true,
+          "hasTouch": true
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "mobile"
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "docs/reports/evidence/R-HYDRATION-20261030-browser-results.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "default",
+    "updateSourceMethod": "patch",
+    "version": "1.64.1",
+    "workers": 1,
+    "webServer": {
+      "command": "node node_modules/next/dist/bin/next start --hostname 127.0.0.1 --port 3391",
+      "url": "http://127.0.0.1:3391",
+      "reuseExistingServer": false,
+      "timeout": 30000,
+      "env": {
+        "NEXT_TELEMETRY_DISABLED": "1",
+        "DEPLOYMENT_ENV": "local",
+        "CLOUD_ENABLED": "false",
+        "DOC_WEATHER_ENABLED": "false",
+        "NEXT_PUBLIC_SUPABASE_URL": "",
+        "NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY": "",
+        "GOOGLE_MAPS_LIVE_ENABLED": "false",
+        "BRAVE_ENABLED": "false",
+        "GROQ_ENABLED": "false",
+        "GROQ_MODEL": ""
+      }
+    }
+  },
+  "suites": [
+    {
+      "title": "atlas.spec.mjs",
+      "file": "atlas.spec.mjs",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "atlas home and cities render without overflow",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 889,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-30T07:53:12.041Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "7a833f16b8835a25bd92-6e6a8dc5157b16ac0fe1",
+          "file": "atlas.spec.mjs",
+          "line": 8,
+          "column": 1
+        },
+        {
+          "title": "assisted mode generates a timeline and exposes unscheduled points",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 663,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('status')\nExpected substring: \u001b[32m\"Đã lập lịch thử\"\u001b[39m\nError: strict mode violation: getByRole('status') resolved to 2 elements:\n    1) <p role=\"status\"></p> aka getByRole('region', { name: 'Gom các điểm dừng' }).getByRole('status')\n    2) <p role=\"status\">Chưa có dự báo trực tuyến. Vui lòng kiểm tra lại …</p> aka getByText('Chưa có dự báo trực tuyến.')\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" getByRole('status') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('status')\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('status')\nExpected substring: \u001b[32m\"Đã lập lịch thử\"\u001b[39m\nError: strict mode violation: getByRole('status') resolved to 2 elements:\n    1) <p role=\"status\"></p> aka getByRole('region', { name: 'Gom các điểm dừng' }).getByRole('status')\n    2) <p role=\"status\">Chưa có dự báo trực tuyến. Vui lòng kiểm tra lại …</p> aka getByText('Chưa có dự báo trực tuyến.')\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" getByRole('status') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('status')\u001b[22m\n\n    at D:\\Projects\\travel_plan\\tests\\demo\\atlas.spec.mjs:20:41",
+                    "location": {
+                      "file": "D:\\Projects\\travel_plan\\tests\\demo\\atlas.spec.mjs",
+                      "column": 41,
+                      "line": 20
+                    },
+                    "snippet": "  18 |  await choosePlace(page,\"Chợ Đà Lạt\");\n  19 |  await page.getByRole(\"button\",{name:/XẾP LỊCH TRÌNH/}).click();\n> 20 |  await expect(page.getByRole(\"status\")).toContainText(\"Đã lập lịch thử\");\n     |                                         ^\n  21 |  await expect(page.getByRole(\"tab\",{name:/NGÀY 1/})).toBeVisible();\n  22 |  await expect(page.getByRole(\"heading\",{name:/Điểm chưa xếp được/})).toBeVisible();\n  23 |  await expect(page.getByRole(\"button\",{name:\"TẢI BẢN NHÁP JSON\"})).toBeVisible();"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "D:\\Projects\\travel_plan\\tests\\demo\\atlas.spec.mjs",
+                        "column": 41,
+                        "line": 20
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('status')\nExpected substring: \u001b[32m\"Đã lập lịch thử\"\u001b[39m\nError: strict mode violation: getByRole('status') resolved to 2 elements:\n    1) <p role=\"status\"></p> aka getByRole('region', { name: 'Gom các điểm dừng' }).getByRole('status')\n    2) <p role=\"status\">Chưa có dự báo trực tuyến. Vui lòng kiểm tra lại …</p> aka getByText('Chưa có dự báo trực tuyến.')\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" getByRole('status') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('status')\u001b[22m\n\n\n  18 |  await choosePlace(page,\"Chợ Đà Lạt\");\n  19 |  await page.getByRole(\"button\",{name:/XẾP LỊCH TRÌNH/}).click();\n> 20 |  await expect(page.getByRole(\"status\")).toContainText(\"Đã lập lịch thử\");\n     |                                         ^\n  21 |  await expect(page.getByRole(\"tab\",{name:/NGÀY 1/})).toBeVisible();\n  22 |  await expect(page.getByRole(\"heading\",{name:/Điểm chưa xếp được/})).toBeVisible();\n  23 |  await expect(page.getByRole(\"button\",{name:\"TẢI BẢN NHÁP JSON\"})).toBeVisible();\n    at D:\\Projects\\travel_plan\\tests\\demo\\atlas.spec.mjs:20:41"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-30T07:53:13.179Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "D:\\Projects\\travel_plan\\test-results\\demo\\atlas-assisted-mode-genera-e9af5--exposes-unscheduled-points-desktop\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "D:\\Projects\\travel_plan\\test-results\\demo\\atlas-assisted-mode-genera-e9af5--exposes-unscheduled-points-desktop\\trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "D:\\Projects\\travel_plan\\tests\\demo\\atlas.spec.mjs",
+                    "column": 41,
+                    "line": 20
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "7a833f16b8835a25bd92-74d4f85900b7f1faee31",
+          "file": "atlas.spec.mjs",
+          "line": 16,
+          "column": 1
+        },
+        {
+          "title": "manual mode validates assigned times without overwriting selections",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 756,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-30T07:53:14.351Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "7a833f16b8835a25bd92-f25b32e7a81169f4866d",
+          "file": "atlas.spec.mjs",
+          "line": 25,
+          "column": 1
+        },
+        {
+          "title": "short Maps URL warns and manual entry works",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1511,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-30T07:53:15.259Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "7a833f16b8835a25bd92-f8aa0cccf7cd47ac0d75",
+          "file": "atlas.spec.mjs",
+          "line": 36,
+          "column": 1
+        },
+        {
+          "title": "clean profile has no hydration mismatch and honors reduced motion",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 558,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-30T07:53:16.776Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "7a833f16b8835a25bd92-d86002f4945949d3802b",
+          "file": "atlas.spec.mjs",
+          "line": 46,
+          "column": 1
+        },
+        {
+          "title": "atlas home and cities render without overflow",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": 7,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 702,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-30T07:54:16.804Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "7a833f16b8835a25bd92-2bf36830639c82466b17",
+          "file": "atlas.spec.mjs",
+          "line": 8,
+          "column": 1
+        },
+        {
+          "title": "assisted mode generates a timeline and exposes unscheduled points",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": 7,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 760,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('status')\nExpected substring: \u001b[32m\"Đã lập lịch thử\"\u001b[39m\nError: strict mode violation: getByRole('status') resolved to 3 elements:\n    1) <p role=\"status\"></p> aka getByRole('region', { name: 'Gom các điểm dừng' }).getByRole('status')\n    2) <div role=\"status\" class=\"atlas-result-note\">Đã lập lịch thử bằng dữ liệu tọa độ và thời gian …</div> aka getByText('Đã lập lịch thử bằng dữ liệu')\n    3) <p role=\"status\">Chưa có dự báo trực tuyến. Vui lòng kiểm tra lại …</p> aka getByText('Chưa có dự báo trực tuyến.')\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" getByRole('status') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('status')\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('status')\nExpected substring: \u001b[32m\"Đã lập lịch thử\"\u001b[39m\nError: strict mode violation: getByRole('status') resolved to 3 elements:\n    1) <p role=\"status\"></p> aka getByRole('region', { name: 'Gom các điểm dừng' }).getByRole('status')\n    2) <div role=\"status\" class=\"atlas-result-note\">Đã lập lịch thử bằng dữ liệu tọa độ và thời gian …</div> aka getByText('Đã lập lịch thử bằng dữ liệu')\n    3) <p role=\"status\">Chưa có dự báo trực tuyến. Vui lòng kiểm tra lại …</p> aka getByText('Chưa có dự báo trực tuyến.')\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" getByRole('status') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('status')\u001b[22m\n\n    at D:\\Projects\\travel_plan\\tests\\demo\\atlas.spec.mjs:20:41",
+                    "location": {
+                      "file": "D:\\Projects\\travel_plan\\tests\\demo\\atlas.spec.mjs",
+                      "column": 41,
+                      "line": 20
+                    },
+                    "snippet": "  18 |  await choosePlace(page,\"Chợ Đà Lạt\");\n  19 |  await page.getByRole(\"button\",{name:/XẾP LỊCH TRÌNH/}).click();\n> 20 |  await expect(page.getByRole(\"status\")).toContainText(\"Đã lập lịch thử\");\n     |                                         ^\n  21 |  await expect(page.getByRole(\"tab\",{name:/NGÀY 1/})).toBeVisible();\n  22 |  await expect(page.getByRole(\"heading\",{name:/Điểm chưa xếp được/})).toBeVisible();\n  23 |  await expect(page.getByRole(\"button\",{name:\"TẢI BẢN NHÁP JSON\"})).toBeVisible();"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "D:\\Projects\\travel_plan\\tests\\demo\\atlas.spec.mjs",
+                        "column": 41,
+                        "line": 20
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('status')\nExpected substring: \u001b[32m\"Đã lập lịch thử\"\u001b[39m\nError: strict mode violation: getByRole('status') resolved to 3 elements:\n    1) <p role=\"status\"></p> aka getByRole('region', { name: 'Gom các điểm dừng' }).getByRole('status')\n    2) <div role=\"status\" class=\"atlas-result-note\">Đã lập lịch thử bằng dữ liệu tọa độ và thời gian …</div> aka getByText('Đã lập lịch thử bằng dữ liệu')\n    3) <p role=\"status\">Chưa có dự báo trực tuyến. Vui lòng kiểm tra lại …</p> aka getByText('Chưa có dự báo trực tuyến.')\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" getByRole('status') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('status')\u001b[22m\n\n\n  18 |  await choosePlace(page,\"Chợ Đà Lạt\");\n  19 |  await page.getByRole(\"button\",{name:/XẾP LỊCH TRÌNH/}).click();\n> 20 |  await expect(page.getByRole(\"status\")).toContainText(\"Đã lập lịch thử\");\n     |                                         ^\n  21 |  await expect(page.getByRole(\"tab\",{name:/NGÀY 1/})).toBeVisible();\n  22 |  await expect(page.getByRole(\"heading\",{name:/Điểm chưa xếp được/})).toBeVisible();\n  23 |  await expect(page.getByRole(\"button\",{name:\"TẢI BẢN NHÁP JSON\"})).toBeVisible();\n    at D:\\Projects\\travel_plan\\tests\\demo\\atlas.spec.mjs:20:41"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-30T07:54:17.654Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "D:\\Projects\\travel_plan\\test-results\\demo\\atlas-assisted-mode-genera-e9af5--exposes-unscheduled-points-mobile\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "D:\\Projects\\travel_plan\\test-results\\demo\\atlas-assisted-mode-genera-e9af5--exposes-unscheduled-points-mobile\\trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "D:\\Projects\\travel_plan\\tests\\demo\\atlas.spec.mjs",
+                    "column": 41,
+                    "line": 20
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "7a833f16b8835a25bd92-22e754bf24cc30699305",
+          "file": "atlas.spec.mjs",
+          "line": 16,
+          "column": 1
+        },
+        {
+          "title": "manual mode validates assigned times without overwriting selections",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": 8,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 545,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-30T07:54:18.888Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "7a833f16b8835a25bd92-bf96028cfb8ff454dcc0",
+          "file": "atlas.spec.mjs",
+          "line": 25,
+          "column": 1
+        },
+        {
+          "title": "short Maps URL warns and manual entry works",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": 8,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 547,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-30T07:54:19.584Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "7a833f16b8835a25bd92-9ae18e1c23356f83f905",
+          "file": "atlas.spec.mjs",
+          "line": 36,
+          "column": 1
+        },
+        {
+          "title": "clean profile has no hydration mismatch and honors reduced motion",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": 8,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 400,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-30T07:54:20.141Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "7a833f16b8835a25bd92-8463c211b33673187c87",
+          "file": "atlas.spec.mjs",
+          "line": 46,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "catalog.spec.mjs",
+      "file": "catalog.spec.mjs",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "catalog keeps cities separate and filters deterministically",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 388,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-30T07:53:17.356Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "2f3358616d79b25ef16d-35972d3fcb5fe8981ad7",
+          "file": "catalog.spec.mjs",
+          "line": 2,
+          "column": 1
+        },
+        {
+          "title": "catalog keeps cities separate and filters deterministically",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": 8,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 366,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-30T07:54:20.553Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "2f3358616d79b25ef16d-bb87c75fd7c64c2fbc9e",
+          "file": "catalog.spec.mjs",
+          "line": 2,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "discovery-ui.spec.mjs",
+      "file": "discovery-ui.spec.mjs",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "known island transfer stays required and explicitly unscheduled in the local preview",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 613,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-30T07:53:17.761Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "52420dd9fddc00cb9860-a5a83e2a388a185311d8",
+          "file": "discovery-ui.spec.mjs",
+          "line": 3,
+          "column": 1
+        },
+        {
+          "title": "browsing preserves the candidate, selected order and required flags; cancelling a city change preserves all",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1246,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-30T07:53:18.381Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "52420dd9fddc00cb9860-93a5e8fec9f831dc6c29",
+          "file": "discovery-ui.spec.mjs",
+          "line": 15,
+          "column": 1
+        },
+        {
+          "title": "destination catalog shares ten categories, zones and accessible source details",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 363,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-30T07:53:19.636Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "52420dd9fddc00cb9860-25316548c896eebad7f7",
+          "file": "discovery-ui.spec.mjs",
+          "line": 47,
+          "column": 1
+        },
+        {
+          "title": "category and zone details expose uncertainty and mount a fixed map only on request",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 783,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-30T07:53:20.005Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "52420dd9fddc00cb9860-7ee4f9f369f9bc814cb5",
+          "file": "discovery-ui.spec.mjs",
+          "line": 60,
+          "column": 1
+        },
+        {
+          "title": "known island transfer stays required and explicitly unscheduled in the local preview",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": 8,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 654,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-30T07:54:20.938Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "52420dd9fddc00cb9860-446a312ac35249f21734",
+          "file": "discovery-ui.spec.mjs",
+          "line": 3,
+          "column": 1
+        },
+        {
+          "title": "browsing preserves the candidate, selected order and required flags; cancelling a city change preserves all",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": 8,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2439,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-30T07:54:21.598Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "52420dd9fddc00cb9860-893779905ed72c47b955",
+          "file": "discovery-ui.spec.mjs",
+          "line": 15,
+          "column": 1
+        },
+        {
+          "title": "destination catalog shares ten categories, zones and accessible source details",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": 8,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 346,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-30T07:54:24.042Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "52420dd9fddc00cb9860-ed5dcbd316e09eb795a5",
+          "file": "discovery-ui.spec.mjs",
+          "line": 47,
+          "column": 1
+        },
+        {
+          "title": "category and zone details expose uncertainty and mount a fixed map only on request",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": 8,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 716,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-30T07:54:24.393Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "52420dd9fddc00cb9860-887c49b352e2a3bfe6a6",
+          "file": "discovery-ui.spec.mjs",
+          "line": 60,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "discovery.spec.mjs",
+      "file": "discovery.spec.mjs",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "public discovery route pages the real city catalog with explicit unknowns and source",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 80,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-30T07:53:20.811Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "25ca1b75eaee441265d9-af0e4fca559a4b404bec",
+          "file": "discovery.spec.mjs",
+          "line": 3,
+          "column": 1
+        },
+        {
+          "title": "public discovery route pages the real city catalog with explicit unknowns and source",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": 8,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 54,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-30T07:54:25.127Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "25ca1b75eaee441265d9-f035cf4ece10234d69ca",
+          "file": "discovery.spec.mjs",
+          "line": 3,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "doc-studio.spec.mjs",
+      "file": "doc-studio.spec.mjs",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "clean browser hydrates Studio and vault routes without extension markers or React errors",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 6,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 725,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-30T07:54:13.507Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "679da5c85d1946e60e3e-8ed9ebadac72cb835702",
+          "file": "doc-studio.spec.mjs",
+          "line": 5,
+          "column": 1
+        },
+        {
+          "title": "saving confirms a real IndexedDB transaction, navigates without reload and hands off the code once",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 6,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 632,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-30T07:54:14.381Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "679da5c85d1946e60e3e-3f7fbb0da0336ea0da7b",
+          "file": "doc-studio.spec.mjs",
+          "line": 16,
+          "column": 1
+        },
+        {
+          "title": "blocked session storage and IndexedDB show the file fallback without crashing",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 6,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 254,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-30T07:54:15.020Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "679da5c85d1946e60e3e-ad5a56d6775ae42031f7",
+          "file": "doc-studio.spec.mjs",
+          "line": 32,
+          "column": 1
+        },
+        {
+          "title": "research favorites reload and filtering preserves the user's extra directory entries",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 6,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 614,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-30T07:54:15.280Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "679da5c85d1946e60e3e-a455f7c0df4e15fc893e",
+          "file": "doc-studio.spec.mjs",
+          "line": 41,
+          "column": 1
+        },
+        {
+          "title": "weather failures remain advisory and configuration diagnostic reports disabled cloud",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 6,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 484,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-30T07:54:15.900Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "679da5c85d1946e60e3e-38b18fa1193ed7914273",
+          "file": "doc-studio.spec.mjs",
+          "line": 48,
+          "column": 1
+        },
+        {
+          "title": "clean browser hydrates Studio and vault routes without extension markers or React errors",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": 13,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 701,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-30T07:55:25.803Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "679da5c85d1946e60e3e-0be124c3f25ade780298",
+          "file": "doc-studio.spec.mjs",
+          "line": 5,
+          "column": 1
+        },
+        {
+          "title": "saving confirms a real IndexedDB transaction, navigates without reload and hands off the code once",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": 13,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1347,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-30T07:55:26.660Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "679da5c85d1946e60e3e-fe523fa8a197263adb66",
+          "file": "doc-studio.spec.mjs",
+          "line": 16,
+          "column": 1
+        },
+        {
+          "title": "blocked session storage and IndexedDB show the file fallback without crashing",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": 13,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 245,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-30T07:55:28.013Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "679da5c85d1946e60e3e-8f046059efc472e5bee7",
+          "file": "doc-studio.spec.mjs",
+          "line": 32,
+          "column": 1
+        },
+        {
+          "title": "research favorites reload and filtering preserves the user's extra directory entries",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": 13,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 621,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-30T07:55:28.264Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "679da5c85d1946e60e3e-858b6a1477512e5a063b",
+          "file": "doc-studio.spec.mjs",
+          "line": 41,
+          "column": 1
+        },
+        {
+          "title": "weather failures remain advisory and configuration diagnostic reports disabled cloud",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": 13,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 461,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-30T07:55:28.891Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "679da5c85d1946e60e3e-94cede4fbde9b65baba2",
+          "file": "doc-studio.spec.mjs",
+          "line": 48,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "draft.spec.mjs",
+      "file": "draft.spec.mjs",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "partial-day schedule remains visible and input changes invalidate preview",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1565,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-30T07:53:20.904Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "2d462da4107465597ea3-76964359fc11c71262c7",
+          "file": "draft.spec.mjs",
+          "line": 2,
+          "column": 1
+        },
+        {
+          "title": "manual mode does not silently schedule unassigned stops",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 555,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-30T07:53:22.475Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "2d462da4107465597ea3-fb840a1c77847b2e308d",
+          "file": "draft.spec.mjs",
+          "line": 18,
+          "column": 1
+        },
+        {
+          "title": "partial-day schedule remains visible and input changes invalidate preview",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": 8,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2008,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-30T07:54:25.204Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "2d462da4107465597ea3-665823631a02866927d7",
+          "file": "draft.spec.mjs",
+          "line": 2,
+          "column": 1
+        },
+        {
+          "title": "manual mode does not silently schedule unassigned stops",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": 8,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1436,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-30T07:54:27.217Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "2d462da4107465597ea3-05045f853ac08e5259f6",
+          "file": "draft.spec.mjs",
+          "line": 18,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "hybrid-preview.spec.mjs",
+      "file": "hybrid-preview.spec.mjs",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "actual no-key hybrid route generates source-preserving known suggestions from zero selections",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 15,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-30T07:53:23.056Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "36dc9a25849d83285f21-d87297480c8dd2298312",
+          "file": "hybrid-preview.spec.mjs",
+          "line": 5,
+          "column": 1
+        },
+        {
+          "title": "actual preview keeps a required manual transfer explicitly unscheduled and never accepts owner/apply fields",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 12,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-30T07:53:23.076Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "36dc9a25849d83285f21-3987e2596867816ee79f",
+          "file": "hybrid-preview.spec.mjs",
+          "line": 9,
+          "column": 1
+        },
+        {
+          "title": "actual no-key hybrid route generates source-preserving known suggestions from zero selections",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": 8,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 12,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-30T07:54:28.669Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "36dc9a25849d83285f21-e828a45906f44c197161",
+          "file": "hybrid-preview.spec.mjs",
+          "line": 5,
+          "column": 1
+        },
+        {
+          "title": "actual preview keeps a required manual transfer explicitly unscheduled and never accepts owner/apply fields",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": 8,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 11,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-30T07:54:28.686Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "36dc9a25849d83285f21-ba449f3ab99d41c0ec5e",
+          "file": "hybrid-preview.spec.mjs",
+          "line": 9,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "hybrid-workbench.spec.mjs",
+      "file": "hybrid-workbench.spec.mjs",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "zero-selection basics generate a sourced candidate, then explicit confirmation adds suggestions in order",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 789,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-30T07:53:23.102Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "bf3a5a08eddc1d92e90e-ff2cdef4c19b77cfcee9",
+          "file": "hybrid-workbench.spec.mjs",
+          "line": 7,
+          "column": 1
+        },
+        {
+          "title": "1 selected places and required flags survive automatic extra suggestions before confirmation",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 605,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-30T07:53:23.897Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "bf3a5a08eddc1d92e90e-58acfa99849ccee032f4",
+          "file": "hybrid-workbench.spec.mjs",
+          "line": 15,
+          "column": 26
+        },
+        {
+          "title": "2 selected places and required flags survive automatic extra suggestions before confirmation",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 593,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-30T07:53:24.509Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "bf3a5a08eddc1d92e90e-efef34553b6f8af90128",
+          "file": "hybrid-workbench.spec.mjs",
+          "line": 15,
+          "column": 26
+        },
+        {
+          "title": "honest empty interests pool can be widened without inventing food places",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 835,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('status')\nExpected substring: \u001b[32m\"Chưa có điểm độc lập\"\u001b[39m\nError: strict mode violation: getByRole('status') resolved to 3 elements:\n    1) <p role=\"status\"></p> aka getByRole('region', { name: 'Gom các điểm dừng' }).getByRole('status')\n    2) <div role=\"status\" class=\"atlas-result-note\">Chưa có điểm độc lập khớp sở thích/khu vực để lập…</div> aka getByText('Chưa có điểm độc lập khớp sở')\n    3) <p role=\"status\">Chưa có dự báo trực tuyến. Vui lòng kiểm tra lại …</p> aka getByText('Chưa có dự báo trực tuyến.')\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" getByRole('status') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('status')\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('status')\nExpected substring: \u001b[32m\"Chưa có điểm độc lập\"\u001b[39m\nError: strict mode violation: getByRole('status') resolved to 3 elements:\n    1) <p role=\"status\"></p> aka getByRole('region', { name: 'Gom các điểm dừng' }).getByRole('status')\n    2) <div role=\"status\" class=\"atlas-result-note\">Chưa có điểm độc lập khớp sở thích/khu vực để lập…</div> aka getByText('Chưa có điểm độc lập khớp sở')\n    3) <p role=\"status\">Chưa có dự báo trực tuyến. Vui lòng kiểm tra lại …</p> aka getByText('Chưa có dự báo trực tuyến.')\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" getByRole('status') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('status')\u001b[22m\n\n    at D:\\Projects\\travel_plan\\tests\\demo\\hybrid-workbench.spec.mjs:22:143",
+                    "location": {
+                      "file": "D:\\Projects\\travel_plan\\tests\\demo\\hybrid-workbench.spec.mjs",
+                      "column": 143,
+                      "line": 22
+                    },
+                    "snippet": "  20 | });\n  21 | test(\"honest empty interests pool can be widened without inventing food places\",async({page})=>{\n> 22 |   await basics(page);await page.getByLabel(\"Sở thích Ăn uống địa phương\").check();await generate(page);await expect(page.getByRole(\"status\")).toContainText(\"Chưa có điểm độc lập\");await expect(page.getByRole(\"region\",{name:\"Các điểm gợi ý\"})).toHaveCount(0);\n     |                                                                                                                                               ^\n  23 |   await page.getByRole(\"button\",{name:\"Xóa lọc gợi ý\"}).click();await expect(page.getByLabel(\"Sở thích Ăn uống địa phương\")).not.toBeChecked();await generate(page);await expect(page.getByRole(\"region\",{name:\"Các điểm gợi ý\"})).toBeVisible();\n  24 | });\n  25 | test(\"HTTP validation failure keeps prior candidate; server failure falls back once without losing selected/required input\",async({page})=>{"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "D:\\Projects\\travel_plan\\tests\\demo\\hybrid-workbench.spec.mjs",
+                        "column": 143,
+                        "line": 22
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('status')\nExpected substring: \u001b[32m\"Chưa có điểm độc lập\"\u001b[39m\nError: strict mode violation: getByRole('status') resolved to 3 elements:\n    1) <p role=\"status\"></p> aka getByRole('region', { name: 'Gom các điểm dừng' }).getByRole('status')\n    2) <div role=\"status\" class=\"atlas-result-note\">Chưa có điểm độc lập khớp sở thích/khu vực để lập…</div> aka getByText('Chưa có điểm độc lập khớp sở')\n    3) <p role=\"status\">Chưa có dự báo trực tuyến. Vui lòng kiểm tra lại …</p> aka getByText('Chưa có dự báo trực tuyến.')\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" getByRole('status') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('status')\u001b[22m\n\n\n  20 | });\n  21 | test(\"honest empty interests pool can be widened without inventing food places\",async({page})=>{\n> 22 |   await basics(page);await page.getByLabel(\"Sở thích Ăn uống địa phương\").check();await generate(page);await expect(page.getByRole(\"status\")).toContainText(\"Chưa có điểm độc lập\");await expect(page.getByRole(\"region\",{name:\"Các điểm gợi ý\"})).toHaveCount(0);\n     |                                                                                                                                               ^\n  23 |   await page.getByRole(\"button\",{name:\"Xóa lọc gợi ý\"}).click();await expect(page.getByLabel(\"Sở thích Ăn uống địa phương\")).not.toBeChecked();await generate(page);await expect(page.getByRole(\"region\",{name:\"Các điểm gợi ý\"})).toBeVisible();\n  24 | });\n  25 | test(\"HTTP validation failure keeps prior candidate; server failure falls back once without losing selected/required input\",async({page})=>{\n    at D:\\Projects\\travel_plan\\tests\\demo\\hybrid-workbench.spec.mjs:22:143"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-30T07:53:25.107Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "D:\\Projects\\travel_plan\\test-results\\demo\\hybrid-workbench-honest-em-1fb27-thout-inventing-food-places-desktop\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "D:\\Projects\\travel_plan\\test-results\\demo\\hybrid-workbench-honest-em-1fb27-thout-inventing-food-places-desktop\\trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "D:\\Projects\\travel_plan\\tests\\demo\\hybrid-workbench.spec.mjs",
+                    "column": 143,
+                    "line": 22
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "bf3a5a08eddc1d92e90e-246b24ca686459734f9c",
+          "file": "hybrid-workbench.spec.mjs",
+          "line": 21,
+          "column": 1
+        },
+        {
+          "title": "HTTP validation failure keeps prior candidate; server failure falls back once without losing selected/required input",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 785,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('status')\nExpected substring: \u001b[32m\"thuật toán trên máy\"\u001b[39m\nError: strict mode violation: getByRole('status') resolved to 3 elements:\n    1) <p role=\"status\"></p> aka getByRole('region', { name: 'Gom các điểm dừng' }).getByRole('status')\n    2) <div role=\"status\" class=\"atlas-result-note\">Đã lập lịch thử bằng dữ liệu tọa độ và thời gian …</div> aka getByText('Đã lập lịch thử bằng dữ liệu')\n    3) <p role=\"status\">Chưa có dự báo trực tuyến. Vui lòng kiểm tra lại …</p> aka getByText('Chưa có dự báo trực tuyến.')\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" getByRole('status') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('status')\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('status')\nExpected substring: \u001b[32m\"thuật toán trên máy\"\u001b[39m\nError: strict mode violation: getByRole('status') resolved to 3 elements:\n    1) <p role=\"status\"></p> aka getByRole('region', { name: 'Gom các điểm dừng' }).getByRole('status')\n    2) <div role=\"status\" class=\"atlas-result-note\">Đã lập lịch thử bằng dữ liệu tọa độ và thời gian …</div> aka getByText('Đã lập lịch thử bằng dữ liệu')\n    3) <p role=\"status\">Chưa có dự báo trực tuyến. Vui lòng kiểm tra lại …</p> aka getByText('Chưa có dự báo trực tuyến.')\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" getByRole('status') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('status')\u001b[22m\n\n    at D:\\Projects\\travel_plan\\tests\\demo\\hybrid-workbench.spec.mjs:31:42",
+                    "location": {
+                      "file": "D:\\Projects\\travel_plan\\tests\\demo\\hybrid-workbench.spec.mjs",
+                      "column": 42,
+                      "line": 31
+                    },
+                    "snippet": "  29 |   await expect(page.getByRole(\"region\",{name:\"Bạn muốn đi theo cách nào?\"}).getByRole(\"alert\")).toContainText(\"giữ nguyên bản thử trước\");await expect(tabs).toHaveText(before);await expect(page.getByLabel(\"Bắt buộc Chợ Đà Lạt\")).toBeChecked();\n  30 |   await page.unroute(\"**/api/v1/plans/preview\");let calls=0;await page.route(\"**/api/v1/plans/preview\",route=>{calls++;return route.fulfill({status:503,contentType:\"application/json\",body:'{\"error\":{\"message\":\"fixture unavailable\"}}'});});await generate(page);\n> 31 |   await expect(page.getByRole(\"status\")).toContainText(\"thuật toán trên máy\");expect(calls).toBe(1);await expect(queue(page).getByRole(\"listitem\")).toHaveCount(1);await expect(page.getByLabel(\"Bắt buộc Chợ Đà Lạt\")).toBeChecked();\n     |                                          ^\n  32 | });\n  33 | test(\"offline zero-selection generation uses source-complete local catalog and no preview request\",async({page,context})=>{\n  34 |   await basics(page);let calls=0;page.on(\"request\",request=>{if(request.url().endsWith(\"/api/v1/plans/preview\"))calls++;});await context.setOffline(true);await generate(page);"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "D:\\Projects\\travel_plan\\tests\\demo\\hybrid-workbench.spec.mjs",
+                        "column": 42,
+                        "line": 31
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('status')\nExpected substring: \u001b[32m\"thuật toán trên máy\"\u001b[39m\nError: strict mode violation: getByRole('status') resolved to 3 elements:\n    1) <p role=\"status\"></p> aka getByRole('region', { name: 'Gom các điểm dừng' }).getByRole('status')\n    2) <div role=\"status\" class=\"atlas-result-note\">Đã lập lịch thử bằng dữ liệu tọa độ và thời gian …</div> aka getByText('Đã lập lịch thử bằng dữ liệu')\n    3) <p role=\"status\">Chưa có dự báo trực tuyến. Vui lòng kiểm tra lại …</p> aka getByText('Chưa có dự báo trực tuyến.')\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" getByRole('status') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('status')\u001b[22m\n\n\n  29 |   await expect(page.getByRole(\"region\",{name:\"Bạn muốn đi theo cách nào?\"}).getByRole(\"alert\")).toContainText(\"giữ nguyên bản thử trước\");await expect(tabs).toHaveText(before);await expect(page.getByLabel(\"Bắt buộc Chợ Đà Lạt\")).toBeChecked();\n  30 |   await page.unroute(\"**/api/v1/plans/preview\");let calls=0;await page.route(\"**/api/v1/plans/preview\",route=>{calls++;return route.fulfill({status:503,contentType:\"application/json\",body:'{\"error\":{\"message\":\"fixture unavailable\"}}'});});await generate(page);\n> 31 |   await expect(page.getByRole(\"status\")).toContainText(\"thuật toán trên máy\");expect(calls).toBe(1);await expect(queue(page).getByRole(\"listitem\")).toHaveCount(1);await expect(page.getByLabel(\"Bắt buộc Chợ Đà Lạt\")).toBeChecked();\n     |                                          ^\n  32 | });\n  33 | test(\"offline zero-selection generation uses source-complete local catalog and no preview request\",async({page,context})=>{\n  34 |   await basics(page);let calls=0;page.on(\"request\",request=>{if(request.url().endsWith(\"/api/v1/plans/preview\"))calls++;});await context.setOffline(true);await generate(page);\n    at D:\\Projects\\travel_plan\\tests\\demo\\hybrid-workbench.spec.mjs:31:42"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-30T07:53:26.535Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "D:\\Projects\\travel_plan\\test-results\\demo\\hybrid-workbench-HTTP-vali-91985-ing-selected-required-input-desktop\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "D:\\Projects\\travel_plan\\test-results\\demo\\hybrid-workbench-HTTP-vali-91985-ing-selected-required-input-desktop\\trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "D:\\Projects\\travel_plan\\tests\\demo\\hybrid-workbench.spec.mjs",
+                    "column": 42,
+                    "line": 31
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "bf3a5a08eddc1d92e90e-ac3e27f9e1452822dd84",
+          "file": "hybrid-workbench.spec.mjs",
+          "line": 25,
+          "column": 1
+        },
+        {
+          "title": "offline zero-selection generation uses source-complete local catalog and no preview request",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 483,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-30T07:53:27.939Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "bf3a5a08eddc1d92e90e-cbb33c111fab8510beee",
+          "file": "hybrid-workbench.spec.mjs",
+          "line": 33,
+          "column": 1
+        },
+        {
+          "title": "temporary discovery displays separately, never enters JSON export, and opens an empty independent pin flow",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 703,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-30T07:53:28.571Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "bf3a5a08eddc1d92e90e-0bb6f09bd8668002ffe5",
+          "file": "hybrid-workbench.spec.mjs",
+          "line": 37,
+          "column": 1
+        },
+        {
+          "title": "zero-selection basics generate a sourced candidate, then explicit confirmation adds suggestions in order",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": 8,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1487,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-30T07:54:28.716Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "bf3a5a08eddc1d92e90e-a9c517b8289e07aec55f",
+          "file": "hybrid-workbench.spec.mjs",
+          "line": 7,
+          "column": 1
+        },
+        {
+          "title": "1 selected places and required flags survive automatic extra suggestions before confirmation",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": 8,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 525,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-30T07:54:30.208Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "bf3a5a08eddc1d92e90e-ba4ae009cb941ee4f606",
+          "file": "hybrid-workbench.spec.mjs",
+          "line": 15,
+          "column": 26
+        },
+        {
+          "title": "2 selected places and required flags survive automatic extra suggestions before confirmation",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": 8,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1452,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-30T07:54:30.738Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "bf3a5a08eddc1d92e90e-f4966f2bc053faf23f72",
+          "file": "hybrid-workbench.spec.mjs",
+          "line": 15,
+          "column": 26
+        },
+        {
+          "title": "honest empty interests pool can be widened without inventing food places",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": 8,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 1620,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('status')\nExpected substring: \u001b[32m\"Chưa có điểm độc lập\"\u001b[39m\nError: strict mode violation: getByRole('status') resolved to 3 elements:\n    1) <p role=\"status\"></p> aka getByRole('region', { name: 'Gom các điểm dừng' }).getByRole('status')\n    2) <div role=\"status\" class=\"atlas-result-note\">Chưa có điểm độc lập khớp sở thích/khu vực để lập…</div> aka getByText('Chưa có điểm độc lập khớp sở')\n    3) <p role=\"status\">Chưa có dự báo trực tuyến. Vui lòng kiểm tra lại …</p> aka getByText('Chưa có dự báo trực tuyến.')\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" getByRole('status') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('status')\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('status')\nExpected substring: \u001b[32m\"Chưa có điểm độc lập\"\u001b[39m\nError: strict mode violation: getByRole('status') resolved to 3 elements:\n    1) <p role=\"status\"></p> aka getByRole('region', { name: 'Gom các điểm dừng' }).getByRole('status')\n    2) <div role=\"status\" class=\"atlas-result-note\">Chưa có điểm độc lập khớp sở thích/khu vực để lập…</div> aka getByText('Chưa có điểm độc lập khớp sở')\n    3) <p role=\"status\">Chưa có dự báo trực tuyến. Vui lòng kiểm tra lại …</p> aka getByText('Chưa có dự báo trực tuyến.')\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" getByRole('status') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('status')\u001b[22m\n\n    at D:\\Projects\\travel_plan\\tests\\demo\\hybrid-workbench.spec.mjs:22:143",
+                    "location": {
+                      "file": "D:\\Projects\\travel_plan\\tests\\demo\\hybrid-workbench.spec.mjs",
+                      "column": 143,
+                      "line": 22
+                    },
+                    "snippet": "  20 | });\n  21 | test(\"honest empty interests pool can be widened without inventing food places\",async({page})=>{\n> 22 |   await basics(page);await page.getByLabel(\"Sở thích Ăn uống địa phương\").check();await generate(page);await expect(page.getByRole(\"status\")).toContainText(\"Chưa có điểm độc lập\");await expect(page.getByRole(\"region\",{name:\"Các điểm gợi ý\"})).toHaveCount(0);\n     |                                                                                                                                               ^\n  23 |   await page.getByRole(\"button\",{name:\"Xóa lọc gợi ý\"}).click();await expect(page.getByLabel(\"Sở thích Ăn uống địa phương\")).not.toBeChecked();await generate(page);await expect(page.getByRole(\"region\",{name:\"Các điểm gợi ý\"})).toBeVisible();\n  24 | });\n  25 | test(\"HTTP validation failure keeps prior candidate; server failure falls back once without losing selected/required input\",async({page})=>{"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "D:\\Projects\\travel_plan\\tests\\demo\\hybrid-workbench.spec.mjs",
+                        "column": 143,
+                        "line": 22
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('status')\nExpected substring: \u001b[32m\"Chưa có điểm độc lập\"\u001b[39m\nError: strict mode violation: getByRole('status') resolved to 3 elements:\n    1) <p role=\"status\"></p> aka getByRole('region', { name: 'Gom các điểm dừng' }).getByRole('status')\n    2) <div role=\"status\" class=\"atlas-result-note\">Chưa có điểm độc lập khớp sở thích/khu vực để lập…</div> aka getByText('Chưa có điểm độc lập khớp sở')\n    3) <p role=\"status\">Chưa có dự báo trực tuyến. Vui lòng kiểm tra lại …</p> aka getByText('Chưa có dự báo trực tuyến.')\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" getByRole('status') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('status')\u001b[22m\n\n\n  20 | });\n  21 | test(\"honest empty interests pool can be widened without inventing food places\",async({page})=>{\n> 22 |   await basics(page);await page.getByLabel(\"Sở thích Ăn uống địa phương\").check();await generate(page);await expect(page.getByRole(\"status\")).toContainText(\"Chưa có điểm độc lập\");await expect(page.getByRole(\"region\",{name:\"Các điểm gợi ý\"})).toHaveCount(0);\n     |                                                                                                                                               ^\n  23 |   await page.getByRole(\"button\",{name:\"Xóa lọc gợi ý\"}).click();await expect(page.getByLabel(\"Sở thích Ăn uống địa phương\")).not.toBeChecked();await generate(page);await expect(page.getByRole(\"region\",{name:\"Các điểm gợi ý\"})).toBeVisible();\n  24 | });\n  25 | test(\"HTTP validation failure keeps prior candidate; server failure falls back once without losing selected/required input\",async({page})=>{\n    at D:\\Projects\\travel_plan\\tests\\demo\\hybrid-workbench.spec.mjs:22:143"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-30T07:54:32.196Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "D:\\Projects\\travel_plan\\test-results\\demo\\hybrid-workbench-honest-em-1fb27-thout-inventing-food-places-mobile\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "D:\\Projects\\travel_plan\\test-results\\demo\\hybrid-workbench-honest-em-1fb27-thout-inventing-food-places-mobile\\trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "D:\\Projects\\travel_plan\\tests\\demo\\hybrid-workbench.spec.mjs",
+                    "column": 143,
+                    "line": 22
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "bf3a5a08eddc1d92e90e-eac8dfbe87a045375414",
+          "file": "hybrid-workbench.spec.mjs",
+          "line": 21,
+          "column": 1
+        },
+        {
+          "title": "HTTP validation failure keeps prior candidate; server failure falls back once without losing selected/required input",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": 9,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 1571,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('status')\nExpected substring: \u001b[32m\"thuật toán trên máy\"\u001b[39m\nError: strict mode violation: getByRole('status') resolved to 3 elements:\n    1) <p role=\"status\"></p> aka getByRole('region', { name: 'Gom các điểm dừng' }).getByRole('status')\n    2) <div role=\"status\" class=\"atlas-result-note\">Đã lập lịch thử bằng dữ liệu tọa độ và thời gian …</div> aka getByText('Đã lập lịch thử bằng dữ liệu')\n    3) <p role=\"status\">Chưa có dự báo trực tuyến. Vui lòng kiểm tra lại …</p> aka getByText('Chưa có dự báo trực tuyến.')\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" getByRole('status') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('status')\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('status')\nExpected substring: \u001b[32m\"thuật toán trên máy\"\u001b[39m\nError: strict mode violation: getByRole('status') resolved to 3 elements:\n    1) <p role=\"status\"></p> aka getByRole('region', { name: 'Gom các điểm dừng' }).getByRole('status')\n    2) <div role=\"status\" class=\"atlas-result-note\">Đã lập lịch thử bằng dữ liệu tọa độ và thời gian …</div> aka getByText('Đã lập lịch thử bằng dữ liệu')\n    3) <p role=\"status\">Chưa có dự báo trực tuyến. Vui lòng kiểm tra lại …</p> aka getByText('Chưa có dự báo trực tuyến.')\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" getByRole('status') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('status')\u001b[22m\n\n    at D:\\Projects\\travel_plan\\tests\\demo\\hybrid-workbench.spec.mjs:31:42",
+                    "location": {
+                      "file": "D:\\Projects\\travel_plan\\tests\\demo\\hybrid-workbench.spec.mjs",
+                      "column": 42,
+                      "line": 31
+                    },
+                    "snippet": "  29 |   await expect(page.getByRole(\"region\",{name:\"Bạn muốn đi theo cách nào?\"}).getByRole(\"alert\")).toContainText(\"giữ nguyên bản thử trước\");await expect(tabs).toHaveText(before);await expect(page.getByLabel(\"Bắt buộc Chợ Đà Lạt\")).toBeChecked();\n  30 |   await page.unroute(\"**/api/v1/plans/preview\");let calls=0;await page.route(\"**/api/v1/plans/preview\",route=>{calls++;return route.fulfill({status:503,contentType:\"application/json\",body:'{\"error\":{\"message\":\"fixture unavailable\"}}'});});await generate(page);\n> 31 |   await expect(page.getByRole(\"status\")).toContainText(\"thuật toán trên máy\");expect(calls).toBe(1);await expect(queue(page).getByRole(\"listitem\")).toHaveCount(1);await expect(page.getByLabel(\"Bắt buộc Chợ Đà Lạt\")).toBeChecked();\n     |                                          ^\n  32 | });\n  33 | test(\"offline zero-selection generation uses source-complete local catalog and no preview request\",async({page,context})=>{\n  34 |   await basics(page);let calls=0;page.on(\"request\",request=>{if(request.url().endsWith(\"/api/v1/plans/preview\"))calls++;});await context.setOffline(true);await generate(page);"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "D:\\Projects\\travel_plan\\tests\\demo\\hybrid-workbench.spec.mjs",
+                        "column": 42,
+                        "line": 31
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('status')\nExpected substring: \u001b[32m\"thuật toán trên máy\"\u001b[39m\nError: strict mode violation: getByRole('status') resolved to 3 elements:\n    1) <p role=\"status\"></p> aka getByRole('region', { name: 'Gom các điểm dừng' }).getByRole('status')\n    2) <div role=\"status\" class=\"atlas-result-note\">Đã lập lịch thử bằng dữ liệu tọa độ và thời gian …</div> aka getByText('Đã lập lịch thử bằng dữ liệu')\n    3) <p role=\"status\">Chưa có dự báo trực tuyến. Vui lòng kiểm tra lại …</p> aka getByText('Chưa có dự báo trực tuyến.')\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" getByRole('status') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('status')\u001b[22m\n\n\n  29 |   await expect(page.getByRole(\"region\",{name:\"Bạn muốn đi theo cách nào?\"}).getByRole(\"alert\")).toContainText(\"giữ nguyên bản thử trước\");await expect(tabs).toHaveText(before);await expect(page.getByLabel(\"Bắt buộc Chợ Đà Lạt\")).toBeChecked();\n  30 |   await page.unroute(\"**/api/v1/plans/preview\");let calls=0;await page.route(\"**/api/v1/plans/preview\",route=>{calls++;return route.fulfill({status:503,contentType:\"application/json\",body:'{\"error\":{\"message\":\"fixture unavailable\"}}'});});await generate(page);\n> 31 |   await expect(page.getByRole(\"status\")).toContainText(\"thuật toán trên máy\");expect(calls).toBe(1);await expect(queue(page).getByRole(\"listitem\")).toHaveCount(1);await expect(page.getByLabel(\"Bắt buộc Chợ Đà Lạt\")).toBeChecked();\n     |                                          ^\n  32 | });\n  33 | test(\"offline zero-selection generation uses source-complete local catalog and no preview request\",async({page,context})=>{\n  34 |   await basics(page);let calls=0;page.on(\"request\",request=>{if(request.url().endsWith(\"/api/v1/plans/preview\"))calls++;});await context.setOffline(true);await generate(page);\n    at D:\\Projects\\travel_plan\\tests\\demo\\hybrid-workbench.spec.mjs:31:42"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-30T07:54:34.517Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "D:\\Projects\\travel_plan\\test-results\\demo\\hybrid-workbench-HTTP-vali-91985-ing-selected-required-input-mobile\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "D:\\Projects\\travel_plan\\test-results\\demo\\hybrid-workbench-HTTP-vali-91985-ing-selected-required-input-mobile\\trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "D:\\Projects\\travel_plan\\tests\\demo\\hybrid-workbench.spec.mjs",
+                    "column": 42,
+                    "line": 31
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "bf3a5a08eddc1d92e90e-d0c8dddf0c68c9f167fe",
+          "file": "hybrid-workbench.spec.mjs",
+          "line": 25,
+          "column": 1
+        },
+        {
+          "title": "offline zero-selection generation uses source-complete local catalog and no preview request",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": 10,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1284,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-30T07:54:36.759Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "bf3a5a08eddc1d92e90e-01c2c47ce9b5e34ed464",
+          "file": "hybrid-workbench.spec.mjs",
+          "line": 33,
+          "column": 1
+        },
+        {
+          "title": "temporary discovery displays separately, never enters JSON export, and opens an empty independent pin flow",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": 10,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 600,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-30T07:54:38.193Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "bf3a5a08eddc1d92e90e-f39fec1b35773b0a89d9",
+          "file": "hybrid-workbench.spec.mjs",
+          "line": 37,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "import.spec.mjs",
+      "file": "import.spec.mjs",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "Maps import requires manual confirmation and preserves selected spots",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 936,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-30T07:53:29.301Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "a6cd7810acf282988ca5-ce86cb85caeede99117e",
+          "file": "import.spec.mjs",
+          "line": 2,
+          "column": 1
+        },
+        {
+          "title": "destination switch clears the other city's selection explicitly",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 636,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-30T07:53:30.243Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "a6cd7810acf282988ca5-2b9a0aa8df3abb5255c6",
+          "file": "import.spec.mjs",
+          "line": 19,
+          "column": 1
+        },
+        {
+          "title": "opaque Maps links have independent name search and confirmation without coordinate typing",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1635,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-30T07:53:30.886Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "a6cd7810acf282988ca5-0193431938fc8b5c626b",
+          "file": "import.spec.mjs",
+          "line": 27,
+          "column": 1
+        },
+        {
+          "title": "independent name search failure preserves the query and selected places",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1454,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-30T07:53:32.527Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "a6cd7810acf282988ca5-66ca654a651c32421778",
+          "file": "import.spec.mjs",
+          "line": 42,
+          "column": 1
+        },
+        {
+          "title": "Maps import requires manual confirmation and preserves selected spots",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": 10,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1005,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-30T07:54:38.814Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "a6cd7810acf282988ca5-a2caa93b1d86e78d9940",
+          "file": "import.spec.mjs",
+          "line": 2,
+          "column": 1
+        },
+        {
+          "title": "destination switch clears the other city's selection explicitly",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": 10,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 582,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-30T07:54:39.825Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "a6cd7810acf282988ca5-29bc278b49d555645030",
+          "file": "import.spec.mjs",
+          "line": 19,
+          "column": 1
+        },
+        {
+          "title": "opaque Maps links have independent name search and confirmation without coordinate typing",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": 10,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 832,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-30T07:54:40.413Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "a6cd7810acf282988ca5-5d367c8605eeafe7999e",
+          "file": "import.spec.mjs",
+          "line": 27,
+          "column": 1
+        },
+        {
+          "title": "independent name search failure preserves the query and selected places",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": 10,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1463,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-30T07:54:41.251Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "a6cd7810acf282988ca5-d49969fed8d3f0df6167",
+          "file": "import.spec.mjs",
+          "line": 42,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "map-picker.spec.mjs",
+      "file": "map-picker.spec.mjs",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "map loads visible tiles only on demand, has attribution/referrer and adds a user-confirmed pin",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1544,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-30T07:53:34.004Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "08bdcaac7e34d9980635-ccc8ff3fb40c5b419e3d",
+          "file": "map-picker.spec.mjs",
+          "line": 5,
+          "column": 1
+        },
+        {
+          "title": "keyboard map placement and tile/offline failures preserve the pin and input",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1011,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-30T07:53:35.553Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "08bdcaac7e34d9980635-065822d3a06527ebf328",
+          "file": "map-picker.spec.mjs",
+          "line": 30,
+          "column": 1
+        },
+        {
+          "title": "map loads visible tiles only on demand, has attribution/referrer and adds a user-confirmed pin",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": 10,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2045,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-30T07:54:42.724Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "08bdcaac7e34d9980635-3c0980049f2e9dd8d6f7",
+          "file": "map-picker.spec.mjs",
+          "line": 5,
+          "column": 1
+        },
+        {
+          "title": "keyboard map placement and tile/offline failures preserve the pin and input",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": 10,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2797,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-30T07:54:44.774Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "08bdcaac7e34d9980635-9ece45229e0fa5eaa485",
+          "file": "map-picker.spec.mjs",
+          "line": 30,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "postcard.spec.mjs",
+      "file": "postcard.spec.mjs",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "atlas landing and two cities are accessible without decorative WebGL",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 459,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-30T07:53:36.573Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "4d048c7cf70d4d7bf6c7-d0142b793866f8fe9b60",
+          "file": "postcard.spec.mjs",
+          "line": 2,
+          "column": 1
+        },
+        {
+          "title": "map is explicitly a schematic, not navigation",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 533,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-30T07:53:37.038Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "4d048c7cf70d4d7bf6c7-2192ed8927b0aa2e2550",
+          "file": "postcard.spec.mjs",
+          "line": 11,
+          "column": 1
+        },
+        {
+          "title": "no Javascript keeps essential destination navigation visible",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "timedOut",
+                  "duration": 30009,
+                  "error": {
+                    "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m",
+                    "stack": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                  },
+                  "errors": [
+                    {
+                      "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                    },
+                    {
+                      "location": {
+                        "file": "D:\\Projects\\travel_plan\\tests\\demo\\postcard.spec.mjs",
+                        "column": 50,
+                        "line": 19
+                      },
+                      "message": "Error: locator.click: Test ended.\nCall log:\n\u001b[2m  - waiting for getByRole('link', { name: /Nha Trang/ })\u001b[22m\n\n\n  17 |  try{const page=await context.newPage();await page.goto(\"http://127.0.0.1:3391/\");\n  18 |  await expect(page.getByRole(\"heading\",{level:1})).toContainText(\"Đi đâu,\");\n> 19 |  await page.getByRole(\"link\",{name:/Nha Trang/}).click();await expect(page.getByRole(\"heading\",{level:1})).toHaveText(\"Nha Trang.\");\n     |                                                  ^\n  20 |  }finally{await context.close();}\n  21 | });\n  22 |\n    at D:\\Projects\\travel_plan\\tests\\demo\\postcard.spec.mjs:19:50"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-30T07:53:37.578Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "D:\\Projects\\travel_plan\\test-results\\demo\\postcard-no-Javascript-kee-fdfe2-tination-navigation-visible-desktop\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "D:\\Projects\\travel_plan\\test-results\\demo\\postcard-no-Javascript-kee-fdfe2-tination-navigation-visible-desktop\\trace.zip"
+                    }
+                  ]
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "4d048c7cf70d4d7bf6c7-9beee96a6f09c37b9bf6",
+          "file": "postcard.spec.mjs",
+          "line": 15,
+          "column": 1
+        },
+        {
+          "title": "atlas landing and two cities are accessible without decorative WebGL",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": 10,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 479,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-30T07:54:47.583Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "4d048c7cf70d4d7bf6c7-3c7c5c5bb72226a18db2",
+          "file": "postcard.spec.mjs",
+          "line": 2,
+          "column": 1
+        },
+        {
+          "title": "map is explicitly a schematic, not navigation",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": 10,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 386,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-30T07:54:48.068Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "4d048c7cf70d4d7bf6c7-459ccfc8bc4916627833",
+          "file": "postcard.spec.mjs",
+          "line": 11,
+          "column": 1
+        },
+        {
+          "title": "no Javascript keeps essential destination navigation visible",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": 10,
+                  "parallelIndex": 0,
+                  "status": "timedOut",
+                  "duration": 30008,
+                  "error": {
+                    "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m",
+                    "stack": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                  },
+                  "errors": [
+                    {
+                      "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                    },
+                    {
+                      "location": {
+                        "file": "D:\\Projects\\travel_plan\\tests\\demo\\postcard.spec.mjs",
+                        "column": 50,
+                        "line": 19
+                      },
+                      "message": "Error: locator.click: Test ended.\nCall log:\n\u001b[2m  - waiting for getByRole('link', { name: /Nha Trang/ })\u001b[22m\n\n\n  17 |  try{const page=await context.newPage();await page.goto(\"http://127.0.0.1:3391/\");\n  18 |  await expect(page.getByRole(\"heading\",{level:1})).toContainText(\"Đi đâu,\");\n> 19 |  await page.getByRole(\"link\",{name:/Nha Trang/}).click();await expect(page.getByRole(\"heading\",{level:1})).toHaveText(\"Nha Trang.\");\n     |                                                  ^\n  20 |  }finally{await context.close();}\n  21 | });\n  22 |\n    at D:\\Projects\\travel_plan\\tests\\demo\\postcard.spec.mjs:19:50"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-30T07:54:48.461Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "D:\\Projects\\travel_plan\\test-results\\demo\\postcard-no-Javascript-kee-fdfe2-tination-navigation-visible-mobile\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "D:\\Projects\\travel_plan\\test-results\\demo\\postcard-no-Javascript-kee-fdfe2-tination-navigation-visible-mobile\\trace.zip"
+                    }
+                  ]
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "4d048c7cf70d4d7bf6c7-790fcdbd8323bd10520c",
+          "file": "postcard.spec.mjs",
+          "line": 15,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "redesign.spec.mjs",
+      "file": "redesign.spec.mjs",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "atlas redesign is responsive across public entry points",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 572,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-30T07:54:08.133Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "6665ba6e4ec58d8ef48b-fa98d06130d858123cc9",
+          "file": "redesign.spec.mjs",
+          "line": 2,
+          "column": 1
+        },
+        {
+          "title": "clean browser logs no hydration mismatches",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 545,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-30T07:54:08.857Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "6665ba6e4ec58d8ef48b-31a89cf97c7500499f96",
+          "file": "redesign.spec.mjs",
+          "line": 8,
+          "column": 1
+        },
+        {
+          "title": "atlas redesign is responsive across public entry points",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": 11,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 644,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-30T07:55:19.032Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "6665ba6e4ec58d8ef48b-e9d1ccdd64d7d0277122",
+          "file": "redesign.spec.mjs",
+          "line": 2,
+          "column": 1
+        },
+        {
+          "title": "clean browser logs no hydration mismatches",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": 11,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 409,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-30T07:55:19.826Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "6665ba6e4ec58d8ef48b-ca77eec33605b1f90a71",
+          "file": "redesign.spec.mjs",
+          "line": 8,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "states.spec.mjs",
+      "file": "states.spec.mjs",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "Maps import failed request can be retried without losing a selected place",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 853,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-30T07:54:09.430Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "32d8bed31bb9d1e1a80e-fe316f42d0711dc6a0b5",
+          "file": "states.spec.mjs",
+          "line": 2,
+          "column": 1
+        },
+        {
+          "title": "offline and reduced-motion keep selection and local planning available",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 744,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-30T07:54:10.289Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "32d8bed31bb9d1e1a80e-453761e57320c94db106",
+          "file": "states.spec.mjs",
+          "line": 18,
+          "column": 1
+        },
+        {
+          "title": "Maps import failed request can be retried without losing a selected place",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": 11,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1471,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-30T07:55:20.266Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "32d8bed31bb9d1e1a80e-3ad6b982f33729247676",
+          "file": "states.spec.mjs",
+          "line": 2,
+          "column": 1
+        },
+        {
+          "title": "offline and reduced-motion keep selection and local planning available",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": 11,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 754,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-30T07:55:21.743Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "32d8bed31bb9d1e1a80e-c32fcb7ae1ed7d6fc895",
+          "file": "states.spec.mjs",
+          "line": 18,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "wizard.spec.mjs",
+      "file": "wizard.spec.mjs",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "planner really schedules selected places instead of returning intake-only draft",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 783,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('status')\nExpected substring: \u001b[32m\"Đã lập lịch thử\"\u001b[39m\nError: strict mode violation: getByRole('status') resolved to 3 elements:\n    1) <p role=\"status\"></p> aka getByRole('region', { name: 'Gom các điểm dừng' }).getByRole('status')\n    2) <div role=\"status\" class=\"atlas-result-note\">Đã lập lịch thử bằng dữ liệu tọa độ và thời gian …</div> aka getByText('Đã lập lịch thử bằng dữ liệu')\n    3) <p role=\"status\">Chưa có dự báo trực tuyến. Vui lòng kiểm tra lại …</p> aka getByText('Chưa có dự báo trực tuyến.')\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" getByRole('status') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('status')\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('status')\nExpected substring: \u001b[32m\"Đã lập lịch thử\"\u001b[39m\nError: strict mode violation: getByRole('status') resolved to 3 elements:\n    1) <p role=\"status\"></p> aka getByRole('region', { name: 'Gom các điểm dừng' }).getByRole('status')\n    2) <div role=\"status\" class=\"atlas-result-note\">Đã lập lịch thử bằng dữ liệu tọa độ và thời gian …</div> aka getByText('Đã lập lịch thử bằng dữ liệu')\n    3) <p role=\"status\">Chưa có dự báo trực tuyến. Vui lòng kiểm tra lại …</p> aka getByText('Chưa có dự báo trực tuyến.')\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" getByRole('status') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('status')\u001b[22m\n\n    at D:\\Projects\\travel_plan\\tests\\demo\\wizard.spec.mjs:10:41",
+                    "location": {
+                      "file": "D:\\Projects\\travel_plan\\tests\\demo\\wizard.spec.mjs",
+                      "column": 41,
+                      "line": 10
+                    },
+                    "snippet": "   8 |  await page.locator('[aria-label=\"Chọn điểm ghé\"] button').filter({hasText:\"Chợ Đà Lạt\"}).first().click();\n   9 |  await page.getByRole(\"button\",{name:/XẾP LỊCH TRÌNH/}).click();\n> 10 |  await expect(page.getByRole(\"status\")).toContainText(\"Đã lập lịch thử\");\n     |                                         ^\n  11 |  await expect(page.getByRole(\"tab\",{name:/NGÀY 1/})).toBeVisible();\n  12 |  await expect(page.getByRole(\"button\",{name:\"TẢI BẢN NHÁP JSON\"})).toBeVisible();\n  13 | });"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "D:\\Projects\\travel_plan\\tests\\demo\\wizard.spec.mjs",
+                        "column": 41,
+                        "line": 10
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('status')\nExpected substring: \u001b[32m\"Đã lập lịch thử\"\u001b[39m\nError: strict mode violation: getByRole('status') resolved to 3 elements:\n    1) <p role=\"status\"></p> aka getByRole('region', { name: 'Gom các điểm dừng' }).getByRole('status')\n    2) <div role=\"status\" class=\"atlas-result-note\">Đã lập lịch thử bằng dữ liệu tọa độ và thời gian …</div> aka getByText('Đã lập lịch thử bằng dữ liệu')\n    3) <p role=\"status\">Chưa có dự báo trực tuyến. Vui lòng kiểm tra lại …</p> aka getByText('Chưa có dự báo trực tuyến.')\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" getByRole('status') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('status')\u001b[22m\n\n\n   8 |  await page.locator('[aria-label=\"Chọn điểm ghé\"] button').filter({hasText:\"Chợ Đà Lạt\"}).first().click();\n   9 |  await page.getByRole(\"button\",{name:/XẾP LỊCH TRÌNH/}).click();\n> 10 |  await expect(page.getByRole(\"status\")).toContainText(\"Đã lập lịch thử\");\n     |                                         ^\n  11 |  await expect(page.getByRole(\"tab\",{name:/NGÀY 1/})).toBeVisible();\n  12 |  await expect(page.getByRole(\"button\",{name:\"TẢI BẢN NHÁP JSON\"})).toBeVisible();\n  13 | });\n    at D:\\Projects\\travel_plan\\tests\\demo\\wizard.spec.mjs:10:41"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-30T07:54:11.053Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "D:\\Projects\\travel_plan\\test-results\\demo\\wizard-planner-really-sche-f6f11-returning-intake-only-draft-desktop\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "D:\\Projects\\travel_plan\\test-results\\demo\\wizard-planner-really-sche-f6f11-returning-intake-only-draft-desktop\\trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "D:\\Projects\\travel_plan\\tests\\demo\\wizard.spec.mjs",
+                    "column": 41,
+                    "line": 10
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "45d3df25b2e8855f5c52-471b63a3461774422ef2",
+          "file": "wizard.spec.mjs",
+          "line": 2,
+          "column": 1
+        },
+        {
+          "title": "invalid party size is reported without crashing React",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 5,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 491,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-30T07:54:12.327Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "45d3df25b2e8855f5c52-1188d38bd92b312b276d",
+          "file": "wizard.spec.mjs",
+          "line": 14,
+          "column": 1
+        },
+        {
+          "title": "planner really schedules selected places instead of returning intake-only draft",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": 11,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 1655,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('status')\nExpected substring: \u001b[32m\"Đã lập lịch thử\"\u001b[39m\nError: strict mode violation: getByRole('status') resolved to 3 elements:\n    1) <p role=\"status\"></p> aka getByRole('region', { name: 'Gom các điểm dừng' }).getByRole('status')\n    2) <div role=\"status\" class=\"atlas-result-note\">Đã lập lịch thử bằng dữ liệu tọa độ và thời gian …</div> aka getByText('Đã lập lịch thử bằng dữ liệu')\n    3) <p role=\"status\">Chưa có dự báo trực tuyến. Vui lòng kiểm tra lại …</p> aka getByText('Chưa có dự báo trực tuyến.')\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" getByRole('status') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('status')\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('status')\nExpected substring: \u001b[32m\"Đã lập lịch thử\"\u001b[39m\nError: strict mode violation: getByRole('status') resolved to 3 elements:\n    1) <p role=\"status\"></p> aka getByRole('region', { name: 'Gom các điểm dừng' }).getByRole('status')\n    2) <div role=\"status\" class=\"atlas-result-note\">Đã lập lịch thử bằng dữ liệu tọa độ và thời gian …</div> aka getByText('Đã lập lịch thử bằng dữ liệu')\n    3) <p role=\"status\">Chưa có dự báo trực tuyến. Vui lòng kiểm tra lại …</p> aka getByText('Chưa có dự báo trực tuyến.')\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" getByRole('status') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('status')\u001b[22m\n\n    at D:\\Projects\\travel_plan\\tests\\demo\\wizard.spec.mjs:10:41",
+                    "location": {
+                      "file": "D:\\Projects\\travel_plan\\tests\\demo\\wizard.spec.mjs",
+                      "column": 41,
+                      "line": 10
+                    },
+                    "snippet": "   8 |  await page.locator('[aria-label=\"Chọn điểm ghé\"] button').filter({hasText:\"Chợ Đà Lạt\"}).first().click();\n   9 |  await page.getByRole(\"button\",{name:/XẾP LỊCH TRÌNH/}).click();\n> 10 |  await expect(page.getByRole(\"status\")).toContainText(\"Đã lập lịch thử\");\n     |                                         ^\n  11 |  await expect(page.getByRole(\"tab\",{name:/NGÀY 1/})).toBeVisible();\n  12 |  await expect(page.getByRole(\"button\",{name:\"TẢI BẢN NHÁP JSON\"})).toBeVisible();\n  13 | });"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "D:\\Projects\\travel_plan\\tests\\demo\\wizard.spec.mjs",
+                        "column": 41,
+                        "line": 10
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('status')\nExpected substring: \u001b[32m\"Đã lập lịch thử\"\u001b[39m\nError: strict mode violation: getByRole('status') resolved to 3 elements:\n    1) <p role=\"status\"></p> aka getByRole('region', { name: 'Gom các điểm dừng' }).getByRole('status')\n    2) <div role=\"status\" class=\"atlas-result-note\">Đã lập lịch thử bằng dữ liệu tọa độ và thời gian …</div> aka getByText('Đã lập lịch thử bằng dữ liệu')\n    3) <p role=\"status\">Chưa có dự báo trực tuyến. Vui lòng kiểm tra lại …</p> aka getByText('Chưa có dự báo trực tuyến.')\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" getByRole('status') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('status')\u001b[22m\n\n\n   8 |  await page.locator('[aria-label=\"Chọn điểm ghé\"] button').filter({hasText:\"Chợ Đà Lạt\"}).first().click();\n   9 |  await page.getByRole(\"button\",{name:/XẾP LỊCH TRÌNH/}).click();\n> 10 |  await expect(page.getByRole(\"status\")).toContainText(\"Đã lập lịch thử\");\n     |                                         ^\n  11 |  await expect(page.getByRole(\"tab\",{name:/NGÀY 1/})).toBeVisible();\n  12 |  await expect(page.getByRole(\"button\",{name:\"TẢI BẢN NHÁP JSON\"})).toBeVisible();\n  13 | });\n    at D:\\Projects\\travel_plan\\tests\\demo\\wizard.spec.mjs:10:41"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-30T07:55:22.512Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "D:\\Projects\\travel_plan\\test-results\\demo\\wizard-planner-really-sche-f6f11-returning-intake-only-draft-mobile\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "D:\\Projects\\travel_plan\\test-results\\demo\\wizard-planner-really-sche-f6f11-returning-intake-only-draft-mobile\\trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "D:\\Projects\\travel_plan\\tests\\demo\\wizard.spec.mjs",
+                    "column": 41,
+                    "line": 10
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "45d3df25b2e8855f5c52-29a0e0577e379d9e1603",
+          "file": "wizard.spec.mjs",
+          "line": 2,
+          "column": 1
+        },
+        {
+          "title": "invalid party size is reported without crashing React",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": 12,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 455,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-30T07:55:24.797Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "45d3df25b2e8855f5c52-decda4229570f5196305",
+          "file": "wizard.spec.mjs",
+          "line": 14,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-30T07:53:10.782Z",
+    "duration": 138966.821,
+    "expected": 74,
+    "skipped": 0,
+    "unexpected": 10,
+    "flaky": 0
+  }
+}

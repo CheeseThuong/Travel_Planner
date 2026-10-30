@@ -6,6 +6,7 @@ const optionalText = z.preprocess((value) => value === "" ? undefined : value, z
 const schema = z.object({
   DEPLOYMENT_ENV: z.enum(["local", "staging", "production"]).default("local"),
   CLOUD_ENABLED: flag,
+  DOC_WEATHER_ENABLED: flag,
   NEXT_PUBLIC_SUPABASE_URL: optionalText,
   NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY: optionalText,
   SUPABASE_SERVICE_ROLE_KEY: optionalText,
