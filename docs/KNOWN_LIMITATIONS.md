@@ -1,5 +1,24 @@
 # Known limitations — NOT READY
 
+## Current limitations — 2026-10-30
+
+G4 is user-approved PASS. Discovery/category/zone API, conservative dedup, safe no-fetch Maps fallback/name search, on-demand OSM map and UI-A are implemented in fixture/no-key scope; [evidence](reports/SMART-DISCOVERY.md). Brave stays OFF by default; live paid use/actual OSM availability NOT RUN. All60 original source records remain drafts with unknown hours/prices/access. Empty categories honestly show no sourced records. Island transfers stay unscheduled with a reason.
+
+Contribution storage/moderation/API/UI now pass local Auth/DB/browser checks at `/contribute`:248 units/302 pgTAP twice/Auth8/56 E2E+2 actual contribution browsers/72 typography. Anonymous access cookie is temporary, browser-session-only with no refresh/recovery; no permanent ownership claim. No application moderator is automatically seeded. Lists have bounded20-item paging through offset1000, not a concurrent-write snapshot. Production moderators, proxy trust/domain controls, retention/legal review and distributed anti-abuse remain unverified. Groq/hybrid, durable local/cloud editing/share and G5–G8 are incomplete. No production/new remote CI, full WCAG/physical-phone/production-performance claim. This entry supersedes historical G4/discovery/contribution TODO status below.
+
+## Current limitations — 2026-10-29
+
+The old scaffold-only statements below are historical. The existing Atlas V2 now runs local assisted previews/manual validation with explicit approximate travel and unscheduled places. Owner candidate/apply APIs pass local Auth/RLS/transaction tests; they do not constitute a durable user-facing cloud editor. [Evidence and G4 review](reports/P04-05.md).
+
+- G4 remains NOT VERIFIED pending user review; G5–G8 are not approved. No production deployment or new remote CI was performed.
+- Brave/Groq, expanded tags/geo-zones, safe live shortlink expansion, interactive map selection and community moderation remain gated TODO tasks per ADR0030.
+- No IndexedDB autosave/reload, two-tab recovery, owner save/editor journey or secure share viewer exists. JSON download is a manual export. Losing anonymous credentials can lose editing ownership.
+- All60 editorial places remain sourced drafts. Hours, prices, entrances and access are not newly verified. Approximate travel uses coordinates/heuristic speeds, not measured road or traffic ETA; no island/boat route is inferred.
+- Local160-unit/160-pgTAP/6-Auth/38-E2E/72-typography results and synthetic performance measurements establish only their stated scope. Physical phones, full WCAG, production performance, provider terms/cost and release operations are NOT VERIFIED.
+- Process-local request limits need distributed protection before production. Existing pre-task dependency/Atlas/package edits were preserved; their presence is not new dependency approval.
+
+## Historical limitations — retained for audit
+
 2026-10-21. P0/P1 product features remain unimplemented; see [feature matrix](FEATURE_MATRIX.md). Existing destination/wizard/editor/open/shared/privacy/terms pages are skeletons. No trip is created, saved, recovered, routed or shared. Do not use this preview for a real itinerary or claim cloud durability.
 
 - ESLint support corrected by ADR0017: core10 plus explicit repository-maintained compatibility adapters, original rule checks retained, strict peer tree/full audit0. Upstream plugin peer claims are unchanged; project snapshots require maintenance. G1 PASS with actual CI run39611614744; G2–G8 are not complete.

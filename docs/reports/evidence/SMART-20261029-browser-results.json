@@ -1,0 +1,3561 @@
+{
+  "config": {
+    "argv": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "D:\\Projects\\travel_plan\\node_modules\\@playwright\\test\\cli.js",
+      "test",
+      "--config",
+      "playwright.typography.config.mjs"
+    ],
+    "configFile": "D:\\Projects\\travel_plan\\playwright.typography.config.mjs",
+    "rootDir": "D:/Projects/travel_plan/tests/typography",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": true,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 3
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "D:/Projects/travel_plan/test-results/typography",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 3
+        },
+        "id": "chromium-320",
+        "name": "chromium-320",
+        "testDir": "D:/Projects/travel_plan/tests/typography",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 45000
+      },
+      {
+        "outputDir": "D:/Projects/travel_plan/test-results/typography",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 3
+        },
+        "id": "chromium-360",
+        "name": "chromium-360",
+        "testDir": "D:/Projects/travel_plan/tests/typography",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 45000
+      },
+      {
+        "outputDir": "D:/Projects/travel_plan/test-results/typography",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 3
+        },
+        "id": "chromium-390",
+        "name": "chromium-390",
+        "testDir": "D:/Projects/travel_plan/tests/typography",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 45000
+      },
+      {
+        "outputDir": "D:/Projects/travel_plan/test-results/typography",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 3
+        },
+        "id": "chromium-768",
+        "name": "chromium-768",
+        "testDir": "D:/Projects/travel_plan/tests/typography",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 45000
+      },
+      {
+        "outputDir": "D:/Projects/travel_plan/test-results/typography",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 3
+        },
+        "id": "chromium-1024",
+        "name": "chromium-1024",
+        "testDir": "D:/Projects/travel_plan/tests/typography",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 45000
+      },
+      {
+        "outputDir": "D:/Projects/travel_plan/test-results/typography",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 3
+        },
+        "id": "chromium-1440",
+        "name": "chromium-1440",
+        "testDir": "D:/Projects/travel_plan/tests/typography",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 45000
+      },
+      {
+        "outputDir": "D:/Projects/travel_plan/test-results/typography",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 3
+        },
+        "id": "firefox-320",
+        "name": "firefox-320",
+        "testDir": "D:/Projects/travel_plan/tests/typography",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 45000
+      },
+      {
+        "outputDir": "D:/Projects/travel_plan/test-results/typography",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 3
+        },
+        "id": "firefox-360",
+        "name": "firefox-360",
+        "testDir": "D:/Projects/travel_plan/tests/typography",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 45000
+      },
+      {
+        "outputDir": "D:/Projects/travel_plan/test-results/typography",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 3
+        },
+        "id": "firefox-390",
+        "name": "firefox-390",
+        "testDir": "D:/Projects/travel_plan/tests/typography",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 45000
+      },
+      {
+        "outputDir": "D:/Projects/travel_plan/test-results/typography",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 3
+        },
+        "id": "firefox-768",
+        "name": "firefox-768",
+        "testDir": "D:/Projects/travel_plan/tests/typography",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 45000
+      },
+      {
+        "outputDir": "D:/Projects/travel_plan/test-results/typography",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 3
+        },
+        "id": "firefox-1024",
+        "name": "firefox-1024",
+        "testDir": "D:/Projects/travel_plan/tests/typography",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 45000
+      },
+      {
+        "outputDir": "D:/Projects/travel_plan/test-results/typography",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 3
+        },
+        "id": "firefox-1440",
+        "name": "firefox-1440",
+        "testDir": "D:/Projects/travel_plan/tests/typography",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 45000
+      },
+      {
+        "outputDir": "D:/Projects/travel_plan/test-results/typography",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 3
+        },
+        "id": "webkit-320",
+        "name": "webkit-320",
+        "testDir": "D:/Projects/travel_plan/tests/typography",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 45000
+      },
+      {
+        "outputDir": "D:/Projects/travel_plan/test-results/typography",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 3
+        },
+        "id": "webkit-360",
+        "name": "webkit-360",
+        "testDir": "D:/Projects/travel_plan/tests/typography",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 45000
+      },
+      {
+        "outputDir": "D:/Projects/travel_plan/test-results/typography",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 3
+        },
+        "id": "webkit-390",
+        "name": "webkit-390",
+        "testDir": "D:/Projects/travel_plan/tests/typography",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 45000
+      },
+      {
+        "outputDir": "D:/Projects/travel_plan/test-results/typography",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 3
+        },
+        "id": "webkit-768",
+        "name": "webkit-768",
+        "testDir": "D:/Projects/travel_plan/tests/typography",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 45000
+      },
+      {
+        "outputDir": "D:/Projects/travel_plan/test-results/typography",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 3
+        },
+        "id": "webkit-1024",
+        "name": "webkit-1024",
+        "testDir": "D:/Projects/travel_plan/tests/typography",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 45000
+      },
+      {
+        "outputDir": "D:/Projects/travel_plan/test-results/typography",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 3
+        },
+        "id": "webkit-1440",
+        "name": "webkit-1440",
+        "testDir": "D:/Projects/travel_plan/tests/typography",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 45000
+      }
+    ],
+    "filteredProjects": [
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "D:\\Projects\\travel_plan\\test-results\\typography",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 3
+        },
+        "name": "chromium-320",
+        "testDir": "D:\\Projects\\travel_plan\\tests\\typography",
+        "snapshotDir": "D:\\Projects\\travel_plan\\tests\\typography",
+        "testIgnore": [],
+        "testMatch": "**/*.@(spec|test).?(c|m)[jt]s?(x)",
+        "timeout": 45000,
+        "use": {
+          "baseURL": "http://127.0.0.1:3395",
+          "reducedMotion": "reduce",
+          "trace": "retain-on-failure",
+          "browserName": "chromium",
+          "channel": "chrome",
+          "viewport": {
+            "width": 320,
+            "height": 1000
+          }
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "chromium-320"
+      },
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "D:\\Projects\\travel_plan\\test-results\\typography",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 3
+        },
+        "name": "chromium-360",
+        "testDir": "D:\\Projects\\travel_plan\\tests\\typography",
+        "snapshotDir": "D:\\Projects\\travel_plan\\tests\\typography",
+        "testIgnore": [],
+        "testMatch": "**/*.@(spec|test).?(c|m)[jt]s?(x)",
+        "timeout": 45000,
+        "use": {
+          "baseURL": "http://127.0.0.1:3395",
+          "reducedMotion": "reduce",
+          "trace": "retain-on-failure",
+          "browserName": "chromium",
+          "channel": "chrome",
+          "viewport": {
+            "width": 360,
+            "height": 1000
+          }
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "chromium-360"
+      },
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "D:\\Projects\\travel_plan\\test-results\\typography",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 3
+        },
+        "name": "chromium-390",
+        "testDir": "D:\\Projects\\travel_plan\\tests\\typography",
+        "snapshotDir": "D:\\Projects\\travel_plan\\tests\\typography",
+        "testIgnore": [],
+        "testMatch": "**/*.@(spec|test).?(c|m)[jt]s?(x)",
+        "timeout": 45000,
+        "use": {
+          "baseURL": "http://127.0.0.1:3395",
+          "reducedMotion": "reduce",
+          "trace": "retain-on-failure",
+          "browserName": "chromium",
+          "channel": "chrome",
+          "viewport": {
+            "width": 390,
+            "height": 1000
+          }
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "chromium-390"
+      },
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "D:\\Projects\\travel_plan\\test-results\\typography",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 3
+        },
+        "name": "chromium-768",
+        "testDir": "D:\\Projects\\travel_plan\\tests\\typography",
+        "snapshotDir": "D:\\Projects\\travel_plan\\tests\\typography",
+        "testIgnore": [],
+        "testMatch": "**/*.@(spec|test).?(c|m)[jt]s?(x)",
+        "timeout": 45000,
+        "use": {
+          "baseURL": "http://127.0.0.1:3395",
+          "reducedMotion": "reduce",
+          "trace": "retain-on-failure",
+          "browserName": "chromium",
+          "channel": "chrome",
+          "viewport": {
+            "width": 768,
+            "height": 1000
+          }
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "chromium-768"
+      },
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "D:\\Projects\\travel_plan\\test-results\\typography",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 3
+        },
+        "name": "chromium-1024",
+        "testDir": "D:\\Projects\\travel_plan\\tests\\typography",
+        "snapshotDir": "D:\\Projects\\travel_plan\\tests\\typography",
+        "testIgnore": [],
+        "testMatch": "**/*.@(spec|test).?(c|m)[jt]s?(x)",
+        "timeout": 45000,
+        "use": {
+          "baseURL": "http://127.0.0.1:3395",
+          "reducedMotion": "reduce",
+          "trace": "retain-on-failure",
+          "browserName": "chromium",
+          "channel": "chrome",
+          "viewport": {
+            "width": 1024,
+            "height": 1000
+          }
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "chromium-1024"
+      },
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "D:\\Projects\\travel_plan\\test-results\\typography",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 3
+        },
+        "name": "chromium-1440",
+        "testDir": "D:\\Projects\\travel_plan\\tests\\typography",
+        "snapshotDir": "D:\\Projects\\travel_plan\\tests\\typography",
+        "testIgnore": [],
+        "testMatch": "**/*.@(spec|test).?(c|m)[jt]s?(x)",
+        "timeout": 45000,
+        "use": {
+          "baseURL": "http://127.0.0.1:3395",
+          "reducedMotion": "reduce",
+          "trace": "retain-on-failure",
+          "browserName": "chromium",
+          "channel": "chrome",
+          "viewport": {
+            "width": 1440,
+            "height": 1000
+          }
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "chromium-1440"
+      },
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "D:\\Projects\\travel_plan\\test-results\\typography",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 3
+        },
+        "name": "firefox-320",
+        "testDir": "D:\\Projects\\travel_plan\\tests\\typography",
+        "snapshotDir": "D:\\Projects\\travel_plan\\tests\\typography",
+        "testIgnore": [],
+        "testMatch": "**/*.@(spec|test).?(c|m)[jt]s?(x)",
+        "timeout": 45000,
+        "use": {
+          "baseURL": "http://127.0.0.1:3395",
+          "reducedMotion": "reduce",
+          "trace": "retain-on-failure",
+          "browserName": "firefox",
+          "viewport": {
+            "width": 320,
+            "height": 1000
+          }
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "firefox-320"
+      },
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "D:\\Projects\\travel_plan\\test-results\\typography",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 3
+        },
+        "name": "firefox-360",
+        "testDir": "D:\\Projects\\travel_plan\\tests\\typography",
+        "snapshotDir": "D:\\Projects\\travel_plan\\tests\\typography",
+        "testIgnore": [],
+        "testMatch": "**/*.@(spec|test).?(c|m)[jt]s?(x)",
+        "timeout": 45000,
+        "use": {
+          "baseURL": "http://127.0.0.1:3395",
+          "reducedMotion": "reduce",
+          "trace": "retain-on-failure",
+          "browserName": "firefox",
+          "viewport": {
+            "width": 360,
+            "height": 1000
+          }
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "firefox-360"
+      },
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "D:\\Projects\\travel_plan\\test-results\\typography",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 3
+        },
+        "name": "firefox-390",
+        "testDir": "D:\\Projects\\travel_plan\\tests\\typography",
+        "snapshotDir": "D:\\Projects\\travel_plan\\tests\\typography",
+        "testIgnore": [],
+        "testMatch": "**/*.@(spec|test).?(c|m)[jt]s?(x)",
+        "timeout": 45000,
+        "use": {
+          "baseURL": "http://127.0.0.1:3395",
+          "reducedMotion": "reduce",
+          "trace": "retain-on-failure",
+          "browserName": "firefox",
+          "viewport": {
+            "width": 390,
+            "height": 1000
+          }
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "firefox-390"
+      },
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "D:\\Projects\\travel_plan\\test-results\\typography",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 3
+        },
+        "name": "firefox-768",
+        "testDir": "D:\\Projects\\travel_plan\\tests\\typography",
+        "snapshotDir": "D:\\Projects\\travel_plan\\tests\\typography",
+        "testIgnore": [],
+        "testMatch": "**/*.@(spec|test).?(c|m)[jt]s?(x)",
+        "timeout": 45000,
+        "use": {
+          "baseURL": "http://127.0.0.1:3395",
+          "reducedMotion": "reduce",
+          "trace": "retain-on-failure",
+          "browserName": "firefox",
+          "viewport": {
+            "width": 768,
+            "height": 1000
+          }
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "firefox-768"
+      },
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "D:\\Projects\\travel_plan\\test-results\\typography",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 3
+        },
+        "name": "firefox-1024",
+        "testDir": "D:\\Projects\\travel_plan\\tests\\typography",
+        "snapshotDir": "D:\\Projects\\travel_plan\\tests\\typography",
+        "testIgnore": [],
+        "testMatch": "**/*.@(spec|test).?(c|m)[jt]s?(x)",
+        "timeout": 45000,
+        "use": {
+          "baseURL": "http://127.0.0.1:3395",
+          "reducedMotion": "reduce",
+          "trace": "retain-on-failure",
+          "browserName": "firefox",
+          "viewport": {
+            "width": 1024,
+            "height": 1000
+          }
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "firefox-1024"
+      },
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "D:\\Projects\\travel_plan\\test-results\\typography",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 3
+        },
+        "name": "firefox-1440",
+        "testDir": "D:\\Projects\\travel_plan\\tests\\typography",
+        "snapshotDir": "D:\\Projects\\travel_plan\\tests\\typography",
+        "testIgnore": [],
+        "testMatch": "**/*.@(spec|test).?(c|m)[jt]s?(x)",
+        "timeout": 45000,
+        "use": {
+          "baseURL": "http://127.0.0.1:3395",
+          "reducedMotion": "reduce",
+          "trace": "retain-on-failure",
+          "browserName": "firefox",
+          "viewport": {
+            "width": 1440,
+            "height": 1000
+          }
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "firefox-1440"
+      },
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "D:\\Projects\\travel_plan\\test-results\\typography",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 3
+        },
+        "name": "webkit-320",
+        "testDir": "D:\\Projects\\travel_plan\\tests\\typography",
+        "snapshotDir": "D:\\Projects\\travel_plan\\tests\\typography",
+        "testIgnore": [],
+        "testMatch": "**/*.@(spec|test).?(c|m)[jt]s?(x)",
+        "timeout": 45000,
+        "use": {
+          "baseURL": "http://127.0.0.1:3395",
+          "reducedMotion": "reduce",
+          "trace": "retain-on-failure",
+          "browserName": "webkit",
+          "viewport": {
+            "width": 320,
+            "height": 1000
+          }
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "webkit-320"
+      },
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "D:\\Projects\\travel_plan\\test-results\\typography",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 3
+        },
+        "name": "webkit-360",
+        "testDir": "D:\\Projects\\travel_plan\\tests\\typography",
+        "snapshotDir": "D:\\Projects\\travel_plan\\tests\\typography",
+        "testIgnore": [],
+        "testMatch": "**/*.@(spec|test).?(c|m)[jt]s?(x)",
+        "timeout": 45000,
+        "use": {
+          "baseURL": "http://127.0.0.1:3395",
+          "reducedMotion": "reduce",
+          "trace": "retain-on-failure",
+          "browserName": "webkit",
+          "viewport": {
+            "width": 360,
+            "height": 1000
+          }
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "webkit-360"
+      },
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "D:\\Projects\\travel_plan\\test-results\\typography",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 3
+        },
+        "name": "webkit-390",
+        "testDir": "D:\\Projects\\travel_plan\\tests\\typography",
+        "snapshotDir": "D:\\Projects\\travel_plan\\tests\\typography",
+        "testIgnore": [],
+        "testMatch": "**/*.@(spec|test).?(c|m)[jt]s?(x)",
+        "timeout": 45000,
+        "use": {
+          "baseURL": "http://127.0.0.1:3395",
+          "reducedMotion": "reduce",
+          "trace": "retain-on-failure",
+          "browserName": "webkit",
+          "viewport": {
+            "width": 390,
+            "height": 1000
+          }
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "webkit-390"
+      },
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "D:\\Projects\\travel_plan\\test-results\\typography",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 3
+        },
+        "name": "webkit-768",
+        "testDir": "D:\\Projects\\travel_plan\\tests\\typography",
+        "snapshotDir": "D:\\Projects\\travel_plan\\tests\\typography",
+        "testIgnore": [],
+        "testMatch": "**/*.@(spec|test).?(c|m)[jt]s?(x)",
+        "timeout": 45000,
+        "use": {
+          "baseURL": "http://127.0.0.1:3395",
+          "reducedMotion": "reduce",
+          "trace": "retain-on-failure",
+          "browserName": "webkit",
+          "viewport": {
+            "width": 768,
+            "height": 1000
+          }
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "webkit-768"
+      },
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "D:\\Projects\\travel_plan\\test-results\\typography",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 3
+        },
+        "name": "webkit-1024",
+        "testDir": "D:\\Projects\\travel_plan\\tests\\typography",
+        "snapshotDir": "D:\\Projects\\travel_plan\\tests\\typography",
+        "testIgnore": [],
+        "testMatch": "**/*.@(spec|test).?(c|m)[jt]s?(x)",
+        "timeout": 45000,
+        "use": {
+          "baseURL": "http://127.0.0.1:3395",
+          "reducedMotion": "reduce",
+          "trace": "retain-on-failure",
+          "browserName": "webkit",
+          "viewport": {
+            "width": 1024,
+            "height": 1000
+          }
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "webkit-1024"
+      },
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "D:\\Projects\\travel_plan\\test-results\\typography",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 3
+        },
+        "name": "webkit-1440",
+        "testDir": "D:\\Projects\\travel_plan\\tests\\typography",
+        "snapshotDir": "D:\\Projects\\travel_plan\\tests\\typography",
+        "testIgnore": [],
+        "testMatch": "**/*.@(spec|test).?(c|m)[jt]s?(x)",
+        "timeout": 45000,
+        "use": {
+          "baseURL": "http://127.0.0.1:3395",
+          "reducedMotion": "reduce",
+          "trace": "retain-on-failure",
+          "browserName": "webkit",
+          "viewport": {
+            "width": 1440,
+            "height": 1000
+          }
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "webkit-1440"
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "docs/reports/evidence/SMART-20261029-browser-results.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "default",
+    "updateSourceMethod": "patch",
+    "version": "1.64.1",
+    "workers": 3,
+    "webServer": {
+      "command": "node node_modules/next/dist/bin/next start --hostname 127.0.0.1 --port 3395",
+      "url": "http://127.0.0.1:3395",
+      "reuseExistingServer": false,
+      "timeout": 30000,
+      "env": {
+        "NEXT_TELEMETRY_DISABLED": "1"
+      }
+    }
+  },
+  "suites": [
+    {
+      "title": "vietnamese.spec.mjs",
+      "file": "vietnamese.spec.mjs",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "all Vietnamese headings use installed local faces without broken graphemes",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium-320",
+              "projectName": "chromium-320",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 7151,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-29T01:52:40.516Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "font-faces",
+                      "contentType": "application/json",
+                      "body": "W3siZmFtaWx5IjoiYmVWaWV0bmFtIiwic3RhdHVzIjoibG9hZGVkIiwic3R5bGUiOiJub3JtYWwiLCJ3ZWlnaHQiOiI0MDAifSx7ImZhbWlseSI6ImJlVmlldG5hbSIsInN0YXR1cyI6InVubG9hZGVkIiwic3R5bGUiOiJub3JtYWwiLCJ3ZWlnaHQiOiI1MDAifSx7ImZhbWlseSI6ImJlVmlldG5hbSIsInN0YXR1cyI6InVubG9hZGVkIiwic3R5bGUiOiJub3JtYWwiLCJ3ZWlnaHQiOiI2MDAifSx7ImZhbWlseSI6ImJlVmlldG5hbSIsInN0YXR1cyI6ImxvYWRlZCIsInN0eWxlIjoibm9ybWFsIiwid2VpZ2h0IjoiNzAwIn0seyJmYW1pbHkiOiJiZVZpZXRuYW0gRmFsbGJhY2siLCJzdGF0dXMiOiJsb2FkZWQiLCJzdHlsZSI6Im5vcm1hbCIsIndlaWdodCI6Im5vcm1hbCJ9LHsiZmFtaWx5IjoibnVuaXRvIiwic3RhdHVzIjoidW5sb2FkZWQiLCJzdHlsZSI6Im5vcm1hbCIsIndlaWdodCI6IjYwMCJ9LHsiZmFtaWx5IjoibnVuaXRvIiwic3RhdHVzIjoibG9hZGVkIiwic3R5bGUiOiJpdGFsaWMiLCJ3ZWlnaHQiOiI2MDAifSx7ImZhbWlseSI6Im51bml0byBGYWxsYmFjayIsInN0YXR1cyI6InVubG9hZGVkIiwic3R5bGUiOiJub3JtYWwiLCJ3ZWlnaHQiOiJub3JtYWwifV0="
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "573e19232363f702da86-f0476081e7ad71aeb052",
+          "file": "vietnamese.spec.mjs",
+          "line": 6,
+          "column": 1
+        },
+        {
+          "title": "slow local fonts remain readable with bounded layout shift",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium-320",
+              "projectName": "chromium-320",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 1163,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-29T01:52:40.524Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "font-load-layout-shifts",
+                      "contentType": "application/json",
+                      "body": "eyJzaGlmdHMiOlswLjAwMDAwNzM2NTI4MzIwMzEyNTAwMV19"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "573e19232363f702da86-69b00910eb221c63d56a",
+          "file": "vietnamese.spec.mjs",
+          "line": 47,
+          "column": 1
+        },
+        {
+          "title": "failed font requests keep readable text and links",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium-320",
+              "projectName": "chromium-320",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 2,
+                  "status": "passed",
+                  "duration": 1323,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-29T01:52:40.532Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "573e19232363f702da86-669ec5b89eb78bed53d3",
+          "file": "vietnamese.spec.mjs",
+          "line": 57,
+          "column": 1
+        },
+        {
+          "title": "without JS Vietnamese and links remain",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium-320",
+              "projectName": "chromium-320",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 1041,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-29T01:52:41.957Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "573e19232363f702da86-c400a4ee415e4722bb4e",
+          "file": "vietnamese.spec.mjs",
+          "line": 63,
+          "column": 1
+        },
+        {
+          "title": "all Vietnamese headings use installed local faces without broken graphemes",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium-360",
+              "projectName": "chromium-360",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 2,
+                  "status": "passed",
+                  "duration": 6473,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-29T01:52:43.110Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "font-faces",
+                      "contentType": "application/json",
+                      "body": "W3siZmFtaWx5IjoiYmVWaWV0bmFtIiwic3RhdHVzIjoibG9hZGVkIiwic3R5bGUiOiJub3JtYWwiLCJ3ZWlnaHQiOiI0MDAifSx7ImZhbWlseSI6ImJlVmlldG5hbSIsInN0YXR1cyI6InVubG9hZGVkIiwic3R5bGUiOiJub3JtYWwiLCJ3ZWlnaHQiOiI1MDAifSx7ImZhbWlseSI6ImJlVmlldG5hbSIsInN0YXR1cyI6InVubG9hZGVkIiwic3R5bGUiOiJub3JtYWwiLCJ3ZWlnaHQiOiI2MDAifSx7ImZhbWlseSI6ImJlVmlldG5hbSIsInN0YXR1cyI6ImxvYWRlZCIsInN0eWxlIjoibm9ybWFsIiwid2VpZ2h0IjoiNzAwIn0seyJmYW1pbHkiOiJiZVZpZXRuYW0gRmFsbGJhY2siLCJzdGF0dXMiOiJsb2FkZWQiLCJzdHlsZSI6Im5vcm1hbCIsIndlaWdodCI6Im5vcm1hbCJ9LHsiZmFtaWx5IjoibnVuaXRvIiwic3RhdHVzIjoidW5sb2FkZWQiLCJzdHlsZSI6Im5vcm1hbCIsIndlaWdodCI6IjYwMCJ9LHsiZmFtaWx5IjoibnVuaXRvIiwic3RhdHVzIjoibG9hZGVkIiwic3R5bGUiOiJpdGFsaWMiLCJ3ZWlnaHQiOiI2MDAifSx7ImZhbWlseSI6Im51bml0byBGYWxsYmFjayIsInN0YXR1cyI6InVubG9hZGVkIiwic3R5bGUiOiJub3JtYWwiLCJ3ZWlnaHQiOiJub3JtYWwifV0="
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "573e19232363f702da86-f8d521b683ae0fc16119",
+          "file": "vietnamese.spec.mjs",
+          "line": 6,
+          "column": 1
+        },
+        {
+          "title": "slow local fonts remain readable with bounded layout shift",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium-360",
+              "projectName": "chromium-360",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 1116,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-29T01:52:43.529Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "font-load-layout-shifts",
+                      "contentType": "application/json",
+                      "body": "eyJzaGlmdHMiOlswLjAwMDE0MTIzNTA2OTQ0NDQ0NDQ3XX0="
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "573e19232363f702da86-561f3d1f81ef8496149c",
+          "file": "vietnamese.spec.mjs",
+          "line": 47,
+          "column": 1
+        },
+        {
+          "title": "failed font requests keep readable text and links",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium-360",
+              "projectName": "chromium-360",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 378,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-29T01:52:44.840Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "573e19232363f702da86-8608c8538368fc6f1dc9",
+          "file": "vietnamese.spec.mjs",
+          "line": 57,
+          "column": 1
+        },
+        {
+          "title": "without JS Vietnamese and links remain",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium-360",
+              "projectName": "chromium-360",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 347,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-29T01:52:45.227Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "573e19232363f702da86-d8a4a9a2a4d848d06841",
+          "file": "vietnamese.spec.mjs",
+          "line": 63,
+          "column": 1
+        },
+        {
+          "title": "all Vietnamese headings use installed local faces without broken graphemes",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium-390",
+              "projectName": "chromium-390",
+              "results": [
+                {
+                  "workerIndex": 5,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 6396,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-29T01:52:46.011Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "font-faces",
+                      "contentType": "application/json",
+                      "body": "W3siZmFtaWx5IjoiYmVWaWV0bmFtIiwic3RhdHVzIjoibG9hZGVkIiwic3R5bGUiOiJub3JtYWwiLCJ3ZWlnaHQiOiI0MDAifSx7ImZhbWlseSI6ImJlVmlldG5hbSIsInN0YXR1cyI6InVubG9hZGVkIiwic3R5bGUiOiJub3JtYWwiLCJ3ZWlnaHQiOiI1MDAifSx7ImZhbWlseSI6ImJlVmlldG5hbSIsInN0YXR1cyI6InVubG9hZGVkIiwic3R5bGUiOiJub3JtYWwiLCJ3ZWlnaHQiOiI2MDAifSx7ImZhbWlseSI6ImJlVmlldG5hbSIsInN0YXR1cyI6ImxvYWRlZCIsInN0eWxlIjoibm9ybWFsIiwid2VpZ2h0IjoiNzAwIn0seyJmYW1pbHkiOiJiZVZpZXRuYW0gRmFsbGJhY2siLCJzdGF0dXMiOiJsb2FkZWQiLCJzdHlsZSI6Im5vcm1hbCIsIndlaWdodCI6Im5vcm1hbCJ9LHsiZmFtaWx5IjoibnVuaXRvIiwic3RhdHVzIjoidW5sb2FkZWQiLCJzdHlsZSI6Im5vcm1hbCIsIndlaWdodCI6IjYwMCJ9LHsiZmFtaWx5IjoibnVuaXRvIiwic3RhdHVzIjoibG9hZGVkIiwic3R5bGUiOiJpdGFsaWMiLCJ3ZWlnaHQiOiI2MDAifSx7ImZhbWlseSI6Im51bml0byBGYWxsYmFjayIsInN0YXR1cyI6InVubG9hZGVkIiwic3R5bGUiOiJub3JtYWwiLCJ3ZWlnaHQiOiJub3JtYWwifV0="
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "573e19232363f702da86-47198d3ca51b766a63c3",
+          "file": "vietnamese.spec.mjs",
+          "line": 6,
+          "column": 1
+        },
+        {
+          "title": "slow local fonts remain readable with bounded layout shift",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium-390",
+              "projectName": "chromium-390",
+              "results": [
+                {
+                  "workerIndex": 6,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1035,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-29T01:52:48.434Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "font-load-layout-shifts",
+                      "contentType": "application/json",
+                      "body": "eyJzaGlmdHMiOlswLjAwMDEzMDM3MDgzMzMzMzMzMzM0XX0="
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "573e19232363f702da86-8d5eee42b003ab5cd21e",
+          "file": "vietnamese.spec.mjs",
+          "line": 47,
+          "column": 1
+        },
+        {
+          "title": "failed font requests keep readable text and links",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium-390",
+              "projectName": "chromium-390",
+              "results": [
+                {
+                  "workerIndex": 6,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 637,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-29T01:52:49.669Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "573e19232363f702da86-6a9ef85a93530c1a46e8",
+          "file": "vietnamese.spec.mjs",
+          "line": 57,
+          "column": 1
+        },
+        {
+          "title": "without JS Vietnamese and links remain",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium-390",
+              "projectName": "chromium-390",
+              "results": [
+                {
+                  "workerIndex": 7,
+                  "parallelIndex": 2,
+                  "status": "passed",
+                  "duration": 458,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-29T01:52:50.270Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "573e19232363f702da86-a9b9b9b4d58dc6427d11",
+          "file": "vietnamese.spec.mjs",
+          "line": 63,
+          "column": 1
+        },
+        {
+          "title": "all Vietnamese headings use installed local faces without broken graphemes",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium-768",
+              "projectName": "chromium-768",
+              "results": [
+                {
+                  "workerIndex": 8,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 6639,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-29T01:52:50.801Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "font-faces",
+                      "contentType": "application/json",
+                      "body": "W3siZmFtaWx5IjoiYmVWaWV0bmFtIiwic3RhdHVzIjoibG9hZGVkIiwic3R5bGUiOiJub3JtYWwiLCJ3ZWlnaHQiOiI0MDAifSx7ImZhbWlseSI6ImJlVmlldG5hbSIsInN0YXR1cyI6InVubG9hZGVkIiwic3R5bGUiOiJub3JtYWwiLCJ3ZWlnaHQiOiI1MDAifSx7ImZhbWlseSI6ImJlVmlldG5hbSIsInN0YXR1cyI6InVubG9hZGVkIiwic3R5bGUiOiJub3JtYWwiLCJ3ZWlnaHQiOiI2MDAifSx7ImZhbWlseSI6ImJlVmlldG5hbSIsInN0YXR1cyI6ImxvYWRlZCIsInN0eWxlIjoibm9ybWFsIiwid2VpZ2h0IjoiNzAwIn0seyJmYW1pbHkiOiJiZVZpZXRuYW0gRmFsbGJhY2siLCJzdGF0dXMiOiJsb2FkZWQiLCJzdHlsZSI6Im5vcm1hbCIsIndlaWdodCI6Im5vcm1hbCJ9LHsiZmFtaWx5IjoibnVuaXRvIiwic3RhdHVzIjoidW5sb2FkZWQiLCJzdHlsZSI6Im5vcm1hbCIsIndlaWdodCI6IjYwMCJ9LHsiZmFtaWx5IjoibnVuaXRvIiwic3RhdHVzIjoibG9hZGVkIiwic3R5bGUiOiJpdGFsaWMiLCJ3ZWlnaHQiOiI2MDAifSx7ImZhbWlseSI6Im51bml0byBGYWxsYmFjayIsInN0YXR1cyI6InVubG9hZGVkIiwic3R5bGUiOiJub3JtYWwiLCJ3ZWlnaHQiOiJub3JtYWwifV0="
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "573e19232363f702da86-a860447754127fc655aa",
+          "file": "vietnamese.spec.mjs",
+          "line": 6,
+          "column": 1
+        },
+        {
+          "title": "slow local fonts remain readable with bounded layout shift",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium-768",
+              "projectName": "chromium-768",
+              "results": [
+                {
+                  "workerIndex": 9,
+                  "parallelIndex": 2,
+                  "status": "passed",
+                  "duration": 980,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-29T01:52:51.736Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "font-load-layout-shifts",
+                      "contentType": "application/json",
+                      "body": "eyJzaGlmdHMiOlswLjAwMDI4MjcwMzQ5MTIxMDkzNzQ3XX0="
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "573e19232363f702da86-9b8fa039b0609e52cfab",
+          "file": "vietnamese.spec.mjs",
+          "line": 47,
+          "column": 1
+        },
+        {
+          "title": "failed font requests keep readable text and links",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium-768",
+              "projectName": "chromium-768",
+              "results": [
+                {
+                  "workerIndex": 10,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 790,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-29T01:52:53.071Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "573e19232363f702da86-c2480885b602f4cde363",
+          "file": "vietnamese.spec.mjs",
+          "line": 57,
+          "column": 1
+        },
+        {
+          "title": "without JS Vietnamese and links remain",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium-768",
+              "projectName": "chromium-768",
+              "results": [
+                {
+                  "workerIndex": 9,
+                  "parallelIndex": 2,
+                  "status": "passed",
+                  "duration": 391,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-29T01:52:52.880Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "573e19232363f702da86-b23cafa39e9a69c972fd",
+          "file": "vietnamese.spec.mjs",
+          "line": 63,
+          "column": 1
+        },
+        {
+          "title": "all Vietnamese headings use installed local faces without broken graphemes",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium-1024",
+              "projectName": "chromium-1024",
+              "results": [
+                {
+                  "workerIndex": 11,
+                  "parallelIndex": 2,
+                  "status": "passed",
+                  "duration": 6614,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-29T01:52:53.830Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "font-faces",
+                      "contentType": "application/json",
+                      "body": "W3siZmFtaWx5IjoiYmVWaWV0bmFtIiwic3RhdHVzIjoibG9hZGVkIiwic3R5bGUiOiJub3JtYWwiLCJ3ZWlnaHQiOiI0MDAifSx7ImZhbWlseSI6ImJlVmlldG5hbSIsInN0YXR1cyI6InVubG9hZGVkIiwic3R5bGUiOiJub3JtYWwiLCJ3ZWlnaHQiOiI1MDAifSx7ImZhbWlseSI6ImJlVmlldG5hbSIsInN0YXR1cyI6InVubG9hZGVkIiwic3R5bGUiOiJub3JtYWwiLCJ3ZWlnaHQiOiI2MDAifSx7ImZhbWlseSI6ImJlVmlldG5hbSIsInN0YXR1cyI6ImxvYWRlZCIsInN0eWxlIjoibm9ybWFsIiwid2VpZ2h0IjoiNzAwIn0seyJmYW1pbHkiOiJiZVZpZXRuYW0gRmFsbGJhY2siLCJzdGF0dXMiOiJsb2FkZWQiLCJzdHlsZSI6Im5vcm1hbCIsIndlaWdodCI6Im5vcm1hbCJ9LHsiZmFtaWx5IjoibnVuaXRvIiwic3RhdHVzIjoidW5sb2FkZWQiLCJzdHlsZSI6Im5vcm1hbCIsIndlaWdodCI6IjYwMCJ9LHsiZmFtaWx5IjoibnVuaXRvIiwic3RhdHVzIjoibG9hZGVkIiwic3R5bGUiOiJpdGFsaWMiLCJ3ZWlnaHQiOiI2MDAifSx7ImZhbWlseSI6Im51bml0byBGYWxsYmFjayIsInN0YXR1cyI6InVubG9hZGVkIiwic3R5bGUiOiJub3JtYWwiLCJ3ZWlnaHQiOiJub3JtYWwifV0="
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "573e19232363f702da86-7da2f6c2d0fbb1d94962",
+          "file": "vietnamese.spec.mjs",
+          "line": 6,
+          "column": 1
+        },
+        {
+          "title": "slow local fonts remain readable with bounded layout shift",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium-1024",
+              "projectName": "chromium-1024",
+              "results": [
+                {
+                  "workerIndex": 12,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 1059,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-29T01:52:54.551Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "font-load-layout-shifts",
+                      "contentType": "application/json",
+                      "body": "eyJzaGlmdHMiOlswLjAwMzQ1NTA0ODIwMzQ2ODMyM119"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "573e19232363f702da86-ec44c5c2e8a5caba449c",
+          "file": "vietnamese.spec.mjs",
+          "line": 47,
+          "column": 1
+        },
+        {
+          "title": "failed font requests keep readable text and links",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium-1024",
+              "projectName": "chromium-1024",
+              "results": [
+                {
+                  "workerIndex": 12,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 651,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-29T01:52:55.768Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "573e19232363f702da86-c4784221a445914b6fa0",
+          "file": "vietnamese.spec.mjs",
+          "line": 57,
+          "column": 1
+        },
+        {
+          "title": "without JS Vietnamese and links remain",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium-1024",
+              "projectName": "chromium-1024",
+              "results": [
+                {
+                  "workerIndex": 12,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 380,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-29T01:52:56.428Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "573e19232363f702da86-c651833bc1e351354071",
+          "file": "vietnamese.spec.mjs",
+          "line": 63,
+          "column": 1
+        },
+        {
+          "title": "all Vietnamese headings use installed local faces without broken graphemes",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium-1440",
+              "projectName": "chromium-1440",
+              "results": [
+                {
+                  "workerIndex": 13,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 6662,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-29T01:52:57.287Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "font-faces",
+                      "contentType": "application/json",
+                      "body": "W3siZmFtaWx5IjoiYmVWaWV0bmFtIiwic3RhdHVzIjoibG9hZGVkIiwic3R5bGUiOiJub3JtYWwiLCJ3ZWlnaHQiOiI0MDAifSx7ImZhbWlseSI6ImJlVmlldG5hbSIsInN0YXR1cyI6InVubG9hZGVkIiwic3R5bGUiOiJub3JtYWwiLCJ3ZWlnaHQiOiI1MDAifSx7ImZhbWlseSI6ImJlVmlldG5hbSIsInN0YXR1cyI6InVubG9hZGVkIiwic3R5bGUiOiJub3JtYWwiLCJ3ZWlnaHQiOiI2MDAifSx7ImZhbWlseSI6ImJlVmlldG5hbSIsInN0YXR1cyI6ImxvYWRlZCIsInN0eWxlIjoibm9ybWFsIiwid2VpZ2h0IjoiNzAwIn0seyJmYW1pbHkiOiJiZVZpZXRuYW0gRmFsbGJhY2siLCJzdGF0dXMiOiJsb2FkZWQiLCJzdHlsZSI6Im5vcm1hbCIsIndlaWdodCI6Im5vcm1hbCJ9LHsiZmFtaWx5IjoibnVuaXRvIiwic3RhdHVzIjoidW5sb2FkZWQiLCJzdHlsZSI6Im5vcm1hbCIsIndlaWdodCI6IjYwMCJ9LHsiZmFtaWx5IjoibnVuaXRvIiwic3RhdHVzIjoibG9hZGVkIiwic3R5bGUiOiJpdGFsaWMiLCJ3ZWlnaHQiOiI2MDAifSx7ImZhbWlseSI6Im51bml0byBGYWxsYmFjayIsInN0YXR1cyI6InVubG9hZGVkIiwic3R5bGUiOiJub3JtYWwiLCJ3ZWlnaHQiOiJub3JtYWwifV0="
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "573e19232363f702da86-bc02f4561062634f54ba",
+          "file": "vietnamese.spec.mjs",
+          "line": 6,
+          "column": 1
+        },
+        {
+          "title": "slow local fonts remain readable with bounded layout shift",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium-1440",
+              "projectName": "chromium-1440",
+              "results": [
+                {
+                  "workerIndex": 14,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1068,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-29T01:52:58.110Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "font-load-layout-shifts",
+                      "contentType": "application/json",
+                      "body": "eyJzaGlmdHMiOlswLjAwMDE1OTI3NTA4MzE4ODY1NzQxXX0="
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "573e19232363f702da86-26861cd02d430099a0a8",
+          "file": "vietnamese.spec.mjs",
+          "line": 47,
+          "column": 1
+        },
+        {
+          "title": "failed font requests keep readable text and links",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium-1440",
+              "projectName": "chromium-1440",
+              "results": [
+                {
+                  "workerIndex": 14,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 343,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-29T01:52:59.341Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "573e19232363f702da86-365d8c3f1724904b79a5",
+          "file": "vietnamese.spec.mjs",
+          "line": 57,
+          "column": 1
+        },
+        {
+          "title": "without JS Vietnamese and links remain",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium-1440",
+              "projectName": "chromium-1440",
+              "results": [
+                {
+                  "workerIndex": 14,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 384,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-29T01:52:59.695Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "573e19232363f702da86-7d7d898676bb9fabdccc",
+          "file": "vietnamese.spec.mjs",
+          "line": 63,
+          "column": 1
+        },
+        {
+          "title": "all Vietnamese headings use installed local faces without broken graphemes",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox-320",
+              "projectName": "firefox-320",
+              "results": [
+                {
+                  "workerIndex": 15,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 9154,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-29T01:53:00.521Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "font-faces",
+                      "contentType": "application/json",
+                      "body": "W3siZmFtaWx5IjoiYmVWaWV0bmFtIiwic3RhdHVzIjoibG9hZGVkIiwic3R5bGUiOiJub3JtYWwiLCJ3ZWlnaHQiOiI0MDAifSx7ImZhbWlseSI6ImJlVmlldG5hbSIsInN0YXR1cyI6InVubG9hZGVkIiwic3R5bGUiOiJub3JtYWwiLCJ3ZWlnaHQiOiI1MDAifSx7ImZhbWlseSI6ImJlVmlldG5hbSIsInN0YXR1cyI6InVubG9hZGVkIiwic3R5bGUiOiJub3JtYWwiLCJ3ZWlnaHQiOiI2MDAifSx7ImZhbWlseSI6ImJlVmlldG5hbSIsInN0YXR1cyI6ImxvYWRlZCIsInN0eWxlIjoibm9ybWFsIiwid2VpZ2h0IjoiNzAwIn0seyJmYW1pbHkiOiJiZVZpZXRuYW0gRmFsbGJhY2siLCJzdGF0dXMiOiJsb2FkZWQiLCJzdHlsZSI6Im5vcm1hbCIsIndlaWdodCI6Im5vcm1hbCJ9LHsiZmFtaWx5IjoibnVuaXRvIiwic3RhdHVzIjoidW5sb2FkZWQiLCJzdHlsZSI6Im5vcm1hbCIsIndlaWdodCI6IjYwMCJ9LHsiZmFtaWx5IjoibnVuaXRvIiwic3RhdHVzIjoibG9hZGVkIiwic3R5bGUiOiJpdGFsaWMiLCJ3ZWlnaHQiOiI2MDAifSx7ImZhbWlseSI6Im51bml0byBGYWxsYmFjayIsInN0YXR1cyI6InVubG9hZGVkIiwic3R5bGUiOiJub3JtYWwiLCJ3ZWlnaHQiOiJub3JtYWwifV0="
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "573e19232363f702da86-0aba126c0cf0c5c87aad",
+          "file": "vietnamese.spec.mjs",
+          "line": 6,
+          "column": 1
+        },
+        {
+          "title": "slow local fonts remain readable with bounded layout shift",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox-320",
+              "projectName": "firefox-320",
+              "results": [
+                {
+                  "workerIndex": 16,
+                  "parallelIndex": 2,
+                  "status": "passed",
+                  "duration": 2476,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-29T01:53:01.047Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "font-load-layout-shifts",
+                      "contentType": "application/json",
+                      "body": "eyJzaGlmdHMiOltdfQ=="
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "573e19232363f702da86-4516ce6789f881e11a3d",
+          "file": "vietnamese.spec.mjs",
+          "line": 47,
+          "column": 1
+        },
+        {
+          "title": "failed font requests keep readable text and links",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox-320",
+              "projectName": "firefox-320",
+              "results": [
+                {
+                  "workerIndex": 17,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 1394,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-29T01:53:04.678Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "573e19232363f702da86-6e21e88532d7d92981fb",
+          "file": "vietnamese.spec.mjs",
+          "line": 57,
+          "column": 1
+        },
+        {
+          "title": "without JS Vietnamese and links remain",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox-320",
+              "projectName": "firefox-320",
+              "results": [
+                {
+                  "workerIndex": 16,
+                  "parallelIndex": 2,
+                  "status": "passed",
+                  "duration": 787,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-29T01:53:04.234Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "573e19232363f702da86-9cf22a9ef8d5178a661f",
+          "file": "vietnamese.spec.mjs",
+          "line": 63,
+          "column": 1
+        },
+        {
+          "title": "all Vietnamese headings use installed local faces without broken graphemes",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox-360",
+              "projectName": "firefox-360",
+              "results": [
+                {
+                  "workerIndex": 18,
+                  "parallelIndex": 2,
+                  "status": "passed",
+                  "duration": 7961,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-29T01:53:05.776Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "font-faces",
+                      "contentType": "application/json",
+                      "body": "W3siZmFtaWx5IjoiYmVWaWV0bmFtIiwic3RhdHVzIjoibG9hZGVkIiwic3R5bGUiOiJub3JtYWwiLCJ3ZWlnaHQiOiI0MDAifSx7ImZhbWlseSI6ImJlVmlldG5hbSIsInN0YXR1cyI6InVubG9hZGVkIiwic3R5bGUiOiJub3JtYWwiLCJ3ZWlnaHQiOiI1MDAifSx7ImZhbWlseSI6ImJlVmlldG5hbSIsInN0YXR1cyI6InVubG9hZGVkIiwic3R5bGUiOiJub3JtYWwiLCJ3ZWlnaHQiOiI2MDAifSx7ImZhbWlseSI6ImJlVmlldG5hbSIsInN0YXR1cyI6ImxvYWRlZCIsInN0eWxlIjoibm9ybWFsIiwid2VpZ2h0IjoiNzAwIn0seyJmYW1pbHkiOiJiZVZpZXRuYW0gRmFsbGJhY2siLCJzdGF0dXMiOiJsb2FkZWQiLCJzdHlsZSI6Im5vcm1hbCIsIndlaWdodCI6Im5vcm1hbCJ9LHsiZmFtaWx5IjoibnVuaXRvIiwic3RhdHVzIjoidW5sb2FkZWQiLCJzdHlsZSI6Im5vcm1hbCIsIndlaWdodCI6IjYwMCJ9LHsiZmFtaWx5IjoibnVuaXRvIiwic3RhdHVzIjoibG9hZGVkIiwic3R5bGUiOiJpdGFsaWMiLCJ3ZWlnaHQiOiI2MDAifSx7ImZhbWlseSI6Im51bml0byBGYWxsYmFjayIsInN0YXR1cyI6InVubG9hZGVkIiwic3R5bGUiOiJub3JtYWwiLCJ3ZWlnaHQiOiJub3JtYWwifV0="
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "573e19232363f702da86-28670039e0a5c67a227e",
+          "file": "vietnamese.spec.mjs",
+          "line": 6,
+          "column": 1
+        },
+        {
+          "title": "slow local fonts remain readable with bounded layout shift",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox-360",
+              "projectName": "firefox-360",
+              "results": [
+                {
+                  "workerIndex": 19,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 4397,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-29T01:53:07.154Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "font-load-layout-shifts",
+                      "contentType": "application/json",
+                      "body": "eyJzaGlmdHMiOltdfQ=="
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "573e19232363f702da86-7a1abd7fa32f8f3d5c8c",
+          "file": "vietnamese.spec.mjs",
+          "line": 47,
+          "column": 1
+        },
+        {
+          "title": "failed font requests keep readable text and links",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox-360",
+              "projectName": "firefox-360",
+              "results": [
+                {
+                  "workerIndex": 20,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1249,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-29T01:53:11.346Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "573e19232363f702da86-d836de05217e811feb0d",
+          "file": "vietnamese.spec.mjs",
+          "line": 57,
+          "column": 1
+        },
+        {
+          "title": "without JS Vietnamese and links remain",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox-360",
+              "projectName": "firefox-360",
+              "results": [
+                {
+                  "workerIndex": 19,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 720,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-29T01:53:11.948Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "573e19232363f702da86-4f16d7e7e690e37086c5",
+          "file": "vietnamese.spec.mjs",
+          "line": 63,
+          "column": 1
+        },
+        {
+          "title": "all Vietnamese headings use installed local faces without broken graphemes",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox-390",
+              "projectName": "firefox-390",
+              "results": [
+                {
+                  "workerIndex": 21,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 7972,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-29T01:53:13.361Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "font-faces",
+                      "contentType": "application/json",
+                      "body": "W3siZmFtaWx5IjoiYmVWaWV0bmFtIiwic3RhdHVzIjoibG9hZGVkIiwic3R5bGUiOiJub3JtYWwiLCJ3ZWlnaHQiOiI0MDAifSx7ImZhbWlseSI6ImJlVmlldG5hbSIsInN0YXR1cyI6InVubG9hZGVkIiwic3R5bGUiOiJub3JtYWwiLCJ3ZWlnaHQiOiI1MDAifSx7ImZhbWlseSI6ImJlVmlldG5hbSIsInN0YXR1cyI6InVubG9hZGVkIiwic3R5bGUiOiJub3JtYWwiLCJ3ZWlnaHQiOiI2MDAifSx7ImZhbWlseSI6ImJlVmlldG5hbSIsInN0YXR1cyI6ImxvYWRlZCIsInN0eWxlIjoibm9ybWFsIiwid2VpZ2h0IjoiNzAwIn0seyJmYW1pbHkiOiJiZVZpZXRuYW0gRmFsbGJhY2siLCJzdGF0dXMiOiJsb2FkZWQiLCJzdHlsZSI6Im5vcm1hbCIsIndlaWdodCI6Im5vcm1hbCJ9LHsiZmFtaWx5IjoibnVuaXRvIiwic3RhdHVzIjoidW5sb2FkZWQiLCJzdHlsZSI6Im5vcm1hbCIsIndlaWdodCI6IjYwMCJ9LHsiZmFtaWx5IjoibnVuaXRvIiwic3RhdHVzIjoibG9hZGVkIiwic3R5bGUiOiJpdGFsaWMiLCJ3ZWlnaHQiOiI2MDAifSx7ImZhbWlseSI6Im51bml0byBGYWxsYmFjayIsInN0YXR1cyI6InVubG9hZGVkIiwic3R5bGUiOiJub3JtYWwiLCJ3ZWlnaHQiOiJub3JtYWwifV0="
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "573e19232363f702da86-26c3f48ad5216848c954",
+          "file": "vietnamese.spec.mjs",
+          "line": 6,
+          "column": 1
+        },
+        {
+          "title": "slow local fonts remain readable with bounded layout shift",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox-390",
+              "projectName": "firefox-390",
+              "results": [
+                {
+                  "workerIndex": 22,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1928,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-29T01:53:13.609Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "font-load-layout-shifts",
+                      "contentType": "application/json",
+                      "body": "eyJzaGlmdHMiOltdfQ=="
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "573e19232363f702da86-b20fc8c65acb847a0368",
+          "file": "vietnamese.spec.mjs",
+          "line": 47,
+          "column": 1
+        },
+        {
+          "title": "failed font requests keep readable text and links",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox-390",
+              "projectName": "firefox-390",
+              "results": [
+                {
+                  "workerIndex": 23,
+                  "parallelIndex": 2,
+                  "status": "passed",
+                  "duration": 1931,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-29T01:53:14.943Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "573e19232363f702da86-68b171d1527744b35313",
+          "file": "vietnamese.spec.mjs",
+          "line": 57,
+          "column": 1
+        },
+        {
+          "title": "without JS Vietnamese and links remain",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox-390",
+              "projectName": "firefox-390",
+              "results": [
+                {
+                  "workerIndex": 22,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 653,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-29T01:53:16.024Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "573e19232363f702da86-710f1d1f25f687097b25",
+          "file": "vietnamese.spec.mjs",
+          "line": 63,
+          "column": 1
+        },
+        {
+          "title": "all Vietnamese headings use installed local faces without broken graphemes",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox-768",
+              "projectName": "firefox-768",
+              "results": [
+                {
+                  "workerIndex": 24,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 8383,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-29T01:53:17.419Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "font-faces",
+                      "contentType": "application/json",
+                      "body": "W3siZmFtaWx5IjoiYmVWaWV0bmFtIiwic3RhdHVzIjoibG9hZGVkIiwic3R5bGUiOiJub3JtYWwiLCJ3ZWlnaHQiOiI0MDAifSx7ImZhbWlseSI6ImJlVmlldG5hbSIsInN0YXR1cyI6InVubG9hZGVkIiwic3R5bGUiOiJub3JtYWwiLCJ3ZWlnaHQiOiI1MDAifSx7ImZhbWlseSI6ImJlVmlldG5hbSIsInN0YXR1cyI6InVubG9hZGVkIiwic3R5bGUiOiJub3JtYWwiLCJ3ZWlnaHQiOiI2MDAifSx7ImZhbWlseSI6ImJlVmlldG5hbSIsInN0YXR1cyI6ImxvYWRlZCIsInN0eWxlIjoibm9ybWFsIiwid2VpZ2h0IjoiNzAwIn0seyJmYW1pbHkiOiJiZVZpZXRuYW0gRmFsbGJhY2siLCJzdGF0dXMiOiJsb2FkZWQiLCJzdHlsZSI6Im5vcm1hbCIsIndlaWdodCI6Im5vcm1hbCJ9LHsiZmFtaWx5IjoibnVuaXRvIiwic3RhdHVzIjoidW5sb2FkZWQiLCJzdHlsZSI6Im5vcm1hbCIsIndlaWdodCI6IjYwMCJ9LHsiZmFtaWx5IjoibnVuaXRvIiwic3RhdHVzIjoibG9hZGVkIiwic3R5bGUiOiJpdGFsaWMiLCJ3ZWlnaHQiOiI2MDAifSx7ImZhbWlseSI6Im51bml0byBGYWxsYmFjayIsInN0YXR1cyI6InVubG9hZGVkIiwic3R5bGUiOiJub3JtYWwiLCJ3ZWlnaHQiOiJub3JtYWwifV0="
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "573e19232363f702da86-395ade5dcf59718afc10",
+          "file": "vietnamese.spec.mjs",
+          "line": 6,
+          "column": 1
+        },
+        {
+          "title": "slow local fonts remain readable with bounded layout shift",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox-768",
+              "projectName": "firefox-768",
+              "results": [
+                {
+                  "workerIndex": 25,
+                  "parallelIndex": 2,
+                  "status": "passed",
+                  "duration": 3500,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-29T01:53:17.912Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "font-load-layout-shifts",
+                      "contentType": "application/json",
+                      "body": "eyJzaGlmdHMiOltdfQ=="
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "573e19232363f702da86-79d97f8d647fa0939bd7",
+          "file": "vietnamese.spec.mjs",
+          "line": 47,
+          "column": 1
+        },
+        {
+          "title": "failed font requests keep readable text and links",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox-768",
+              "projectName": "firefox-768",
+              "results": [
+                {
+                  "workerIndex": 26,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 1443,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-29T01:53:22.412Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "573e19232363f702da86-0f73ffb99860d63d3181",
+          "file": "vietnamese.spec.mjs",
+          "line": 57,
+          "column": 1
+        },
+        {
+          "title": "without JS Vietnamese and links remain",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox-768",
+              "projectName": "firefox-768",
+              "results": [
+                {
+                  "workerIndex": 25,
+                  "parallelIndex": 2,
+                  "status": "passed",
+                  "duration": 648,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-29T01:53:21.824Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "573e19232363f702da86-2c2670a1a4da85b904e8",
+          "file": "vietnamese.spec.mjs",
+          "line": 63,
+          "column": 1
+        },
+        {
+          "title": "all Vietnamese headings use installed local faces without broken graphemes",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox-1024",
+              "projectName": "firefox-1024",
+              "results": [
+                {
+                  "workerIndex": 27,
+                  "parallelIndex": 2,
+                  "status": "passed",
+                  "duration": 8536,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-29T01:53:23.218Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "font-faces",
+                      "contentType": "application/json",
+                      "body": "W3siZmFtaWx5IjoiYmVWaWV0bmFtIiwic3RhdHVzIjoibG9hZGVkIiwic3R5bGUiOiJub3JtYWwiLCJ3ZWlnaHQiOiI0MDAifSx7ImZhbWlseSI6ImJlVmlldG5hbSIsInN0YXR1cyI6InVubG9hZGVkIiwic3R5bGUiOiJub3JtYWwiLCJ3ZWlnaHQiOiI1MDAifSx7ImZhbWlseSI6ImJlVmlldG5hbSIsInN0YXR1cyI6InVubG9hZGVkIiwic3R5bGUiOiJub3JtYWwiLCJ3ZWlnaHQiOiI2MDAifSx7ImZhbWlseSI6ImJlVmlldG5hbSIsInN0YXR1cyI6ImxvYWRlZCIsInN0eWxlIjoibm9ybWFsIiwid2VpZ2h0IjoiNzAwIn0seyJmYW1pbHkiOiJiZVZpZXRuYW0gRmFsbGJhY2siLCJzdGF0dXMiOiJsb2FkZWQiLCJzdHlsZSI6Im5vcm1hbCIsIndlaWdodCI6Im5vcm1hbCJ9LHsiZmFtaWx5IjoibnVuaXRvIiwic3RhdHVzIjoidW5sb2FkZWQiLCJzdHlsZSI6Im5vcm1hbCIsIndlaWdodCI6IjYwMCJ9LHsiZmFtaWx5IjoibnVuaXRvIiwic3RhdHVzIjoibG9hZGVkIiwic3R5bGUiOiJpdGFsaWMiLCJ3ZWlnaHQiOiI2MDAifSx7ImZhbWlseSI6Im51bml0byBGYWxsYmFjayIsInN0YXR1cyI6InVubG9hZGVkIiwic3R5bGUiOiJub3JtYWwiLCJ3ZWlnaHQiOiJub3JtYWwifV0="
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "573e19232363f702da86-b42d023088cdee12104d",
+          "file": "vietnamese.spec.mjs",
+          "line": 6,
+          "column": 1
+        },
+        {
+          "title": "slow local fonts remain readable with bounded layout shift",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox-1024",
+              "projectName": "firefox-1024",
+              "results": [
+                {
+                  "workerIndex": 28,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 3066,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-29T01:53:24.965Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "font-load-layout-shifts",
+                      "contentType": "application/json",
+                      "body": "eyJzaGlmdHMiOltdfQ=="
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "573e19232363f702da86-71b59894ab2d2f51a3e7",
+          "file": "vietnamese.spec.mjs",
+          "line": 47,
+          "column": 1
+        },
+        {
+          "title": "failed font requests keep readable text and links",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox-1024",
+              "projectName": "firefox-1024",
+              "results": [
+                {
+                  "workerIndex": 29,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1377,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-29T01:53:26.992Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "573e19232363f702da86-cc7f056efe5efaf88b83",
+          "file": "vietnamese.spec.mjs",
+          "line": 57,
+          "column": 1
+        },
+        {
+          "title": "without JS Vietnamese and links remain",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox-1024",
+              "projectName": "firefox-1024",
+              "results": [
+                {
+                  "workerIndex": 28,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 858,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-29T01:53:28.462Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "573e19232363f702da86-49a922aeec05ebb552aa",
+          "file": "vietnamese.spec.mjs",
+          "line": 63,
+          "column": 1
+        },
+        {
+          "title": "all Vietnamese headings use installed local faces without broken graphemes",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox-1440",
+              "projectName": "firefox-1440",
+              "results": [
+                {
+                  "workerIndex": 30,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 12226,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-29T01:53:29.616Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "font-faces",
+                      "contentType": "application/json",
+                      "body": "W3siZmFtaWx5IjoiYmVWaWV0bmFtIiwic3RhdHVzIjoibG9hZGVkIiwic3R5bGUiOiJub3JtYWwiLCJ3ZWlnaHQiOiI0MDAifSx7ImZhbWlseSI6ImJlVmlldG5hbSIsInN0YXR1cyI6InVubG9hZGVkIiwic3R5bGUiOiJub3JtYWwiLCJ3ZWlnaHQiOiI1MDAifSx7ImZhbWlseSI6ImJlVmlldG5hbSIsInN0YXR1cyI6InVubG9hZGVkIiwic3R5bGUiOiJub3JtYWwiLCJ3ZWlnaHQiOiI2MDAifSx7ImZhbWlseSI6ImJlVmlldG5hbSIsInN0YXR1cyI6ImxvYWRlZCIsInN0eWxlIjoibm9ybWFsIiwid2VpZ2h0IjoiNzAwIn0seyJmYW1pbHkiOiJiZVZpZXRuYW0gRmFsbGJhY2siLCJzdGF0dXMiOiJsb2FkZWQiLCJzdHlsZSI6Im5vcm1hbCIsIndlaWdodCI6Im5vcm1hbCJ9LHsiZmFtaWx5IjoibnVuaXRvIiwic3RhdHVzIjoidW5sb2FkZWQiLCJzdHlsZSI6Im5vcm1hbCIsIndlaWdodCI6IjYwMCJ9LHsiZmFtaWx5IjoibnVuaXRvIiwic3RhdHVzIjoibG9hZGVkIiwic3R5bGUiOiJpdGFsaWMiLCJ3ZWlnaHQiOiI2MDAifSx7ImZhbWlseSI6Im51bml0byBGYWxsYmFjayIsInN0YXR1cyI6InVubG9hZGVkIiwic3R5bGUiOiJub3JtYWwiLCJ3ZWlnaHQiOiJub3JtYWwifV0="
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "573e19232363f702da86-5706e28b7832c20a764d",
+          "file": "vietnamese.spec.mjs",
+          "line": 6,
+          "column": 1
+        },
+        {
+          "title": "slow local fonts remain readable with bounded layout shift",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox-1440",
+              "projectName": "firefox-1440",
+              "results": [
+                {
+                  "workerIndex": 31,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 5425,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-29T01:53:30.063Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "font-load-layout-shifts",
+                      "contentType": "application/json",
+                      "body": "eyJzaGlmdHMiOltdfQ=="
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "573e19232363f702da86-108dcab1a323034d9253",
+          "file": "vietnamese.spec.mjs",
+          "line": 47,
+          "column": 1
+        },
+        {
+          "title": "failed font requests keep readable text and links",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox-1440",
+              "projectName": "firefox-1440",
+              "results": [
+                {
+                  "workerIndex": 32,
+                  "parallelIndex": 2,
+                  "status": "passed",
+                  "duration": 2700,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-29T01:53:32.893Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "573e19232363f702da86-8717b5db722f4d8f99e9",
+          "file": "vietnamese.spec.mjs",
+          "line": 57,
+          "column": 1
+        },
+        {
+          "title": "without JS Vietnamese and links remain",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox-1440",
+              "projectName": "firefox-1440",
+              "results": [
+                {
+                  "workerIndex": 31,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 716,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-29T01:53:35.885Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "573e19232363f702da86-a40a39db3214d41c0839",
+          "file": "vietnamese.spec.mjs",
+          "line": 63,
+          "column": 1
+        },
+        {
+          "title": "all Vietnamese headings use installed local faces without broken graphemes",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit-320",
+              "projectName": "webkit-320",
+              "results": [
+                {
+                  "workerIndex": 33,
+                  "parallelIndex": 2,
+                  "status": "passed",
+                  "duration": 8533,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-29T01:53:36.814Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "font-faces",
+                      "contentType": "application/json",
+                      "body": "W3siZmFtaWx5IjoiYmVWaWV0bmFtIiwic3RhdHVzIjoibG9hZGVkIiwic3R5bGUiOiJub3JtYWwiLCJ3ZWlnaHQiOiI0MDAifSx7ImZhbWlseSI6ImJlVmlldG5hbSIsInN0YXR1cyI6InVubG9hZGVkIiwic3R5bGUiOiJub3JtYWwiLCJ3ZWlnaHQiOiI1MDAifSx7ImZhbWlseSI6ImJlVmlldG5hbSIsInN0YXR1cyI6InVubG9hZGVkIiwic3R5bGUiOiJub3JtYWwiLCJ3ZWlnaHQiOiI2MDAifSx7ImZhbWlseSI6ImJlVmlldG5hbSIsInN0YXR1cyI6ImxvYWRlZCIsInN0eWxlIjoibm9ybWFsIiwid2VpZ2h0IjoiNzAwIn0seyJmYW1pbHkiOiJiZVZpZXRuYW0gRmFsbGJhY2siLCJzdGF0dXMiOiJsb2FkZWQiLCJzdHlsZSI6Im5vcm1hbCIsIndlaWdodCI6Im5vcm1hbCJ9LHsiZmFtaWx5IjoibnVuaXRvIiwic3RhdHVzIjoidW5sb2FkZWQiLCJzdHlsZSI6Im5vcm1hbCIsIndlaWdodCI6IjYwMCJ9LHsiZmFtaWx5IjoibnVuaXRvIiwic3RhdHVzIjoibG9hZGVkIiwic3R5bGUiOiJpdGFsaWMiLCJ3ZWlnaHQiOiI2MDAifSx7ImZhbWlseSI6Im51bml0byBGYWxsYmFjayIsInN0YXR1cyI6InVubG9hZGVkIiwic3R5bGUiOiJub3JtYWwiLCJ3ZWlnaHQiOiJub3JtYWwifV0="
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "573e19232363f702da86-e707df41ef54d933a816",
+          "file": "vietnamese.spec.mjs",
+          "line": 6,
+          "column": 1
+        },
+        {
+          "title": "slow local fonts remain readable with bounded layout shift",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit-320",
+              "projectName": "webkit-320",
+              "results": [
+                {
+                  "workerIndex": 34,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 1420,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-29T01:53:37.354Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "font-load-layout-shifts",
+                      "contentType": "application/json",
+                      "body": "eyJzaGlmdHMiOltdfQ=="
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "573e19232363f702da86-53ce8e0d3775eae2f4d1",
+          "file": "vietnamese.spec.mjs",
+          "line": 47,
+          "column": 1
+        },
+        {
+          "title": "failed font requests keep readable text and links",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit-320",
+              "projectName": "webkit-320",
+              "results": [
+                {
+                  "workerIndex": 34,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 692,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-29T01:53:38.853Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "573e19232363f702da86-f3f76abb0925729aa60c",
+          "file": "vietnamese.spec.mjs",
+          "line": 57,
+          "column": 1
+        },
+        {
+          "title": "without JS Vietnamese and links remain",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit-320",
+              "projectName": "webkit-320",
+              "results": [
+                {
+                  "workerIndex": 34,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 522,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-29T01:53:39.553Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "573e19232363f702da86-333dd9dc1e6f811ce151",
+          "file": "vietnamese.spec.mjs",
+          "line": 63,
+          "column": 1
+        },
+        {
+          "title": "all Vietnamese headings use installed local faces without broken graphemes",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit-360",
+              "projectName": "webkit-360",
+              "results": [
+                {
+                  "workerIndex": 35,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 7888,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-29T01:53:40.437Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "font-faces",
+                      "contentType": "application/json",
+                      "body": "W3siZmFtaWx5IjoiYmVWaWV0bmFtIiwic3RhdHVzIjoibG9hZGVkIiwic3R5bGUiOiJub3JtYWwiLCJ3ZWlnaHQiOiI0MDAifSx7ImZhbWlseSI6ImJlVmlldG5hbSIsInN0YXR1cyI6InVubG9hZGVkIiwic3R5bGUiOiJub3JtYWwiLCJ3ZWlnaHQiOiI1MDAifSx7ImZhbWlseSI6ImJlVmlldG5hbSIsInN0YXR1cyI6InVubG9hZGVkIiwic3R5bGUiOiJub3JtYWwiLCJ3ZWlnaHQiOiI2MDAifSx7ImZhbWlseSI6ImJlVmlldG5hbSIsInN0YXR1cyI6ImxvYWRlZCIsInN0eWxlIjoibm9ybWFsIiwid2VpZ2h0IjoiNzAwIn0seyJmYW1pbHkiOiJiZVZpZXRuYW0gRmFsbGJhY2siLCJzdGF0dXMiOiJsb2FkZWQiLCJzdHlsZSI6Im5vcm1hbCIsIndlaWdodCI6Im5vcm1hbCJ9LHsiZmFtaWx5IjoibnVuaXRvIiwic3RhdHVzIjoidW5sb2FkZWQiLCJzdHlsZSI6Im5vcm1hbCIsIndlaWdodCI6IjYwMCJ9LHsiZmFtaWx5IjoibnVuaXRvIiwic3RhdHVzIjoibG9hZGVkIiwic3R5bGUiOiJpdGFsaWMiLCJ3ZWlnaHQiOiI2MDAifSx7ImZhbWlseSI6Im51bml0byBGYWxsYmFjayIsInN0YXR1cyI6InVubG9hZGVkIiwic3R5bGUiOiJub3JtYWwiLCJ3ZWlnaHQiOiJub3JtYWwifV0="
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "573e19232363f702da86-6b342eebbb32f6fc4060",
+          "file": "vietnamese.spec.mjs",
+          "line": 6,
+          "column": 1
+        },
+        {
+          "title": "slow local fonts remain readable with bounded layout shift",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit-360",
+              "projectName": "webkit-360",
+              "results": [
+                {
+                  "workerIndex": 36,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1040,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-29T01:53:43.007Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "font-load-layout-shifts",
+                      "contentType": "application/json",
+                      "body": "eyJzaGlmdHMiOltdfQ=="
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "573e19232363f702da86-cd6848d613c3eea948bf",
+          "file": "vietnamese.spec.mjs",
+          "line": 47,
+          "column": 1
+        },
+        {
+          "title": "failed font requests keep readable text and links",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit-360",
+              "projectName": "webkit-360",
+              "results": [
+                {
+                  "workerIndex": 36,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 704,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-29T01:53:44.103Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "573e19232363f702da86-d08dbbd53b498c56a735",
+          "file": "vietnamese.spec.mjs",
+          "line": 57,
+          "column": 1
+        },
+        {
+          "title": "without JS Vietnamese and links remain",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit-360",
+              "projectName": "webkit-360",
+              "results": [
+                {
+                  "workerIndex": 36,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 467,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-29T01:53:44.815Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "573e19232363f702da86-06fb8426cd432059e21f",
+          "file": "vietnamese.spec.mjs",
+          "line": 63,
+          "column": 1
+        },
+        {
+          "title": "all Vietnamese headings use installed local faces without broken graphemes",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit-390",
+              "projectName": "webkit-390",
+              "results": [
+                {
+                  "workerIndex": 37,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 7527,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-29T01:53:45.616Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "font-faces",
+                      "contentType": "application/json",
+                      "body": "W3siZmFtaWx5IjoiYmVWaWV0bmFtIiwic3RhdHVzIjoibG9hZGVkIiwic3R5bGUiOiJub3JtYWwiLCJ3ZWlnaHQiOiI0MDAifSx7ImZhbWlseSI6ImJlVmlldG5hbSIsInN0YXR1cyI6InVubG9hZGVkIiwic3R5bGUiOiJub3JtYWwiLCJ3ZWlnaHQiOiI1MDAifSx7ImZhbWlseSI6ImJlVmlldG5hbSIsInN0YXR1cyI6InVubG9hZGVkIiwic3R5bGUiOiJub3JtYWwiLCJ3ZWlnaHQiOiI2MDAifSx7ImZhbWlseSI6ImJlVmlldG5hbSIsInN0YXR1cyI6ImxvYWRlZCIsInN0eWxlIjoibm9ybWFsIiwid2VpZ2h0IjoiNzAwIn0seyJmYW1pbHkiOiJiZVZpZXRuYW0gRmFsbGJhY2siLCJzdGF0dXMiOiJsb2FkZWQiLCJzdHlsZSI6Im5vcm1hbCIsIndlaWdodCI6Im5vcm1hbCJ9LHsiZmFtaWx5IjoibnVuaXRvIiwic3RhdHVzIjoidW5sb2FkZWQiLCJzdHlsZSI6Im5vcm1hbCIsIndlaWdodCI6IjYwMCJ9LHsiZmFtaWx5IjoibnVuaXRvIiwic3RhdHVzIjoibG9hZGVkIiwic3R5bGUiOiJpdGFsaWMiLCJ3ZWlnaHQiOiI2MDAifSx7ImZhbWlseSI6Im51bml0byBGYWxsYmFjayIsInN0YXR1cyI6InVubG9hZGVkIiwic3R5bGUiOiJub3JtYWwiLCJ3ZWlnaHQiOiJub3JtYWwifV0="
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "573e19232363f702da86-d89e97f1b1f88b247974",
+          "file": "vietnamese.spec.mjs",
+          "line": 6,
+          "column": 1
+        },
+        {
+          "title": "slow local fonts remain readable with bounded layout shift",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit-390",
+              "projectName": "webkit-390",
+              "results": [
+                {
+                  "workerIndex": 38,
+                  "parallelIndex": 2,
+                  "status": "passed",
+                  "duration": 985,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-29T01:53:46.276Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "font-load-layout-shifts",
+                      "contentType": "application/json",
+                      "body": "eyJzaGlmdHMiOltdfQ=="
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "573e19232363f702da86-1e788c80c828f62afa6b",
+          "file": "vietnamese.spec.mjs",
+          "line": 47,
+          "column": 1
+        },
+        {
+          "title": "failed font requests keep readable text and links",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit-390",
+              "projectName": "webkit-390",
+              "results": [
+                {
+                  "workerIndex": 38,
+                  "parallelIndex": 2,
+                  "status": "passed",
+                  "duration": 648,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-29T01:53:47.310Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "573e19232363f702da86-7d1de45e07d1dcb05729",
+          "file": "vietnamese.spec.mjs",
+          "line": 57,
+          "column": 1
+        },
+        {
+          "title": "without JS Vietnamese and links remain",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit-390",
+              "projectName": "webkit-390",
+              "results": [
+                {
+                  "workerIndex": 38,
+                  "parallelIndex": 2,
+                  "status": "passed",
+                  "duration": 439,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-29T01:53:47.966Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "573e19232363f702da86-5e8f71a1eb5d026d539f",
+          "file": "vietnamese.spec.mjs",
+          "line": 63,
+          "column": 1
+        },
+        {
+          "title": "all Vietnamese headings use installed local faces without broken graphemes",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit-768",
+              "projectName": "webkit-768",
+              "results": [
+                {
+                  "workerIndex": 39,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 7946,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-29T01:53:48.724Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "font-faces",
+                      "contentType": "application/json",
+                      "body": "W3siZmFtaWx5IjoiYmVWaWV0bmFtIiwic3RhdHVzIjoibG9hZGVkIiwic3R5bGUiOiJub3JtYWwiLCJ3ZWlnaHQiOiI0MDAifSx7ImZhbWlseSI6ImJlVmlldG5hbSIsInN0YXR1cyI6InVubG9hZGVkIiwic3R5bGUiOiJub3JtYWwiLCJ3ZWlnaHQiOiI1MDAifSx7ImZhbWlseSI6ImJlVmlldG5hbSIsInN0YXR1cyI6InVubG9hZGVkIiwic3R5bGUiOiJub3JtYWwiLCJ3ZWlnaHQiOiI2MDAifSx7ImZhbWlseSI6ImJlVmlldG5hbSIsInN0YXR1cyI6ImxvYWRlZCIsInN0eWxlIjoibm9ybWFsIiwid2VpZ2h0IjoiNzAwIn0seyJmYW1pbHkiOiJiZVZpZXRuYW0gRmFsbGJhY2siLCJzdGF0dXMiOiJsb2FkZWQiLCJzdHlsZSI6Im5vcm1hbCIsIndlaWdodCI6Im5vcm1hbCJ9LHsiZmFtaWx5IjoibnVuaXRvIiwic3RhdHVzIjoidW5sb2FkZWQiLCJzdHlsZSI6Im5vcm1hbCIsIndlaWdodCI6IjYwMCJ9LHsiZmFtaWx5IjoibnVuaXRvIiwic3RhdHVzIjoibG9hZGVkIiwic3R5bGUiOiJpdGFsaWMiLCJ3ZWlnaHQiOiI2MDAifSx7ImZhbWlseSI6Im51bml0byBGYWxsYmFjayIsInN0YXR1cyI6InVubG9hZGVkIiwic3R5bGUiOiJub3JtYWwiLCJ3ZWlnaHQiOiJub3JtYWwifV0="
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "573e19232363f702da86-31565dfdec509a30abd6",
+          "file": "vietnamese.spec.mjs",
+          "line": 6,
+          "column": 1
+        },
+        {
+          "title": "slow local fonts remain readable with bounded layout shift",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit-768",
+              "projectName": "webkit-768",
+              "results": [
+                {
+                  "workerIndex": 40,
+                  "parallelIndex": 2,
+                  "status": "passed",
+                  "duration": 1035,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-29T01:53:48.738Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "font-load-layout-shifts",
+                      "contentType": "application/json",
+                      "body": "eyJzaGlmdHMiOltdfQ=="
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "573e19232363f702da86-667e287d5f88f2cad53f",
+          "file": "vietnamese.spec.mjs",
+          "line": 47,
+          "column": 1
+        },
+        {
+          "title": "failed font requests keep readable text and links",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit-768",
+              "projectName": "webkit-768",
+              "results": [
+                {
+                  "workerIndex": 40,
+                  "parallelIndex": 2,
+                  "status": "passed",
+                  "duration": 651,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-29T01:53:49.822Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "573e19232363f702da86-95daf3423d39c7b3a9dc",
+          "file": "vietnamese.spec.mjs",
+          "line": 57,
+          "column": 1
+        },
+        {
+          "title": "without JS Vietnamese and links remain",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit-768",
+              "projectName": "webkit-768",
+              "results": [
+                {
+                  "workerIndex": 40,
+                  "parallelIndex": 2,
+                  "status": "passed",
+                  "duration": 468,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-29T01:53:50.480Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "573e19232363f702da86-231c51b753157ec3891f",
+          "file": "vietnamese.spec.mjs",
+          "line": 63,
+          "column": 1
+        },
+        {
+          "title": "all Vietnamese headings use installed local faces without broken graphemes",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit-1024",
+              "projectName": "webkit-1024",
+              "results": [
+                {
+                  "workerIndex": 41,
+                  "parallelIndex": 2,
+                  "status": "passed",
+                  "duration": 8041,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-29T01:53:51.269Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "font-faces",
+                      "contentType": "application/json",
+                      "body": "W3siZmFtaWx5IjoiYmVWaWV0bmFtIiwic3RhdHVzIjoibG9hZGVkIiwic3R5bGUiOiJub3JtYWwiLCJ3ZWlnaHQiOiI0MDAifSx7ImZhbWlseSI6ImJlVmlldG5hbSIsInN0YXR1cyI6InVubG9hZGVkIiwic3R5bGUiOiJub3JtYWwiLCJ3ZWlnaHQiOiI1MDAifSx7ImZhbWlseSI6ImJlVmlldG5hbSIsInN0YXR1cyI6InVubG9hZGVkIiwic3R5bGUiOiJub3JtYWwiLCJ3ZWlnaHQiOiI2MDAifSx7ImZhbWlseSI6ImJlVmlldG5hbSIsInN0YXR1cyI6ImxvYWRlZCIsInN0eWxlIjoibm9ybWFsIiwid2VpZ2h0IjoiNzAwIn0seyJmYW1pbHkiOiJiZVZpZXRuYW0gRmFsbGJhY2siLCJzdGF0dXMiOiJsb2FkZWQiLCJzdHlsZSI6Im5vcm1hbCIsIndlaWdodCI6Im5vcm1hbCJ9LHsiZmFtaWx5IjoibnVuaXRvIiwic3RhdHVzIjoidW5sb2FkZWQiLCJzdHlsZSI6Im5vcm1hbCIsIndlaWdodCI6IjYwMCJ9LHsiZmFtaWx5IjoibnVuaXRvIiwic3RhdHVzIjoibG9hZGVkIiwic3R5bGUiOiJpdGFsaWMiLCJ3ZWlnaHQiOiI2MDAifSx7ImZhbWlseSI6Im51bml0byBGYWxsYmFjayIsInN0YXR1cyI6InVubG9hZGVkIiwic3R5bGUiOiJub3JtYWwiLCJ3ZWlnaHQiOiJub3JtYWwifV0="
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "573e19232363f702da86-ba172f415d6ea348b4b7",
+          "file": "vietnamese.spec.mjs",
+          "line": 6,
+          "column": 1
+        },
+        {
+          "title": "slow local fonts remain readable with bounded layout shift",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit-1024",
+              "projectName": "webkit-1024",
+              "results": [
+                {
+                  "workerIndex": 42,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1021,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-29T01:53:53.516Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "font-load-layout-shifts",
+                      "contentType": "application/json",
+                      "body": "eyJzaGlmdHMiOltdfQ=="
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "573e19232363f702da86-5e49894f3810bce8d155",
+          "file": "vietnamese.spec.mjs",
+          "line": 47,
+          "column": 1
+        },
+        {
+          "title": "failed font requests keep readable text and links",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit-1024",
+              "projectName": "webkit-1024",
+              "results": [
+                {
+                  "workerIndex": 42,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 675,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-29T01:53:54.587Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "573e19232363f702da86-5f1ce6463b1453630093",
+          "file": "vietnamese.spec.mjs",
+          "line": 57,
+          "column": 1
+        },
+        {
+          "title": "without JS Vietnamese and links remain",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit-1024",
+              "projectName": "webkit-1024",
+              "results": [
+                {
+                  "workerIndex": 42,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 442,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-29T01:53:55.269Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "573e19232363f702da86-e1ed4426f33350567480",
+          "file": "vietnamese.spec.mjs",
+          "line": 63,
+          "column": 1
+        },
+        {
+          "title": "all Vietnamese headings use installed local faces without broken graphemes",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit-1440",
+              "projectName": "webkit-1440",
+              "results": [
+                {
+                  "workerIndex": 43,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 8120,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-29T01:53:56.032Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "font-faces",
+                      "contentType": "application/json",
+                      "body": "W3siZmFtaWx5IjoiYmVWaWV0bmFtIiwic3RhdHVzIjoibG9hZGVkIiwic3R5bGUiOiJub3JtYWwiLCJ3ZWlnaHQiOiI0MDAifSx7ImZhbWlseSI6ImJlVmlldG5hbSIsInN0YXR1cyI6InVubG9hZGVkIiwic3R5bGUiOiJub3JtYWwiLCJ3ZWlnaHQiOiI1MDAifSx7ImZhbWlseSI6ImJlVmlldG5hbSIsInN0YXR1cyI6InVubG9hZGVkIiwic3R5bGUiOiJub3JtYWwiLCJ3ZWlnaHQiOiI2MDAifSx7ImZhbWlseSI6ImJlVmlldG5hbSIsInN0YXR1cyI6ImxvYWRlZCIsInN0eWxlIjoibm9ybWFsIiwid2VpZ2h0IjoiNzAwIn0seyJmYW1pbHkiOiJiZVZpZXRuYW0gRmFsbGJhY2siLCJzdGF0dXMiOiJsb2FkZWQiLCJzdHlsZSI6Im5vcm1hbCIsIndlaWdodCI6Im5vcm1hbCJ9LHsiZmFtaWx5IjoibnVuaXRvIiwic3RhdHVzIjoidW5sb2FkZWQiLCJzdHlsZSI6Im5vcm1hbCIsIndlaWdodCI6IjYwMCJ9LHsiZmFtaWx5IjoibnVuaXRvIiwic3RhdHVzIjoibG9hZGVkIiwic3R5bGUiOiJpdGFsaWMiLCJ3ZWlnaHQiOiI2MDAifSx7ImZhbWlseSI6Im51bml0byBGYWxsYmFjayIsInN0YXR1cyI6InVubG9hZGVkIiwic3R5bGUiOiJub3JtYWwiLCJ3ZWlnaHQiOiJub3JtYWwifV0="
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "573e19232363f702da86-b624d9e0df3a05d4ee7e",
+          "file": "vietnamese.spec.mjs",
+          "line": 6,
+          "column": 1
+        },
+        {
+          "title": "slow local fonts remain readable with bounded layout shift",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit-1440",
+              "projectName": "webkit-1440",
+              "results": [
+                {
+                  "workerIndex": 44,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 1022,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-29T01:53:57.059Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "font-load-layout-shifts",
+                      "contentType": "application/json",
+                      "body": "eyJzaGlmdHMiOltdfQ=="
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "573e19232363f702da86-3bdf1c43dc1f9d0cfc4d",
+          "file": "vietnamese.spec.mjs",
+          "line": 47,
+          "column": 1
+        },
+        {
+          "title": "failed font requests keep readable text and links",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit-1440",
+              "projectName": "webkit-1440",
+              "results": [
+                {
+                  "workerIndex": 44,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 644,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-29T01:53:58.238Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "573e19232363f702da86-dec533858a3ca56ddaf5",
+          "file": "vietnamese.spec.mjs",
+          "line": 57,
+          "column": 1
+        },
+        {
+          "title": "without JS Vietnamese and links remain",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit-1440",
+              "projectName": "webkit-1440",
+              "results": [
+                {
+                  "workerIndex": 44,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 484,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-29T01:53:58.890Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "573e19232363f702da86-0bed814998f14dbed257",
+          "file": "vietnamese.spec.mjs",
+          "line": 63,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-29T01:52:39.619Z",
+    "duration": 84846.083,
+    "expected": 72,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  }
+}

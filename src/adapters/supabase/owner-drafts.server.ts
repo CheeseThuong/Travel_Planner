@@ -1,5 +1,5 @@
-import type { TripDraft, TripStop } from "@/domain/model/trip";
-import type { OwnerDraftRepository, SaveResult } from "@/domain/ports/persistence";
+import type { PlanCandidate, TripDraft, TripStop } from "@/domain/model/trip";
+import type { OwnerPlanningRepository, PlanWriteResult, SaveResult } from "@/domain/ports/persistence";
 
 type OwnerClientConfig = Readonly<{ url: string; publishableKey: string }>;
 type RpcResult = Readonly<{ status: string; id?: string; version?: number; current_version?: number }>;
@@ -18,12 +18,15 @@ function endpoint(config: OwnerClientConfig, path: string): URL {
 }
 
 async function request(config: OwnerClientConfig, accessToken: string, path: string, init: RequestInit = {}): Promise<unknown> {
-  const response = await fetch(endpoint(config, path), {
-    ...init,
-    headers: { apikey: config.publishableKey, Authorization: `Bearer ${accessToken}`, "Content-Type": "application/json", ...init.headers },
-    signal: AbortSignal.timeout(10_000),
-  });
-  const body = await response.text();
+  let response: Response, body: string;
+  try {
+    response = await fetch(endpoint(config, path), {
+      ...init,
+      headers: { apikey: config.publishableKey, Authorization: `Bearer ${accessToken}`, "Content-Type": "application/json", ...init.headers },
+      signal: AbortSignal.timeout(10_000),
+    });
+    body = await response.text();
+  } catch { throw new OwnerAccessError("unavailable"); }
   if (body.length > 1_000_000) throw new OwnerAccessError("unavailable");
   if (!response.ok) {
     let upstreamCode: string | undefined;
@@ -102,7 +105,7 @@ function draftPayload(draft: TripDraft): object {
   return draft;
 }
 
-export async function createVerifiedOwnerDraftRepository(config: OwnerClientConfig, accessToken: string): Promise<OwnerDraftRepository> {
+export async function createVerifiedOwnerDraftRepository(config: OwnerClientConfig, accessToken: string): Promise<OwnerPlanningRepository> {
   if (!accessToken || accessToken.length > 8192) throw new OwnerAccessError("unauthorized");
   const verified = asRecord(await request(config, accessToken, "/auth/v1/user"));
   if (typeof verified.id !== "string") throw new OwnerAccessError("unauthorized");
@@ -124,8 +127,31 @@ export async function createVerifiedOwnerDraftRepository(config: OwnerClientConf
     if (["not_found", "idempotency_conflict", "id_conflict"].includes(value.status)) return { status: value.status as "not_found" | "idempotency_conflict" | "id_conflict" };
     throw new OwnerAccessError("unavailable");
   };
+  const loadCandidate = async (tripId: string, runId: string): Promise<PlanCandidate | null> => {
+    if (![tripId, runId].every((id) => /^[0-9a-f-]{36}$/i.test(id))) throw new OwnerAccessError("invalid_input");
+    const rows = await request(config, accessToken, `/rest/v1/trip_plan_runs?trip_id=eq.${encodeURIComponent(tripId)}&id=eq.${encodeURIComponent(runId)}&select=candidate_json&limit=1`);
+    if (!Array.isArray(rows)) throw new OwnerAccessError("unavailable");
+    return rows.length ? asRecord(asRecord(rows[0]).candidate_json) as unknown as PlanCandidate : null;
+  };
+  const planFailure = (value: Record<string, unknown>): PlanWriteResult => {
+    if (value.status === "version_conflict" || value.status === "plan_run_stale") return { status: value.status, current_version: asNumber(value.current_version) };
+    if (value.status === "not_found" || value.status === "idempotency_conflict") return { status: value.status };
+    throw new OwnerAccessError("unavailable");
+  };
   return {
     load,
+    loadCandidate,
+    storeCandidate: async (tripId, expectedVersion, idempotencyKey, candidate) => {
+      const value = asRecord(await request(config, accessToken, "/rest/v1/rpc/owner_store_plan", { method: "POST", body: JSON.stringify({ p_trip_id: tripId, p_expected_version: expectedVersion, p_idempotency_key: idempotencyKey, p_candidate: candidate }) }));
+      if (value.status !== "candidate") return planFailure(value);
+      const stored = await loadCandidate(tripId, String(value.plan_run_id));
+      if (!stored) throw new OwnerAccessError("unavailable");
+      return { status: "candidate", candidate: stored };
+    },
+    applyCandidate: async (tripId, runId, expectedVersion, idempotencyKey) => {
+      const value = asRecord(await request(config, accessToken, "/rest/v1/rpc/owner_apply_plan", { method: "POST", body: JSON.stringify({ p_trip_id: tripId, p_plan_run_id: runId, p_expected_version: expectedVersion, p_idempotency_key: idempotencyKey, p_confirmed: true }) }));
+      return value.status === "applied" ? { status: "applied", id: String(value.id), version: asNumber(value.version), state: "planned" } : planFailure(value);
+    },
     create: async (draft, idempotencyKey) => {
       const result = await saveWithKey(draft, 0, idempotencyKey);
       if (result.status !== "saved") throw new OwnerAccessError(result.status === "id_conflict" || result.status === "idempotency_conflict" ? "invalid_input" : "unavailable");

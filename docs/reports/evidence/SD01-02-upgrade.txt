@@ -1,0 +1,33 @@
+BEGIN
+SELECT 60
+CREATE FUNCTION
+REVOKE
+CREATE FUNCTION
+REVOKE
+CREATE FUNCTION
+REVOKE
+ALTER TABLE
+ALTER TABLE
+CREATE TABLE
+CREATE INDEX
+ALTER TABLE
+REVOKE
+GRANT
+CREATE POLICY
+CREATE FUNCTION
+REVOKE
+CREATE TRIGGER
+CREATE TRIGGER
+CREATE FUNCTION
+REVOKE
+INSERT 0 60
+CREATE FUNCTION
+REVOKE
+CREATE TRIGGER
+DO
+                                      ?column?                                       
+-------------------------------------------------------------------------------------
+ PASS: all60 legacy rows/timestamps unchanged;60 draft discovery profiles backfilled
+(1 row)
+
+ROLLBACK

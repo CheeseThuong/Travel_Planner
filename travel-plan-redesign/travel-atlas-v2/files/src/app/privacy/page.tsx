@@ -1,0 +1,2 @@
+import {ComingSoon} from "@/components/coming-soon";
+export default function PrivacyPage(){return <ComingSoon title="Quyền riêng tư" description="Bản thử xếp lịch trên máy không tự động gửi lịch trình đến cloud để lưu. Khi bạn yêu cầu tìm ứng viên từ liên kết Google Maps, URL được chuyển tới API nhận diện nội bộ; không tự động mở URL rút gọn. Chính sách đầy đủ cần được công bố trước khi dịch vụ cloud vận hành."/>}

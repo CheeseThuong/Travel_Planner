@@ -1,0 +1,309 @@
+{
+  "ContributionPayload": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "type": "object",
+    "properties": {
+      "destination_slug": {
+        "type": "string",
+        "enum": [
+          "nha-trang",
+          "da-lat"
+        ]
+      },
+      "title": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 160
+      },
+      "description": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 1000
+      },
+      "address": {
+        "anyOf": [
+          {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 300
+          },
+          {
+            "type": "null"
+          }
+        ]
+      },
+      "location": {
+        "type": "object",
+        "properties": {
+          "lat": {
+            "type": "number",
+            "minimum": -90,
+            "maximum": 90
+          },
+          "lng": {
+            "type": "number",
+            "minimum": -180,
+            "maximum": 180
+          }
+        },
+        "required": [
+          "lat",
+          "lng"
+        ],
+        "additionalProperties": false
+      },
+      "categories": {
+        "minItems": 1,
+        "maxItems": 5,
+        "type": "array",
+        "items": {
+          "type": "string",
+          "enum": [
+            "food",
+            "cafe",
+            "lodging",
+            "landmarks",
+            "nature",
+            "outdoor",
+            "viewpoint",
+            "shopping",
+            "family",
+            "services"
+          ]
+        }
+      },
+      "tags": {
+        "maxItems": 10,
+        "type": "array",
+        "items": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 32
+        }
+      },
+      "suggested_duration_min": {
+        "type": "integer",
+        "minimum": 15,
+        "maximum": 720
+      },
+      "transport_constraint": {
+        "type": "string",
+        "enum": [
+          "access_unverified",
+          "manual_transfer"
+        ]
+      },
+      "source": {
+        "type": "string",
+        "const": "original_user_contribution"
+      },
+      "rights_confirmed": {
+        "type": "boolean",
+        "const": true
+      }
+    },
+    "required": [
+      "destination_slug",
+      "title",
+      "description",
+      "address",
+      "location",
+      "categories",
+      "tags",
+      "suggested_duration_min",
+      "transport_constraint",
+      "source",
+      "rights_confirmed"
+    ],
+    "additionalProperties": false
+  },
+  "ContributionTransition": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "type": "object",
+    "properties": {
+      "expected_version": {
+        "type": "integer",
+        "minimum": 1,
+        "maximum": 2147483645
+      },
+      "action": {
+        "type": "string",
+        "enum": [
+          "verify",
+          "approve",
+          "reject",
+          "restore",
+          "withdraw"
+        ]
+      },
+      "note": {
+        "default": "",
+        "type": "string",
+        "maxLength": 1000
+      }
+    },
+    "required": [
+      "expected_version",
+      "action"
+    ],
+    "additionalProperties": false
+  },
+  "CommunityPlace": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "type": "object",
+    "properties": {
+      "id": {
+        "type": "string",
+        "format": "uuid",
+        "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+      },
+      "destination_slug": {
+        "type": "string",
+        "enum": [
+          "nha-trang",
+          "da-lat"
+        ]
+      },
+      "title": {
+        "type": "string",
+        "maxLength": 160
+      },
+      "description": {
+        "type": "string",
+        "maxLength": 1000
+      },
+      "address": {
+        "anyOf": [
+          {
+            "type": "string",
+            "maxLength": 300
+          },
+          {
+            "type": "null"
+          }
+        ]
+      },
+      "location": {
+        "type": "object",
+        "properties": {
+          "lat": {
+            "type": "number",
+            "minimum": -90,
+            "maximum": 90
+          },
+          "lng": {
+            "type": "number",
+            "minimum": -180,
+            "maximum": 180
+          }
+        },
+        "required": [
+          "lat",
+          "lng"
+        ],
+        "additionalProperties": false
+      },
+      "categories": {
+        "minItems": 1,
+        "maxItems": 5,
+        "type": "array",
+        "items": {
+          "type": "string",
+          "enum": [
+            "food",
+            "cafe",
+            "lodging",
+            "landmarks",
+            "nature",
+            "outdoor",
+            "viewpoint",
+            "shopping",
+            "family",
+            "services"
+          ]
+        }
+      },
+      "tags": {
+        "maxItems": 10,
+        "type": "array",
+        "items": {
+          "type": "string",
+          "maxLength": 32
+        }
+      },
+      "suggested_duration_min": {
+        "type": "integer",
+        "minimum": 15,
+        "maximum": 720
+      },
+      "transport_constraint": {
+        "type": "string",
+        "enum": [
+          "access_unverified",
+          "manual_transfer"
+        ]
+      },
+      "source": {
+        "type": "string",
+        "const": "original_user_contribution"
+      },
+      "moderation": {
+        "type": "string",
+        "const": "community_reviewed"
+      },
+      "coordinate_confidence": {
+        "type": "string",
+        "const": "user_confirmed"
+      },
+      "hours": {
+        "type": "object",
+        "properties": {
+          "state": {
+            "type": "string",
+            "const": "hours_unknown"
+          }
+        },
+        "required": [
+          "state"
+        ],
+        "additionalProperties": false
+      },
+      "price": {
+        "type": "object",
+        "properties": {
+          "state": {
+            "type": "string",
+            "const": "unknown"
+          }
+        },
+        "required": [
+          "state"
+        ],
+        "additionalProperties": false
+      },
+      "accessibility": {
+        "type": "string",
+        "const": "unknown"
+      }
+    },
+    "required": [
+      "id",
+      "destination_slug",
+      "title",
+      "description",
+      "address",
+      "location",
+      "categories",
+      "tags",
+      "suggested_duration_min",
+      "transport_constraint",
+      "source",
+      "moderation",
+      "coordinate_confidence",
+      "hours",
+      "price",
+      "accessibility"
+    ],
+    "additionalProperties": false
+  }
+}

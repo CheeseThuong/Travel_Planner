@@ -1,0 +1,1 @@
+export default function Loading(){return <div role="status" className="atlas-container atlas-loading"><span className="atlas-kicker">ĐANG TÌM TUYẾN…</span><div aria-hidden="true" className="atlas-loading-line"/><p>Chúng tôi đang tải dữ liệu địa điểm. Chưa có kế hoạch nào được xác nhận.</p></div>}

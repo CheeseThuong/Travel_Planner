@@ -1,0 +1,13 @@
+import { test, expect } from "@playwright/test";
+
+const id="f8300000-0000-4000-8000-000000000001";
+function draft(){return {id,version:1,destination_slug:"da-lat",title:"Browser HTTP fixture",timezone:"Asia/Ho_Chi_Minh",start_date:"2026-11-10",end_date:"2026-11-11",arrival_local_time:"10:00",departure_local_time:"17:00",base_location:{label:"Temporary city reference",lat:11.94,lng:108.45,temporary:true},transport_mode:"motorbike",pace:"balanced",party_size:2,planning_mode:"assisted",budget:{currency:"VND",total_vnd:null,known_costs_vnd:{lodging:0,transport:0,meals:0,other:0}},preferences:{day_start:"08:00",day_end:"21:00",lunch_buffer_minutes:60,rest_buffer_minutes:15,return_to_base:true},stops:[]};}
+test("actual no-key hybrid route generates source-preserving known suggestions from zero selections",async({request})=>{
+  const response=await request.post("/api/v1/plans/preview",{data:{draft:draft(),use_ai:true,use_provider:true}});expect(response.status()).toBe(200);expect(response.headers()["cache-control"]).toBe("no-store");
+  const result=(await response.json()).data;expect(result.preview_only).toBe(true);expect(result.requires_confirmation).toBe(true);expect(result.original_stop_ids).toEqual([]);expect(result.candidate_draft.stops.length).toBeGreaterThan(0);expect(result.suggested_places.every(place=>place.destination_slug==="da-lat"&&place.sources[0].provider==="openstreetmap")).toBe(true);expect(result.usage.discovery_requests_attempted).toBe(0);expect(result.usage.ranking_requests_attempted).toBe(0);expect(result.warnings).toContain("APPROXIMATE_NOT_ROAD_ETA");
+});
+test("actual preview keeps a required manual transfer explicitly unscheduled and never accepts owner/apply fields",async({request})=>{
+  const input=draft();input.stops=[{id:"f8310000-0000-4000-8000-000000000001",destination_slug:"da-lat",user_title:"Synthetic manual transfer",location:{lat:11.94,lng:108.45},coordinate_provenance:"user_entered",requested_duration_min:60,is_required:true,hours:{state:"hours_unknown"},transport_constraint:"manual_transfer",cost_estimate:{provenance:"unknown"}}];
+  const response=await request.post("/api/v1/plans/preview",{data:{draft:input,preferences:{auto_suggest:false}}});expect(response.status()).toBe(200);const result=(await response.json()).data;expect(result.planning.unscheduled).toEqual([{stop_id:input.stops[0].id,reason:"UNREACHABLE",message:"MANUAL_TRANSFER_REQUIRED"}]);expect(result.candidate_draft.stops[0].is_required).toBe(true);expect(result.planning.candidate.unfulfilled_required).toEqual([input.stops[0].id]);
+  const rejected=await request.post("/api/v1/plans/preview",{data:{draft:input,confirmed:true,owner_id:id}});expect(rejected.status()).toBe(422);
+});

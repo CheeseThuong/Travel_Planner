@@ -6,6 +6,7 @@
 > Điểm đến thử nghiệm: Nha Trang. Mở rộng bằng dữ liệu tới Đà Lạt, Đà Nẵng, Hà Nội.
 > Scope amendment 2026-10-21: user yêu cầu bổ sung catalog Đà Lạt ngay (ADR-0013); mỗi trip vẫn một thành phố. G0 baseline/ODbL đã được user duyệt; chưa cho phép bỏ qua gate triển khai.
 > Scope amendment 2026-10-22: user yêu cầu ngân sách chuyến đi, số người và chế độ tự lập kế hoạch là P0 (ADR-0022). Ước tính phải nêu nguồn và phần chi phí chưa biết; manual mode không được engine tự sửa lịch.
+> Scope amendment 2026-10-29: yêu cầu Smart Discovery/geo-zones/Maps contributions/Brave/Groq và UX từng bước được ánh xạ trong [ADR-0030](adr/ADR-0030.md) và WORK_ITEMS. Giữ nguyên engine/Atlas V2, xác nhận apply và G0–G8; chưa tích hợp extension trước G4 được người dùng duyệt.
 
 ## 0. Executive decisions — các quyết định mặc định
 

@@ -27,8 +27,8 @@ export function draftIssues(draft: TripDraft): string[] {
   if (!dates.length) issues.push("DATES");
   if (!localTime(draft.arrival_local_time) || !localTime(draft.departure_local_time) || (dates.length === 1 && draft.arrival_local_time >= draft.departure_local_time)) issues.push("EDGE_TIMES");
   if (findDestination(draft.destination_slug)?.timezone !== draft.timezone) issues.push("DESTINATION_TIMEZONE");
-  if (!draft.title.trim() || draft.title.length > 200 || !draft.base_location.label.trim() || draft.base_location.label.length > 200 || !validCoordinates(draft.base_location)) issues.push("BASE_OR_TITLE");
-  if (!localTime(draft.preferences.day_start) || !localTime(draft.preferences.day_end) || draft.preferences.day_start >= draft.preferences.day_end || [draft.preferences.lunch_buffer_minutes, draft.preferences.rest_buffer_minutes].some((value) => !Number.isInteger(value) || value < 0 || value > 1440)) issues.push("PREFERENCES");
+  if (!draft.title.trim() || draft.title.length > 120 || !draft.base_location.label.trim() || draft.base_location.label.length > 200 || !validCoordinates(draft.base_location)) issues.push("BASE_OR_TITLE");
+  if (!localTime(draft.preferences.day_start) || !localTime(draft.preferences.day_end) || draft.preferences.day_start >= draft.preferences.day_end || [draft.preferences.lunch_buffer_minutes, draft.preferences.rest_buffer_minutes].some((value) => !Number.isInteger(value) || value < 0 || value > 180)) issues.push("PREFERENCES");
   if (!["walk", "motorbike", "drive"].includes(draft.transport_mode) || !["relaxed", "balanced", "active"].includes(draft.pace) || !["assisted", "manual"].includes(draft.planning_mode)) issues.push("MODE");
   if (draft.stops.length > 30 || new Set(draft.stops.map((stop) => stop.id)).size !== draft.stops.length) issues.push("STOP_COUNT_OR_IDENTITY");
   const catalogIds = draft.stops.flatMap((stop) => stop.catalog_place_id ? [stop.catalog_place_id] : []);

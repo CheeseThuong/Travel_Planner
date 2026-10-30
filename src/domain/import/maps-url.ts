@@ -17,9 +17,9 @@ export function parseMapsUrl(input: string): MapsUrl {
   if (url.protocol !== "https:" || url.username || url.password || url.port) return reject();
   if (url.hostname === "maps.app.goo.gl" && /^\/[A-Za-z0-9_-]+\/?$/.test(url.pathname)) return { kind: "short" };
   if (url.hostname === "goo.gl" && /^\/maps\/[A-Za-z0-9_-]+\/?$/.test(url.pathname)) return { kind: "short" };
-  if (!["www.google.com", "google.com", "maps.google.com"].includes(url.hostname) || !/^\/maps(?:\/|$)/.test(url.pathname)) return reject();
+  if (!["www.google.com", "google.com", "maps.google.com"].includes(url.hostname) || (!/^\/maps(?:\/|$)/.test(url.pathname) && !(url.hostname === "maps.google.com" && url.pathname === "/"))) return reject();
   let pathTitle: string | undefined;
-  try { pathTitle = /^\/maps\/place\/([^/]+)/.exec(url.pathname)?.[1]; pathTitle = pathTitle ? decodeURIComponent(pathTitle.replace(/\+/g, " ")) : undefined; }
+  try { pathTitle = /^\/maps\/(?:place|search)\/([^/]+)/.exec(url.pathname)?.[1]; pathTitle = pathTitle ? decodeURIComponent(pathTitle.replace(/\+/g, " ")) : undefined; if (pathTitle?.startsWith("@")) pathTitle = undefined; }
   catch { return reject(); }
   const query = (url.searchParams.get("query") ?? url.searchParams.get("q") ?? pathTitle)?.trim();
   const placeId = url.searchParams.get("query_place_id");

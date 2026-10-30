@@ -1,45 +1,27 @@
 import Link from "next/link";
-import { Button } from "@/components/ui/button";
-import { DestinationScene } from "@/components/illustrations/destination-scene";
-import { destinations } from "@/domain/model/destination";
-import { TravelPostcard } from "@/components/motion/travel-postcard";
 
-export default function HomePage() {
-  return (
-    <>
-      <section className="page-shell grid items-center gap-10 py-14 lg:grid-cols-[1.03fr_1fr] lg:gap-16 lg:py-20" aria-labelledby="hero-title">
-        <div>
-          <p className="eyebrow mb-6 flex items-center gap-2 text-[#53674d]"><span aria-hidden="true" className="size-2 rounded-full bg-[#bd654a]" /> Từ phố biển đến đồi thông</p>
-          <h1 id="hero-title" className="display-type max-w-xl text-[clamp(2.15rem,5.2vw,4.35rem)]">Chuyến đi nhỏ.<br />Kỷ niệm <span className="italic text-[#a54f3d]">thật to.</span></h1>
-          <p className="mt-7 max-w-md text-base leading-8 text-[#58675b]">Một nơi để gom những điểm muốn ghé, dành chỗ cho phút ngẫu hứng và chuẩn bị chuyến đi theo nhịp của riêng bạn.</p>
-          <Button asChild size="lg" className="mt-8"><Link href="#diem-den">Chọn một nơi để bắt đầu <span aria-hidden="true">↗</span></Link></Button>
-          <p className="mt-5 text-xs leading-6 text-[#58675b]">Đang chuẩn bị những hành trình đầu tiên. Bạn có thể xem các điểm đến bên dưới.</p>
-        </div>
-        <TravelPostcard />
-      </section>
+const areas = [
+  {slug:"nha-trang",code:"12.2388° N / 109.1967° E",name:"Nha Trang",sub:"Chạm biển từ những con đường nhỏ",index:"01",tag:"PHỐ BIỂN"},
+  {slug:"da-lat",code:"11.9404° N / 108.4583° E",name:"Đà Lạt",sub:"Qua đèo, tìm một buổi sáng se lạnh",index:"02",tag:"CAO NGUYÊN"},
+];
 
-      <section id="diem-den" className="page-shell scroll-mt-8 py-7" aria-labelledby="destinations-title">
-        <div className="mb-8 flex flex-wrap items-end justify-between gap-4">
-          <div><p className="eyebrow mb-3 text-[#68745b]">Hôm nay, mình đi đâu?</p><h2 id="destinations-title" className="display-type text-4xl sm:text-5xl">Một nơi hợp với bạn.</h2></div>
-          <p className="max-w-xs text-sm leading-7 text-[#58675b]">Hai sắc màu, hai nhịp sống.<br />Chọn cảm hứng cho chuyến đi sắp tới.</p>
-        </div>
-        <div className="grid gap-7 md:grid-cols-2">
-          {destinations.map((destination) => (
-            <Link key={destination.slug} href={`/destinations/${destination.slug}`} className="group overflow-hidden rounded-[1.6rem] border border-[#deded0] bg-[#fffdf8] transition-shadow hover:shadow-lg">
-              <DestinationScene theme={destination.theme} className="aspect-[1.9/1] w-full object-cover" />
-              <div className="p-6 sm:p-7">
-                <p className="eyebrow mb-3 text-[#68745b]">{destination.eyebrow}</p>
-                <div className="flex items-center justify-between gap-4"><h3 className="display-type text-4xl">{destination.name}</h3><span aria-hidden="true" className="grid size-10 shrink-0 place-items-center rounded-full border border-[#bdc5b4] text-xl group-hover:bg-[#f6e5cf]">↗</span></div>
-                <p className="mt-3 text-sm leading-7 text-[#58675b]">{destination.description}</p>
-              </div>
-            </Link>
-          ))}
-        </div>
-      </section>
-      <section className="page-shell mt-10 rounded-[1.6rem] bg-[#edf0e4] px-7 py-10 text-center" aria-labelledby="pace-title">
-        <p className="eyebrow mb-3 text-[#53674d]">Để chuyến đi vừa vặn</p><h2 id="pace-title" className="display-type text-3xl sm:text-4xl">Ít vội vàng. Nhiều trải nghiệm.</h2>
-        <p className="mx-auto mt-4 max-w-lg text-sm leading-7 text-[#58675b]">Những khoảng nghỉ cũng là một phần của hành trình. Mình đang chuẩn bị không gian để bạn tự sắp xếp chuyến đi thật thoải mái.</p>
-      </section>
-    </>
-  );
-}
+export default function HomePage(){return <>
+  <section className="atlas-homehero atlas-container" aria-labelledby="hero-title">
+    <div className="atlas-home-intro"><p className="atlas-kicker">THIẾT KẾ CHUYẾN ĐI / VIỆT NAM</p><h1 id="hero-title">Đi đâu,<br/><i>đi cho đáng.</i></h1><p>Đừng bắt đầu với một danh sách dài vô tận. Chọn nơi muốn ghé, xác định quỹ thời gian, rồi xếp từng chặng thành lịch đi rõ ràng.</p><Link href="/plan/new" className="atlas-primary-link">BẮT ĐẦU XẾP LỊCH <span aria-hidden="true">↗</span></Link><small>BẢN THỬ · TÍNH TOÁN TUYẾN ĐƯỜNG ƯỚC LƯỢNG · KHÔNG ĐẶT DỊCH VỤ</small></div>
+    <div className="atlas-home-art" aria-label="Minh họa sơ đồ tuyến đường Việt Nam"><div className="atlas-home-arttop"><span>TỌA ĐỘ / HÀNH TRÌNH</span><span>VIETNAM — 2026</span></div><svg viewBox="0 0 540 600" role="img" aria-label="Minh họa hai điểm Nha Trang và Đà Lạt trên một sơ đồ trừu tượng">
+      <defs><pattern id="paper-grid" width="28" height="28" patternUnits="userSpaceOnUse"><path d="M28 0H0V28" fill="none" stroke="#d1d9d3" strokeWidth="1"/></pattern></defs>
+      <rect width="540" height="600" fill="#e5ede7"/><rect width="540" height="600" fill="url(#paper-grid)" />
+      <path d="M220-30Q410 140 318 272T380 510L290 660" stroke="#b4c7be" strokeWidth="95" fill="none"/>
+      <path d="M220-30Q410 140 318 272T380 510L290 660" stroke="#f7f3e7" strokeWidth="4" strokeDasharray="15 18" fill="none"/>
+      <path d="M-30 427C118 370 147 463 264 386S418 314 578 344" stroke="#b6c9c0" strokeWidth="22" fill="none"/>
+      <path d="M205 210Q307 294 353 392" stroke="#c45b41" strokeWidth="5" strokeDasharray="9 10" strokeLinecap="round" fill="none"/>
+      <circle cx="205" cy="210" r="22" fill="#c45b41" stroke="#fffdf4" strokeWidth="6"/><circle cx="353" cy="392" r="22" fill="#172f3b" stroke="#fffdf4" strokeWidth="6"/>
+      <text x="205" y="217" textAnchor="middle" fontSize="20" fontWeight="800" fill="#fffdf4">1</text><text x="353" y="399" textAnchor="middle" fontSize="20" fontWeight="800" fill="#fffdf4">2</text>
+      <g fill="#172f3b" fontFamily="Arial,sans-serif"><text x="66" y="173" fontSize="14" letterSpacing="2">CAO NGUYÊN</text><text x="61" y="199" fontSize="28" fontWeight="700">ĐÀ LẠT</text><text x="359" y="439" fontSize="14" letterSpacing="2">PHỐ BIỂN</text><text x="359" y="465" fontSize="28" fontWeight="700">NHA TRANG</text></g>
+      <text x="20" y="573" fill="#4f726b" fontSize="11" letterSpacing="3">BẢN ĐỒ Ý NIỆM — KHÔNG ĐÚNG TỈ LỆ</text>
+    </svg><div className="atlas-home-artfoot"><span>Không vội đi thật xa.</span><strong>Đi theo nhịp của mình.</strong></div></div>
+    <div className="atlas-home-vertical" aria-hidden="true">TỪ VỊ TRÍ ĐẾN KỶ NIỆM / 01 — 02</div>
+  </section>
+  <section className="atlas-container atlas-home-places" id="diem-den"><div className="atlas-home-divider"><span>01 / CHỌN THÀNH PHỐ</span><span>GHI LẠI NHỮNG NƠI MUỐN GHÉ</span></div><div className="atlas-home-placesheader"><h2>Hai thành phố.<br/><i>Nhiều ngã rẽ.</i></h2><p>Khởi đầu với hai bộ dữ liệu 30 địa điểm có nguồn. Lịch trình được tính bằng logic riêng; những gì chưa biết sẽ được ghi rõ thay vì đoán.</p></div><div className="atlas-area-list">{areas.map(area=><Link href={`/destinations/${area.slug}`} key={area.slug} className="atlas-area"><span className="atlas-area-index">{area.index}</span><span className="atlas-area-main"><small>{area.tag}</small><strong>{area.name}</strong><em>{area.sub}</em></span><span className="atlas-area-end"><small>{area.code}</small><span aria-hidden="true">↗</span></span></Link>)}</div></section>
+  <section className="atlas-home-last"><div className="atlas-container"><span className="atlas-kicker">DỮ LIỆU PHẢI CÓ NGUỒN GỐC</span><h2>Lịch trình đẹp là lịch trình <i>đi được.</i></h2><p>Đường đi hiện tính gần đúng từ tọa độ, không phải thời gian Google Maps. Bạn sẽ thấy điểm nào chưa xếp được, lý do và phần chi phí còn thiếu.</p><Link href="/plan/new" className="atlas-primary-link">TẠO TUYẾN THỬ →</Link></div></section>
+</>}

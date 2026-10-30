@@ -2,8 +2,8 @@
 
 > Initial state as of 2026-10-21: **NONE IMPLEMENTED, NONE TESTED**. All gates are `NOT VERIFIED`.
 > Update `[ ]` -> `[x]` only after verifying tests and recording evidence, not merely writing code.
-> Current execution state: G0/G1/G2 historical PASS; G3 local no-key review PASS2026-10-28. P03-03, accurate-draft correction and P03-04 DONE. P04-01 next. [G3 review](reports/G3-REVIEW.md). Independent P01-06 two-city3D preview remains separate from G7.
-> Recovery audit/typography R0-01/R1-01 DONE; R0-02 corrected/DONE through COMPAT. Full product NOT READY: planner/cloud/save/share remain unimplemented. Wizard now prepares validated unsaved inputs. Historical reports are retained; this current state supersedes their old support-blocked status.
+> Current execution state2026-10-29: G0–G4 PASS. P04-01..05 DONE; user explicitly approved “Duyệt G4, tiếp tục Discovery”. [P04 API evidence](reports/P04-04.md), [G4 review](reports/P04-05.md). Smart Discovery begins at SD01-01. Existing Atlas V2/local planner are preserved; durable editor and sharing remain incomplete. No production approval.
+> Pre-existing Atlas/package/lock/API changes were preserved; branch `fix/audit-and-upgrade`, HEAD `99d6a29`, no commit/push of mixed ownership. Historical reports below are retained. The current state supersedes their old support/scaffold-only status.
 
 ## Task tracker rules
 
@@ -52,14 +52,39 @@ For each checked item, add a line to **Evidence log** with: task ID, commit hash
 - [x] **P03-04** Loading/error/offline/empty/reduced-motion states. Status: DONE. Depends: P03-01..03 and accurate-draft correction. UI keyboard/offline/error/retry/mobile tests PASS. [Report](reports/P03-04.md).
 - [x] **G3** Gate approval. Status: PASS2026-10-28. Accurate in-memory draft/no-key safe import/manual fallback verified. [Review](reports/G3-REVIEW.md);34 E2E/72 typography and mandatory suite PASS. No persistence/planner/live-provider claim.
 
-## PHASE 04 — Routing and planner — Gate G4 NOT VERIFIED
+## PHASE 04 — Routing and planner — Gate G4 PASS (user-approved2026-10-29)
 
 - [x] **P04-01** Time-window model, trip-calendar bounds, lock diagnostics and deterministic fixtures. Status: DONE. Depends: G3 PASS. T-001/004/005/010/011 foundation tests PASS; directed travel feasibility follows in P04-03. [Report](reports/P04-01.md).
 - [x] **P04-02** Strict directed RoutingProvider matrix validation, safe approximate fallback and bounded one-attempt provider deadline/size cap. Status: DONE (no-key/injected-provider scope; optional live Google adapter remains deferred/OFF). Depends: P04-01 DONE. T-006/007/015/016/028 PASS; unknown failed usage remains null. [Report](reports/P04-02.md), [ADR0027](adr/ADR-0027.md).
 - [x] **P04-03** Required-first feasible insertion, geographic clustering/directed improvement, soft budget-aware optional priority, explicit unscheduled/unfulfilled required and non-mutating manual validator. Status: DONE (pure engine; public integration next). Depends: P04-02 DONE.113 Vitest cases including25 independent seeded invariants PASS. [Report](reports/P04-03.md), [ADR0028](adr/ADR-0028.md).
-- [ ] **P04-04** Generate candidate/apply-plan endpoints, optimistic version. Depends: P04-03, G2. Tests: T-008, stale run, contract schemas.
-- [ ] **P04-05** Planner benchmark, property-based invariants, no API from domain, budget metrics. Depends: P04-04. Tests: NFR-03, no data loss.
-- [ ] **G4** Gate approval. Verify: candidate itinerary deterministic, feasible, complete or explicitly unscheduled.
+- [x] **P04-04** Generate candidate/apply-plan endpoints, optimistic version. Status: DONE in local no-key API scope. Depends: P04-03, G2. Verified Auth/RLS, separate generation, explicit atomic apply, stale/tampered/retry/CAS, retained locks/required/unscheduled;160 pgTAP twice,6 real Auth tests, mandatory suite and38 E2E PASS. [Report](reports/P04-04.md). G4 remains NOT VERIFIED.
+- [x] **P04-05** Planner benchmark, property-based invariants, no API from domain, budget metrics. Status: DONE. Depends: P04-04 DONE.60 generated invariants plus4 provider/matrix cases;42 benchmark cases;31 tooling +160 Vitest, mandatory suite and72 typography PASS. [Evidence/G4 review](reports/P04-05.md). G4 NOT VERIFIED pending user decision.
+- [x] **G4** Gate approval. Status: PASS2026-10-29, explicit user reply “Duyệt G4, tiếp tục Discovery” after [review evidence](reports/P04-05.md). Local no-key scope, no release/provider approval. Next SD01-01.
+
+## Smart Discovery extension — G4 PASS; UX01-01A IN_PROGRESS
+
+User-requested scope/order: [ADR-0030](adr/ADR-0030.md). Status/evidence: [Smart Discovery](reports/SMART-DISCOVERY.md). Unstarted rows remain TODO/tests NOT RUN; each needs its own narrow specification before code. This index does not waive G5–G8 or select new dependencies/providers.
+
+| Task | Acceptance / repeatable verification | Depends |
+|---|---|---|
+| SD01-01 | DONE: unified pure place model, ten groups, legacy-six/lodging/provenance tests; static/unit/build0 | G4 PASS |
+| SD01-02 | DONE: additive profiles/forward null correction; unchanged legacy rows,197 pgTAP twice/Auth6, static/unit/build0; ADR0031 | SD01-01 |
+| SD02-01 | DONE: two-city configured polygon/bbox/distance zones;7 geo cases and unknown/prototype-city guard; radius distinct from border | SD01-01 |
+| SD03-01 | DONE in fixture/default-OFF scope: reviewed Brave contract/terms, one-attempt/abort/byte/quota bounds,15 fixture cases, secret env guard; ADR0032 | SD01-01 |
+| SD03-02 | DONE: bounded discovery API with no-key/fixture fallback, strict generated OpenAPI;199 units,15 HTTP and40 E2E PASS | SD01-02, SD02-01, SD03-01 |
+| SD04-01 | DONE: bounded certain/suspected matching, immutable source retention, overwrite regression fixed;210 units/15 HTTP/40 E2E PASS | SD03-02 |
+| SI01-01 | DONE: safe search-path/root Maps hints, independent local name/address fallback and confirmation;211 units/15 HTTP/44 E2E PASS; no-fetch limitations explicit | SD04-01 |
+| SI02-01 | DONE: on-demand native OSM pin selection,11 math tests,222 units and48 E2E PASS; first Chrome resource failure retained; ADR0033 | SI01-01 |
+| SI03-01 | DONE in storage scope: separate private submissions, sanitized approved read/RLS/audit/quotas;101 new pgTAP,298 twice/Auth6/241 units PASS; ADR0034 | SD01-02, SD04-01 |
+| SI03-02 | DONE local: verified session/submit/paged owner/moderator/public API/UI;248 units/302 pgTAP twice/Auth8/56 E2E+2 real contribution browsers/72 typography PASS | SI02-01, SI03-01 |
+| UX01-01A | DONE: ten category/zone filters, source/uncertainty details and map preview; transfer-loss regression fixed;224 units/56 E2E/72 typography PASS | SD03-02, SI02-01 |
+| UX01-01B | IN_PROGRESS: simplified basics/optional preferences, online/offline hybrid preview, explicit suggestion confirmation and preserved inputs/candidate on errors | UX01-01A, AI02-02 |
+| AI01-01 | DONE fixture/default-OFF: reviewed strict-output production subset, exact UUID permutation/fact guards, bounded request/token/cost/abort/redaction;19 adapter cases/267 units/HTTP19/static/build PASS | SD03-02 |
+| AI02-01 | DONE pure scope: optional preferences/source-safe deterministic ranking for0/1/2/30; selection/required/locks preserved, explicit conflicts/filtered windows;20 pool cases/287 units/static/build PASS | AI01-01, SD04-01 |
+| AI02-02 | DONE API/application scope: bounded provider fallback → existing planner → post-verification, stateless strict source-validated preview;303 units/HTTP20/E2E60/static/build PASS | AI02-01, UX01-01A |
+| UX01-02 | Integrate durable save/editor/swap/day/time/locks/export and read-only share after their existing gates/tasks; reload/offline/two-tab/owner/share E2E | AI02-02, P05/P06 prerequisites and applicable gates |
+
+After extension acceptance, continue P05/P06 below; G7/G8 remain release blockers. All18 Smart Discovery product ACs must eventually be traced to evidence, not inferred from planner-only success.
 
 ## PHASE 05 — Local-first and trip editor — Gate G5 NOT VERIFIED
 
@@ -99,6 +124,8 @@ For each checked item, add a line to **Evidence log** with: task ID, commit hash
 
 | Task ID | Status | Commit/PR | Commands & exit codes | AC/Test IDs | Blockers | Verified date |
 |---|---|---|---|---|---|---|
+| P04-05 | DONE | mixed working tree; no commit/push | typecheck/lint/unit160/build/HTTP14/E2E38/benchmark42 ->0; typography72/content ->0; [review](reports/P04-05.md) | AC-P1..4 PASS, NFR-03 local fixture p95 1.5015ms | G4 user review pending; extension ACs NOT RUN | 2026-10-29 |
+| P04-04 / P04-BASELINE | DONE | mixed working tree; no commit/push | typecheck/lint/unit/build/integration/e2e/db reset+160pgTAP twice/Auth6 ->0; [report](reports/P04-04.md) | AC-B1/B2, AC-A1..4 PASS | P04-05 and G4 user review pending; no production/live-provider claim | 2026-10-29 |
 | P04-03 | DONE | task commit | lint/typecheck/unit/build ->0;31 tooling +113 Vitest; [report](reports/P04-03.md) | AC-E1..4 PASS in pure-engine scope | P04-04 stale apply/public integration and P04-05/G4 pending | 2026-10-28 |
 | P04-02 | DONE | task commit | lint/typecheck/unit/build ->0;31 tooling +72 Vitest; [report](reports/P04-02.md) | AC-R1..4 PASS | Optional live provider unimplemented/OFF; G4 pending | 2026-10-28 |
 | P04-01 | DONE | task commit | lint/typecheck/unit/build ->0;31 tooling +67 Vitest; [report](reports/P04-01.md) | AC-C1..4 PASS | No public planner yet; G4 pending | 2026-10-28 |

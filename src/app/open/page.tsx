@@ -1,4 +1,2 @@
-import { ComingSoon } from "@/components/coming-soon";
-export default function OpenPage() {
-  return <ComingSoon title="Mở lại một kỷ niệm" description="Tính năng nhập mã xem kế hoạch đang được chuẩn bị. Hiện chưa có mã chia sẻ nào được tạo hoặc xử lý tại đây." />;
-}
+import {ComingSoon} from "@/components/coming-soon";
+export default function OpenPage(){return <ComingSoon title="Mã chia sẻ chưa mở" description="Lịch trình bạn tạo trong bản thử hiện chỉ tồn tại trên máy và có thể tải xuống dạng JSON. Chúng tôi chưa phát hành mã chia sẻ hay chức năng mở chuyến đi trực tuyến."/>}

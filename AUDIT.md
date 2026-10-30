@@ -1,5 +1,19 @@
 # AUDIT — Vietnam Playful Travel Planner
 
+## Current progress — 2026-10-30
+
+User approved G4 and continuing Discovery. SD01–SD04, SI01/SI02 and UX01-01A are DONE in [recorded local/fixture scope](docs/reports/SMART-DISCOVERY.md). Unified categories/provenance, two-city zones, default-OFF bounded Brave, discovery API/dedup, safe Maps fallback/name search and on-demand pin map are implemented. UI filters/details preserve selection/candidate; fixed a reproduced source-metadata loss that scheduled a known island transfer. Latest UI checks224 Vitest+31 tooling,15 HTTP,56 E2E,72 typography and static/build PASS. No live-provider/physical-mobile claim.
+
+SI03-01/02 contribution storage/moderation and `/contribute` API/UI are DONE in local scope:248 units,302 pgTAP twice,8 real Auth checks,56 baseline E2E+2 contribution browser workflows and72 typography PASS. Temporary anonymous ownership, no production moderation/distributed abuse protection. Groq/hybrid and durable local/cloud editor/share remain incomplete; G5–G8 NOT VERIFIED. No production deployment, push or commit of mixed user edits. This entry supersedes historical status below.
+
+## Current inspection and corrections — 2026-10-29
+
+Inspected `fix/audit-and-upgrade` at `99d6a29` with substantial pre-existing Atlas V2/package/API/database edits; inventory and ownership uncertainty recorded, all preserved. [P04-04 report](docs/reports/P04-04.md) retains initial command failures and fresh DB/Auth evidence. Fixed reproduced unscoped alert locators, stale pre-Atlas HTTP smoke copy and upstream network/timeout500 responses (now redacted503). No historical migration edits, dependencies, production use, commit or push.
+
+P04-04 and P04-05 DONE in verified local no-key scope. [G4 review packet](docs/reports/P04-05.md):31 tooling +160 Vitest,160 pgTAP twice,6 real Auth checks,14 HTTP checks,38 desktop/mobile,72 typography and42 benchmark cases PASS, no skipped tests. All six mandatory commands exited0 after corrections. NFR-03 prepared-matrix fixture worst p95<=15 stops1.5015ms; no production/real-route claim.
+
+G4 remains NOT VERIFIED awaiting user decision, as the current request prohibits self-approving G4–G8. [ADR0030](docs/adr/ADR-0030.md) and WORK_ITEMS record the gated discovery/import/contributions/Groq/UX expansion. Expanded discovery, interactive maps, durable local/cloud editor, sharing and G5–G8 remain incomplete. This supersedes earlier scaffold-only status, not historical evidence.
+
 ## Current baseline review — 2026-10-28 (supersedes historical status below)
 
 Inspected local HEAD `33beb14` on `fix/audit-and-upgrade`, including the pre-existing dirty Git state before editing. Latest external evidence is `D:\Projects\travel_plan_audit_evidence_20261027-110421`; directory and logs were readable without escalation. The old MCP-only access/branch blocker below no longer applies. Full scope, raw log locations and verification: [baseline recovery report](docs/reports/AUDIT-BASELINE-20261028.md).

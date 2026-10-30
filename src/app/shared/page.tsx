@@ -1,4 +1,2 @@
-import { ComingSoon } from "@/components/coming-soon";
-export default function SharedPage() {
-  return <ComingSoon title="Cùng xem một hành trình" description="Không gian xem kế hoạch được chia sẻ đang được chuẩn bị. Hiện chưa có dữ liệu chuyến đi nào được hiển thị hoặc chỉnh sửa tại đây." />;
-}
+import {ComingSoon} from "@/components/coming-soon";
+export default function SharedPage(){return <ComingSoon title="Tuyến chia sẻ chưa sẵn sàng" description="Tính năng xem lịch trình của người khác chưa triển khai. Không có dữ liệu chủ chuyến đi nào được hiển thị trên trang này."/>}

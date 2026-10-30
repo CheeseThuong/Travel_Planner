@@ -23,6 +23,14 @@ test("extracts only search hints; shortlinks remain opaque; each redirect is all
   }
 });
 
+test("search-path and exact Maps-host root forms are search hints, never verified coordinates", () => {
+  expect(parseMapsUrl("https://www.google.com/maps/search/Cho+Da+Lat/@1,2,3z")).toEqual({ kind: "full", query: "Cho Da Lat" });
+  expect(parseMapsUrl("https://maps.google.com/?q=Cho+Da+Lat")).toEqual({ kind: "full", query: "Cho Da Lat" });
+  expect(parseMapsUrl("https://www.google.com/maps/search/@11.94,108.45,15z")).toEqual({ kind: "full" });
+  expect(parseMapsUrl("https://www.google.com/maps/search/?api=1&query_place_id=ChIJ_fixture")).toEqual({ kind: "full", provider_place_id: "ChIJ_fixture" });
+  expect(() => parseMapsUrl("https://www.google.com/?q=Cho+Da+Lat")).toThrow("UNSUPPORTED_URL");
+});
+
 const place = { id: "editorial-one", slug: "one", title: "Chợ Đà Lạt", description: "Chợ trung tâm", category: "market", durationMinutes: 60, lat: 11.94, lng: 108.44, sourceUrl: "https://www.openstreetmap.org/" };
 test("resolver returns independent candidates only, isolates destinations and never fetches", async () => {
   const network = vi.spyOn(globalThis, "fetch").mockRejectedValue(new Error("No network allowed"));

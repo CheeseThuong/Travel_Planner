@@ -19,6 +19,9 @@ test.each([
   { base_location: { ...draft.base_location, lat: NaN } }, { base_location: { ...draft.base_location, lng: 181 } },
   { start_date: "2026-11-10", end_date: "2026-11-10", arrival_local_time: "17:00", departure_local_time: "16:00" },
   { budget: { ...draft.budget, total_vnd: -1 } },
+  { title: "x".repeat(121) },
+  { preferences: { ...draft.preferences, lunch_buffer_minutes: 181 } },
+  { preferences: { ...draft.preferences, rest_buffer_minutes: 181 } },
 ])("rejects invalid accurate-draft inputs: %j", (invalid) => {
   expect(draftIssues({ ...draft, ...invalid })).not.toEqual([]);
 });
