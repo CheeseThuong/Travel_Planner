@@ -97,3 +97,7 @@ NEXT: next allowed task ID (or blocker correction)
 - Preserve user edits, unknown uncommitted changes and historical data. If repository state is unsafe to mutate, stop modifications and report.
 - Maintain a small, reviewable diff and useful commit messages containing task ID.
 - No claim of completion based only on code existence; completion requires objective evidence and user-visible behavior.
+
+## Explicit publication override ? 2026-10-31
+
+For R-MAIN-01 only, the user authorizes push to main and its connected Vercel deployment before G8 passes (ADR-0037). Preserve truthful gate status and all security, data-protection and test requirements.

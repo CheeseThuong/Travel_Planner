@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState, useSyncExternalStore } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import type { CatalogPlace } from "@/domain/catalog";
@@ -30,6 +30,10 @@ import { useOnline } from "./use-online";
 import { PlanningPreferences } from "./planning-preferences";
 import { HybridSuggestions } from "./hybrid-suggestions";
 import type { DiscoveryPlace } from "@/domain/discovery/place";
+
+const subscribeToHydration = () => () => {};
+const clientReady = () => true;
+const serverReady = () => false;
 
 const centers: Record<DestinationSlug, { label: string; lat: number; lng: number }> = {
   "nha-trang": { label: "Trung tâm Nha Trang (tạm)", lat: 12.2388, lng: 109.1967 },
@@ -68,6 +72,7 @@ export function TravelWorkbench({ initialDestination, catalogs, localDraftId }: 
   const online=useOnline();
   const router=useRouter();
   const [destination, setDestination] = useState<DestinationSlug>(initialDestination);
+  const hydrated = useSyncExternalStore(subscribeToHydration, clientReady, serverReady);
   const [startDate, setStartDate] = useState("");
   const [endDate, setEndDate] = useState("");
   const [partySize, setPartySize] = useState(2);
@@ -239,8 +244,8 @@ export function TravelWorkbench({ initialDestination, catalogs, localDraftId }: 
           <div className="atlas-fields">
             <label>Điểm đến<select aria-label="Điểm đến" value={destination} onChange={e=>changeDestination(e.target.value as DestinationSlug)}><option value="nha-trang">Nha Trang</option><option value="da-lat">Đà Lạt</option></select></label>
             <label>Đi cùng mấy người?<input aria-label="Số người" type="number" min="1" max="30" value={partySize} onChange={e=>setPartySize(e.target.valueAsNumber)}/></label>
-            <label>Ngày đến<input aria-label="Ngày bắt đầu" type="date" value={startDate} onChange={e=>{setStartDate(e.target.value);if(endDate && endDate<e.target.value)setEndDate(e.target.value);}}/></label>
-            <label>Ngày về<input aria-label="Ngày kết thúc" type="date" min={startDate||undefined} value={endDate} onChange={e=>setEndDate(e.target.value)}/></label>
+            <label>Ngày đến<input aria-label="Ngày bắt đầu" type="date" disabled={!hydrated} value={startDate} onChange={e=>{setStartDate(e.target.value);if(endDate && endDate<e.target.value)setEndDate(e.target.value);}}/></label>
+            <label>Ngày về<input aria-label="Ngày kết thúc" type="date" disabled={!hydrated} min={startDate||undefined} value={endDate} onChange={e=>setEndDate(e.target.value)}/></label>
             <label>Ngân sách cả nhóm (VND)<input aria-label="Tổng ngân sách" type="number" min="0" max="1000000000000" value={budget??""} onChange={e=>setBudget(e.target.value===""?null:e.target.valueAsNumber)}/></label>
           </div>
           <div className="atlas-pace" role="group" aria-label="Nhịp chuyến đi"><span>NHỊP ĐI</span>{([{value:"relaxed",label:"Thong thả"},{value:"balanced",label:"Vừa đủ"},{value:"active",label:"Đi nhiều"}] as const).map(option=><button type="button" key={option.value} aria-pressed={pace===option.value} className={pace===option.value?"active":""} onClick={()=>{setPace(option.value);clearPreview();}}>{option.label}</button>)}</div>
