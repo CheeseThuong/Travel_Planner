@@ -21,6 +21,14 @@ test("Google live requires explicit credentials and a positive bounded budget", 
   expect(parseServerEnv({ GOOGLE_MAPS_LIVE_ENABLED: "true", GOOGLE_MAPS_SERVER_KEY: "fixture-not-a-real-key", GOOGLE_MAPS_DAILY_BUDGET_MINOR: "10" }).GOOGLE_MAPS_LIVE_ENABLED).toBe(true);
   expect(() => parseServerEnv({ GOOGLE_MAPS_DAILY_BUDGET_MINOR: "-1" })).toThrow();
 });
+
+test("Brave stays disabled and requires an explicit key and bounded request quota", () => {
+  expect(parseServerEnv({}).BRAVE_ENABLED).toBe(false);
+  expect(() => parseServerEnv({ BRAVE_ENABLED: "true", BRAVE_API_KEY: "fixture-server-only" })).toThrow("Invalid server configuration");
+  expect(() => parseServerEnv({ BRAVE_ENABLED: "true", BRAVE_DAILY_REQUEST_LIMIT: "1" })).toThrow();
+  expect(parseServerEnv({ BRAVE_ENABLED: "true", BRAVE_API_KEY: "fixture-server-only", BRAVE_DAILY_REQUEST_LIMIT: "1" }).BRAVE_ENABLED).toBe(true);
+  expect(() => parseServerEnv({ BRAVE_MINUTE_REQUEST_LIMIT: "61" })).toThrow();
+});
 test("telemetry strips sensitive fields and rejects arbitrary event/code/request-id strings", () => {
   const sink = vi.fn(); logEvent({ event: "api_error", request_id: id, code: "INTERNAL_ERROR", status: 500, share_code: "sensitive-share", hotel: "private hotel", url: "https://secret.invalid" }, sink);
   expect(sink).toHaveBeenCalledTimes(1); expect(sink.mock.calls[0][0]).not.toMatch(/sensitive|private hotel|secret\.invalid/);

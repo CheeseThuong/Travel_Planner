@@ -1,4 +1,7 @@
-import { ComingSoon } from "@/components/coming-soon";
-export default function NewPlanPage() {
-  return <ComingSoon title="Chuyến đi của riêng bạn" description="Công cụ chọn ngày, nơi ở và sắp xếp điểm ghé đang được chuẩn bị. Hiện bạn chưa thể tạo hoặc lưu chuyến đi tại đây." />;
+import { TravelWorkbench } from "@/components/travel-workbench";
+import { editorialCatalogSummaries } from "@/adapters/discovery/editorial.server";
+export default async function NewPlanPage({searchParams}:{searchParams:Promise<{destination?:string}>}) {
+  const requested=(await searchParams).destination;
+  const initialDestination=requested==="da-lat"?"da-lat":"nha-trang";
+  return <TravelWorkbench initialDestination={initialDestination} catalogs={editorialCatalogSummaries} localDraftId={crypto.randomUUID()}/>;
 }

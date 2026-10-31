@@ -1,5 +1,25 @@
 # Feature matrix
 
+2026-10-30 current delta: G4 user-approved PASS; Smart Discovery SD01–SD04, SI01–SI03 and UX01-01A DONE in [recorded local scope](reports/SMART-DISCOVERY.md). Ten category/zone filters, source/caution details and on-demand map preserve selection/candidate; known island transfer retains its constraint. Private submission/moderation/approved-public API/UI implemented at `/contribute`, with temporary verified sessions, RLS/audit/quotas. Latest248 units/302 pgTAP twice/Auth8/56 baseline E2E+2 real contribution browsers/72 typography PASS. Groq/hybrid, durable storage/editor/share incomplete; G5–G8 NOT VERIFIED. Earlier rows are historical; WORK_ITEMS tracks current tasks.
+
+## Current inspected state — 2026-10-29
+
+This snapshot supersedes the historical scaffold matrix below. Evidence: [P04-04](reports/P04-04.md), [P04-05/G4 review](reports/P04-05.md). G0–G3 retain PASS; G4 awaits user review; no production readiness claim.
+
+| Feature | Actual behavior / evidence | Remaining work |
+|---|---|---|
+| Atlas V2 landing/catalog | Existing responsive entry pages,30 sourced drafts per city, name/category filtering and city isolation;38 desktop/mobile checks | Expanded tags/zones/provider discovery; records remain unverified drafts |
+| Local assisted/manual workbench | Actual pure deterministic candidate and non-mutating manual validation, required flags, explicit unscheduled reasons, partial-day bounds, approximate provenance, JSON download | Durable editor/save/reload/locks UI and map selection |
+| Maps import | HTTPS/exact-host parser, no network fetch, editorial candidate confirmation and manual fallback | Provider Place ID verification/shortlink transport only after reviewed safety/terms boundary |
+| Planner/routing | Required-first feasible heuristic, directed matrices, immutable locks, soft/unknown budget handling;160 unit tests including60 generated invariants and provider failures | Optional live adapters and production latency/route accuracy NOT VERIFIED |
+| Owner generate/apply | Separate authenticated candidate storage/confirmed atomic versioned apply, idempotency/CAS, stale/tamper rejection, retained selections/flags/locks;160 pgTAP twice and6 real Auth checks | Owner create/load/save/delete HTTP/UI and durable sessions belong to P05 |
+| Typography/mobile/keyboard/offline preview |72 installed-browser typography cases,38 desktop/mobile E2E, current local preview offline checks PASS | Physical devices, complete accessibility/G7, durable offline storage/two-tab recovery |
+| Expanded discovery/contributions/Groq | TODO; [gated task index](WORK_ITEMS.md#smart-discovery-extension--todo-blocked-by-g4-user-review) | Provider/model/terms/quota decisions, implementation and fixture evidence NOT RUN |
+| IndexedDB/cloud editor/sharing | NOT IMPLEMENTED as user journeys; owner DB primitives exist | P05/P06 and their gates; read-only shares cannot recover edit ownership |
+| Release/legal/operations | NOT READY | G7/G8, staging/paid-provider budget controls, distributed limits and explicit release approval |
+
+## Historical matrix — retained for audit
+
 Audit date: 2026-10-21. Status describes actual product behavior, not future task completion. Source: `src/app/**`, components, package scripts, HTTP and rendered-browser evidence. Destination/plan screenshots show **skeletons**, not completed journeys.
 
 2026-10-22 update: G1 PASS; P02-01/P02-02 DONE. P02-03 local verification adds party/budget/manual domain and private persistence plus real anonymous owner A/B adapter tests; fresh CI is pending and G2 remains NOT VERIFIED. Runtime catalog/wizard/editor/share routes remain absent, so database/adapter evidence does not open those journeys.

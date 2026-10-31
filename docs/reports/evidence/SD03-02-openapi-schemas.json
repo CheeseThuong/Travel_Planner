@@ -1,0 +1,796 @@
+{
+  "DiscoveryInput": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "type": "object",
+    "properties": {
+      "destination_slug": {
+        "type": "string",
+        "enum": [
+          "nha-trang",
+          "da-lat"
+        ]
+      },
+      "query": {
+        "default": "",
+        "type": "string",
+        "maxLength": 200,
+        "pattern": "^[^\\u0000-\\u001f\\u007f]*$"
+      },
+      "category": {
+        "default": "all",
+        "anyOf": [
+          {
+            "type": "string",
+            "enum": [
+              "food",
+              "cafe",
+              "lodging",
+              "landmarks",
+              "nature",
+              "outdoor",
+              "viewpoint",
+              "shopping",
+              "family",
+              "services"
+            ]
+          },
+          {
+            "type": "string",
+            "const": "all"
+          }
+        ]
+      },
+      "zone": {
+        "default": "all",
+        "anyOf": [
+          {
+            "type": "string",
+            "enum": [
+              "center",
+              "nearby",
+              "outskirts",
+              "remote",
+              "special_transport"
+            ]
+          },
+          {
+            "type": "string",
+            "const": "all"
+          }
+        ]
+      },
+      "page": {
+        "default": 0,
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 129
+      },
+      "page_size": {
+        "default": 10,
+        "type": "integer",
+        "minimum": 1,
+        "maximum": 20
+      },
+      "center": {
+        "type": "object",
+        "properties": {
+          "lat": {
+            "type": "number",
+            "minimum": -90,
+            "maximum": 90
+          },
+          "lng": {
+            "type": "number",
+            "minimum": -180,
+            "maximum": 180
+          }
+        },
+        "required": [
+          "lat",
+          "lng"
+        ],
+        "additionalProperties": false
+      },
+      "radius_m": {
+        "type": "integer",
+        "minimum": 1,
+        "maximum": 100000
+      },
+      "max_distance_km": {
+        "type": "number",
+        "minimum": 0,
+        "maximum": 200
+      },
+      "use_provider": {
+        "default": false,
+        "type": "boolean"
+      }
+    },
+    "required": [
+      "destination_slug"
+    ],
+    "additionalProperties": false
+  },
+  "DiscoveryEnvelope": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "type": "object",
+    "properties": {
+      "data": {
+        "type": "object",
+        "properties": {
+          "items": {
+            "maxItems": 20,
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 160
+                },
+                "destination_slug": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 80
+                },
+                "title_vi": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 200
+                },
+                "alternate_names": {
+                  "maxItems": 20,
+                  "type": "array",
+                  "items": {
+                    "type": "string",
+                    "maxLength": 200
+                  }
+                },
+                "description": {
+                  "type": "string",
+                  "maxLength": 8000
+                },
+                "address": {
+                  "anyOf": [
+                    {
+                      "type": "string",
+                      "maxLength": 500
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                },
+                "location": {
+                  "type": "object",
+                  "properties": {
+                    "lat": {
+                      "type": "number",
+                      "minimum": -90,
+                      "maximum": 90
+                    },
+                    "lng": {
+                      "type": "number",
+                      "minimum": -180,
+                      "maximum": 180
+                    }
+                  },
+                  "required": [
+                    "lat",
+                    "lng"
+                  ],
+                  "additionalProperties": false
+                },
+                "coordinate_confidence": {
+                  "type": "string",
+                  "enum": [
+                    "community_point",
+                    "geometry_center_not_entrance",
+                    "provider_unverified",
+                    "user_confirmed",
+                    "verified_entrance"
+                  ]
+                },
+                "coordinate_source": {
+                  "type": "object",
+                  "properties": {
+                    "provider": {
+                      "type": "string",
+                      "enum": [
+                        "openstreetmap",
+                        "editorial",
+                        "brave",
+                        "google",
+                        "user"
+                      ]
+                    },
+                    "provider_id": {
+                      "anyOf": [
+                        {
+                          "type": "string",
+                          "minLength": 1,
+                          "maxLength": 500
+                        },
+                        {
+                          "type": "null"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "anyOf": [
+                        {
+                          "type": "string",
+                          "maxLength": 2048
+                        },
+                        {
+                          "type": "null"
+                        }
+                      ]
+                    },
+                    "license": {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 200
+                    },
+                    "retrieved_at": {
+                      "type": "string",
+                      "minLength": 10,
+                      "maxLength": 64
+                    },
+                    "retention": {
+                      "type": "string",
+                      "enum": [
+                        "open_license",
+                        "user_owned",
+                        "request_only"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "provider",
+                    "provider_id",
+                    "url",
+                    "license",
+                    "retrieved_at",
+                    "retention"
+                  ],
+                  "additionalProperties": false
+                },
+                "sources": {
+                  "minItems": 1,
+                  "maxItems": 8,
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "provider": {
+                        "type": "string",
+                        "enum": [
+                          "openstreetmap",
+                          "editorial",
+                          "brave",
+                          "google",
+                          "user"
+                        ]
+                      },
+                      "provider_id": {
+                        "anyOf": [
+                          {
+                            "type": "string",
+                            "minLength": 1,
+                            "maxLength": 500
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      },
+                      "url": {
+                        "anyOf": [
+                          {
+                            "type": "string",
+                            "maxLength": 2048
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      },
+                      "license": {
+                        "type": "string",
+                        "minLength": 1,
+                        "maxLength": 200
+                      },
+                      "retrieved_at": {
+                        "type": "string",
+                        "minLength": 10,
+                        "maxLength": 64
+                      },
+                      "retention": {
+                        "type": "string",
+                        "enum": [
+                          "open_license",
+                          "user_owned",
+                          "request_only"
+                        ]
+                      }
+                    },
+                    "required": [
+                      "provider",
+                      "provider_id",
+                      "url",
+                      "license",
+                      "retrieved_at",
+                      "retention"
+                    ],
+                    "additionalProperties": false
+                  }
+                },
+                "categories": {
+                  "maxItems": 10,
+                  "type": "array",
+                  "items": {
+                    "type": "string",
+                    "enum": [
+                      "food",
+                      "cafe",
+                      "lodging",
+                      "landmarks",
+                      "nature",
+                      "outdoor",
+                      "viewpoint",
+                      "shopping",
+                      "family",
+                      "services"
+                    ]
+                  }
+                },
+                "tags": {
+                  "maxItems": 32,
+                  "type": "array",
+                  "items": {
+                    "type": "string",
+                    "maxLength": 120
+                  }
+                },
+                "suggested_duration_min": {
+                  "anyOf": [
+                    {
+                      "type": "integer",
+                      "minimum": 15,
+                      "maximum": 720
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                },
+                "hours": {
+                  "oneOf": [
+                    {
+                      "type": "object",
+                      "properties": {
+                        "state": {
+                          "type": "string",
+                          "const": "hours_unknown"
+                        }
+                      },
+                      "required": [
+                        "state"
+                      ],
+                      "additionalProperties": false
+                    },
+                    {
+                      "type": "object",
+                      "properties": {
+                        "state": {
+                          "type": "string",
+                          "const": "verified_editorial"
+                        },
+                        "checked_at": {
+                          "type": "string",
+                          "maxLength": 64
+                        },
+                        "source": {
+                          "type": "string",
+                          "minLength": 1,
+                          "maxLength": 2048
+                        },
+                        "intervals": {
+                          "maxItems": 28,
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "weekday": {
+                                "type": "integer",
+                                "minimum": 0,
+                                "maximum": 6
+                              },
+                              "start_local": {
+                                "type": "string",
+                                "pattern": "^(?:[01]\\d|2[0-3]):[0-5]\\d$"
+                              },
+                              "end_local": {
+                                "anyOf": [
+                                  {
+                                    "type": "string",
+                                    "pattern": "^(?:[01]\\d|2[0-3]):[0-5]\\d$"
+                                  },
+                                  {
+                                    "type": "string",
+                                    "const": "24:00"
+                                  }
+                                ]
+                              }
+                            },
+                            "required": [
+                              "weekday",
+                              "start_local",
+                              "end_local"
+                            ],
+                            "additionalProperties": false
+                          }
+                        }
+                      },
+                      "required": [
+                        "state",
+                        "checked_at",
+                        "source",
+                        "intervals"
+                      ],
+                      "additionalProperties": false
+                    }
+                  ]
+                },
+                "price": {
+                  "oneOf": [
+                    {
+                      "type": "object",
+                      "properties": {
+                        "state": {
+                          "type": "string",
+                          "const": "unknown"
+                        }
+                      },
+                      "required": [
+                        "state"
+                      ],
+                      "additionalProperties": false
+                    },
+                    {
+                      "type": "object",
+                      "properties": {
+                        "state": {
+                          "type": "string",
+                          "const": "known"
+                        },
+                        "currency": {
+                          "type": "string",
+                          "const": "VND"
+                        },
+                        "min_vnd": {
+                          "type": "integer",
+                          "minimum": 0,
+                          "maximum": 1000000000000
+                        },
+                        "max_vnd": {
+                          "type": "integer",
+                          "minimum": 0,
+                          "maximum": 1000000000000
+                        },
+                        "checked_at": {
+                          "type": "string",
+                          "maxLength": 64
+                        },
+                        "source": {
+                          "type": "object",
+                          "properties": {
+                            "provider": {
+                              "type": "string",
+                              "enum": [
+                                "openstreetmap",
+                                "editorial",
+                                "brave",
+                                "google",
+                                "user"
+                              ]
+                            },
+                            "provider_id": {
+                              "anyOf": [
+                                {
+                                  "type": "string",
+                                  "minLength": 1,
+                                  "maxLength": 500
+                                },
+                                {
+                                  "type": "null"
+                                }
+                              ]
+                            },
+                            "url": {
+                              "anyOf": [
+                                {
+                                  "type": "string",
+                                  "maxLength": 2048
+                                },
+                                {
+                                  "type": "null"
+                                }
+                              ]
+                            },
+                            "license": {
+                              "type": "string",
+                              "minLength": 1,
+                              "maxLength": 200
+                            },
+                            "retrieved_at": {
+                              "type": "string",
+                              "minLength": 10,
+                              "maxLength": 64
+                            },
+                            "retention": {
+                              "type": "string",
+                              "enum": [
+                                "open_license",
+                                "user_owned",
+                                "request_only"
+                              ]
+                            }
+                          },
+                          "required": [
+                            "provider",
+                            "provider_id",
+                            "url",
+                            "license",
+                            "retrieved_at",
+                            "retention"
+                          ],
+                          "additionalProperties": false
+                        }
+                      },
+                      "required": [
+                        "state",
+                        "currency",
+                        "min_vnd",
+                        "max_vnd",
+                        "checked_at",
+                        "source"
+                      ],
+                      "additionalProperties": false
+                    }
+                  ]
+                },
+                "accessibility": {
+                  "type": "string",
+                  "enum": [
+                    "unknown",
+                    "step_free",
+                    "restricted"
+                  ]
+                },
+                "transport_constraint": {
+                  "type": "string",
+                  "enum": [
+                    "land",
+                    "manual_transfer",
+                    "access_unverified"
+                  ]
+                },
+                "interest_scores": {
+                  "type": "object",
+                  "propertyNames": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 80
+                  },
+                  "additionalProperties": {
+                    "type": "number",
+                    "minimum": 0,
+                    "maximum": 1
+                  }
+                },
+                "moderation": {
+                  "type": "string",
+                  "enum": [
+                    "draft",
+                    "submitted",
+                    "approved",
+                    "rejected"
+                  ]
+                },
+                "warnings": {
+                  "maxItems": 32,
+                  "type": "array",
+                  "items": {
+                    "type": "string",
+                    "maxLength": 2048
+                  }
+                },
+                "geo": {
+                  "type": "object",
+                  "properties": {
+                    "zone": {
+                      "type": "string",
+                      "enum": [
+                        "center",
+                        "nearby",
+                        "outskirts",
+                        "remote",
+                        "special_transport"
+                      ]
+                    },
+                    "distance_km": {
+                      "type": "number",
+                      "minimum": 0
+                    },
+                    "provenance": {
+                      "type": "string",
+                      "const": "editorial_discovery_area_not_administrative_boundary"
+                    }
+                  },
+                  "required": [
+                    "zone",
+                    "distance_km",
+                    "provenance"
+                  ],
+                  "additionalProperties": false
+                },
+                "duplicate_confirmation_required": {
+                  "type": "boolean"
+                }
+              },
+              "required": [
+                "id",
+                "destination_slug",
+                "title_vi",
+                "alternate_names",
+                "description",
+                "address",
+                "location",
+                "coordinate_confidence",
+                "coordinate_source",
+                "sources",
+                "categories",
+                "tags",
+                "suggested_duration_min",
+                "hours",
+                "price",
+                "accessibility",
+                "transport_constraint",
+                "interest_scores",
+                "moderation",
+                "warnings",
+                "geo",
+                "duplicate_confirmation_required"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "total": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 130
+          },
+          "next_page": {
+            "anyOf": [
+              {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 129
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "warnings": {
+            "maxItems": 100,
+            "type": "array",
+            "items": {
+              "type": "string",
+              "maxLength": 120
+            }
+          },
+          "source": {
+            "type": "string",
+            "enum": [
+              "catalog",
+              "mixed",
+              "catalog_fallback"
+            ]
+          },
+          "provider_requests_attempted": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 1
+          },
+          "provider_window_limited": {
+            "type": "boolean"
+          },
+          "duplicate_matches": {
+            "maxItems": 200,
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "retained_id": {
+                  "type": "string",
+                  "maxLength": 160
+                },
+                "duplicate_id": {
+                  "type": "string",
+                  "maxLength": 160
+                },
+                "certainty": {
+                  "type": "string",
+                  "enum": [
+                    "certain",
+                    "suspected"
+                  ]
+                },
+                "reasons": {
+                  "minItems": 1,
+                  "maxItems": 10,
+                  "type": "array",
+                  "items": {
+                    "type": "string",
+                    "maxLength": 120
+                  }
+                }
+              },
+              "required": [
+                "retained_id",
+                "duplicate_id",
+                "certainty",
+                "reasons"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "duplicates_removed": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 129
+          },
+          "duplicate_review_truncated": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "items",
+          "total",
+          "next_page",
+          "warnings",
+          "source",
+          "provider_requests_attempted",
+          "provider_window_limited",
+          "duplicate_matches",
+          "duplicates_removed",
+          "duplicate_review_truncated"
+        ],
+        "additionalProperties": false
+      },
+      "meta": {
+        "type": "object",
+        "properties": {
+          "request_id": {
+            "type": "string",
+            "format": "uuid",
+            "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+          }
+        },
+        "required": [
+          "request_id"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "required": [
+      "data",
+      "meta"
+    ],
+    "additionalProperties": false
+  }
+}

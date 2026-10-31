@@ -4,8 +4,11 @@
       "C:\\Program Files\\nodejs\\node.exe",
       "D:\\Projects\\travel_plan\\node_modules\\@playwright\\test\\cli.js",
       "test",
+      "tests/demo/hybrid-workbench.spec.mjs",
       "--config",
-      "playwright.demo.config.mjs"
+      "playwright.demo.config.mjs",
+      "--project=mobile",
+      "--workers=1"
     ],
     "configFile": "D:\\Projects\\travel_plan\\playwright.demo.config.mjs",
     "rootDir": "D:/Projects/travel_plan/tests/demo",
@@ -24,7 +27,7 @@
     "preserveOutput": "always",
     "projects": [
       {
-        "outputDir": "D:/Projects/travel_plan/test-results",
+        "outputDir": "D:/Projects/travel_plan/test-results/demo",
         "repeatEach": 1,
         "retries": 0,
         "metadata": {
@@ -40,7 +43,7 @@
         "timeout": 30000
       },
       {
-        "outputDir": "D:/Projects/travel_plan/test-results",
+        "outputDir": "D:/Projects/travel_plan/test-results/demo",
         "repeatEach": 1,
         "retries": 0,
         "metadata": {
@@ -60,35 +63,7 @@
       {
         "grep": {},
         "grepInvert": null,
-        "outputDir": "D:\\Projects\\travel_plan\\test-results",
-        "repeatEach": 1,
-        "retries": 0,
-        "metadata": {
-          "actualWorkers": 1
-        },
-        "name": "desktop",
-        "testDir": "D:\\Projects\\travel_plan\\tests\\demo",
-        "snapshotDir": "D:\\Projects\\travel_plan\\tests\\demo",
-        "testIgnore": [],
-        "testMatch": "**/*.@(spec|test).?(c|m)[jt]s?(x)",
-        "timeout": 30000,
-        "use": {
-          "baseURL": "http://127.0.0.1:3391",
-          "channel": "chrome",
-          "trace": "retain-on-failure",
-          "viewport": {
-            "width": 1440,
-            "height": 1000
-          }
-        },
-        "dependencies": [],
-        "ignoreSnapshots": false,
-        "__projectId": "desktop"
-      },
-      {
-        "grep": {},
-        "grepInvert": null,
-        "outputDir": "D:\\Projects\\travel_plan\\test-results",
+        "outputDir": "D:\\Projects\\travel_plan\\test-results\\demo",
         "repeatEach": 1,
         "retries": 0,
         "metadata": {
@@ -104,6 +79,9 @@
           "baseURL": "http://127.0.0.1:3391",
           "channel": "chrome",
           "trace": "retain-on-failure",
+          "launchOptions": {
+            "args": []
+          },
           "viewport": {
             "width": 360,
             "height": 800
@@ -145,19 +123,28 @@
       "reuseExistingServer": false,
       "timeout": 30000,
       "env": {
-        "NEXT_TELEMETRY_DISABLED": "1"
+        "NEXT_TELEMETRY_DISABLED": "1",
+        "DEPLOYMENT_ENV": "local",
+        "CLOUD_ENABLED": "false",
+        "DOC_WEATHER_ENABLED": "false",
+        "NEXT_PUBLIC_SUPABASE_URL": "",
+        "NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY": "",
+        "GOOGLE_MAPS_LIVE_ENABLED": "false",
+        "BRAVE_ENABLED": "false",
+        "GROQ_ENABLED": "false",
+        "GROQ_MODEL": ""
       }
     }
   },
   "suites": [
     {
-      "title": "postcard.spec.mjs",
-      "file": "postcard.spec.mjs",
+      "title": "hybrid-workbench.spec.mjs",
+      "file": "hybrid-workbench.spec.mjs",
       "column": 0,
       "line": 0,
       "specs": [
         {
-          "title": "three local pages render without errors or horizontal overflow",
+          "title": "zero-selection basics generate a sourced candidate, then explicit confirmation adds suggestions in order",
           "ok": true,
           "tags": [],
           "tests": [
@@ -165,19 +152,19 @@
               "timeout": 30000,
               "annotations": [],
               "expectedStatus": "passed",
-              "projectId": "desktop",
-              "projectName": "desktop",
+              "projectId": "mobile",
+              "projectName": "mobile",
               "results": [
                 {
                   "workerIndex": 0,
                   "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 754,
+                  "duration": 1558,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-10-21T03:26:02.070Z",
+                  "startTime": "2026-10-31T03:15:12.481Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -185,13 +172,13 @@
               "status": "expected"
             }
           ],
-          "id": "4d048c7cf70d4d7bf6c7-d166dfca96d99a9c39a3",
-          "file": "postcard.spec.mjs",
-          "line": 3,
+          "id": "bf3a5a08eddc1d92e90e-a9c517b8289e07aec55f",
+          "file": "hybrid-workbench.spec.mjs",
+          "line": 7,
           "column": 1
         },
         {
-          "title": "3D is lazy, renders, changes theme, pauses offscreen and disposes on stop",
+          "title": "1 selected places and required flags survive automatic extra suggestions before confirmation",
           "ok": true,
           "tags": [],
           "tests": [
@@ -199,19 +186,19 @@
               "timeout": 30000,
               "annotations": [],
               "expectedStatus": "passed",
-              "projectId": "desktop",
-              "projectName": "desktop",
+              "projectId": "mobile",
+              "projectName": "mobile",
               "results": [
                 {
                   "workerIndex": 0,
                   "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 2075,
+                  "duration": 1469,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-10-21T03:26:03.044Z",
+                  "startTime": "2026-10-31T03:15:14.205Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -219,149 +206,13 @@
               "status": "expected"
             }
           ],
-          "id": "4d048c7cf70d4d7bf6c7-e3d04e3bfe15467c8bae",
-          "file": "postcard.spec.mjs",
+          "id": "bf3a5a08eddc1d92e90e-ba4ae009cb941ee4f606",
+          "file": "hybrid-workbench.spec.mjs",
           "line": 15,
-          "column": 1
+          "column": 26
         },
         {
-          "title": "reduced motion blocks 3D and preference changes stop a running scene",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 30000,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "desktop",
-              "projectName": "desktop",
-              "results": [
-                {
-                  "workerIndex": 0,
-                  "parallelIndex": 0,
-                  "status": "passed",
-                  "duration": 1140,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2026-10-21T03:26:05.130Z",
-                  "annotations": [],
-                  "attachments": []
-                }
-              ],
-              "status": "expected"
-            }
-          ],
-          "id": "4d048c7cf70d4d7bf6c7-3dcd247c7fd62a849f09",
-          "file": "postcard.spec.mjs",
-          "line": 46,
-          "column": 1
-        },
-        {
-          "title": "no WebGL keeps the readable SVG fallback and navigation",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 30000,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "desktop",
-              "projectName": "desktop",
-              "results": [
-                {
-                  "workerIndex": 0,
-                  "parallelIndex": 0,
-                  "status": "passed",
-                  "duration": 1136,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2026-10-21T03:26:06.280Z",
-                  "annotations": [],
-                  "attachments": []
-                }
-              ],
-              "status": "expected"
-            }
-          ],
-          "id": "4d048c7cf70d4d7bf6c7-ac5173a9efd1f9f63df3",
-          "file": "postcard.spec.mjs",
-          "line": 61,
-          "column": 1
-        },
-        {
-          "title": "without JavaScript core text and links remain usable",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 30000,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "desktop",
-              "projectName": "desktop",
-              "results": [
-                {
-                  "workerIndex": 0,
-                  "parallelIndex": 0,
-                  "status": "passed",
-                  "duration": 290,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2026-10-21T03:26:07.426Z",
-                  "annotations": [],
-                  "attachments": []
-                }
-              ],
-              "status": "expected"
-            }
-          ],
-          "id": "4d048c7cf70d4d7bf6c7-0b89f2bb819d3b052d2d",
-          "file": "postcard.spec.mjs",
-          "line": 75,
-          "column": 1
-        },
-        {
-          "title": "keyboard can reach and activate the optional demo control",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 30000,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "desktop",
-              "projectName": "desktop",
-              "results": [
-                {
-                  "workerIndex": 0,
-                  "parallelIndex": 0,
-                  "status": "passed",
-                  "duration": 278,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2026-10-21T03:26:07.724Z",
-                  "annotations": [],
-                  "attachments": []
-                }
-              ],
-              "status": "expected"
-            }
-          ],
-          "id": "4d048c7cf70d4d7bf6c7-3493d2968d4b20aefbe1",
-          "file": "postcard.spec.mjs",
-          "line": 86,
-          "column": 1
-        },
-        {
-          "title": "three local pages render without errors or horizontal overflow",
+          "title": "2 selected places and required flags survive automatic extra suggestions before confirmation",
           "ok": true,
           "tags": [],
           "tests": [
@@ -373,15 +224,15 @@
               "projectName": "mobile",
               "results": [
                 {
-                  "workerIndex": 1,
+                  "workerIndex": 0,
                   "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 661,
+                  "duration": 537,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-10-21T03:26:08.481Z",
+                  "startTime": "2026-10-31T03:15:15.683Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -389,47 +240,13 @@
               "status": "expected"
             }
           ],
-          "id": "4d048c7cf70d4d7bf6c7-4c126e48e7702b2a3a2a",
-          "file": "postcard.spec.mjs",
-          "line": 3,
-          "column": 1
-        },
-        {
-          "title": "3D is lazy, renders, changes theme, pauses offscreen and disposes on stop",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 30000,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "mobile",
-              "projectName": "mobile",
-              "results": [
-                {
-                  "workerIndex": 1,
-                  "parallelIndex": 0,
-                  "status": "passed",
-                  "duration": 2038,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2026-10-21T03:26:09.299Z",
-                  "annotations": [],
-                  "attachments": []
-                }
-              ],
-              "status": "expected"
-            }
-          ],
-          "id": "4d048c7cf70d4d7bf6c7-c10b19d8f83e6286a431",
-          "file": "postcard.spec.mjs",
+          "id": "bf3a5a08eddc1d92e90e-f4966f2bc053faf23f72",
+          "file": "hybrid-workbench.spec.mjs",
           "line": 15,
-          "column": 1
+          "column": 26
         },
         {
-          "title": "reduced motion blocks 3D and preference changes stop a running scene",
+          "title": "honest empty interests pool can be widened without inventing food places",
           "ok": true,
           "tags": [],
           "tests": [
@@ -441,15 +258,15 @@
               "projectName": "mobile",
               "results": [
                 {
-                  "workerIndex": 1,
+                  "workerIndex": 0,
                   "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 1135,
+                  "duration": 521,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-10-21T03:26:11.345Z",
+                  "startTime": "2026-10-31T03:15:16.226Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -457,13 +274,13 @@
               "status": "expected"
             }
           ],
-          "id": "4d048c7cf70d4d7bf6c7-71f9a0797d60b5200d19",
-          "file": "postcard.spec.mjs",
-          "line": 46,
+          "id": "bf3a5a08eddc1d92e90e-eac8dfbe87a045375414",
+          "file": "hybrid-workbench.spec.mjs",
+          "line": 21,
           "column": 1
         },
         {
-          "title": "no WebGL keeps the readable SVG fallback and navigation",
+          "title": "HTTP validation failure keeps prior candidate; server failure falls back once without losing selected/required input",
           "ok": true,
           "tags": [],
           "tests": [
@@ -475,15 +292,15 @@
               "projectName": "mobile",
               "results": [
                 {
-                  "workerIndex": 1,
+                  "workerIndex": 0,
                   "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 1152,
+                  "duration": 658,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-10-21T03:26:12.488Z",
+                  "startTime": "2026-10-31T03:15:16.753Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -491,13 +308,13 @@
               "status": "expected"
             }
           ],
-          "id": "4d048c7cf70d4d7bf6c7-7fe02d4041ce6c2a48c5",
-          "file": "postcard.spec.mjs",
-          "line": 61,
+          "id": "bf3a5a08eddc1d92e90e-d0c8dddf0c68c9f167fe",
+          "file": "hybrid-workbench.spec.mjs",
+          "line": 25,
           "column": 1
         },
         {
-          "title": "without JavaScript core text and links remain usable",
+          "title": "offline zero-selection generation uses source-complete local catalog and no preview request",
           "ok": true,
           "tags": [],
           "tests": [
@@ -509,15 +326,15 @@
               "projectName": "mobile",
               "results": [
                 {
-                  "workerIndex": 1,
+                  "workerIndex": 0,
                   "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 271,
+                  "duration": 1232,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-10-21T03:26:13.648Z",
+                  "startTime": "2026-10-31T03:15:17.417Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -525,13 +342,13 @@
               "status": "expected"
             }
           ],
-          "id": "4d048c7cf70d4d7bf6c7-00f6e3352f7ad72f66f0",
-          "file": "postcard.spec.mjs",
-          "line": 75,
+          "id": "bf3a5a08eddc1d92e90e-01c2c47ce9b5e34ed464",
+          "file": "hybrid-workbench.spec.mjs",
+          "line": 33,
           "column": 1
         },
         {
-          "title": "keyboard can reach and activate the optional demo control",
+          "title": "temporary discovery displays separately, never enters JSON export, and opens an empty independent pin flow",
           "ok": true,
           "tags": [],
           "tests": [
@@ -543,15 +360,15 @@
               "projectName": "mobile",
               "results": [
                 {
-                  "workerIndex": 1,
+                  "workerIndex": 0,
                   "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 297,
+                  "duration": 1398,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-10-21T03:26:13.927Z",
+                  "startTime": "2026-10-31T03:15:18.654Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -559,9 +376,9 @@
               "status": "expected"
             }
           ],
-          "id": "4d048c7cf70d4d7bf6c7-bac9e22edf8f654a037c",
-          "file": "postcard.spec.mjs",
-          "line": 86,
+          "id": "bf3a5a08eddc1d92e90e-f39fec1b35773b0a89d9",
+          "file": "hybrid-workbench.spec.mjs",
+          "line": 37,
           "column": 1
         }
       ]
@@ -569,9 +386,9 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2026-10-21T03:26:01.293Z",
-    "duration": 13308.214,
-    "expected": 12,
+    "startTime": "2026-10-31T03:15:11.571Z",
+    "duration": 8911.435000000001,
+    "expected": 7,
     "skipped": 0,
     "unexpected": 0,
     "flaky": 0

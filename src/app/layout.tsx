@@ -1,62 +1,25 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import localFont from "next/font/local";
 import "./globals.css";
+import "./doc-vault.css";
+import "./doc-editorial.css";
+import "./doc-studio.css";
 
 const beVietnam = localFont({
   src: [
-    { path: "./fonts/be-vietnam-pro-400-normal.ttf", weight: "400", style: "normal" },
-    { path: "./fonts/be-vietnam-pro-500-normal.ttf", weight: "500", style: "normal" },
-    { path: "./fonts/be-vietnam-pro-600-normal.ttf", weight: "600", style: "normal" },
-    { path: "./fonts/be-vietnam-pro-700-normal.ttf", weight: "700", style: "normal" },
-  ],
-  variable: "--font-body",
-  display: "swap",
-  preload: false,
-  adjustFontFallback: "Arial",
+    {path:"./fonts/be-vietnam-pro-400-normal.ttf",weight:"400",style:"normal"},
+    {path:"./fonts/be-vietnam-pro-500-normal.ttf",weight:"500",style:"normal"},
+    {path:"./fonts/be-vietnam-pro-600-normal.ttf",weight:"600",style:"normal"},
+    {path:"./fonts/be-vietnam-pro-700-normal.ttf",weight:"700",style:"normal"},
+  ],variable:"--atlas-body",display:"swap",preload:false,adjustFontFallback:"Arial"
 });
-
-const nunito = localFont({
-  src: [
-    { path: "./fonts/nunito-600-normal.ttf", weight: "600", style: "normal" },
-    { path: "./fonts/nunito-600-italic.ttf", weight: "600", style: "italic" },
-  ],
-  variable: "--font-display",
-  display: "swap",
-  preload: false,
-  adjustFontFallback: "Arial",
-});
-
-export const metadata: Metadata = {
-  title: { default: "Đi chơi thôi — Một chuyến đi của riêng bạn", template: "%s · Đi chơi thôi" },
-  description: "Không gian chuẩn bị chuyến đi Nha Trang và Đà Lạt, theo nhịp của riêng bạn.",
-  robots: { index: false, follow: false },
-};
-
-export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
-  return (
-    <html lang="vi">
-      <body className={`${beVietnam.variable} ${nunito.variable}`}>
-        <a href="#main-content" className="skip-link">Bỏ qua đến nội dung</a>
-        <header className="page-shell flex flex-wrap items-center justify-between gap-4 border-b border-[#deded0] py-6">
-          <Link href="/" className="flex items-center gap-2 font-bold tracking-tight" aria-label="Đi chơi thôi — Trang chủ">
-            <span aria-hidden="true" className="grid size-9 place-items-center rounded-xl bg-[#f9c75f] text-lg">↗</span>
-            Đi chơi thôi<span aria-hidden="true" className="text-[#b75943]">.</span>
-          </Link>
-          <nav aria-label="Điều hướng chính" className="flex items-center gap-5 text-sm font-semibold">
-            <Link href="/#diem-den" className="py-2 hover:underline">Điểm đến</Link>
-            <Link href="/open" className="py-2 hover:underline">Mở kế hoạch</Link>
-          </nav>
-        </header>
-        <main id="main-content" tabIndex={-1}>{children}</main>
-        <footer className="page-shell mt-20 flex flex-wrap items-center justify-between gap-5 border-t border-[#deded0] py-7 text-xs leading-6 text-[#58675b]">
-          <p>Đi một chút. Nhớ thật nhiều.</p>
-          <nav aria-label="Thông tin sử dụng" className="flex gap-5">
-            <Link href="/privacy" className="hover:underline">Quyền riêng tư</Link>
-            <Link href="/terms" className="hover:underline">Điều khoản</Link>
-          </nav>
-        </footer>
-      </body>
-    </html>
-  );
-}
+const nunito = localFont({src:[{path:"./fonts/nunito-600-normal.ttf",weight:"600",style:"normal"},{path:"./fonts/nunito-600-italic.ttf",weight:"600",style:"italic"}],variable:"--atlas-accent-font",display:"swap",preload:false,adjustFontFallback:"Arial"});
+export const metadata:Metadata={metadataBase:new URL(process.env.NEXT_PUBLIC_SITE_URL || (process.env.VERCEL_PROJECT_PRODUCTION_URL ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}` : "http://localhost:3000")),title:{default:"DỌC · Lập lịch trình Việt Nam",template:"%s · DỌC"},description:"Lập tuyến du lịch Nha Trang và Đà Lạt theo ngày, điểm dừng, giờ tham quan và giới hạn quỹ đường.",robots:{index:false,follow:false},icons:{icon:[{url:"/assets/favicon/favicon.svg",type:"image/svg+xml"},{url:"/favicon.ico",sizes:"any"}],shortcut:"/favicon.ico",apple:"/apple-icon.png"},manifest:"/assets/site.webmanifest",openGraph:{title:"DỌC · Lập lịch trình Việt Nam",description:"Thiết kế chuyến đi theo nhịp của bạn.",images:[{url:"/assets/social/og-image-1200x630.png",width:1200,height:630,alt:"DỌC - Lập lịch trình Việt Nam"}]}};
+export default function RootLayout({children}:Readonly<{children:React.ReactNode}>){return <html lang="vi"><body className={`${beVietnam.variable} ${nunito.variable}`}>
+  <a href="#main-content" className="atlas-skip">Bỏ qua đến nội dung</a>
+  <header className="atlas-siteheader"><div className="atlas-container atlas-headerinner"><Link href="/" className="atlas-wordmark" aria-label="DỌC — Trang chủ"><Image src="/assets/logo/doc-logo-full-color.svg" alt="DỌC" width={146} height={67} priority className="atlas-brand-logo"/></Link><nav aria-label="Điều hướng chính"><Link href="/#diem-den">ĐIỂM ĐẾN</Link><Link href="/cau-chuyen" className="atlas-nav-story">CÂU CHUYỆN</Link><Link href="/plans">KẾ HOẠCH ĐÃ LƯU</Link><Link href="/contribute" className="atlas-nav-contribute">ĐÓNG GÓP ĐỊA ĐIỂM</Link><Link href="/plan/new" className="atlas-navcta">LẬP TUYẾN ↗</Link></nav></div></header>
+  <main id="main-content" tabIndex={-1}>{children}</main>
+  <footer className="atlas-sitefooter"><div className="atlas-container"><Image src="/assets/logo/doc-logo-for-dark-background.svg" alt="DỌC Việt Nam" width={146} height={67} className="atlas-brand-footer"/><p>Sản phẩm đang thử nghiệm. Địa điểm, giờ hoạt động, chi phí và đường đi cần được xác minh trước khi khởi hành.</p><div><Link href="/contribute">Đóng góp địa điểm</Link><Link href="/privacy">Quyền riêng tư</Link><Link href="/terms">Điều khoản</Link></div></div></footer>
+</body></html>}

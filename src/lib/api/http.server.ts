@@ -2,7 +2,7 @@ import { z } from "zod";
 import { logEvent } from "../telemetry/events.server";
 
 export class ApiError extends Error {
-  constructor(readonly status: number, readonly code: "VALIDATION_ERROR" | "AUTH_REQUIRED" | "NOT_FOUND" | "VERSION_CONFLICT" | "RATE_LIMITED" | "INTERNAL_ERROR", message: string) { super(message); }
+  constructor(readonly status: number, readonly code: "VALIDATION_ERROR" | "AUTH_REQUIRED" | "FORBIDDEN" | "NOT_FOUND" | "VERSION_CONFLICT" | "RATE_LIMITED" | "INTERNAL_ERROR" | "UNSUPPORTED_URL" | "UNSAFE_REDIRECT" | "PLAN_RUN_STALE" | "PLANNING_INFEASIBLE" | "PROVIDER_UNAVAILABLE", message: string, readonly details: Readonly<Record<string, unknown>> = {}) { super(message); }
 }
 export function requestId(request: Request): string {
   const raw = request.headers.get("x-request-id");
@@ -17,10 +17,10 @@ export async function withApi(request: Request, operation: (id: string) => Promi
   catch (error: unknown) {
     const safe = error instanceof ApiError ? error : new ApiError(500, "INTERNAL_ERROR", "Không thể xử lý yêu cầu lúc này.");
     logEvent({ event: "api_error", request_id: id, status: safe.status, code: safe.code });
-    return Response.json({ error: { code: safe.code, message: safe.message, details: {} }, meta: { request_id: id } }, { status: safe.status, headers: { "x-request-id": id, "cache-control": "no-store" } });
+    return Response.json({ error: { code: safe.code, message: safe.message, details: safe.details }, meta: { request_id: id } }, { status: safe.status, headers: { "x-request-id": id, "cache-control": "no-store" } });
   }
 }
-export async function readJson<T>(request: Request, schema: z.ZodType<T>, limit = 65536): Promise<T> {
+export async function readJson<T>(request: Pick<Request, "body">, schema: z.ZodType<T>, limit = 65536): Promise<T> {
   const reader = request.body?.getReader();
   if (!reader) throw new ApiError(400, "VALIDATION_ERROR", "Cần nội dung JSON.");
   const chunks: Uint8Array[] = []; let size = 0;

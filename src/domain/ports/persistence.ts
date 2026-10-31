@@ -18,3 +18,9 @@ export interface OwnerDraftRepository extends DraftRepository {
 export interface OwnerTripRepository extends OwnerDraftRepository {
   applyPlan(id: string, candidate: PlanCandidate, expected_version: number): Promise<SaveResult>;
 }
+export type PlanWriteResult = Readonly<{ status: "version_conflict"; current_version: number }> | Readonly<{ status: "plan_run_stale"; current_version: number }> | Readonly<{ status: "not_found" }> | Readonly<{ status: "idempotency_conflict" }>;
+export interface OwnerPlanningRepository extends OwnerDraftRepository {
+  loadCandidate(trip_id: string, run_id: string): Promise<PlanCandidate | null>;
+  storeCandidate(trip_id: string, expected_version: number, idempotency_key: string, candidate: PlanCandidate): Promise<Readonly<{ status: "candidate"; candidate: PlanCandidate }> | PlanWriteResult>;
+  applyCandidate(trip_id: string, run_id: string, expected_version: number, idempotency_key: string): Promise<Readonly<{ status: "applied"; id: string; version: number; state: "planned" }> | PlanWriteResult>;
+}

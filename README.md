@@ -24,6 +24,12 @@ A playful, itinerary-first travel planner for Vietnam, starting with **Nha Trang
 8. [Planning pack and agent workflow](#planning-pack-and-agent-workflow)
 9. [Known limitations](#known-limitations)
 
+## Current state (2026-10-28)
+
+G0/G1/G2 retain historical PASS. [G3 local no-key review](docs/reports/G3-REVIEW.md) PASS2026-10-28: both30-place catalogs, accurate draft inputs, safe no-fetch Maps import with explicit confirmation/manual fallback, and loading/error/offline/empty/keyboard/reduced-motion checks. Final local suite includes31 tooling +62 unit,12 HTTP,34 E2E and72 typography cases; lint/typecheck/build/content pass. The wizard prepares unsaved inputs; it does not generate, save or share an itinerary. Shortlinks require an expanded link or manual entry. To use cached test browsers set `PLAYWRIGHT_BROWSERS_PATH` to `.tools/browsers` before typography tests. Next is P04-01; G4–G8 remain NOT VERIFIED. See [AUDIT.md](AUDIT.md) for historical versus confirmed findings. Earlier notes below are historical.
+
+## Historical implementation notes (2026-10-22)
+
 ---
 
 ## Project status

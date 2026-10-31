@@ -11,6 +11,15 @@ const require = createRequire(join(vendor, "package.json"));
 const { getRootDirs } = require("./dist/utils/get-root-dirs.js");
 const posix = (value) => value.replaceAll("\\", "/");
 
+test("external skill clones are ignored while project TypeScript is linted", async () => {
+  const eslint = new ESLint();
+  assert.equal(await eslint.isPathIgnored(".agent-skills/gsap-skills/examples/nuxt/app/composables/useGSAP.ts"), true);
+  assert.equal(await eslint.isPathIgnored(".agent-skills/scroll-world/skills/scroll-world/references/scrub-engine.js"), true);
+  assert.equal(await eslint.isPathIgnored("src/components/plan-wizard.tsx"), false);
+  const [result] = await eslint.lintText("export const value: any = 1;", { filePath: "src/lint-regression.ts" });
+  assert.ok(result.messages.some((message) => message.ruleId === "@typescript-eslint/no-explicit-any"));
+});
+
 test("all upstream rule implementations and config exports are byte-identical", () => {
   const manifest = JSON.parse(readFileSync(join(vendor, "UPSTREAM.json"), "utf8"));
   for (const [path, hash] of Object.entries(manifest.sha256)) {

@@ -1,3 +1,1 @@
-export default function Loading() {
-  return <div className="page-shell py-20" role="status"><p className="display-type text-3xl">Đợi mình một chút…</p><p className="mt-4 text-[#58675b]">Đang chuẩn bị không gian chuyến đi.</p></div>;
-}
+export default function Loading(){return <div role="status" className="atlas-container atlas-loading"><span className="atlas-kicker">ĐANG TÌM TUYẾN…</span><div aria-hidden="true" className="atlas-loading-line"/><p>Chúng tôi đang tải dữ liệu địa điểm. Chưa có kế hoạch nào được xác nhận.</p></div>}

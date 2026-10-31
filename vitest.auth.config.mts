@@ -4,7 +4,7 @@ import { fileURLToPath } from "node:url";
 export default defineConfig({
   resolve: { alias: { "@": fileURLToPath(new URL("./src", import.meta.url)) } },
   test: {
-    include: ["tests/integration/local-owner.test.ts"],
+    include: ["tests/integration/local-owner.test.ts", "tests/integration/local-planning.test.ts", "tests/integration/local-contributions.test.ts"],
     environment: "node",
     maxWorkers: 1,
     fileParallelism: false,

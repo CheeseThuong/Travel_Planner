@@ -1,0 +1,69 @@
+/* DỌC studio visual patch: fixes overflow without suppressing React SSR or UI semantics. */
+:root { --doc-canvas:#fbf6ed; --doc-dark:#183a3a; --doc-rust:#d56a4f; --doc-sage:#7fa19a; }
+html,body { max-width:100%; }
+body { overflow-x:clip; }
+.atlas-container,.doc-hero,.doc-discover,.doc-storygrid,.doc-inspiration,.doc-storyband { min-width:0; }
+.doc-hero { grid-template-columns:minmax(0, 1.02fr) minmax(0, .98fr); gap:clamp(2rem,4vw,5rem); padding-block:clamp(2.4rem,5vw,5rem); }
+.doc-hero-copy h1 { font-size:clamp(3.65rem,7.1vw,7.6rem); max-width:100%; overflow-wrap:normal; }
+.doc-vietnam-card { box-sizing:border-box; width:min(100%,575px); max-width:100%; justify-self:center; min-width:0; }
+.doc-vietnam-card > img { display:block;max-width:100%;width:100%;height:auto;aspect-ratio:550 / 760;object-fit:contain; }
+.doc-photo-frame { width:min(100%,100%);min-width:0;box-sizing:border-box; }
+.doc-photo-frame img { aspect-ratio:16 / 10; object-fit:cover; object-position:center 40%;height:auto; }
+.doc-storygrid > *,.doc-explorer-grid > *,.atlas-workgrid > *, .doc-section-header > * {min-width:0;}
+.doc-discover,.doc-inspiration {box-sizing:border-box;max-width:100%;}
+.doc-section-header h2,.doc-inspiration h1,.doc-storycopy h2 {overflow-wrap:break-word;}
+.doc-inspiration .doc-explorer-card p {max-width:100%;}
+/* Server rendered footer watermark: decorative, does not block clicks or a11y. */
+body::after {content:'DỌC · ©';position:fixed;right:12px;bottom:12px;color:#183a3a;opacity:.14;font-size:10px;font-weight:750;letter-spacing:.22em;pointer-events:none;z-index:20;transform:rotate(-5deg);}
+.doc-weather,.doc-contrib-health { min-width:0;padding:clamp(1.2rem,2vw,1.8rem);margin:2rem auto;background:#fffdf6;border:1px solid #d6d5c7;border-radius:4px;color:var(--doc-dark);box-shadow:0 4px 24px #183a3a0c; }
+.doc-weather {max-width:1200px;}
+.doc-weather-head {display:flex;align-items:center;justify-content:space-between;gap:1rem;}
+.doc-weather-head small {letter-spacing:.19em;color:var(--doc-rust);font-weight:750;font-size:.67rem;}
+.doc-weather-head h2 {font-size:clamp(1.15rem,2.2vw,1.65rem);margin:.4rem 0;}
+.doc-weather-head h2 span {font-size:.74rem;font-weight:500;color:#60776e;white-space:nowrap;}
+.doc-weather-head>span {font-size:2rem;color:var(--doc-sage);}
+.doc-weather-now {font-size:.89rem;margin-block:.65rem 1.5rem;}
+.doc-weather-now strong {font-size:1.35rem;}
+.doc-weather-days {display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:.5rem;}
+.doc-weather-day {min-width:0;background:#eef2eb;padding:.85rem .7rem;display:grid;gap:.4rem;align-content:start;}
+.doc-weather-day time {font-size:.72rem;color:#4c6d61;}
+.doc-weather-day strong {font-size:1rem;}
+.doc-weather-day span,.doc-weather-day small {font-size:.7rem;line-height:1.5;}
+.doc-weather-day small {color:#4d665b;}
+.doc-weather-credit {font-size:.69rem;line-height:1.7;color:#566e65;margin-top:1rem;}
+.doc-weather-credit a {text-decoration:underline;}
+.doc-weather-compact {margin:0 0 1rem;padding:1rem;max-width:100%;}
+.doc-weather-compact .doc-weather-days {grid-template-columns:repeat(3,minmax(0,1fr));}
+.doc-weather-compact .doc-weather-day small {display:none;}
+.doc-contrib-health {max-width:100%;}
+.doc-contrib-health h2 {font-size:1.2rem;font-weight:750;}
+.doc-contrib-health p {font-size:.85rem;line-height:1.75;}
+.doc-contrib-health button {background:var(--doc-dark);color:#fffaf1;min-height:44px;padding:.6rem 1rem;margin-top:.6rem;}
+.doc-explorer {max-width:100%;}
+.doc-explorer-toolbar {display:flex;justify-content:space-between;align-items:end;gap:1.2rem;flex-wrap:wrap;}
+.doc-explorer-toolbar label {display:grid;gap:.5rem;min-width:min(100%,380px);font-size:.8rem;font-weight:700;}
+.doc-explorer-toolbar input {border:1px solid #d4d1c5;padding:.9rem;background:#fffdf6;width:100%;min-width:0;}
+.doc-explorer-toolbar p {font-size:.78rem;color:#5c7169;}
+.doc-explorer-tags {display:flex;flex-wrap:wrap;gap:.5rem;margin:1.4rem 0 2rem;}
+.doc-explorer-tags button {border:1px solid #d3d7ce;background:#fffdf8;padding:.55rem .9rem;font-size:.75rem;border-radius:99px;min-height:40px;}
+.doc-explorer-tags button[aria-pressed=true] {background:var(--doc-dark);color:white;}
+.doc-explorer-grid {display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem;}
+.doc-explorer-card {min-width:0;border:1px solid #d8d8cd;background:#fffdf5;overflow:hidden;transition:box-shadow .2s, transform .2s;}
+.doc-explorer-card:hover {box-shadow:0 12px 30px #183a3a15;transform:translateY(-3px);}
+.doc-explorer-art {height:135px;background:linear-gradient(150deg,#d5e4d7,#86a99b);display:flex;justify-content:space-between;align-items:start;padding:1.2rem;color:#23483c;}
+.doc-explorer-card:nth-child(3n+2) .doc-explorer-art {background:linear-gradient(145deg,#eadfc2,#c2bd9c);}
+.doc-explorer-card:nth-child(3n+3) .doc-explorer-art {background:linear-gradient(145deg,#ecd1c2,#c0a9a4);}
+.doc-explorer-art span:first-child,.doc-explorer-art span:last-child {font-size:.64rem;letter-spacing:.12em;}
+.doc-explorer-art span:nth-child(2) {font-size:3rem;color:white;}
+.doc-explorer-content {padding:1.1rem;display:grid;gap:.65rem;}
+.doc-explorer-content h2 {font-size:1.22rem;line-height:1.4;margin:0;font-weight:750;overflow-wrap:anywhere;}
+.doc-explorer-content p:not(.doc-overline) {font-size:.78rem;line-height:1.65;}
+.doc-explorer-content small,.doc-explorer-note,.doc-no-results {font-size:.72rem;line-height:1.6;color:#607167;}
+.doc-explorer-actions {display:flex;gap:.65rem;flex-wrap:wrap;justify-content:space-between;border-top:1px solid #d8d8ce;padding-top:.75rem;}
+.doc-explorer-actions a,.doc-explorer-actions button {font-size:.75rem;font-weight:750;text-decoration:underline;text-underline-offset:3px;}
+.doc-explorer-actions button[aria-pressed=true]{color:var(--doc-rust);}
+.doc-explorer-note {margin-top:2rem;}
+@media(max-width:1100px){.doc-weather-days {grid-template-columns:repeat(4,minmax(0,1fr));}.doc-explorer-grid{grid-template-columns:repeat(2,minmax(0,1fr));}}
+@media(max-width:800px){.doc-hero{grid-template-columns:1fr;}.doc-hero-copy h1{font-size:clamp(3.3rem,10vw,6.2rem);}.doc-vietnam-card{max-width:590px;}.doc-weather-days{grid-template-columns:repeat(3,minmax(0,1fr));}}
+@media(max-width:560px){.doc-explorer-grid{grid-template-columns:1fr;}.doc-weather-days{grid-template-columns:repeat(2,minmax(0,1fr));}.doc-weather-compact .doc-weather-days{grid-template-columns:repeat(3,minmax(0,1fr));}.doc-section-header h2,.doc-inspiration h1{font-size:clamp(2rem,9vw,3.2rem);}.doc-hero-copy h1{font-size:clamp(3rem,13vw,4.8rem);}}
+@media(prefers-reduced-motion:reduce){.doc-explorer-card{transition:none;}.doc-explorer-card:hover{transform:none;}}

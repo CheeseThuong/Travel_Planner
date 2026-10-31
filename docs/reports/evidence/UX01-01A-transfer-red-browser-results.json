@@ -1,0 +1,316 @@
+{
+  "config": {
+    "argv": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "D:\\Projects\\travel_plan\\node_modules\\@playwright\\test\\cli.js",
+      "test",
+      "--config",
+      "playwright.demo.config.mjs",
+      "tests/demo/discovery-ui.spec.mjs"
+    ],
+    "configFile": "D:\\Projects\\travel_plan\\playwright.demo.config.mjs",
+    "rootDir": "D:/Projects/travel_plan/tests/demo",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "D:/Projects/travel_plan/test-results/demo",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "desktop",
+        "name": "desktop",
+        "testDir": "D:/Projects/travel_plan/tests/demo",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "D:/Projects/travel_plan/test-results/demo",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "mobile",
+        "name": "mobile",
+        "testDir": "D:/Projects/travel_plan/tests/demo",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      }
+    ],
+    "filteredProjects": [
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "D:\\Projects\\travel_plan\\test-results\\demo",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "name": "desktop",
+        "testDir": "D:\\Projects\\travel_plan\\tests\\demo",
+        "snapshotDir": "D:\\Projects\\travel_plan\\tests\\demo",
+        "testIgnore": [],
+        "testMatch": "**/*.@(spec|test).?(c|m)[jt]s?(x)",
+        "timeout": 30000,
+        "use": {
+          "baseURL": "http://127.0.0.1:3391",
+          "channel": "chrome",
+          "trace": "retain-on-failure",
+          "launchOptions": {
+            "args": []
+          },
+          "viewport": {
+            "width": 1440,
+            "height": 1000
+          }
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "desktop"
+      },
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "D:\\Projects\\travel_plan\\test-results\\demo",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "name": "mobile",
+        "testDir": "D:\\Projects\\travel_plan\\tests\\demo",
+        "snapshotDir": "D:\\Projects\\travel_plan\\tests\\demo",
+        "testIgnore": [],
+        "testMatch": "**/*.@(spec|test).?(c|m)[jt]s?(x)",
+        "timeout": 30000,
+        "use": {
+          "baseURL": "http://127.0.0.1:3391",
+          "channel": "chrome",
+          "trace": "retain-on-failure",
+          "launchOptions": {
+            "args": []
+          },
+          "viewport": {
+            "width": 360,
+            "height": 800
+          },
+          "isMobile": true,
+          "hasTouch": true
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "mobile"
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "docs/reports/evidence/UX01-01A-transfer-red-browser-results.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "default",
+    "updateSourceMethod": "patch",
+    "version": "1.64.1",
+    "workers": 1,
+    "webServer": {
+      "command": "node node_modules/next/dist/bin/next start --hostname 127.0.0.1 --port 3391",
+      "url": "http://127.0.0.1:3391",
+      "reuseExistingServer": false,
+      "timeout": 30000,
+      "env": {
+        "NEXT_TELEMETRY_DISABLED": "1"
+      }
+    }
+  },
+  "suites": [
+    {
+      "title": "discovery-ui.spec.mjs",
+      "file": "discovery-ui.spec.mjs",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "known island transfer stays required and explicitly unscheduled in the local preview",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 5618,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('.atlas-unscheduled').getByRole('listitem')\nTimeout: 5000ms\n\u001b[32m- Expected  - 3\u001b[39m\n\u001b[31m+ Received  + 1\u001b[39m\n\n\u001b[32m- Array [\u001b[39m\n\u001b[32m-   \"Thủy cung Trí Nguyên\",\u001b[39m\n\u001b[32m- ]\u001b[39m\n\u001b[31m+ Array []\u001b[39m\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" locator('.atlas-unscheduled').getByRole('listitem') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('.atlas-unscheduled').getByRole('listitem')\u001b[22m\n\u001b[2m    14 × locator resolved to 0 elements\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('.atlas-unscheduled').getByRole('listitem')\nTimeout: 5000ms\n\u001b[32m- Expected  - 3\u001b[39m\n\u001b[31m+ Received  + 1\u001b[39m\n\n\u001b[32m- Array [\u001b[39m\n\u001b[32m-   \"Thủy cung Trí Nguyên\",\u001b[39m\n\u001b[32m- ]\u001b[39m\n\u001b[31m+ Array []\u001b[39m\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" locator('.atlas-unscheduled').getByRole('listitem') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('.atlas-unscheduled').getByRole('listitem')\u001b[22m\n\u001b[2m    14 × locator resolved to 0 elements\u001b[22m\n\n    at D:\\Projects\\travel_plan\\tests\\demo\\discovery-ui.spec.mjs:10:74",
+                    "location": {
+                      "file": "D:\\Projects\\travel_plan\\tests\\demo\\discovery-ui.spec.mjs",
+                      "column": 74,
+                      "line": 10
+                    },
+                    "snippet": "   8 |   await page.getByLabel(\"Bắt buộc Thủy cung Trí Nguyên\").check();\n   9 |   await page.getByRole(\"button\", { name: /XẾP LỊCH TRÌNH/ }).click();\n> 10 |   await expect(page.locator(\".atlas-unscheduled\").getByRole(\"listitem\")).toContainText([\"Thủy cung Trí Nguyên\"]);\n     |                                                                          ^\n  11 |   await expect(page.getByLabel(\"Bắt buộc Thủy cung Trí Nguyên\")).toBeChecked();\n  12 | });\n  13 |"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "D:\\Projects\\travel_plan\\tests\\demo\\discovery-ui.spec.mjs",
+                        "column": 74,
+                        "line": 10
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('.atlas-unscheduled').getByRole('listitem')\nTimeout: 5000ms\n\u001b[32m- Expected  - 3\u001b[39m\n\u001b[31m+ Received  + 1\u001b[39m\n\n\u001b[32m- Array [\u001b[39m\n\u001b[32m-   \"Thủy cung Trí Nguyên\",\u001b[39m\n\u001b[32m- ]\u001b[39m\n\u001b[31m+ Array []\u001b[39m\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" locator('.atlas-unscheduled').getByRole('listitem') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('.atlas-unscheduled').getByRole('listitem')\u001b[22m\n\u001b[2m    14 × locator resolved to 0 elements\u001b[22m\n\n\n   8 |   await page.getByLabel(\"Bắt buộc Thủy cung Trí Nguyên\").check();\n   9 |   await page.getByRole(\"button\", { name: /XẾP LỊCH TRÌNH/ }).click();\n> 10 |   await expect(page.locator(\".atlas-unscheduled\").getByRole(\"listitem\")).toContainText([\"Thủy cung Trí Nguyên\"]);\n     |                                                                          ^\n  11 |   await expect(page.getByLabel(\"Bắt buộc Thủy cung Trí Nguyên\")).toBeChecked();\n  12 | });\n  13 |\n    at D:\\Projects\\travel_plan\\tests\\demo\\discovery-ui.spec.mjs:10:74"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-30T03:17:35.565Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "D:\\Projects\\travel_plan\\test-results\\demo\\discovery-ui-known-island--4f823-eduled-in-the-local-preview-desktop\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "D:\\Projects\\travel_plan\\test-results\\demo\\discovery-ui-known-island--4f823-eduled-in-the-local-preview-desktop\\trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "D:\\Projects\\travel_plan\\tests\\demo\\discovery-ui.spec.mjs",
+                    "column": 74,
+                    "line": 10
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "52420dd9fddc00cb9860-a5a83e2a388a185311d8",
+          "file": "discovery-ui.spec.mjs",
+          "line": 3,
+          "column": 1
+        },
+        {
+          "title": "known island transfer stays required and explicitly unscheduled in the local preview",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 6629,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('.atlas-unscheduled').getByRole('listitem')\nTimeout: 5000ms\n\u001b[32m- Expected  - 3\u001b[39m\n\u001b[31m+ Received  + 1\u001b[39m\n\n\u001b[32m- Array [\u001b[39m\n\u001b[32m-   \"Thủy cung Trí Nguyên\",\u001b[39m\n\u001b[32m- ]\u001b[39m\n\u001b[31m+ Array []\u001b[39m\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" locator('.atlas-unscheduled').getByRole('listitem') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('.atlas-unscheduled').getByRole('listitem')\u001b[22m\n\u001b[2m    14 × locator resolved to 0 elements\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('.atlas-unscheduled').getByRole('listitem')\nTimeout: 5000ms\n\u001b[32m- Expected  - 3\u001b[39m\n\u001b[31m+ Received  + 1\u001b[39m\n\n\u001b[32m- Array [\u001b[39m\n\u001b[32m-   \"Thủy cung Trí Nguyên\",\u001b[39m\n\u001b[32m- ]\u001b[39m\n\u001b[31m+ Array []\u001b[39m\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" locator('.atlas-unscheduled').getByRole('listitem') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('.atlas-unscheduled').getByRole('listitem')\u001b[22m\n\u001b[2m    14 × locator resolved to 0 elements\u001b[22m\n\n    at D:\\Projects\\travel_plan\\tests\\demo\\discovery-ui.spec.mjs:10:74",
+                    "location": {
+                      "file": "D:\\Projects\\travel_plan\\tests\\demo\\discovery-ui.spec.mjs",
+                      "column": 74,
+                      "line": 10
+                    },
+                    "snippet": "   8 |   await page.getByLabel(\"Bắt buộc Thủy cung Trí Nguyên\").check();\n   9 |   await page.getByRole(\"button\", { name: /XẾP LỊCH TRÌNH/ }).click();\n> 10 |   await expect(page.locator(\".atlas-unscheduled\").getByRole(\"listitem\")).toContainText([\"Thủy cung Trí Nguyên\"]);\n     |                                                                          ^\n  11 |   await expect(page.getByLabel(\"Bắt buộc Thủy cung Trí Nguyên\")).toBeChecked();\n  12 | });\n  13 |"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "D:\\Projects\\travel_plan\\tests\\demo\\discovery-ui.spec.mjs",
+                        "column": 74,
+                        "line": 10
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('.atlas-unscheduled').getByRole('listitem')\nTimeout: 5000ms\n\u001b[32m- Expected  - 3\u001b[39m\n\u001b[31m+ Received  + 1\u001b[39m\n\n\u001b[32m- Array [\u001b[39m\n\u001b[32m-   \"Thủy cung Trí Nguyên\",\u001b[39m\n\u001b[32m- ]\u001b[39m\n\u001b[31m+ Array []\u001b[39m\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" locator('.atlas-unscheduled').getByRole('listitem') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('.atlas-unscheduled').getByRole('listitem')\u001b[22m\n\u001b[2m    14 × locator resolved to 0 elements\u001b[22m\n\n\n   8 |   await page.getByLabel(\"Bắt buộc Thủy cung Trí Nguyên\").check();\n   9 |   await page.getByRole(\"button\", { name: /XẾP LỊCH TRÌNH/ }).click();\n> 10 |   await expect(page.locator(\".atlas-unscheduled\").getByRole(\"listitem\")).toContainText([\"Thủy cung Trí Nguyên\"]);\n     |                                                                          ^\n  11 |   await expect(page.getByLabel(\"Bắt buộc Thủy cung Trí Nguyên\")).toBeChecked();\n  12 | });\n  13 |\n    at D:\\Projects\\travel_plan\\tests\\demo\\discovery-ui.spec.mjs:10:74"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-30T03:17:41.861Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "D:\\Projects\\travel_plan\\test-results\\demo\\discovery-ui-known-island--4f823-eduled-in-the-local-preview-mobile\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "D:\\Projects\\travel_plan\\test-results\\demo\\discovery-ui-known-island--4f823-eduled-in-the-local-preview-mobile\\trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "D:\\Projects\\travel_plan\\tests\\demo\\discovery-ui.spec.mjs",
+                    "column": 74,
+                    "line": 10
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "52420dd9fddc00cb9860-446a312ac35249f21734",
+          "file": "discovery-ui.spec.mjs",
+          "line": 3,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-30T03:17:34.728Z",
+    "duration": 14384.348,
+    "expected": 0,
+    "skipped": 0,
+    "unexpected": 2,
+    "flaky": 0
+  }
+}

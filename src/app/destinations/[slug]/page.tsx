@@ -1,14 +1,14 @@
 import { notFound } from "next/navigation";
-import { TravelPostcard } from "@/components/motion/travel-postcard";
-import { destinations, findDestination } from "@/domain/model/destination";
-
-export function generateStaticParams() {
-  return destinations.map(({ slug }) => ({ slug }));
-}
-
-export default async function DestinationPage({ params }: { params: Promise<{ slug: string }> }) {
-  const { slug } = await params;
-  const destination = findDestination(slug);
-  if (!destination) notFound();
-  return <section className="page-shell grid items-center gap-9 py-16 md:grid-cols-2"><div><p className="eyebrow mb-4 text-[#68745b]">{destination.eyebrow}</p><h1 className="display-type text-6xl">{destination.name}</h1><p className="mt-6 text-lg leading-8 text-[#58675b]">{destination.description}</p><div className="mt-8 rounded-2xl border border-[#deded0] bg-white/50 p-5"><h2 className="font-semibold">Những điểm ghé đang được chuẩn bị</h2><p className="mt-2 text-sm leading-7 text-[#58675b]">Danh sách tham quan và công cụ lập lịch chưa mở. Hẹn bạn quay lại để cùng chọn một hành trình vừa vặn.</p></div></div><TravelPostcard initialTheme={destination.theme} /></section>;
+import Link from "next/link";
+import { DestinationCatalog } from "@/components/destination-catalog";
+import { editorialCatalogSummaries } from "@/adapters/discovery/editorial.server";
+import { destinations,findDestination } from "@/domain/model/destination";
+import nhaTrangSeed from "../../../../docs/content/places.seed.json";
+import daLatSeed from "../../../../docs/content/da-lat/places.seed.json";
+const seeds={"nha-trang":nhaTrangSeed,"da-lat":daLatSeed} as const;
+export function generateStaticParams(){return destinations.map(({slug})=>({slug}));}
+export default async function DestinationPage({params}:{params:Promise<{slug:string}>}){
+  const {slug}=await params;const city=findDestination(slug);if(!city)notFound();
+  const seed=seeds[city.slug];const places=editorialCatalogSummaries[city.slug];
+  return <><section className="atlas-cityhead"><div className="atlas-container"><p className="atlas-kicker">ĐỊA ĐIỂM / VIỆT NAM / {city.slug.toUpperCase()}</p><h1>{city.name}<span className="atlas-citydot">.</span></h1><div className="atlas-citybottom"><p>{city.description}</p><div><span>30</span><small>ĐỊA ĐIỂM CÓ NGUỒN<br/>CHƯA XÁC MINH GIỜ MỞ CỬA</small></div><Link href={`/plan/new?destination=${city.slug}`}>LẬP TUYẾN TẠI ĐÂY ↗</Link></div></div></section><DestinationCatalog destinationSlug={city.slug} places={places} attribution={seed.attribution}/></>;
 }

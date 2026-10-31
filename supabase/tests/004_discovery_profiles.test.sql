@@ -1,0 +1,64 @@
+begin;
+create extension if not exists pgtap with schema extensions;
+set search_path=public,extensions;
+select no_plan();
+select has_table('public','place_discovery_profiles','discovery profiles exist');
+select is((select count(*)::integer from place_discovery_profiles),60,'clean replay bootstraps all60 sourced seeds');
+select ok((select bool_and(moderation_status='draft' and address is null and price_min_vnd is null and price_max_vnd is null and accessibility='unknown' and interest_scores='{}') from place_discovery_profiles),'no invented verification, addresses, prices, access or preferences');
+select ok((select bool_and(d.sources->0->>'license'='ODbL-1.0' and d.sources->0->>'url'=p.editorial_metadata->'data_source'->>'url' and d.coordinate_confidence=p.editorial_metadata->>'coordinate_quality') from place_discovery_profiles d join places p on p.id=d.place_id),'sources and coordinate confidence preserved');
+select ok(not has_table_privilege('anon','public.place_discovery_profiles','INSERT'),'no anonymous insert');
+select ok(not has_table_privilege('authenticated','public.place_discovery_profiles','UPDATE'),'no authenticated editorial edits');
+select ok(not has_table_privilege('authenticated','public.place_discovery_profiles','DELETE'),'no authenticated delete');
+select ok(not has_function_privilege('authenticated','public.discovery_legacy_profile(public.places)','EXECUTE'),'bootstrap helper not exposed as public API');
+
+select throws_ok($$update place_discovery_profiles set categories=array['invalid']$$,'23514',null,'category allowlist rejects unknown group');
+select throws_ok($$update place_discovery_profiles set categories=array[]::text[]$$,'23514',null,'empty categories rejected');
+select throws_ok($$update place_discovery_profiles set categories=array[null]::text[]$$,'23514',null,'null category rejected');
+select throws_ok($$update place_discovery_profiles set categories=array['lodging']$$,'23514',null,'profile cannot erase primary category');
+select throws_ok($$update places set category='lodging'$$,'23514',null,'parent cannot silently diverge from profile');
+select throws_ok($$update place_discovery_profiles set destination_id=case when destination_id='a7100000-0000-4000-8000-000000000001' then 'a7100000-0000-4000-8000-000000000002'::uuid else 'a7100000-0000-4000-8000-000000000001'::uuid end$$,'23503',null,'cross-city profile reference rejected');
+select throws_ok($$update place_discovery_profiles set sources='[]'$$,'23514',null,'missing provenance rejected');
+select throws_ok($$update place_discovery_profiles set sources='null'$$,'23514',null,'JSON null provenance rejected');
+select throws_ok($$update place_discovery_profiles set sources=jsonb_set(sources,'{0,provider}','"brave"')$$,'23514',null,'ephemeral Brave content cannot enter persistent catalog');
+select throws_ok($$update place_discovery_profiles set sources=jsonb_set(sources,'{0,provider}','"google"')$$,'23514',null,'restricted Google content cannot be relabeled editorial');
+select throws_ok($$update place_discovery_profiles set sources=jsonb_set(sources,'{0,retention}','"request_only"')$$,'23514',null,'request-only source cannot persist');
+select throws_ok($$update place_discovery_profiles set sources=jsonb_set(sources,'{0,retrieved_at}','"2026-02-30"')$$,'23514',null,'invalid provenance calendar date rejected');
+select throws_ok($$update place_discovery_profiles set sources=jsonb_set(sources,'{0,api_key}','"never-store-test-secret"')$$,'23514',null,'unknown sensitive source fields rejected');
+select throws_ok($$update place_discovery_profiles set coordinate_source_index=99$$,'23514',null,'coordinate provenance must reference a real source');
+select throws_ok($$update place_discovery_profiles set interest_scores='{"food":1.01}'$$,'23514',null,'interest scores bounded');
+select throws_ok($$update place_discovery_profiles set interest_scores='{"food":null}'$$,'23514',null,'null interest score rejected');
+select throws_ok($$update place_discovery_profiles set price_min_vnd=0$$,'23514',null,'partial price facts rejected');
+select lives_ok($$update place_discovery_profiles set price_min_vnd=0,price_max_vnd=0,price_checked_at='2026-10-29T00:00:00Z',price_source=sources->0$$,'zero-price range with provenance is valid');
+select throws_ok($$update place_discovery_profiles set price_min_vnd=-1$$,'23514',null,'negative price rejected');
+select throws_ok($$update place_discovery_profiles set price_max_vnd=1000000000001$$,'23514',null,'price maximum enforced');
+select lives_ok($$update place_discovery_profiles set categories=categories||array['family'],tags=array['synthetic-family'],alternate_names=array['Synthetic alias'],address='Synthetic address',interest_scores='{"family":0.5}'$$,'multiple categories/tags/aliases/address/preferences are representable');
+
+insert into places(id,destination_id,slug,title_vi,category,description_vi,lat,lng,recommended_duration_min,visit_priority,image_key,content_license,status,editorial_metadata)
+values('e7100000-0000-4000-8000-000000000001','a7100000-0000-4000-8000-000000000001','synthetic-lodging','Synthetic lodging','lodging','Synthetic test only',12,109,60,50,'fixture.svg','test-only','draft','{}');
+select is((select category from places where id='e7100000-0000-4000-8000-000000000001'),'lodging','lodging stored directly, never disguised as attraction');
+insert into place_discovery_profiles(place_id,destination_id,categories,coordinate_confidence,sources)
+select 'e7100000-0000-4000-8000-000000000001','a7100000-0000-4000-8000-000000000001',array['lodging'],'provider_unverified',sources from place_discovery_profiles limit 1;
+select is((select count(*)::integer from place_discovery_profiles),61,'new group coexists with original60 profiles');
+
+set local role anon;
+select is((select count(*)::integer from place_discovery_profiles),0,'draft profiles hidden');
+select throws_ok($$update place_discovery_profiles set moderation_status='approved'$$,'42501',null,'public cannot approve content');
+reset role;
+update place_discovery_profiles set moderation_status='approved';
+set local role anon;
+select is((select count(*)::integer from place_discovery_profiles),0,'approved profile hidden under draft parent');
+reset role;
+update places set status='published' where id='e7100000-0000-4000-8000-000000000001';
+set local role anon;
+select is((select count(*)::integer from place_discovery_profiles),0,'published parent hidden under draft city');
+reset role;
+update destinations set status='published' where slug='nha-trang';
+set local role anon;
+select is((select count(*)::integer from place_discovery_profiles),1,'only approved profile of published parent/city is visible');
+reset role;
+update place_discovery_profiles set moderation_status='rejected' where place_id='e7100000-0000-4000-8000-000000000001';
+set local role authenticated;
+select is((select count(*)::integer from place_discovery_profiles),0,'rejected profile hidden from ordinary authenticated users');
+reset role;
+select * from finish();
+rollback;
