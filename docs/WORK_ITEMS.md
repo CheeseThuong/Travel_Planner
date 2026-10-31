@@ -176,8 +176,10 @@ After extension acceptance, continue P05/P06 below; G7/G8 remain release blocker
 
 Existing merge conflicts resolved, both README sections retained; incoming generated Docker metadata selected. Verification FAILED: typecheck/lint/unit337/build/integration exit0; E2E exit1 (78 pass,6 mobile failures). [Report](reports/R-MERGE-01.md). Preview push requested; no gate advancement. G8 NOT VERIFIED. Next: mobile E2E correction; production blocked.
 
-## R-MAIN-01 ? VERIFYING (2026-10-31)
+## R-MAIN-01 ? DONE (2026-10-31)
 
 Fix project request-budget interference and date hydration input loss, run baseline suite, publish main per explicit user override [ADR-0037](adr/ADR-0037.md). G8 remains NOT VERIFIED. [Report](reports/R-MAIN-01.md).
 
 R-MAIN-01 evidence: all six mandatory baseline commands exit0; 31 tooling/337 unit/84 E2E pass. No database changes. Remote main publication pending commit/push confirmation; G8 remains NOT VERIFIED under explicit ADR-0037 override.
+
+R-MAIN-01 AC1/AC2/AC3 PASS: main push exit0, remote SHA 5ab0f7f90f6ccb11d59f6472101560677c6c7bc6 matches local. Vercel deployment acknowledged, pending at publication check. G8 NOT VERIFIED; next: observe deployment and address outstanding release tasks without claiming gate approval.
